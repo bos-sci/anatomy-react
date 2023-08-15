@@ -1,9 +1,7 @@
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
 import Modal from './Modal';
-import BSCLogo from '../../../public/assets/images/;ogo-bsc-tagline.svg';
 
 const positiveAction = <Button data-testid="positiveAction">Positive action</Button>;
 const negativeAction = <Button data-testid="negativeAction">Negative action</Button>;
@@ -13,7 +11,7 @@ describe('Modal', () => {
 
   it('Should render logo when provided', () => {
     render(
-      <Modal logo={BSCLogo} logoAlt="bsc logo" title="Modal title" positiveAction={positiveAction}>
+      <Modal logo={'some-logo.png'} logoAlt="bsc logo" title="Modal title" positiveAction={positiveAction}>
         Modal content
       </Modal>
     );
