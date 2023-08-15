@@ -1,0 +1,13 @@
+export { default as IconArrowRight } from './IconArrowRight';
+export { default as IconCardDemo } from './IconCardDemo';
+export { default as IconChevronDown } from './IconChevronDown';
+export { default as IconChevronLeft } from './IconChevronLeft';
+export { default as IconChevronRight } from './IconChevronRight';
+export { default as IconChevronUp } from './IconChevronUp';
+export { default as IconClose } from './IconClose';
+export { default as IconDocument } from './IconDocument';
+export { default as IconEllipsis } from './IconEllipsis';
+export { default as IconGlobe } from './IconGlobe';
+export { default as IconMenu } from './IconMenu';
+export { default as IconPeople } from './IconPeople';
+export { default as IconPlus } from './IconPlus';
