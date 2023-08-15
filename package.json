@@ -1,6 +1,6 @@
 {
-  "name": "anatomy-react",
-  "version": "0.0.4",
+  "name": "@boston-scientific/anatomy-react",
+  "version": "0.0.3",
   "description": "Anatomy Design System's React component library.",
   "homepage": "https://www.anatomydesignsystem.com",
   "repository": {
