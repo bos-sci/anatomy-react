@@ -87,3 +87,6 @@ export { default as Tabs } from './Tabs';
 
 export * from './Tag';
 export { default as Tag } from './Tag';
+
+export * from './Textarea';
+export { default as Textarea } from './Textarea';
