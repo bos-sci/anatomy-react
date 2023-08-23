@@ -4,7 +4,7 @@ import Accordion from './Accordion';
 import AccordionPanel from './AccordionPanel';
 
 const meta = {
-  title: 'Example/Accordion',
+  title: 'Components/Accordion',
   component: Accordion
 } satisfies Meta<typeof Accordion>;
 
