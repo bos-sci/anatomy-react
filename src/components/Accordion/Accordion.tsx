@@ -22,9 +22,6 @@ export type AccordionProps = {
   children: ReactElement[] | ReactElement;
 };
 
-/**
- * Accordions are vertically stacked sections of headings and content. Accordions can be expanded and collapsed to reveal their content.
- */
 const Accordion = ({ headingLevel = 'h2', isContained = false, children }: AccordionProps): JSX.Element => {
   const accordionId = useId();
 
