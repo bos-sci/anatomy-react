@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tag from './Tag';
 
 const meta = {
-  title: 'Example/Tag',
+  title: 'Components/Tag',
   component: Tag,
   parameters: {
     layout: 'centered'
@@ -12,11 +12,8 @@ const meta = {
 } satisfies Meta<typeof Tag>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Tag>;
 
 export const Playground: Story = {
-  args: {
-    variant: '',
-    children: 'Tag text'
-  }
+  render: (args) => <Tag {...args}>Tag text</Tag>
 };
