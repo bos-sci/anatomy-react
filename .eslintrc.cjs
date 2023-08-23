@@ -9,14 +9,13 @@ module.exports = {
   extends: [
     'react-app',
     'react-app/jest',
-    /* 'plugin:testing-library/react', */
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
-    /* 'plugin:@typescript-eslint/recommended', */
     'plugin:jsx-a11y/recommended',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended'
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',

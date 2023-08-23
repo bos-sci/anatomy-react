@@ -11,7 +11,13 @@ import HeadingElement from '../Heading';
 import AccordionHeading from './AccordionHeading';
 
 export type AccordionProps = {
+  /**
+   * Heading to be used for the panel headers
+   */
   headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /**
+   * Accordions appear in a container with condensed spacing
+   */
   isContained?: boolean;
   children: ReactElement[] | ReactElement;
 };
