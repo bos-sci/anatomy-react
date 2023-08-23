@@ -13,10 +13,16 @@ const meta = {
       options: ['', 'assertive', 'ghost', 'subtle'],
       control: { type: 'radio' }
     },
+    size: {
+      options: ['', 'small'],
+      control: { type: 'radio' }
+    },
     icon: {
       options: ['', 'plus', 'chevronRight', 'close'],
       control: { type: 'select' }
-    }
+    },
+    iconAlignment: { control: 'radio', if: { arg: 'icon' } },
+    iconSize: { control: 'radio', if: { arg: 'icon' } }
   },
   tags: ['autodocs']
 } satisfies Meta<typeof Button>;
