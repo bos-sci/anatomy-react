@@ -5,7 +5,7 @@
   "homepage": "https://www.anatomydesignsystem.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bos-sci/anatomy-react.git"
+    "url": "https://github.com/bos-sci/anatomy-react.git"
   },
   "type": "module",
   "scripts": {
@@ -106,10 +106,5 @@
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.2",
     "vite-plugin-eslint": "^1.8.1"
-  },
-  "bugs": {
-    "url": "https://github.com/bos-sci/anatomy-react/issues"
-  },
-  "readme": "ERROR: No README data found!",
-  "_id": "@boston-scientific/anatomy-react@0.0.7"
+  }
 }
