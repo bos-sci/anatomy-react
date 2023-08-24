@@ -107,5 +107,8 @@
     "vite": "^4.4.5",
     "vite-plugin-dts": "^3.5.2",
     "vite-plugin-eslint": "^1.8.1"
+  },
+  "dependencies": {
+    "@storybook/addon-a11y": "^7.3.2"
   }
 }
