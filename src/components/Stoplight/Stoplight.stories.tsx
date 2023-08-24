@@ -29,6 +29,5 @@ export const Playground: Story = {
   args: {
     lightColor: 'red',
     children: 'Stoplight text'
-  },
-  render: (args) => <Stoplight {...args} />
+  }
 };
