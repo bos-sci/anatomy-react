@@ -25,6 +25,5 @@ export const Playground: Story = {
   args: {
     destinationId: 'mainContent',
     destination: 'main content'
-  },
-  render: (args) => <SkipLink {...args} />
+  }
 };
