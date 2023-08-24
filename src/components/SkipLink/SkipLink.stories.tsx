@@ -7,9 +7,11 @@ const meta = {
   component: SkipLink,
   argTypes: {
     destination: {
+      description: 'Human-readable name for destination appended to skip link text',
       controlType: 'text'
     },
     destinationId: {
+      description: `Value of destination's id attribute`,
       controlType: 'text'
     }
   },
