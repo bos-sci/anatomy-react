@@ -5,14 +5,7 @@ import SkipLink from './SkipLink';
 const meta = {
   title: 'Components/SkipLink',
   component: SkipLink,
-  argTypes: {
-    destination: {
-      controlType: 'text'
-    },
-    destinationId: {
-      controlType: 'text'
-    }
-  }
+  tags: ['autodocs']
 } satisfies Meta<typeof SkipLink>;
 
 export default meta;
