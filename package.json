@@ -24,7 +24,8 @@
     "lint:all": "npm run lint:styles && npm run lint:scripts && npm run format:check",
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "files": [
     "dist"
@@ -81,6 +82,7 @@
     "@types/react-dom": "^18.2.7",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.0.3",
+    "chromatic": "^6.23.0",
     "eslint": "^8.45.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
