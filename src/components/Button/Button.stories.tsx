@@ -32,7 +32,9 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Playground: Story = {
-  render: (args) => <Button {...args}>Button</Button>
+  args: {
+    children: 'Button'
+  }
 };
 
 // TODO: figure out if we should show subtle nav back button
