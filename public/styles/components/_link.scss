@@ -51,14 +51,12 @@ a {
   }
 
   &-cta {
-    $icon-size: $ffs-body-assertive;
-
     @include button-default;
     text-decoration: none;
 
     &::after {
-      width: $icon-size;
-      height: $icon-size;
+      width: $ffs-body-assertive;
+      height: $ffs-body-assertive;
       margin-left: space(md);
       background: $action-primary-40;
       content: '';
