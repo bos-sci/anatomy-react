@@ -63,8 +63,8 @@ a {
       background: $action-primary-40;
       content: '';
       /* stylelint-disable property-no-vendor-prefix */
-      -webkit-mask: url('../../../public/assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
-      mask: url('../../../public/assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
+      -webkit-mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
+      mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
     }
 
     &:not([disabled]) {
