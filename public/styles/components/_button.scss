@@ -32,7 +32,9 @@
       height: $icon-size;
       background: $action-primary-40;
       content: '';
-      mask: url('../../assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
+      /* stylelint-disable property-no-vendor-prefix */
+      -webkit-mask: url('../../../public/assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
+      mask: url('../../../public/assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
       mask-size: cover;
     }
 

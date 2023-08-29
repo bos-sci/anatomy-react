@@ -36,12 +36,14 @@ export const Playground: Story = {
 };
 
 // TODO: fix icon
-// export const NavBack: Story = {
-//   render: (args) => (
-//     <Button type="button" className="bsds-button-nav-back">
-//       Back
-//     </Button>
-//   )
-// };
+export const NavBack: Story = {
+  render: (args) => (
+    <Button type="button" className="bsds-button-nav-back">
+      Back
+    </Button>
+  )
+};
 
-// NavBack.storyName = 'Navigation back';
+NavBack.storyName = 'Navigation back';
+
+// TODO: figure out if we should show subtle nav back button
