@@ -28,6 +28,6 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     lightColor: 'red',
-    children: 'Stoplight text'
+    children: 'Stoplight'
   }
 };

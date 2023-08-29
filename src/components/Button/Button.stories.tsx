@@ -17,7 +17,7 @@ const meta = {
       options: ['', 'small'],
       control: { type: 'radio' }
     },
-    //TODO: What icons do we want to support and how do we handle them in Storybook
+    // TODO: What icons do we want to support and how do we handle them in Storybook
     icon: {
       options: ['', 'plus', 'chevronRight', 'close'],
       control: { type: 'select' }
@@ -32,5 +32,17 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Playground: Story = {
-  render: (args) => <Button {...args}>Button text</Button>
+  args: {
+    children: 'Button'
+  }
 };
+
+// TODO: figure out if we should show subtle nav back button
+export const NavBack: Story = {
+  args: {
+    className: 'bsds-button-nav-back',
+    children: 'Back'
+  }
+};
+
+NavBack.storyName = 'Navigation back';
