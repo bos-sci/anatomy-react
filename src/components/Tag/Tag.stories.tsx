@@ -15,5 +15,5 @@ export default meta;
 type Story = StoryObj<typeof Tag>;
 
 export const Playground: Story = {
-  render: (args) => <Tag {...args}>Tag text</Tag>
+  render: (args) => <Tag {...args}>Tag</Tag>
 };

@@ -35,6 +35,7 @@ const Tag = (props: TagProps): JSX.Element => {
     }
 
     if (props.isGhost) {
+      // TODO: replace isGhost with theming
       variantClass ? (variantClass += '-ghost') : (variantClass += 'ghost');
     }
 
