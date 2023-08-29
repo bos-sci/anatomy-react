@@ -23,11 +23,10 @@ type Story = StoryObj<typeof Link>;
 
 export const Playground: Story = {
   // TODO: consider removing playground in lieu of default link story
-  render: (args) => (
-    <Link href="docs-demo-link" {...args}>
-      Link
-    </Link>
-  )
+  args: {
+    href: 'docs-demo-link',
+    children: 'Link'
+  }
 };
 
 export const DefaultLink: Story = {
@@ -61,11 +60,11 @@ export const NavLink: Story = {
 NavLink.storyName = 'Navigation';
 
 export const CallToAction: Story = {
-  render: (args) => (
-    <Link href="docs-demo-link" variant="cta" {...args}>
-      CTA link
-    </Link>
-  )
+  args: {
+    href: 'docs-demo-link',
+    variant: 'cta',
+    children: 'CTA link'
+  }
 };
 
 CallToAction.storyName = 'Call-to-action (CTA)';
