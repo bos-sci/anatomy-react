@@ -2,7 +2,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Link from './Link';
-import { IconArrowRight } from '../Icon';
 
 const meta = {
   title: 'Components/Link',
@@ -55,11 +54,9 @@ export const NavLink: Story = {
 NavLink.storyName = 'Navigation';
 
 export const CallToAction: Story = {
-  // TODO: refactor so arrow icon is automatically added for cta style
   render: (args) => (
     <Link {...args} variant="cta">
       CTA link
-      <IconArrowRight className="bsds-link-cta-icon" />
     </Link>
   )
 };
