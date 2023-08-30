@@ -126,7 +126,10 @@ $icon-size: 1em;
     .bsds-dropdown-group-name {
       position: relative;
       display: block;
-      width: 100%;
+
+      // TODO: figure out if removing width 100% introduces a breaking change in dropdowns used outside of breadcrumb overflow
+      // This was causing the focus indicator for the link inside of the dropdown item to be wider than the menu
+      // width: 100%;
       border: 0;
       padding: space(lg) space(2x);
       color: $text-color-primary;
