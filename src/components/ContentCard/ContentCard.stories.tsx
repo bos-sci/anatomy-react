@@ -5,15 +5,19 @@ import Tag from '../Tag/Tag';
 import Image from '../Image/Image';
 
 const meta = {
-  title: 'Components/ContentCard',
+  title: 'Components/Content card',
   component: ContentCard,
-  parameters: {
-    layout: 'centered'
-  },
   argTypes: {
     variant: {
       options: ['', 'border-light', 'border-ghost', 'ghost'],
       control: { type: 'radio' }
+    },
+    actionLink: {},
+    gradientBrand: {
+      if: { arg: 'dropShadow', truthy: false }
+    },
+    dropShadow: {
+      if: { arg: 'gradientBrand', truthy: false }
     }
   },
   tags: ['autodocs']
@@ -29,11 +33,7 @@ export const Playground: Story = {
       cardDescription:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
     },
-    headingLevel: 'h2',
-    actionLink: false,
-    actionLinkText: 'Call-to-action',
-    icon: false,
-    iconName: 'demoCardIcon'
+    headingLevel: 'h2'
   },
   render: (args) => <ContentCard {...args} />
 };
