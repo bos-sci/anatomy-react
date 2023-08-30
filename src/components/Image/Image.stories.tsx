@@ -24,9 +24,9 @@ export const Playground: Story = {
   args: {
     src: '/assets/images/50-50-split.jpg',
     alt: 'Demo placeholder for an image.',
+    ratio: '16:9',
     texts: {
       caption: 'This is an image caption.'
     }
-  },
-  render: (args) => <Image {...args} />
+  }
 };

@@ -12,12 +12,11 @@ const meta = {
       options: ['', 'border-light', 'border-ghost', 'ghost'],
       control: { type: 'radio' }
     },
-    actionLink: {},
     gradientBrand: {
-      if: { arg: 'dropShadow', truthy: false }
+      if: { arg: 'linkHref', truthy: true }
     },
     dropShadow: {
-      if: { arg: 'gradientBrand', truthy: false }
+      if: { arg: 'linkHref', truthy: true }
     }
   },
   tags: ['autodocs']
@@ -34,14 +33,13 @@ export const Playground: Story = {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
     },
     headingLevel: 'h2'
-  },
-  render: (args) => <ContentCard {...args} />
+  }
 };
 
 export const WithTag = {
   args: {
     ...Playground.args,
-    tag: <Tag variant="">Tag Text</Tag>
+    tag: <Tag variant="">Tag text</Tag>
   }
 };
 
