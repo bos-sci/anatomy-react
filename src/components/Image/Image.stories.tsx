@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import Image from './Image';
 
-//TODO: Figure out why the image isn't responsive
 const meta = {
   title: 'Components/Image',
   component: Image,
@@ -11,7 +10,10 @@ const meta = {
   },
   argTypes: {
     ratio: {
-      options: ['1:1', '4:3', '16:9', '21:9']
+      options: ['1:1', '4:3', '16:9', '21:9'],
+      table: {
+        type: { summary: `"1:1", "4:3", "16:9", "21:9"` }
+      }
     }
   },
   tags: ['autodocs']
