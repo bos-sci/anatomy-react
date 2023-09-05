@@ -43,7 +43,6 @@ export const SectionHeaders: Story = {
   )
 };
 
-// No highlighted action?
 export const HighlightedAction: Story = {
   args: {
     highlightedAction: <Button>Highlighted action</Button>
@@ -57,7 +56,6 @@ export const HighlightedAction: Story = {
   )
 };
 
-// With icons (show icon in trigger)
 export const WithIcons: Story = {
   args: {
     icon: 'ellipsis'
