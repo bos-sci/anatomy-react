@@ -10,8 +10,7 @@ import {
   useRef,
   useState
 } from 'react';
-import Button from '../Button';
-import { ButtonProps } from '../Button';
+import Button, { ButtonVariants, ButtonProps } from '../Button';
 import { LinkProps } from '../Link';
 import DropdownItem, { DropdownItemElements } from './DropdownItem';
 import Icon from '../Icon';
@@ -21,7 +20,7 @@ export interface DropdownProps extends HTMLAttributes<HTMLButtonElement> {
   triggerText: string;
   listType?: 'ol' | 'ul';
   icon?: string;
-  variant?: string;
+  variant?: ButtonVariants;
   highlightedAction?: ReactElement<ButtonProps | LinkProps>;
   menuPosition?: Placement;
   children?: DropdownItemElements[] | DropdownItemElements;

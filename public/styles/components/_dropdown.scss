@@ -22,6 +22,8 @@ $icon-size: 1em;
       width: $icon-size;
       height: $icon-size;
       content: '';
+      /* stylelint-disable-next-line property-no-vendor-prefix */
+      -webkit-mask: url('../../assets/images/icon-chevron-down.svg') no-repeat 50% 50%;
       mask: url('../../assets/images/icon-chevron-down.svg') no-repeat 50% 50%;
       mask-size: cover;
     }

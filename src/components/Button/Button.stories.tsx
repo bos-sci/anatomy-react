@@ -37,6 +37,56 @@ export const Playground: Story = {
   }
 };
 
+export const Default: Story = {
+  args: {
+    children: 'Default button'
+  }
+};
+
+export const Assertive: Story = {
+  args: {
+    variant: 'assertive',
+    children: 'Assertive button'
+  }
+};
+
+export const Subtle: Story = {
+  args: {
+    variant: 'subtle',
+    children: 'Subtle button'
+  }
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+    children: 'Small button'
+  }
+};
+
+export const IconLeft: Story = {
+  args: {
+    icon: 'plus',
+    children: 'Icon left'
+  }
+};
+
+IconLeft.storyName = 'With icon on the left';
+
+export const IconRight: Story = {
+  args: {
+    icon: 'chevronRight',
+    iconAlignment: 'right',
+    children: 'Icon right'
+  }
+};
+
+IconRight.storyName = 'With icon on the right';
+
+export const Icon: Story = {
+  render: (args) => <Button aria-label="Icon button" icon="plus" {...args} />
+};
+
 // TODO: figure out if we should show subtle nav back button
 export const NavBack: Story = {
   args: {
