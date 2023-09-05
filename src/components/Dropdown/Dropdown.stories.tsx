@@ -43,7 +43,11 @@ export const SectionHeaders: Story = {
   )
 };
 
+// No highlighted action?
 export const HighlightedAction: Story = {
+  args: {
+    highlightedAction: <Button>Highlighted action</Button>
+  },
   render: (args) => (
     <Dropdown {...args}>
       <Button>Action 1</Button>
@@ -52,11 +56,12 @@ export const HighlightedAction: Story = {
     </Dropdown>
   )
 };
-HighlightedAction.args = {
-  highlightedAction: <Button>Highlighted action</Button>
-};
 
-export const WithIcon: Story = {
+// With icons (show icon in trigger)
+export const WithIcons: Story = {
+  args: {
+    icon: 'ellipsis'
+  },
   render: (args) => (
     <Dropdown {...args}>
       <Button>
@@ -73,7 +78,4 @@ export const WithIcon: Story = {
       </Button>
     </Dropdown>
   )
-};
-HighlightedAction.args = {
-  icon: 'ellipsis'
 };
