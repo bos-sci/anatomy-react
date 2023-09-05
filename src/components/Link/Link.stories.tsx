@@ -11,7 +11,7 @@ const meta = {
   },
   argTypes: {
     variant: {
-      options: ['', 'subtle', 'ghost', 'cta'],
+      options: ['', 'cta', 'ghost', 'nav', 'subtle'],
       control: { type: 'radio' }
     }
   },
@@ -28,43 +28,3 @@ export const Playground: Story = {
     children: 'Link'
   }
 };
-
-export const DefaultLink: Story = {
-  args: {
-    children: 'Default link',
-    href: 'docs-demo-link'
-  }
-};
-
-DefaultLink.storyName = 'Default';
-
-export const SubtleLink: Story = {
-  args: {
-    variant: 'subtle',
-    children: 'Subtle link',
-    href: 'docs-demo-link'
-  }
-};
-
-SubtleLink.storyName = 'Subtle';
-
-export const NavLink: Story = {
-  // TODO: add nav link as an actual variant
-  args: {
-    className: 'bsds-link-nav',
-    children: 'Navigation link',
-    href: 'docs-demo-link'
-  }
-};
-
-NavLink.storyName = 'Navigation';
-
-export const CallToAction: Story = {
-  args: {
-    href: 'docs-demo-link',
-    variant: 'cta',
-    children: 'CTA link'
-  }
-};
-
-CallToAction.storyName = 'Call-to-action (CTA)';
