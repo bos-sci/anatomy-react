@@ -1,90 +1,86 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import ContentCard from './ContentCard';
+import ProductCard from './ProductCard';
 import Tag from '../Tag/Tag';
 import Image from '../Image/Image';
 
 const meta = {
-  title: 'Components/Content card',
-  component: ContentCard,
+  title: 'Components/Product card',
+  component: ProductCard,
   argTypes: {
     variant: {
       options: ['', 'border-light', 'border-ghost', 'ghost'],
       control: { type: 'radio' }
     },
-    gradientBrand: {
-      if: { arg: 'linkHref', truthy: true }
-    },
     dropShadow: {
-      if: { arg: 'linkHref', truthy: true }
+      if: { arg: 'gradientBrand', truthy: false }
+    },
+    gradientBrand: {
+      if: { arg: 'dropShadow', truthy: false }
     }
   },
   tags: ['autodocs']
-} satisfies Meta<typeof ContentCard>;
+} satisfies Meta<typeof ProductCard>;
 
 export default meta;
-type Story = StoryObj<typeof ContentCard>;
+type Story = StoryObj<typeof ProductCard>;
 
 export const Playground: Story = {
   args: {
     texts: {
-      cardTitle: 'Card title',
-      cardDescription:
+      title: 'Product card title',
+      description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
     },
+    linkTo: 'docs-demo-link',
     headingLevel: 'h2'
   }
 };
 
-export const WithLink = {
+export const Default = {
   args: {
-    ...Playground.args,
-    linkHref: 'docs-demo-link',
-    actionLink: true,
-    actionLinkText: 'Call-to-action'
+    ...Playground.args
   }
 };
 
-export const WithLinkedTitle = {
+export const SemanticCardTitle = {
+  args: {
+    ...Playground.args
+  }
+};
+
+export const NonSemanticCardTitle = {
   args: {
     ...Playground.args,
-    linkHref: 'docs-demo-link',
-    linkTitle: true
+    headingLevel: '',
+    assertiveTitle: true
   }
 };
 
 export const WithTag = {
   args: {
     ...Playground.args,
-    tag: <Tag variant="">Tag text</Tag>
+    tag: <Tag variant="">Product family name</Tag>
   }
 };
 
 export const WithShadow = {
   args: {
-    ...WithLink.args,
+    ...Playground.args,
     dropShadow: true
   }
 };
 
 export const WithGradient = {
   args: {
-    ...WithLink.args,
-    gradientBrand: true
-  }
-};
-
-export const WithIcon = {
-  args: {
     ...Playground.args,
-    icon: true,
-    iconName: 'demoCardIcon'
+    gradientBrand: true
   }
 };
 
 export const WithImage = {
   args: {
     ...Playground.args,
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
+    image: <Image ratio="50:50" src="/images/50-50-split.jpg" alt={''} />
   }
 };
