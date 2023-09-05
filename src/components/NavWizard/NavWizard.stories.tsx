@@ -4,7 +4,7 @@ import NavWizard from './NavWizard';
 import navWizardData from './navWizardData-3Step';
 
 const meta = {
-  title: 'Components/NavWizard',
+  title: 'Components/Wizard navigation',
   component: NavWizard,
   parameters: {
     layout: 'centered'
