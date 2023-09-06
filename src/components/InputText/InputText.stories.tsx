@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { errorText, helpText } from '../../stories/helpers';
 
 import InputText from './InputText';
 
 const meta = {
   title: 'Components/Text input',
   component: InputText,
-  parameters: {
-    layout: 'centered'
-  },
   tags: ['autodocs'],
   args: {
     label: 'Text input'
@@ -17,24 +15,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof InputText>;
 
-const helpText = 'This is an example of help text. It can wrap to two lines, but try not to go longer than three.';
-const errorText = 'This is an example of an error message.';
-
 export const Playground: Story = {};
 
 export const WithPlaceholder: Story = {
+  name: 'With placeholder',
   args: {
     placeholder: 'Placeholder text'
   }
 };
 
 export const WithHelp: Story = {
+  name: 'With help',
   args: {
     helpText
   }
 };
 
 export const WithError: Story = {
+  name: 'With error',
   args: {
     errorText,
     forceValidation: true
@@ -42,6 +40,7 @@ export const WithError: Story = {
 };
 
 export const WithHelpAndError: Story = {
+  name: 'With help and error',
   args: {
     helpText,
     errorText,
