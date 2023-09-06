@@ -15,5 +15,5 @@ export default meta;
 type Story = StoryObj<typeof Search>;
 
 export const Playground: Story = {
-  render: (args) => <Search {...args} label="Search" />
+  render: (args) => <Search {...args} />
 };
