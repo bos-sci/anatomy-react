@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { errorText, helpText } from '../../stories/helpers';
+import { errorText, helpText, placeholderText } from '../../stories/helpers';
 
 import InputText from './InputText';
 
@@ -20,7 +20,7 @@ export const Playground: Story = {};
 export const WithPlaceholder: Story = {
   name: 'With placeholder',
   args: {
-    placeholder: 'Placeholder text'
+    placeholder: placeholderText
   }
 };
 

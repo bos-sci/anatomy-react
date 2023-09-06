@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { errorText, helpText } from '../../stories/helpers';
 
 import Fieldset from './Fieldset';
 import InputText from '../InputText/InputText';
@@ -19,8 +20,8 @@ type Story = StoryObj<typeof Fieldset>;
 export const Playground: Story = {
   args: {
     legend: 'Legend',
-    helpText: 'This is an example of help text. It can wrap to two lines, but try not to go longer than three.',
-    errorText: 'This is an example of an error message.'
+    helpText: helpText,
+    errorText: errorText
   },
   render: (args) => (
     <Fieldset {...args}>

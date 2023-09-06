@@ -1,3 +1,6 @@
+// TODO:
+// remove styles
+// deal with conflicting styles/modifiers
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
@@ -65,15 +68,15 @@ export const Small: Story = {
 };
 
 export const IconLeft: Story = {
+  name: 'With icon on the left',
   args: {
     icon: 'plus',
     children: 'Icon left'
   }
 };
 
-IconLeft.storyName = 'With icon on the left';
-
 export const IconRight: Story = {
+  name: 'With icon on the right',
   args: {
     icon: 'chevronRight',
     iconAlignment: 'right',
@@ -81,18 +84,15 @@ export const IconRight: Story = {
   }
 };
 
-IconRight.storyName = 'With icon on the right';
-
 export const Icon: Story = {
   render: (args) => <Button aria-label="Icon button" icon="plus" {...args} />
 };
 
 // TODO: figure out if we should show subtle nav back button
 export const NavBack: Story = {
+  name: 'Navigation back',
   args: {
     className: 'bsds-button-nav-back',
     children: 'Back'
   }
 };
-
-NavBack.storyName = 'Navigation back';
