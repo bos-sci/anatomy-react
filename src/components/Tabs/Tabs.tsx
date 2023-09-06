@@ -15,6 +15,9 @@ import Tab from './Tab';
 
 export interface TabsProps {
   children: ReactElement[] | ReactElement;
+  /**
+   * Label that describes the purpose of the set of tabs
+   */
   tablistLabel: string;
 }
 
