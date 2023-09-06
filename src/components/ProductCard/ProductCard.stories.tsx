@@ -33,48 +33,48 @@ export const Playground: Story = {
   }
 };
 
-export const Default = {
+export const SemanticCardTitle: Story = {
+  name: 'Semantic card title',
   args: {
     ...Playground.args
   }
 };
 
-export const SemanticCardTitle = {
-  args: {
-    ...Playground.args
-  }
-};
-
-export const NonSemanticCardTitle = {
+export const NonSemanticCardTitle: Story = {
+  name: 'Non-semantic card title',
   args: {
     ...Playground.args,
-    headingLevel: '',
+    headingLevel: undefined,
     assertiveTitle: true
   }
 };
 
-export const WithTag = {
+export const WithTag: Story = {
+  name: 'With tag',
   args: {
     ...Playground.args,
     tag: <Tag variant="">Product family name</Tag>
   }
 };
 
-export const WithShadow = {
+export const WithShadow: Story = {
+  name: 'With shadow',
   args: {
     ...Playground.args,
     dropShadow: true
   }
 };
 
-export const WithGradient = {
+export const WithGradient: Story = {
+  name: 'With gradient',
   args: {
     ...Playground.args,
     gradientBrand: true
   }
 };
 
-export const WithImage = {
+export const WithImage: Story = {
+  name: 'With image',
   args: {
     ...Playground.args,
     image: <Image ratio="50:50" src="/images/50-50-split.jpg" alt={''} />
