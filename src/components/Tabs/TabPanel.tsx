@@ -1,7 +1,7 @@
+/* eslint-disable react/no-unused-prop-types */
 import { ReactNode } from 'react';
 
 export interface TabPanelProps {
-  // eslint-disable-next-line react/no-unused-prop-types
   tabName: string;
   children: ReactNode;
 }

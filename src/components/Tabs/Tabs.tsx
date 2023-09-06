@@ -15,6 +15,9 @@ import Tab from './Tab';
 
 export interface TabsProps {
   children: ReactElement[] | ReactElement;
+  /**
+   * Label to be read by screen readers
+   */
   tablistLabel: string;
 }
 
