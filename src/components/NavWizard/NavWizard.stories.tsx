@@ -7,7 +7,7 @@ const meta = {
   title: 'Components/Wizard navigation',
   component: NavWizard,
   parameters: {
-    layout: 'centered'
+    layout: 'padded'
   },
   tags: ['autodocs']
 } satisfies Meta<typeof NavWizard>;
