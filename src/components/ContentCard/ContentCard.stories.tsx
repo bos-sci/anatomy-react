@@ -37,23 +37,26 @@ export const Playground: Story = {
 };
 
 export const WithLink = {
+  name: 'With link',
   args: {
     ...Playground.args,
-    linkHref: 'docs-demo-link',
     actionLink: true,
-    actionLinkText: 'Call-to-action'
+    actionLinkText: 'Call-to-action',
+    linkHref: 'docs-demo-link'
   }
 };
 
 export const WithLinkedTitle = {
+  name: 'With linked title',
   args: {
     ...Playground.args,
-    linkHref: 'docs-demo-link',
-    linkTitle: true
+    linkTitle: true,
+    linkHref: 'docs-demo-link'
   }
 };
 
 export const WithTag = {
+  name: 'With tag',
   args: {
     ...Playground.args,
     tag: <Tag variant="">Tag text</Tag>
@@ -61,6 +64,7 @@ export const WithTag = {
 };
 
 export const WithShadow = {
+  name: 'With shadow',
   args: {
     ...WithLink.args,
     dropShadow: true
@@ -68,6 +72,7 @@ export const WithShadow = {
 };
 
 export const WithGradient = {
+  name: 'With gradient',
   args: {
     ...WithLink.args,
     gradientBrand: true
@@ -75,6 +80,7 @@ export const WithGradient = {
 };
 
 export const WithIcon = {
+  name: 'With icon',
   args: {
     ...Playground.args,
     icon: true,
@@ -83,6 +89,7 @@ export const WithIcon = {
 };
 
 export const WithImage = {
+  name: 'With image',
   args: {
     ...Playground.args,
     image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
