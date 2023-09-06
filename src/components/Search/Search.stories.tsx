@@ -1,3 +1,5 @@
+// TODO: add search results
+
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Search from './Search';
