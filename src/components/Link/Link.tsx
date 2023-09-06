@@ -21,17 +21,17 @@ const Link = forwardRef(
   ): JSX.Element => {
     let classes = '';
     switch (variant) {
-      case 'subtle':
-        classes = 'bsds-link-subtle';
+      case 'cta':
+        classes = 'bsds-link-cta';
         break;
       case 'ghost':
         classes = 'bsds-link-ghost';
         break;
-      case 'cta':
-        classes = 'bsds-link-cta';
-        break;
       case 'nav':
         classes = 'bsds-link-nav';
+        break;
+      case 'subtle':
+        classes = 'bsds-link-subtle';
         break;
       default:
         classes = 'bsds-link';
