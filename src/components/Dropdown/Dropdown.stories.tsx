@@ -31,6 +31,7 @@ export const Playground: Story = {
 };
 
 export const SectionHeaders: Story = {
+  name: 'Section headers',
   render: (args) => (
     <Dropdown {...args}>
       <DropdownGroupName>Action group 1</DropdownGroupName>
@@ -44,6 +45,7 @@ export const SectionHeaders: Story = {
 };
 
 export const HighlightedAction: Story = {
+  name: 'Highlighted action',
   args: {
     highlightedAction: <Button>Highlighted action</Button>
   },
@@ -57,6 +59,7 @@ export const HighlightedAction: Story = {
 };
 
 export const WithIcons: Story = {
+  name: 'With icons',
   args: {
     icon: 'ellipsis'
   },
