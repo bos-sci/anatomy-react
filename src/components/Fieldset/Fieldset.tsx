@@ -1,6 +1,9 @@
 import { FieldsetHTMLAttributes, useEffect, useState } from 'react';
 
 export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
+  /**
+   * Caption that describes the set of form controls grouped together in the fieldset
+   */
   legend: string;
   errorText?: string;
   helpText?: string;
