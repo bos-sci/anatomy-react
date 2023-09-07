@@ -41,7 +41,7 @@ export const WithLink = {
   args: {
     ...Playground.args,
     actionLink: true,
-    actionLinkText: 'Call-to-action',
+    actionLinkText: 'Link',
     linkHref: 'docs-demo-link'
   }
 };
@@ -59,7 +59,7 @@ export const WithTag = {
   name: 'With tag',
   args: {
     ...Playground.args,
-    tag: <Tag variant="">Tag text</Tag>
+    tag: <Tag>Tag text</Tag>
   }
 };
 

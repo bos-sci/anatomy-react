@@ -33,6 +33,7 @@ export const Playground: Story = {
   }
 };
 
+//TODO: Check whether we need to keep this modifier since it's identical to the Playground story
 export const SemanticCardTitle: Story = {
   name: 'Semantic card title',
   args: {
@@ -44,7 +45,6 @@ export const NonSemanticCardTitle: Story = {
   name: 'Non-semantic card title',
   args: {
     ...Playground.args,
-    headingLevel: undefined,
     assertiveTitle: true
   }
 };
@@ -53,7 +53,7 @@ export const WithTag: Story = {
   name: 'With tag',
   args: {
     ...Playground.args,
-    tag: <Tag variant="">Product family name</Tag>
+    tag: <Tag>Product family name</Tag>
   }
 };
 
