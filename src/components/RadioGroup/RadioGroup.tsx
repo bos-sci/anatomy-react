@@ -82,7 +82,7 @@ const RadioGroup = ({
   return (
     <fieldset
       className={`bsds-fieldset${buttonGroup ? '-button-group' : ''}`}
-      aria-describedby={helpTextId ? helpTextId : ''}
+      aria-describedby={helpText ? helpTextId : ''}
       {...fieldsetAttrs}
       role="radiogroup"
       aria-invalid={!!addonProps.ariaInvalid && addonProps.isDirty}

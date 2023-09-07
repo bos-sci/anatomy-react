@@ -46,7 +46,7 @@ export const WithError: Story = {
   },
   render: (args) => (
     <RadioGroup {...args}>
-      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked />
+      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked forceValidation />
       <InputRadio label="Radio 2" name="groupDefault" value="defaultRadio2" />
       <InputRadio label="Radio 3" name="groupDefault" value="defaultRadio3" />
     </RadioGroup>
@@ -61,7 +61,7 @@ export const WithHelpAndError: Story = {
   },
   render: (args) => (
     <RadioGroup {...args}>
-      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked />
+      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked forceValidation />
       <InputRadio label="Radio 2" name="groupDefault" value="defaultRadio2" />
       <InputRadio label="Radio 3" name="groupDefault" value="defaultRadio3" />
     </RadioGroup>
