@@ -33,6 +33,7 @@ const InputRadio = forwardRef(
     const [inputId, setInputId] = useState('');
     const [helpTextId, setHelpTextId] = useState('');
     const [errorText, setErrorText] = useState('');
+    const [describedBy, setDescribedBy] = useState('');
     const [isGroupStyle, setIsGroupStyle] = useState(false);
     const addonProps: AddonProps = useContext(RadioAddonPropsContext);
 
@@ -69,6 +70,12 @@ const InputRadio = forwardRef(
       }
       validate();
     };
+
+    useEffect(() => {
+      const help = helpText ? helpTextId : '';
+      const describedBy = addonProps.isDirty ? addonProps.ariaDescribedby : '';
+      setDescribedBy([help, describedBy].join(' ').trim());
+    }, [addonProps.ariaDescribedby, addonProps.isDirty, helpText, helpTextId]);
 
     useEffect(() => {
       if (addonProps.isDirty) {
@@ -115,7 +122,7 @@ const InputRadio = forwardRef(
           type="radio"
           id={inputId}
           className="bsds-input-radio"
-          aria-describedby={`${helpTextId} ${addonProps.isDirty ? addonProps.ariaDescribedby : ''}`}
+          aria-describedby={describedBy}
           onInvalid={handleInvalid}
           onBlur={handleBlur}
           onInput={handleChange}
