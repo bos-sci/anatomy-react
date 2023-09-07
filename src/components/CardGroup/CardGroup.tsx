@@ -1,7 +1,7 @@
 import { HTMLAttributes, ReactElement } from 'react';
 import { ContentCardProps } from '../ContentCard';
 
-interface CardGroupProps extends HTMLAttributes<HTMLDivElement> {
+export interface CardGroupProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactElement<ContentCardProps> | ReactElement<ContentCardProps>[];
   cardLayout?: 'twoUp' | 'threeUp' | 'fourUp';
 }
