@@ -36,14 +36,60 @@ export const Playground: Story = {
   }
 };
 
-export const WithTag = {
+export const WithLink = {
+  name: 'With link',
   args: {
     ...Playground.args,
-    tag: <Tag variant="">Tag text</Tag>
+    actionLink: true,
+    actionLinkText: 'Link',
+    linkHref: 'docs-demo-link'
+  }
+};
+
+export const WithLinkedTitle = {
+  name: 'With linked title',
+  args: {
+    ...Playground.args,
+    linkTitle: true,
+    linkHref: 'docs-demo-link'
+  }
+};
+
+export const WithTag = {
+  name: 'With tag',
+  args: {
+    ...Playground.args,
+    tag: <Tag>Tag</Tag>
+  }
+};
+
+export const WithShadow = {
+  name: 'With shadow',
+  args: {
+    ...WithLink.args,
+    dropShadow: true
+  }
+};
+
+export const WithGradient = {
+  name: 'With gradient',
+  args: {
+    ...WithLink.args,
+    gradientBrand: true
+  }
+};
+
+export const WithIcon = {
+  name: 'With icon',
+  args: {
+    ...Playground.args,
+    icon: true,
+    iconName: 'demoCardIcon'
   }
 };
 
 export const WithImage = {
+  name: 'With image',
   args: {
     ...Playground.args,
     image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
