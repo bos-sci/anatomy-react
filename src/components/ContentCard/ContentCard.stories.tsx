@@ -59,7 +59,7 @@ export const WithTag = {
   name: 'With tag',
   args: {
     ...Playground.args,
-    tag: <Tag>Tag text</Tag>
+    tag: <Tag>Tag</Tag>
   }
 };
 

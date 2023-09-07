@@ -33,7 +33,7 @@ export const Playground: Story = {
   }
 };
 
-//TODO: Check whether we need to keep this modifier since it's identical to the Playground story
+// TODO: Check whether we need to keep this modifier since it's identical to the Playground story
 export const SemanticCardTitle: Story = {
   name: 'Semantic card title',
   args: {
