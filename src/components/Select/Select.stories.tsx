@@ -83,7 +83,7 @@ export const WithHelpAndError: Story = {
     errorText
   },
   render: (args) => (
-    <Select {...args} label="Select" forceValidation required>
+    <Select {...args} label="Select" forceValidation>
       <Option value="" disabled selected />
       <Option value="option1">Option 1</Option>
       <Option value="option2">Option 2</Option>
