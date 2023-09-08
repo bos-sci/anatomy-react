@@ -66,14 +66,14 @@ const InputCheckbox = forwardRef(
     };
 
     useEffect(() => {
+      inputEl?.current?.setCustomValidity(errorText ? errorText : '');
+    }, [inputEl, errorText]);
+
+    useEffect(() => {
       if (forceValidation) {
         validate();
       }
     }, [forceValidation, validate]);
-
-    useEffect(() => {
-      inputEl?.current?.setCustomValidity(errorText ? errorText : '');
-    }, [inputEl, errorText]);
 
     // Component mount
     useEffect(() => {

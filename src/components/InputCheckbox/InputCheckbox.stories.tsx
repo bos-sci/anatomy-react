@@ -6,11 +6,8 @@ import Fieldset from '../Fieldset';
 import { ChangeEvent } from 'react';
 
 const meta = {
-  title: 'Components/InputCheckbox',
+  title: 'Components/Checkbox',
   component: InputCheckbox,
-  parameters: {
-    layout: 'centered'
-  },
   tags: ['autodocs'],
   args: {
     label: 'Checkbox'
@@ -45,6 +42,8 @@ export const WithHelpAndError: Story = {
     forceValidation: true
   }
 };
+
+// TODO: Do we want checkbox group here or with fieldset?
 
 let checkboxes = [
   {
