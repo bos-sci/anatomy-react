@@ -9,6 +9,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState
 } from 'react';
@@ -23,8 +24,6 @@ export interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   inputUnavailable?: boolean;
 }
 
-let radioId = 0;
-
 const InputRadio = forwardRef(
   (
     { label, helpText, forceValidation, inputUnavailable, onBlur, onInput, onInvalid, ...inputAttrs }: InputRadioProps,
@@ -35,6 +34,8 @@ const InputRadio = forwardRef(
     const [errorText, setErrorText] = useState('');
     const [isGroupStyle, setIsGroupStyle] = useState(false);
     const addonProps: AddonProps = useContext(RadioAddonPropsContext);
+
+    const id = useId();
 
     const inputEl = useRef<HTMLInputElement>(null);
 
@@ -88,10 +89,9 @@ const InputRadio = forwardRef(
     }, [inputEl, errorText]);
 
     useEffect(() => {
-      const idNum = ++radioId;
-      setInputId('radio' + idNum);
-      setHelpTextId('radioHelpText' + idNum);
-    }, []);
+      setInputId(id + 'radio');
+      setHelpTextId(id + 'radioHelpText');
+    }, [id]);
 
     useEffect(() => {
       if (addonProps.buttonGroup) {
