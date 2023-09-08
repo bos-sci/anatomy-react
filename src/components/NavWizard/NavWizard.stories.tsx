@@ -6,9 +6,6 @@ import navWizardData from './navWizardData-3Step';
 const meta = {
   title: 'Components/Wizard navigation',
   component: NavWizard,
-  parameters: {
-    layout: 'padded'
-  },
   tags: ['autodocs']
 } satisfies Meta<typeof NavWizard>;
 
