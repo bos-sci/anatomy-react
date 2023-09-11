@@ -95,7 +95,7 @@ export const WithLogo: Story = {
     positiveAction,
     negativeAction: <Button onClick={() => withLogoRef.current?.close()}>Cancel</Button>,
     logo: logo,
-    logoAlt: 'Boston scientific logo'
+    logoAlt: 'Boston Scientific logo'
   },
   render: (args) => (
     <>
