@@ -1,4 +1,4 @@
-import { FieldsetHTMLAttributes, useEffect, useState } from 'react';
+import { FieldsetHTMLAttributes, useEffect, useId, useState } from 'react';
 
 export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /**
@@ -7,19 +7,27 @@ export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElemen
   legend: string;
   errorText?: string;
   helpText?: string;
+  errorId?: string;
+  helpId?: string;
 }
 
-let fieldsetId = 0;
-
-const Fieldset = ({ legend, errorText, helpText, children, ...fieldsetAttrs }: FieldsetProps): JSX.Element => {
+const Fieldset = ({
+  legend,
+  errorText,
+  helpText,
+  children,
+  errorId,
+  helpId,
+  ...fieldsetAttrs
+}: FieldsetProps): JSX.Element => {
   const [helpTextId, setHelpTextId] = useState('');
   const [errorTextId, setErrorTextId] = useState('');
+  const id = useId();
 
   useEffect(() => {
-    const idNum = ++fieldsetId;
-    setHelpTextId('fieldsetHelpText' + idNum);
-    setErrorTextId('fieldsetErrorText' + idNum);
-  }, []);
+    setHelpTextId(helpId ?? id + 'help');
+    setErrorTextId(errorId ?? id + 'error');
+  }, [errorId, helpId, id]);
 
   return (
     <fieldset className="bsds-fieldset" aria-describedby={helpTextId ? helpTextId : ''} {...fieldsetAttrs}>
