@@ -1,35 +1,35 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta } from '@storybook/react';
+import { useState, useEffect } from 'react';
 
 import CardGroup from './CardGroup';
-import ContentCard from '../ContentCard/ContentCard';
+import { twoUpCardLayout, threeUpCardLayout, fourUpCardLayout } from './CardGroup-data';
 
 const meta = {
   title: 'Components/Card group',
-  component: CardGroup
+  component: CardGroup,
+  argTypes: {
+    children: {
+      control: 'object'
+    }
+  }
 } satisfies Meta<typeof CardGroup>;
 
 export default meta;
-type Story = StoryObj<typeof CardGroup>;
 
-export const Playground: Story = {
-  render: (args) => (
-    <CardGroup {...args}>
-      <ContentCard
-        texts={{
-          cardTitle: 'Card title',
-          cardDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
-        }}
-        headingLevel="h2"
-      />
-      <ContentCard
-        texts={{
-          cardTitle: 'Card title',
-          cardDescription:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
-        }}
-        headingLevel="h2"
-      />
-    </CardGroup>
-  )
+export const Playground = ({ ...args }) => {
+  const [numOfCards, setNumOfCards] = useState([...twoUpCardLayout]);
+
+  useEffect(() => {
+    if (args.cardLayout?.includes('twoUp')) {
+      setNumOfCards([...twoUpCardLayout]);
+    } else if (args.cardLayout?.includes('threeUp')) {
+      setNumOfCards([...threeUpCardLayout]);
+    } else if (args.cardLayout?.includes('fourUp')) {
+      setNumOfCards([...fourUpCardLayout]);
+    } else {
+      setNumOfCards([...twoUpCardLayout]);
+    }
+  }, [args.cardLayout, setNumOfCards]);
+
+  return <CardGroup cardLayout={args.cardLayout}>{...numOfCards}</CardGroup>;
 };
