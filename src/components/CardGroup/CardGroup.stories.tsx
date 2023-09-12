@@ -1,8 +1,9 @@
 import type { Meta } from '@storybook/react';
 import { useState, useEffect } from 'react';
 
+import ContentCard from '../ContentCard/ContentCard';
 import CardGroup from './CardGroup';
-import { twoUpCardLayout, threeUpCardLayout, fourUpCardLayout } from './CardGroup-data';
+import { descriptionPlaceholder } from '../../helpers/stories.helpers';
 
 const meta = {
   title: 'Components/Card group',
@@ -17,19 +18,31 @@ const meta = {
 export default meta;
 
 export const Playground = ({ ...args }) => {
-  const [numOfCards, setNumOfCards] = useState([...twoUpCardLayout]);
+  const [numOfCards, setNumOfCards] = useState(2);
 
   useEffect(() => {
     if (args.cardLayout?.includes('twoUp')) {
-      setNumOfCards([...twoUpCardLayout]);
+      setNumOfCards(2);
     } else if (args.cardLayout?.includes('threeUp')) {
-      setNumOfCards([...threeUpCardLayout]);
+      setNumOfCards(3);
     } else if (args.cardLayout?.includes('fourUp')) {
-      setNumOfCards([...fourUpCardLayout]);
-    } else {
-      setNumOfCards([...twoUpCardLayout]);
+      setNumOfCards(4);
     }
   }, [args.cardLayout, setNumOfCards]);
 
-  return <CardGroup cardLayout={args.cardLayout}>{...numOfCards}</CardGroup>;
+  return (
+    <CardGroup cardLayout={args.cardLayout}>
+      {[...Array(numOfCards)].map((_card, i) => (
+        <ContentCard
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${_card}` + i}
+          texts={{
+            cardTitle: 'Card title',
+            cardDescription: descriptionPlaceholder
+          }}
+          headingLevel="h2"
+        />
+      ))}
+    </CardGroup>
+  );
 };
