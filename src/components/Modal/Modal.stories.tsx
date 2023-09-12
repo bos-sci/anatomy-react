@@ -1,3 +1,5 @@
+// TODO: Figure out why enter to open modal doesn't work in Docs but does in Playground
+
 import type { Meta, StoryObj } from '@storybook/react';
 import { createRef } from 'react';
 
