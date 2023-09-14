@@ -14,7 +14,7 @@ import {
 import { getValidationMessage } from '../../helpers/validation';
 import useTextareaResize from '../../hooks/useTextareaResize';
 
-interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   helpText?: string;
   errorText?: string;
