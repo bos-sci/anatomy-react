@@ -20,7 +20,13 @@ export type NavNodeSecondary = RequireOnlyOne<NavTreeNode, 'to' | 'href' | 'chil
 
 export interface NavSecondaryProps {
   navItems: NavItemSecondary[];
+  /**
+   * Manually set the route for the current page
+   */
   activeSlug?: string;
+  /**
+   * The current application location. Either window.location, react-router location, or other equivalent object
+   */
   location: Location | ReactLocation;
   texts?: {
     menuToggleAriaLabel?: string;
