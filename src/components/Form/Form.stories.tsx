@@ -12,6 +12,7 @@ import RadioGroup from '../RadioGroup/RadioGroup';
 import InputRadio from '../InputRadio/InputRadio';
 import Button from '../Button/Button';
 import { Assertive } from '../Button/Button.stories';
+import Textarea from '../Textarea/Textarea';
 
 const meta = {
   title: 'Components/Form',
@@ -43,6 +44,9 @@ export const Playground: Story = {
         </div>
         <div className="bsds-form-control">
           <InputText label="Disabled text input" disabled />
+        </div>
+        <div className="bsds-form-control">
+          <Textarea label="Textarea" />
         </div>
         <div className="bsds-form-control">
           <Select label="Select">
