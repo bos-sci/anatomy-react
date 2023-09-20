@@ -20,7 +20,7 @@ const meta = {
   args: {
     logo: {
       src: logoTagline,
-      alt: 'Boston Scientific logo',
+      alt: 'Boston Scientific',
       href: '/'
     },
     isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => {

@@ -15,5 +15,5 @@ const meta = {
 export default meta;
 
 export const Playground = ({ utilityItems, ...args }: NavUtilityProps) => {
-  return <NavUtility utilityItems={utilityData} {...args} />;
+  return <NavUtility utilityItems={utilityData} ariaLabel="Utility" {...args} />;
 };
