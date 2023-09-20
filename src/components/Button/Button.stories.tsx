@@ -1,6 +1,4 @@
-// TODO:
-// remove styles
-// deal with conflicting styles/modifiers
+// TODO: deal with conflicting styles/modifiers
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
