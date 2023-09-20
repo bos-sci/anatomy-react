@@ -73,7 +73,7 @@ export interface NavPrimaryProps {
   searchResults?: SearchResult[];
   location: Location | ReactLocation;
   isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
-  navigateToSearchResult: (result: SearchResult) => void;
+  navigateToSearchResult?: (result: SearchResult) => void;
   onSearch?: (query: string, e: FormEvent<HTMLFormElement>) => void;
   onSearchChange?: (query: string, e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -351,7 +351,7 @@ const NavPrimary = ({
                   )}
               </li>
             ))}
-            {!!hasSearch && (
+            {!!hasSearch && !!navigateToSearchResult && (
               <li role="none" className="bsds-nav-item bsds-nav-item-search">
                 {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
                 <Button
