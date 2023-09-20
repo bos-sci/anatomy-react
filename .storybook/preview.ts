@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
-
+// import { themes } from '@storybook/theming';
+import theme from './theme';
 import './global.scss';
 
 const preview: Preview = {
@@ -17,6 +18,9 @@ const preview: Preview = {
         // TODO: uncomment when we build out these sections
         // order: ['Getting started', 'Tokens', 'Components', 'Patterns']
       }
+    },
+    docs: {
+      theme
     }
   }
 };
