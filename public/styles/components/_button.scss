@@ -47,5 +47,14 @@
         text-decoration-thickness: space(xs);
       }
     }
+
+    &.bsds-button-small {
+      @include font-size($fs-body-subtle);
+      padding: space(lg) space(3x) 0.6875rem;
+
+      // TODO: the subtle nav back button current uses the default button's padding rather than the small button's padding.
+      // We should probably review / standardize this with Catie eventually
+      padding-left: calc(space(2x) + $icon-size + space(md)); // Padding + icon width + space between icon and text
+    }
   }
 }

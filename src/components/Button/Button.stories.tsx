@@ -40,33 +40,6 @@ export const Playground: Story = {
   }
 };
 
-export const Default: Story = {
-  args: {
-    children: 'Default button'
-  }
-};
-
-export const Assertive: Story = {
-  args: {
-    variant: 'assertive',
-    children: 'Assertive button'
-  }
-};
-
-export const Subtle: Story = {
-  args: {
-    variant: 'subtle',
-    children: 'Subtle button'
-  }
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    children: 'Small button'
-  }
-};
-
 export const IconLeft: Story = {
   name: 'With icon on the left',
   args: {
