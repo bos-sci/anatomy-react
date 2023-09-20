@@ -27,6 +27,6 @@ export default create({
   booleanSelectedBg: '#ffffff', // Sets the background color of the selected state of the toggle
   inputBg: '#ffffff', // Sets the background color of inputs in controls
   inputBorder: '#000000', // Sets the border color of inputs in controls
-  inputTextColor: '#000000', // Sets the tex color of inputs in controls
-  inputBorderRadius: 0 // Sets the border radius of inputs in controls,
+  inputTextColor: '#000000', // Sets the text color of inputs in controls
+  inputBorderRadius: 0 // Sets the border radius of inputs in controls
 });
