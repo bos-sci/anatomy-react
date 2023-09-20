@@ -1,6 +1,6 @@
-import type { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import NavPrimary, { NavNodePrimary, NavPrimaryProps } from './NavPrimary';
+import NavPrimary, { NavNodePrimary } from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
 import { complexData, intermediateData, simpleData } from './navPrimaryData';
 import { RefObject } from 'react';
@@ -32,23 +32,28 @@ const meta = {
 } satisfies Meta<typeof NavPrimary>;
 
 export default meta;
+type Story = StoryObj<typeof NavPrimary>;
 
-export const Playground = ({ navItems, ...args }: NavPrimaryProps) => {
-  const items = intermediateData;
-  return <NavPrimary navItems={items} {...args} />;
+export const Playground: Story = {
+  args: {
+    navItems: intermediateData
+  }
 };
 
-export const Simple = ({ navItems, ...args }: NavPrimaryProps) => {
-  const items = simpleData;
-  return <NavPrimary navItems={items} {...args} />;
+export const Simple: Story = {
+  args: {
+    navItems: simpleData
+  }
 };
 
-export const Intermediate = ({ navItems, ...args }: NavPrimaryProps) => {
-  const items = intermediateData;
-  return <NavPrimary navItems={items} {...args} />;
+export const Intermediate: Story = {
+  args: {
+    navItems: intermediateData
+  }
 };
 
-export const Complex = ({ navItems, ...args }: NavPrimaryProps) => {
-  const items = complexData;
-  return <NavPrimary navItems={items} {...args} />;
+export const Complex: Story = {
+  args: {
+    navItems: complexData
+  }
 };

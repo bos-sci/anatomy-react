@@ -7,9 +7,9 @@ export interface NavUtilityProps {
   ariaLabel?: string;
 }
 
-const NavUtility = ({ utilityItems, ariaLabel }: NavUtilityProps): JSX.Element => {
+const NavUtility = ({ utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
   return (
-    <nav className="bsds-nav-utility" aria-label={ariaLabel || 'Utility'}>
+    <nav className="bsds-nav-utility" aria-label={ariaLabel}>
       <ul className="bsds-nav">
         {utilityItems.map((utilityItem) => (
           <li key={'utilityItem' + utilityItem.text} className="bsds-nav-item">
