@@ -8,7 +8,7 @@ const meta = {
   component: NavUtility,
   tags: ['autodocs'],
   parameters: {
-    layout: 'flush'
+    layout: 'fullscreen'
   }
 } satisfies Meta<typeof NavUtility>;
 

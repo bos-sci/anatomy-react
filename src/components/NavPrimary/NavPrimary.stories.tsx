@@ -10,7 +10,7 @@ const meta = {
   component: NavPrimary,
   tags: ['autodocs'],
   parameters: {
-    layout: 'flush'
+    layout: 'fullscreen'
   },
   argTypes: {
     navItems: {
