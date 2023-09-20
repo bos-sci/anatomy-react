@@ -2,7 +2,7 @@ import Dropdown from '../Dropdown';
 import Link from '../Link';
 import { NavItemUtility } from '../NavPrimary';
 
-interface NavUtilityProps {
+export interface NavUtilityProps {
   utilityItems: NavItemUtility[];
   ariaLabel?: string;
 }
