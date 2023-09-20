@@ -54,6 +54,10 @@ a {
     @include button-default;
     text-decoration: none;
 
+    &:visited {
+      color: $action-primary-40;
+    }
+
     &::after {
       width: $ffs-body-assertive;
       height: $ffs-body-assertive;
