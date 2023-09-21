@@ -11,7 +11,6 @@ import { helpText } from '../../stories/helpers';
 import RadioGroup from '../RadioGroup/RadioGroup';
 import InputRadio from '../InputRadio/InputRadio';
 import Button from '../Button/Button';
-import { Assertive } from '../Button/Button.stories';
 import Textarea from '../Textarea/Textarea';
 
 const meta = {
@@ -75,7 +74,7 @@ export const Playground: Story = {
           <InputCheckbox label="Required checkbox" required />
         </div>
         <div className="bsds-form-control">
-          <Button {...Assertive.args}>Submit</Button>
+          <Button variant="assertive">Submit</Button>
         </div>
       </Form>
     </>

@@ -1,6 +1,4 @@
-// TODO:
-// remove styles
-// deal with conflicting styles/modifiers
+// TODO: deal with conflicting styles/modifiers
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
@@ -37,33 +35,6 @@ type Story = StoryObj<typeof Button>;
 export const Playground: Story = {
   args: {
     children: 'Button'
-  }
-};
-
-export const Default: Story = {
-  args: {
-    children: 'Default button'
-  }
-};
-
-export const Assertive: Story = {
-  args: {
-    variant: 'assertive',
-    children: 'Assertive button'
-  }
-};
-
-export const Subtle: Story = {
-  args: {
-    variant: 'subtle',
-    children: 'Subtle button'
-  }
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    children: 'Small button'
   }
 };
 

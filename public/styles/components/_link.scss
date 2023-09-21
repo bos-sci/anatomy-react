@@ -65,6 +65,10 @@ a {
       mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
     }
 
+    &:visited {
+      color: $action-primary-40;
+    }
+
     &:not([disabled]) {
       &:hover,
       &:active {
