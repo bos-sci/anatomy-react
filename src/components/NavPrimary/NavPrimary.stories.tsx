@@ -4,6 +4,7 @@ import NavPrimary, { NavNodePrimary } from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
 import { complexData, intermediateData, simpleData } from './navPrimaryData';
 import { RefObject } from 'react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
 const meta = {
   title: 'Components/Primary navigation',
@@ -24,11 +25,20 @@ const meta = {
       href: '/'
     },
     isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => {
-      return ref.current?.href === window.location.href;
+      return ref.current?.pathname === window.parent.window.location.pathname;
     },
     navigateToSearchResult: (result) => (window.location.href = result.href as string),
-    location: window.location
-  }
+    location: window.parent.window.location
+  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Routes>
+          <Route path="/" element={<Story />} />
+        </Routes>
+      </MemoryRouter>
+    )
+  ]
 } satisfies Meta<typeof NavPrimary>;
 
 export default meta;
@@ -42,7 +52,8 @@ export const Playground: Story = {
 
 export const Simple: Story = {
   args: {
-    navItems: simpleData
+    navItems: simpleData,
+    location: window.location
   }
 };
 
