@@ -54,3 +54,15 @@
 .bsds-font-weight-heavy {
   @include font-family-base-heavy;
 }
+
+.bsds-text-left {
+  text-align: left;
+}
+
+.bsds-text-center {
+  text-align: center;
+}
+
+.bsds-text-right {
+  text-align: right;
+}
