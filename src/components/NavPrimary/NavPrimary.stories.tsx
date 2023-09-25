@@ -52,8 +52,7 @@ export const Playground: Story = {
 
 export const Simple: Story = {
   args: {
-    navItems: simpleData,
-    location: window.location
+    navItems: simpleData
   }
 };
 
