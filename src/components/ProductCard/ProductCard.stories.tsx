@@ -13,6 +13,12 @@ const meta = {
     },
     gradientBrand: {
       if: { arg: 'dropShadow', truthy: false }
+    },
+    tag: {
+      control: false
+    },
+    image: {
+      control: false
     }
   },
   tags: ['autodocs']

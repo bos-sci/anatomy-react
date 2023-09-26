@@ -14,6 +14,13 @@ const meta = {
   },
   argTypes: {
     navItems: {
+      // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
+      control: false
+    },
+    searchResults: {
+      control: false
+    },
+    texts: {
       control: false
     }
   },

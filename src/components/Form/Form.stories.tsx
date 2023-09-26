@@ -18,7 +18,7 @@ const meta = {
   component: Form,
   argTypes: {
     children: {
-      control: 'object'
+      control: false
     }
   },
   parameters: {

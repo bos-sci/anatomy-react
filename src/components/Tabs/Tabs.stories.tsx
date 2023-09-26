@@ -4,7 +4,12 @@ import TabPanel from './TabPanel';
 
 const meta = {
   title: 'Components/Tabs',
-  component: Tabs
+  component: Tabs,
+  argTypes: {
+    children: {
+      control: false
+    }
+  }
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

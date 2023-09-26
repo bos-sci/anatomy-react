@@ -1,4 +1,4 @@
-import { FieldsetHTMLAttributes, useEffect, useId, useState } from 'react';
+import { FieldsetHTMLAttributes, ReactNode, useEffect, useId, useState } from 'react';
 
 export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /**
@@ -9,6 +9,7 @@ export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElemen
   helpText?: string;
   errorId?: string;
   helpId?: string;
+  children: ReactNode;
 }
 
 const Fieldset = ({

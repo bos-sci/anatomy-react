@@ -8,13 +8,21 @@ import Icon from '../Icon';
 const meta = {
   title: 'Components/Dropdown',
   component: Dropdown,
+  tags: ['autodocs'],
   parameters: {
     layout: 'centered'
   },
+  argTypes: {
+    highlightedAction: {
+      control: false
+    },
+    children: {
+      control: false
+    }
+  },
   args: {
     triggerText: 'Dropdown trigger'
-  },
-  tags: ['autodocs']
+  }
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

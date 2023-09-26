@@ -1,3 +1,5 @@
+// TODO: Create default texts object and assign in function params or Tag.defaultProps instead of at each use case then re-enable control in story
+
 import { ReactNode, useState, useEffect } from 'react';
 
 export interface TagProps {

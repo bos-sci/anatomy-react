@@ -1,3 +1,5 @@
+// TODO: ADS-756 Create default texts object and assign in function params or Search.defaultProps instead of at each use case then re-enable control in story
+
 import {
   ChangeEvent,
   FocusEvent,
