@@ -43,6 +43,13 @@ export const Playground: Story = {
 };
 
 export const Overflow: Story = {
+  parameters: {
+    docs: {
+      story: {
+        height: '10rem'
+      }
+    }
+  },
   // TODO: should this be "With overflow" like button with icon on the left/right?
   args: {
     crumbs: [

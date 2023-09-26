@@ -8,6 +8,13 @@ const meta = {
   title: 'Components/Search',
   component: Search,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      story: {
+        height: '15rem'
+      }
+    }
+  },
   argTypes: {
     formAttributes: {
       control: false
