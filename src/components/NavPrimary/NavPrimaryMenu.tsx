@@ -1,10 +1,13 @@
 import { ForwardedRef, RefObject, forwardRef, useState } from 'react';
 import Button from '../Button';
-import { HistoryNodePrimary, NavNodePrimary, Texts } from './NavPrimary';
+import Dropdown from '../Dropdown';
+import Link from '../Link';
+import { HistoryNodePrimary, NavItemUtility, NavNodePrimary, Texts } from './NavPrimary';
 import NavPrimaryList from './NavPrimaryList';
 
 interface NavPrimaryMenuProps {
   navItems: NavNodePrimary[];
+  utilityItems?: NavItemUtility[];
   activeNode: NavNodePrimary | null;
   isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
   setActiveNode: (node: NavNodePrimary) => void;
@@ -49,6 +52,27 @@ const NavPrimaryMenu = forwardRef((props: NavPrimaryMenuProps, ref: ForwardedRef
           popHistory={props.popHistory}
         />
       </div>
+      {props.history.length === 0 && !!props.utilityItems && (
+        <ul className="bsds-nav bsds-nav-block">
+          {props.utilityItems.map((item) => (
+            <li key={'utilityItem' + item.text} className="bsds-nav-item">
+              {item.children ? (
+                <Dropdown key={'utilityItemDropdown' + item.text} triggerText={item.text} className="bsds-nav-link">
+                  {item.children.map((child) => (
+                    <Link key={'utilityItemDropdownChild' + (child.to || child.href)} href={child.href} to={child.to}>
+                      {child.text}
+                    </Link>
+                  ))}
+                </Dropdown>
+              ) : (
+                <Link to={item.to} href={item.href} className="bsds-nav-link">
+                  {item.text}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 });

@@ -8,6 +8,7 @@ import Link from '../Link';
 import { SearchResult } from '../Search';
 import NavPrimarySearch from './NavPrimarySearch';
 import NavPrimaryMenu from './NavPrimaryMenu';
+import NavUtility from '../NavUtility';
 
 interface NavItemPrimaryBase extends NavItem {
   children?: NavItemPrimary[];
@@ -20,7 +21,13 @@ interface NavItemPrimaryBase extends NavItem {
   isActive?: (location: Location | ReactLocation) => boolean;
 }
 
+interface NavItemUtilityBase extends NavItem {
+  children?: NavItemUtility[];
+}
+
 export type NavItemPrimary = RequireOnlyOne<NavItemPrimaryBase, 'to' | 'href' | 'children'>;
+
+export type NavItemUtility = RequireOnlyOne<NavItemUtilityBase, 'to' | 'href' | 'children'>;
 
 interface NavTreeNode extends NavItemPrimaryBase {
   parent: NavNodePrimary | null;
@@ -49,6 +56,7 @@ export interface Texts {
   searchInputAriaLabel?: string;
   searchClearTextAriaLabel?: string;
   searchNoResults?: string;
+  utilityNavAriaLabel?: string;
   primaryNavAriaLabel?: string;
 }
 
@@ -61,6 +69,7 @@ export interface NavPrimaryProps {
   };
   texts?: Texts;
   navItems: NavItemPrimary[];
+  utilityItems?: NavItemUtility[];
   hasSearch?: boolean;
   isConstrained?: boolean;
   searchResults?: SearchResult[];
@@ -76,6 +85,7 @@ let navPrimaryMenuIndex = 0;
 const NavPrimary = ({
   logo,
   texts,
+  utilityItems,
   navItems,
   hasSearch = true,
   isConstrained = false,
@@ -275,6 +285,7 @@ const NavPrimary = ({
 
   return (
     <header ref={navRef} className={'bsds-nav-header' + (isConstrained ? ' is-constrained' : '')}>
+      {!!utilityItems && <NavUtility utilityItems={utilityItems} ariaLabel={texts?.utilityNavAriaLabel} />}
       <nav className="bsds-nav-primary" aria-label={texts?.primaryNavAriaLabel || 'primary'}>
         <div className="bsds-nav-bar">
           {logo.to || logo.href ? (
@@ -327,6 +338,7 @@ const NavPrimary = ({
                     <NavPrimaryMenu
                       ref={menuRef}
                       navItems={navTree}
+                      utilityItems={utilityItems}
                       activeNode={activeNode}
                       isActiveNode={isCurrent}
                       setActiveNode={setActiveNode}
