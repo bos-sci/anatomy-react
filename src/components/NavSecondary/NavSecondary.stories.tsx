@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NavSecondary, { NavItemSecondary } from './NavSecondary';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
+
 const meta = {
   title: 'Components/Secondary navigation',
   component: NavSecondary,
@@ -28,6 +29,7 @@ const meta = {
       </MemoryRouter>
     )
   ]
+  }
 } satisfies Meta<typeof NavSecondary>;
 
 export default meta;
@@ -36,11 +38,19 @@ type Story = StoryObj<typeof NavSecondary>;
 const navItems: NavItemSecondary[] = [
   {
     text: 'Page',
+
     to: '/page'
   },
   {
     text: 'Active page',
     to: '/'
+
+    href: '/page'
+  },
+  {
+    text: 'Active page',
+    href: '#'
+
   },
   {
     text: 'Page group',
