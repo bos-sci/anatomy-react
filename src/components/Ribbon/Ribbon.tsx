@@ -3,7 +3,7 @@ import { HTMLAttributes, PropsWithChildren } from 'react';
 export interface RibbonProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   isConstrained?: boolean;
   textAlign?: 'left' | 'center';
-  variant?: null | 'informational' /* | 'carbon' */;
+  variant?: '' | 'informational';
   withShadow?: boolean;
 }
 
@@ -11,10 +11,10 @@ const Ribbon = ({ children, className, isConstrained, textAlign = 'left', varian
   const baseClass = 'bsds-ribbon';
 
   const classesFromProps = [
-    isConstrained ? `${baseClass}-is-constrained` : null,
+    isConstrained ? `is-constrained` : null,
     textAlign !== 'left' ? `bsds-text-${textAlign}` : null,
     variant ? `${baseClass}-${variant}` : null,
-    withShadow ? `${baseClass}-with-shadow` : null,
+    withShadow ? `${baseClass}-shadow` : null,
     className || null
   ].filter(Boolean);
 

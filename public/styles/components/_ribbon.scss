@@ -1,5 +1,5 @@
 /**
-* Proposed addition to anatomy-tokens/src/sass/mixins/space.scss */
+* TODO: Move to anatomy-tokens/src/sass/mixins/space.scss */
 @mixin padding-x($space) {
   padding-right: space($space);
   padding-left: space($space);
@@ -35,16 +35,13 @@ $base: '.bsds-ribbon';
     flex: 1;
   }
 
-  &-is-constrained {
+  &-shadow {
+    box-shadow: $box-shadow-tertiary;
+  }
+
+  &.is-constrained {
     #{$base}-content {
       max-width: var(--app-width);
     }
-  }
-
-  &-with-shadow {
-    /**
-    *  TODO: Confirm this is the correct shadow.
-    *  Design shows 0 0 10px, while `$box-shadow-tertiary` is 0 2px 10px */
-    box-shadow: $box-shadow-tertiary;
   }
 }
