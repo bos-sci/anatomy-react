@@ -5,7 +5,12 @@ import AccordionPanel from './AccordionPanel';
 
 const meta = {
   title: 'Components/Accordion',
-  component: Accordion
+  component: Accordion,
+  argTypes: {
+    children: {
+      control: false
+    }
+  }
 } satisfies Meta<typeof Accordion>;
 
 export default meta;

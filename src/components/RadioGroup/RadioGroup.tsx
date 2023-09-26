@@ -1,4 +1,5 @@
-import { createContext, FieldsetHTMLAttributes, useEffect, useState } from 'react';
+import { createContext, FieldsetHTMLAttributes, ReactElement, useEffect, useState } from 'react';
+import { InputRadioProps } from '../InputRadio';
 
 export const RadioAddonPropsContext = createContext({
   ariaInvalid: false,
@@ -22,6 +23,7 @@ export interface RadioGroupProps extends FieldsetHTMLAttributes<HTMLFieldSetElem
   errorText?: string;
   helpText?: string;
   buttonGroup?: boolean;
+  children: ReactElement<InputRadioProps>[];
 }
 
 export interface AddonProps {

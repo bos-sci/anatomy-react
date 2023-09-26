@@ -14,6 +14,11 @@ const meta = {
     layout: 'centered'
   },
   tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: false
+    }
+  },
   args: {
     title: 'Modal title'
   }

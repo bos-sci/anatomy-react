@@ -16,6 +16,14 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag'
   },
-  staticDirs: ['../public/assets']
+  staticDirs: ['../public/assets'],
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      skipChildrenPropWithoutDoc: false,
+      shouldRemoveUndefinedFromOptional: true
+    }
+  }
 };
 export default config;
