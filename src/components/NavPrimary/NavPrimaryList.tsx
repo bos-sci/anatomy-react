@@ -26,7 +26,7 @@ const NavPrimaryList = (props: NavPrimaryListProps) => {
         'bsds-nav-menu-panel' +
         (parent?.altLinkText && props.depth === 1 ? ' has-header' : '') +
         ((props.history.length === 0 && props.depth === 0) ||
-        (parent && props.history[props.history.length - 1]?.node === parent)
+        (parent !== null && props.history[props.history.length - 1]?.node) === parent
           ? ' bsds-nav-active-list'
           : '') +
         (parent && Array.from(props.history, (h) => h.node).includes(parent) ? ' bsds-nav-list-history' : '')

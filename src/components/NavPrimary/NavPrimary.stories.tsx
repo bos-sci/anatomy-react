@@ -29,7 +29,7 @@ const meta = {
     logo: {
       src: logoTagline,
       alt: 'Boston Scientific',
-      href: '/'
+      href: '.'
     },
     isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => {
       return ref.current?.pathname === window.parent.window.location.pathname;
