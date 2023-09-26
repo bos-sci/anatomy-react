@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import NavSecondary, { NavItemSecondary } from './NavSecondary';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
 const meta = {
   title: 'Components/Secondary navigation',
@@ -17,7 +18,16 @@ const meta = {
   },
   args: {
     location: window.location
-  }
+  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Routes>
+          <Route path="/" element={<Story />} />
+        </Routes>
+      </MemoryRouter>
+    )
+  ]
 } satisfies Meta<typeof NavSecondary>;
 
 export default meta;
@@ -26,37 +36,37 @@ type Story = StoryObj<typeof NavSecondary>;
 const navItems: NavItemSecondary[] = [
   {
     text: 'Page',
-    href: '/page'
+    to: '/page'
   },
   {
     text: 'Active page',
-    href: '#'
+    to: '/'
   },
   {
     text: 'Page group',
     children: [
       {
         text: 'Child page 1',
-        href: '/child-page'
+        to: '/child-page'
       },
       {
         text: 'Child page 2',
-        href: '/child-page'
+        to: '/child-page'
       },
       {
         text: 'Nested page group',
         children: [
           {
             text: 'Nested child page 1',
-            href: '/nested-child-page'
+            to: '/nested-child-page'
           },
           {
             text: 'Nested child page 2',
-            href: '/nested-child-page'
+            to: '/nested-child-page'
           },
           {
             text: 'Nested child page 3',
-            href: '/nested-child-page'
+            to: '/nested-child-page'
           }
         ]
       }
