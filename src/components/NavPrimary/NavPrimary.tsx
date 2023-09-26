@@ -1,4 +1,4 @@
-// TODO: Create default texts object and assign in function params or NavPrimary.defaultProps instead of at each use case then re-enable control in story
+// TODO: ADS-756 Create default texts object and assign in function params or NavPrimary.defaultProps instead of at each use case then re-enable control in story
 
 import { ChangeEvent, FormEvent, MouseEvent, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Location as ReactLocation } from 'react-router-dom';

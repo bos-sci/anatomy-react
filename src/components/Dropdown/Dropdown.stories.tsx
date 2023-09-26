@@ -8,13 +8,6 @@ import Icon from '../Icon';
 const meta = {
   title: 'Components/Dropdown',
   component: Dropdown,
-  parameters: {
-    docs: {
-      story: {
-        height: '20rem'
-      }
-    }
-  },
   args: {
     triggerText: 'Dropdown trigger'
   },

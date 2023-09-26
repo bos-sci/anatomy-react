@@ -15,7 +15,7 @@ const meta = {
   },
   argTypes: {
     navItems: {
-      // TODO: Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
+      // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
       control: false
     },
     searchResults: {
