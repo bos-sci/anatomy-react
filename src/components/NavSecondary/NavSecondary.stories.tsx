@@ -6,6 +6,13 @@ const meta = {
   title: 'Components/Secondary navigation',
   component: NavSecondary,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      story: {
+        height: '20rem'
+      }
+    }
+  },
   argTypes: {
     navItems: {
       // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
