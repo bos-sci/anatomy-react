@@ -9,10 +9,22 @@ const meta = {
   title: 'Components/Dropdown',
   component: Dropdown,
   parameters: {
-    layout: 'centered'
+    docs: {
+      story: {
+        height: '20rem'
+      }
+    }
   },
   args: {
     triggerText: 'Dropdown trigger'
+  },
+  argTypes: {
+    highlightedAction: {
+      control: false
+    },
+    children: {
+      control: false
+    }
   },
   tags: ['autodocs']
 } satisfies Meta<typeof Dropdown>;

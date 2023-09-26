@@ -10,7 +10,7 @@ const meta = {
   component: CardGroup,
   argTypes: {
     children: {
-      control: 'object'
+      control: false
     }
   }
 } satisfies Meta<typeof CardGroup>;

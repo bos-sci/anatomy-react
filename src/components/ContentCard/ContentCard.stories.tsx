@@ -17,6 +17,12 @@ const meta = {
     },
     dropShadow: {
       if: { arg: 'linkHref', truthy: true }
+    },
+    tag: {
+      control: false
+    },
+    image: {
+      control: false
     }
   },
   tags: ['autodocs']

@@ -7,6 +7,11 @@ import InputRadio from '../InputRadio';
 const meta = {
   title: 'Components/Radio group',
   component: RadioGroup,
+  argTypes: {
+    children: {
+      control: false
+    }
+  },
   args: {
     legend: 'Legend'
   }
