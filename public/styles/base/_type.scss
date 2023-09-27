@@ -54,3 +54,16 @@
 .bsds-font-weight-heavy {
   @include font-family-base-heavy;
 }
+
+// TODO: ADS-697 Proposed utility classes for text alignment
+.bsds-text-left {
+  text-align: left;
+}
+
+.bsds-text-center {
+  text-align: center;
+}
+
+.bsds-text-right {
+  text-align: right;
+}

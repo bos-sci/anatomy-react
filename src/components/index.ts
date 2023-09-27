@@ -70,6 +70,9 @@ export { default as ProductCard } from './ProductCard';
 export * from './RadioGroup';
 export { default as RadioGroup } from './RadioGroup';
 
+export * from './Ribbon';
+export { default as Ribbon } from './Ribbon';
+
 export * from './Search';
 export { default as Search } from './Search';
 
