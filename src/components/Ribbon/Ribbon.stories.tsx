@@ -12,5 +12,7 @@ export default meta;
 type Story = StoryObj<typeof Ribbon>;
 
 export const Playground: Story = {
-  render: (args) => <Ribbon {...args}>Ribbon</Ribbon>
+  args: {
+    children: 'Ribbon'
+  }
 };
