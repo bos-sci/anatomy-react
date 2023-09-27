@@ -10,6 +10,7 @@ describe('Button style Radio Group component', () => {
     render(
       <RadioGroup legend="Test button group" buttonGroup>
         <InputRadio label="Test Radio 1" />
+        <InputRadio label="Test Radio 2" />
       </RadioGroup>
     );
     expect(screen.getByRole('radiogroup')).toBeInTheDocument();
@@ -22,6 +23,7 @@ describe('Button style Radio Group component', () => {
     render(
       <RadioGroup legend="Test button group" buttonGroup>
         <InputRadio label="Test Radio 1" onChange={onChange} />
+        <InputRadio label="Test Radio 2" onChange={onChange} />
       </RadioGroup>
     );
 
@@ -39,6 +41,7 @@ describe('Button style Radio Group component', () => {
     render(
       <RadioGroup legend="Test button group" buttonGroup>
         <InputRadio label="Test Radio 1" required />
+        <InputRadio label="Test Radio 2" required />
       </RadioGroup>
     );
     const checkbox = screen.getByLabelText('Test Radio 1');
@@ -53,6 +56,7 @@ describe('Button style Radio Group component', () => {
     render(
       <RadioGroup legend="Test button group" buttonGroup>
         <InputRadio label="Test Radio 1" inputUnavailable />
+        <InputRadio label="Test Radio 2" inputUnavailable />
       </RadioGroup>
     );
     expect(screen.getByText('Test Radio 1')).toHaveClass('bsds-input-radio-label-unavailable');
