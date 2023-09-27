@@ -3,28 +3,35 @@ import Ribbon from './Ribbon';
 
 describe('Ribbon', () => {
   const baseClass = 'bsds-ribbon';
+  const testId = baseClass;
 
   it('renders without crashing', () => {
     render(<Ribbon />);
   });
 
-  it('applies isConstrained class correctly', () => {
-    render(<Ribbon isConstrained />);
-    expect(screen.getByTestId('ribbon')).toHaveClass(`${baseClass}-is-constrained`);
+  it('applies is-constrained class correctly', () => {
+    render(<Ribbon data-testid={testId} isConstrained />);
+    expect(screen.getByTestId(testId)).toHaveClass(`is-constrained`);
   });
 
-  it('applies textAlign class correctly', () => {
-    render(<Ribbon textAlign="center" />);
-    expect(screen.getByTestId('ribbon')).toHaveClass('bsds-text-center');
+  it('applies text alignment class correctly', () => {
+    render(<Ribbon data-testid={testId} textAlign="center" />);
+    expect(screen.getByTestId(testId)).toHaveClass('bsds-text-center');
   });
 
   it('applies variant class correctly', () => {
-    render(<Ribbon variant="informational" />);
-    expect(screen.getByTestId('ribbon')).toHaveClass(`${baseClass}-informational`);
+    render(<Ribbon data-testid={testId} variant="informational" />);
+    expect(screen.getByTestId(testId)).toHaveClass(`${baseClass}-informational`);
   });
 
-  it('applies withShadow class correctly', () => {
-    render(<Ribbon withShadow />);
-    expect(screen.getByTestId('ribbon')).toHaveClass(`${baseClass}-with-shadow`);
+  it('applies shadow class correctly', () => {
+    render(<Ribbon data-testid={testId} withShadow />);
+    expect(screen.getByTestId(testId)).toHaveClass(`${baseClass}-shadow`);
+  });
+
+  it('appends a custom class correctly', () => {
+    const testClassName = 'test-class';
+    render(<Ribbon data-testid={testId} className={testClassName} />);
+    expect(screen.getByTestId(testId)).toHaveClass(...[baseClass, testClassName]);
   });
 });
