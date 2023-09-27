@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import NavPrimary, { NavNodePrimary } from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
-import { complexData, intermediateData, simpleData } from './navPrimaryData';
+import { complexData, intermediateData, simpleData, utilityData } from './navPrimaryData';
 import { RefObject } from 'react';
 
 const meta = {
@@ -67,5 +67,12 @@ export const Intermediate: Story = {
 export const Complex: Story = {
   args: {
     navItems: complexData
+  }
+};
+
+export const Utility: Story = {
+  args: {
+    navItems: intermediateData,
+    utilityItems: utilityData
   }
 };
