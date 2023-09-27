@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import NavPrimary, { NavNodePrimary } from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
-import { complexData, intermediateData, simpleData } from './navPrimaryData';
+import { complexData, intermediateData, simpleData, utilityData } from './navPrimaryData';
 import { RefObject } from 'react';
 
 const meta = {
@@ -22,6 +22,9 @@ const meta = {
       // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
       control: false
     },
+    utilityItems: {
+      control: false
+    },
     searchResults: {
       control: false
     },
@@ -39,7 +42,8 @@ const meta = {
       return ref.current?.href === window.location.href;
     },
     navigateToSearchResult: (result) => (window.location.href = result.href as string),
-    location: window.location
+    location: window.location,
+    utilityItems: utilityData
   }
 } satisfies Meta<typeof NavPrimary>;
 
