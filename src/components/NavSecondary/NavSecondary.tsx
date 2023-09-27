@@ -1,3 +1,5 @@
+// TODO: ADS-756 Create default texts object and assign in function params or NavSecondary.defaultProps instead of at each use case then re-enable control in story
+
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { Location as ReactLocation } from 'react-router-dom';
 import { RequireOnlyOne, NavItem } from '../../types';
@@ -7,6 +9,7 @@ import NavSecondaryList from './NavSecondaryList';
 interface NavItemExtended extends NavItem {
   pathname?: string;
   children?: NavItemSecondary[];
+  isActive?: (location: Location | ReactLocation) => boolean;
 }
 
 export type NavItemSecondary = RequireOnlyOne<NavItemExtended, 'to' | 'href' | 'children'>;
@@ -20,7 +23,13 @@ export type NavNodeSecondary = RequireOnlyOne<NavTreeNode, 'to' | 'href' | 'chil
 
 export interface NavSecondaryProps {
   navItems: NavItemSecondary[];
+  /**
+   * Manually set the route for the current page
+   */
   activeSlug?: string;
+  /**
+   * The current application location. Either window.location, react-router location, or other equivalent object
+   */
   location: Location | ReactLocation;
   texts?: {
     menuToggleAriaLabel?: string;
@@ -145,6 +154,7 @@ const NavSecondary = ({ navItems, activeSlug, location, texts }: NavSecondaryPro
           activeParentRef={activeParentRef}
           setActiveParentRef={setActiveParentRef}
           expandedChild={expandedChild}
+          location={location}
         />
       </div>
     </nav>

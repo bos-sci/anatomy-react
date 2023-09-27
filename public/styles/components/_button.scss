@@ -32,6 +32,8 @@
       height: $icon-size;
       background: $action-primary-40;
       content: '';
+      /* stylelint-disable property-no-vendor-prefix */
+      -webkit-mask: url('../../assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
       mask: url('../../assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
       mask-size: cover;
     }
@@ -44,6 +46,14 @@
         text-decoration-line: underline;
         text-decoration-thickness: space(xs);
       }
+    }
+
+    &.bsds-button-small {
+      // TODO: the subtle nav back button currently uses the default button padding rather than the small button padding.
+      // This is a temporary fix that we should eventually review and standardize.
+      @include font-size($fs-body-subtle);
+      padding: space(lg) space(3x) 0.6875rem;
+      padding-left: calc(space(2x) + $icon-size + space(md)); // Padding + icon width + space between icon and text
     }
   }
 }

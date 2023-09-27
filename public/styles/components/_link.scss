@@ -54,9 +54,28 @@ a {
     @include button-default;
     text-decoration: none;
 
-    .bsds-link-cta-icon {
+    &::after {
       width: $ffs-body-assertive;
+      height: $ffs-body-assertive;
       margin-left: space(md);
+      background: $action-primary-40;
+      content: '';
+      /* stylelint-disable property-no-vendor-prefix */
+      -webkit-mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
+      mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
+    }
+
+    &:visited {
+      color: $action-primary-40;
+    }
+
+    &:not([disabled]) {
+      &:hover,
+      &:active {
+        &::after {
+          background: $neutral-100;
+        }
+      }
     }
   }
 }

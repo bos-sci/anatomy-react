@@ -12,9 +12,13 @@ import {
 import IconChevronLeft from '../Icon/icons/IconChevronLeft';
 import IconChevronRight from '../Icon/icons/IconChevronRight';
 import Tab from './Tab';
+import { TabPanelProps } from './TabPanel';
 
 export interface TabsProps {
-  children: ReactElement[] | ReactElement;
+  children: ReactElement<TabPanelProps>[];
+  /**
+   * Label that describes the purpose of the set of tabs
+   */
   tablistLabel: string;
 }
 
@@ -23,7 +27,7 @@ let tabsId = 0;
 const Tabs = (props: TabsProps): JSX.Element => {
   const [selectedTab, setSelectedTab] = useState(0);
   const [tabPanelId, setTabPanelId] = useState('');
-  const [tabPanels, setTabPanels] = useState<ReactElement[]>([]);
+  const [tabPanels, setTabPanels] = useState<ReactElement<TabPanelProps>[]>([]);
   const [tabRefs, setTabRefs] = useState<RefObject<HTMLButtonElement>[]>([]);
   const [hasOverflow, setHasOverflow] = useState(false);
   const [visibleRange, setVisibleRange] = useState([0, 0]);

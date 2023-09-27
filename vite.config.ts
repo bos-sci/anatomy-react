@@ -13,8 +13,9 @@ export default defineConfig({
 
       fileName: (format) => `anatomy-react.${format}.js`
     },
+    sourcemap: true,
     rollupOptions: {
-      external: ['react'],
+      external: ['react', 'react-dom', 'react-router-dom'],
       output: {
         globals: {
           react: 'React'

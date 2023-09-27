@@ -1,3 +1,5 @@
+// TODO: ADS-756 Create default texts object and assign in function params or NavWizard.defaultProps instead of at each use case then re-enable control in story
+
 import { RefObject, useEffect, useState, useRef } from 'react';
 import { RequireOnlyOne } from '../../types';
 import Button from '../Button';
@@ -11,6 +13,7 @@ interface NavItemWizardBase extends NavItem {
   overflowTo?: string;
   overflowHref?: string;
   overflowLinkText?: string;
+  isActive?: () => boolean;
 }
 
 export type NavItemWizard = RequireOnlyOne<NavItemWizardBase, 'to' | 'href' | 'children'>;

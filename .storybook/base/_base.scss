@@ -1,0 +1,11 @@
+@import 'actions';
+@import 'data-tables';
+@import 'helpers';
+@import 'type';
+
+// Taken from anatomy-docs layout
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}

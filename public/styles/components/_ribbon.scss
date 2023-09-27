@@ -1,0 +1,46 @@
+// TODO: ADS-697 Proposed addition to anatomy-tokens/src/sass/mixins/space.scss
+@mixin padding-x($space) {
+  padding-right: space($space);
+  padding-left: space($space);
+}
+@mixin padding-y($space) {
+  padding-top: space($space);
+  padding-bottom: space($space);
+}
+@mixin padding($space) {
+  @include padding-x($space);
+  @include padding-y($space);
+}
+
+$base: '.bsds-ribbon';
+
+#{$base} {
+  display: flex;
+  justify-content: center;
+  background-color: $neutral-95;
+
+  @include padding-x(3x);
+  @include padding-y(lg);
+
+  @media (min-width: $breakpoint-md-min) {
+    @include padding(3x);
+  }
+
+  &-informational {
+    background-color: $action-primary-97;
+  }
+
+  &-content {
+    flex: 1;
+  }
+
+  &-shadow {
+    box-shadow: $box-shadow-tertiary;
+  }
+
+  &.is-constrained {
+    #{$base}-content {
+      max-width: var(--app-width);
+    }
+  }
+}

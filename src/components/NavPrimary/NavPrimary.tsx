@@ -1,3 +1,5 @@
+// TODO: ADS-756 Create default texts object and assign in function params or NavPrimary.defaultProps instead of at each use case then re-enable control in story
+
 import { ChangeEvent, FormEvent, MouseEvent, RefObject, useCallback, useEffect, useRef, useState } from 'react';
 import { Location as ReactLocation } from 'react-router-dom';
 import { RequireOnlyOne, NavItem } from '../../types';
@@ -73,7 +75,7 @@ export interface NavPrimaryProps {
   searchResults?: SearchResult[];
   location: Location | ReactLocation;
   isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
-  navigateToSearchResult: (result: SearchResult) => void;
+  navigateToSearchResult?: (result: SearchResult) => void;
   onSearch?: (query: string, e: FormEvent<HTMLFormElement>) => void;
   onSearchChange?: (query: string, e: ChangeEvent<HTMLInputElement>) => void;
 }
@@ -268,8 +270,10 @@ const NavPrimary = ({
   const isCurrent = (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>): boolean => {
     if (node.isActive) {
       return node.isActive(location);
-    } else {
+    } else if (isActiveNode) {
       return isActiveNode(node, ref);
+    } else {
+      return false;
     }
   };
 
@@ -325,6 +329,7 @@ const NavPrimary = ({
                     className={`bsds-nav-link${isCurrent(navItem as NavNodePrimary, linkRef) ? ' is-current' : ''}`}
                     aria-current={(isCurrent(navItem as NavNodePrimary, linkRef) && 'page') ?? undefined}
                     role="menuitem"
+                    isNavLink
                   >
                     {navItem.text}
                   </Link>
@@ -351,7 +356,7 @@ const NavPrimary = ({
                   )}
               </li>
             ))}
-            {!!hasSearch && (
+            {!!hasSearch && !!navigateToSearchResult && (
               <li role="none" className="bsds-nav-item bsds-nav-item-search">
                 {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
                 <Button
@@ -395,7 +400,7 @@ const NavPrimary = ({
             navItems={navTree}
             utilityItems={utilityItems}
             activeNode={activeNode}
-            isActiveNode={isActiveNode}
+            isActiveNode={isCurrent}
             setActiveNode={setActiveNode}
             menuId={menuId}
             isMenuExpanded={isMenuExpanded}

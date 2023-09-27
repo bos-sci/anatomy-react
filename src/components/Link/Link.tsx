@@ -3,35 +3,44 @@
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
 import { NavLink, Link as RouterLink, To } from 'react-router-dom';
 
+export type LinkVariants = '' | 'cta' | 'ghost' | 'nav' | 'subtle';
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   href?: string;
   to?: To;
-  variant?: string;
+  variant?: LinkVariants;
   isNavLink?: boolean;
+  isCurrentPage?: boolean;
   target?: string;
   rel?: string;
 }
 
 const Link = forwardRef(
   (
-    { variant, href, to, isNavLink, className, children, target, rel, ...linkAttrs }: LinkProps,
+    { variant, href, to, isNavLink, isCurrentPage, className, children, target, rel, ...linkAttrs }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>
   ): JSX.Element => {
     let classes = '';
     switch (variant) {
-      case 'subtle':
-        classes = 'bsds-link-subtle';
+      case 'cta':
+        classes = 'bsds-link-cta';
         break;
       case 'ghost':
         classes = 'bsds-link-ghost';
         break;
-      case 'cta':
-        classes = 'bsds-link-cta';
+      case 'nav':
+        classes = 'bsds-link-nav';
+        break;
+      case 'subtle':
+        classes = 'bsds-link-subtle';
         break;
       default:
         classes = 'bsds-link';
         break;
+    }
+
+    if (isCurrentPage) {
+      classes += ' is-active';
     }
 
     const [relAttr, setRelAttr] = useState(rel);
@@ -54,7 +63,10 @@ const Link = forwardRef(
           <NavLink
             ref={ref}
             to={to}
-            className={({ isActive }) => `${classes} ${className}` + (isActive ? ' is-active' : '')}
+            className={({ isActive }) =>
+              `${classes} ${className}` +
+              (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : '')
+            }
             target={target}
             rel={relAttr}
             {...linkAttrs}

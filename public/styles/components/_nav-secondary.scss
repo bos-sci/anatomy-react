@@ -20,7 +20,7 @@
 .bsds-nav-secondary {
   position: relative;
   z-index: 50;
-  grid-area: nav-secondary;
+  grid-area: nav-secondary; // TODO: move into docs site
   width: 100%;
   transition: width 0.25s ease-out;
 

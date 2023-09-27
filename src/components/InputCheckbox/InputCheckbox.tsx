@@ -8,6 +8,7 @@ import {
   MutableRefObject,
   useCallback,
   useEffect,
+  useId,
   useRef,
   useState
 } from 'react';
@@ -20,8 +21,6 @@ export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement
   forceValidation?: boolean;
 }
 
-let checkboxId = 0;
-
 const InputCheckbox = forwardRef(
   (
     { label, helpText, errorText, forceValidation, onBlur, onChange, onInvalid, ...inputAttrs }: InputCheckboxProps,
@@ -31,6 +30,8 @@ const InputCheckbox = forwardRef(
     const [helpTextId, setHelpTextId] = useState('');
     const [errorTextId, setErrorTextId] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+
+    const id = useId();
 
     const inputEl = useRef<HTMLInputElement>(null);
 
@@ -65,22 +66,21 @@ const InputCheckbox = forwardRef(
     };
 
     useEffect(() => {
+      inputEl?.current?.setCustomValidity(errorText ? errorText : '');
+    }, [inputEl, errorText]);
+
+    useEffect(() => {
       if (forceValidation) {
         validate();
       }
     }, [forceValidation, validate]);
 
-    useEffect(() => {
-      inputEl?.current?.setCustomValidity(errorText ? errorText : '');
-    }, [inputEl, errorText]);
-
     // Component mount
     useEffect(() => {
-      const idNum = ++checkboxId;
-      setInputId('checkbox' + idNum);
-      setHelpTextId('checkboxHelpText' + idNum);
-      setErrorTextId('checkboxErrorText' + idNum);
-    }, []);
+      setInputId(id + 'checkbox');
+      setHelpTextId(id + 'checkboxHelpText');
+      setErrorTextId(id + 'checkboxErrorText');
+    }, [id]);
 
     return (
       <div className="bsds-field">

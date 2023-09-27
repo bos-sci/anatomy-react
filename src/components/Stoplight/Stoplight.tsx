@@ -31,6 +31,7 @@ const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): J
       break;
   }
 
+  // TODO: replace ghost with theming
   let textColorClasses = '';
   switch (textColor) {
     case 'ghost':

@@ -13,8 +13,8 @@ import {
   useRef,
   useState
 } from 'react';
-import Button, { ButtonProps } from '../Button';
-import { LinkProps } from '../Link';
+import Button, { ButtonProps, ButtonVariants } from '../Button';
+import { LinkProps, LinkVariants } from '../Link';
 
 export interface ModalRef {
   showModal: () => void;
@@ -62,7 +62,7 @@ const Modal = forwardRef(
     useEffect(() => {
       if (positiveAction) {
         const attrs = {
-          variant: 'assertive',
+          variant: 'assertive' as LinkVariants,
           className: ''
         };
         if ((positiveAction.type as FunctionComponent).displayName === 'Link') {
@@ -76,7 +76,7 @@ const Modal = forwardRef(
     useEffect(() => {
       if (negativeAction) {
         const attrs = {
-          variant: hasClose ? 'subtle' : 'default',
+          variant: (hasClose ? 'subtle' : 'default') as ButtonVariants,
           className: ''
         };
         if ((negativeAction.type as FunctionComponent).displayName === 'Link') {

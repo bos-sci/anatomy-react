@@ -1,9 +1,11 @@
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useEffect, useState } from 'react';
 import Icon from '../Icon';
 
+export type ButtonVariants = '' | 'assertive' | 'ghost' | 'subtle';
+
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
-  variant?: string;
+  variant?: ButtonVariants;
   size?: 'small' | null;
   icon?: string;
   iconAlignment?: 'left' | 'right';

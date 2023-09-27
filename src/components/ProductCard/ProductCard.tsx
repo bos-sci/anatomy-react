@@ -4,6 +4,7 @@ import Link from '../Link';
 import { TagProps } from '../Tag';
 import { ImageProps } from '../Image';
 
+export type ProductCardVariants = '' | 'ghost' | 'border-light' | 'border-ghost';
 export interface ProductCardProps {
   tag?: ReactElement<TagProps>;
   texts: {
@@ -13,7 +14,7 @@ export interface ProductCardProps {
   linkTo: string;
   headingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   assertiveTitle?: boolean;
-  variant?: 'ghost' | 'border-light' | 'border-ghost';
+  variant?: ProductCardVariants;
   image?: ReactElement<ImageProps>;
   gradientBrand?: boolean;
   dropShadow?: boolean;

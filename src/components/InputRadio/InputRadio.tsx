@@ -9,6 +9,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useId,
   useRef,
   useState
 } from 'react';
@@ -23,8 +24,6 @@ export interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   inputUnavailable?: boolean;
 }
 
-let radioId = 0;
-
 const InputRadio = forwardRef(
   (
     { label, helpText, forceValidation, inputUnavailable, onBlur, onInput, onInvalid, ...inputAttrs }: InputRadioProps,
@@ -33,8 +32,11 @@ const InputRadio = forwardRef(
     const [inputId, setInputId] = useState('');
     const [helpTextId, setHelpTextId] = useState('');
     const [errorText, setErrorText] = useState('');
+    const [describedBy, setDescribedBy] = useState('');
     const [isGroupStyle, setIsGroupStyle] = useState(false);
     const addonProps: AddonProps = useContext(RadioAddonPropsContext);
+
+    const id = useId();
 
     const inputEl = useRef<HTMLInputElement>(null);
 
@@ -71,6 +73,12 @@ const InputRadio = forwardRef(
     };
 
     useEffect(() => {
+      const help = helpText ? helpTextId : '';
+      const describedBy = addonProps.isDirty ? addonProps.ariaDescribedby : '';
+      setDescribedBy([help, describedBy].join(' ').trim());
+    }, [addonProps.ariaDescribedby, addonProps.isDirty, helpText, helpTextId]);
+
+    useEffect(() => {
       if (addonProps.isDirty) {
         setErrorText(addonProps.errorText);
       }
@@ -88,10 +96,9 @@ const InputRadio = forwardRef(
     }, [inputEl, errorText]);
 
     useEffect(() => {
-      const idNum = ++radioId;
-      setInputId('radio' + idNum);
-      setHelpTextId('radioHelpText' + idNum);
-    }, []);
+      setInputId(id + 'radio');
+      setHelpTextId(id + 'radioHelpText');
+    }, [id]);
 
     useEffect(() => {
       if (addonProps.buttonGroup) {
@@ -115,7 +122,7 @@ const InputRadio = forwardRef(
           type="radio"
           id={inputId}
           className="bsds-input-radio"
-          aria-describedby={`${helpTextId} ${addonProps.isDirty ? addonProps.ariaDescribedby : ''}`}
+          aria-describedby={describedBy}
           onInvalid={handleInvalid}
           onBlur={handleBlur}
           onInput={handleChange}

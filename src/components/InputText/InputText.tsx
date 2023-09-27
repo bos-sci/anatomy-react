@@ -18,6 +18,10 @@ export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   helpText?: string;
   errorText?: string;
   requiredText?: string;
+  /**
+   * When true, component validates on load, blur, and change.
+   * When false, component validates on blur and change.
+   */
   forceValidation?: boolean;
 }
 

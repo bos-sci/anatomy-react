@@ -9,18 +9,25 @@
 import { Children, createRef, Fragment, ReactElement, useEffect, useId, useRef, useState } from 'react';
 import HeadingElement from '../Heading';
 import AccordionHeading from './AccordionHeading';
+import { AccordionPanelProps } from './AccordionPanel';
 
 export type AccordionProps = {
+  /**
+   * Heading to be used for the panel headers
+   */
   headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  /**
+   * Accordions appear in a container with condensed spacing
+   */
   isContained?: boolean;
-  children: ReactElement[] | ReactElement;
+  children: ReactElement<AccordionPanelProps>[] | ReactElement<AccordionPanelProps>;
 };
 
 const Accordion = ({ headingLevel = 'h2', isContained = false, children }: AccordionProps): JSX.Element => {
   const accordionId = useId();
 
   const [expandedPanels, setExpandedPanels] = useState(new Set<number>());
-  const [accordionPanels, setAccordionPanels] = useState<ReactElement[]>([]);
+  const [accordionPanels, setAccordionPanels] = useState<ReactElement<AccordionPanelProps>[]>([]);
 
   const panelRefs = useRef(Children.map(children, () => createRef<HTMLDivElement>()));
 
