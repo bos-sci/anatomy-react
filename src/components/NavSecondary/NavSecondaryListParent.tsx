@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, RefObject } from 'react';
 import Button from '../Button';
 import NavSecondaryList from './NavSecondaryList';
 import { NavNodeSecondary } from './NavSecondary';
+import { Location as ReactLocation } from 'react-router-dom';
 
 interface NavParentProps {
   navItem: NavNodeSecondary;
@@ -9,6 +10,7 @@ interface NavParentProps {
   activeParentRef: RefObject<HTMLButtonElement> | null;
   setActiveParentRef: (ref: RefObject<HTMLButtonElement> | null) => unknown;
   expandedChild: (node: NavNodeSecondary | null) => unknown;
+  location: Location | ReactLocation;
 }
 
 let navParentId = 0;
@@ -18,7 +20,8 @@ const NavSecondaryListParent = ({
   activeParent,
   activeParentRef,
   setActiveParentRef,
-  expandedChild
+  expandedChild,
+  location
 }: NavParentProps) => {
   const [navListId, setNavListId] = useState('');
   const parentBtnRef = useRef<HTMLButtonElement>(null);
@@ -55,6 +58,7 @@ const NavSecondaryListParent = ({
           activeParentRef={activeParentRef}
           setActiveParentRef={setActiveParentRef}
           expandedChild={expandedChild}
+          location={location}
         />
       )}
     </li>

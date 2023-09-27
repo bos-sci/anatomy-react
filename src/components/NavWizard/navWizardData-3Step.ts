@@ -13,8 +13,9 @@ const exampleData: NavItemWizard[] = [
         overflowHref: 'docs-demo-link',
         children: [
           {
-            text: 'Page 1',
-            href: '.'
+            text: 'Current page',
+            href: '.',
+            isActive: () => true
           },
           {
             text: 'Page 2',

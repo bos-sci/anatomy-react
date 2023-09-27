@@ -4,7 +4,6 @@ import NavPrimary, { NavNodePrimary } from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
 import { complexData, intermediateData, simpleData } from './navPrimaryData';
 import { RefObject } from 'react';
-import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
 const meta = {
   title: 'Components/Primary navigation',
@@ -36,16 +35,7 @@ const meta = {
     },
     navigateToSearchResult: (result) => (window.location.href = result.href as string),
     location: window.parent.window.location
-  },
-  decorators: [
-    (Story) => (
-      <MemoryRouter>
-        <Routes>
-          <Route path="/" element={<Story />} />
-        </Routes>
-      </MemoryRouter>
-    )
-  ]
+  }
 } satisfies Meta<typeof NavPrimary>;
 
 export default meta;
