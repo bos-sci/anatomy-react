@@ -22,6 +22,9 @@ const meta = {
       // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
       control: false
     },
+    utilityItems: {
+      control: false
+    },
     searchResults: {
       control: false
     },
@@ -39,7 +42,8 @@ const meta = {
       return ref.current?.href === window.location.href;
     },
     navigateToSearchResult: (result) => (window.location.href = result.href as string),
-    location: window.location
+    location: window.location,
+    utilityItems: utilityData
   }
 } satisfies Meta<typeof NavPrimary>;
 
@@ -67,12 +71,5 @@ export const Intermediate: Story = {
 export const Complex: Story = {
   args: {
     navItems: complexData
-  }
-};
-
-export const Utility: Story = {
-  args: {
-    navItems: intermediateData,
-    utilityItems: utilityData
   }
 };
