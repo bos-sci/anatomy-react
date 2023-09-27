@@ -258,7 +258,8 @@ export const complexData: NavItemPrimary[] = [
           },
           {
             text: 'Current page',
-            to: '.'
+            to: '.',
+            isActive: () => true
           },
           {
             text: 'Page 3',

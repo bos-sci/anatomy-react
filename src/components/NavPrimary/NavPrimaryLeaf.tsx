@@ -19,7 +19,15 @@ const NavPrimaryLeaf = (props: NavPrimaryLeafProps) => {
 
   return (
     <li className="bsds-nav-item">
-      <Link ref={linkRef} href={props.navItem.href} to={props.navItem.to} className="bsds-nav-link" isNavLink>
+      <Link
+        ref={linkRef}
+        href={props.navItem.href}
+        to={props.navItem.to}
+        className="bsds-nav-link"
+        isCurrentPage={props.isActiveNode(props.navItem, linkRef)}
+        aria-current={props.isActiveNode(props.navItem, linkRef) && 'page'}
+        isNavLink
+      >
         {props.navItem.text}
       </Link>
     </li>
