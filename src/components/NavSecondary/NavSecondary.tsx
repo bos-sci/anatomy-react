@@ -9,6 +9,7 @@ import NavSecondaryList from './NavSecondaryList';
 interface NavItemExtended extends NavItem {
   pathname?: string;
   children?: NavItemSecondary[];
+  isActive?: (location: Location | ReactLocation) => boolean;
 }
 
 export type NavItemSecondary = RequireOnlyOne<NavItemExtended, 'to' | 'href' | 'children'>;
@@ -153,6 +154,7 @@ const NavSecondary = ({ navItems, activeSlug, location, texts }: NavSecondaryPro
           activeParentRef={activeParentRef}
           setActiveParentRef={setActiveParentRef}
           expandedChild={expandedChild}
+          location={location}
         />
       </div>
     </nav>

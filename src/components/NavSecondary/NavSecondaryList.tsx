@@ -2,6 +2,7 @@ import { RefObject } from 'react';
 import Link from '../Link';
 import NavSecondaryListParent from './NavSecondaryListParent';
 import { NavNodeSecondary } from './NavSecondary';
+import { Location as ReactLocation } from 'react-router-dom';
 
 interface NavListProps {
   navListId?: string;
@@ -11,6 +12,7 @@ interface NavListProps {
   activeParentRef: RefObject<HTMLButtonElement> | null;
   setActiveParentRef: (ref: RefObject<HTMLButtonElement> | null) => unknown;
   expandedChild: (node: NavNodeSecondary | null) => unknown;
+  location: Location | ReactLocation;
 }
 
 const NavSecondaryList = ({
@@ -20,7 +22,8 @@ const NavSecondaryList = ({
   activeParent,
   activeParentRef,
   setActiveParentRef,
-  expandedChild
+  expandedChild,
+  location
 }: NavListProps) => {
   return (
     <ul
@@ -32,7 +35,13 @@ const NavSecondaryList = ({
         if (navItem.to || navItem.href) {
           return (
             <li key={`secondaryNavItem${navItem.text}`} className="bsds-nav-item">
-              <Link to={navItem.to} href={navItem.href} className="bsds-nav-link" isNavLink>
+              <Link
+                to={navItem.to}
+                href={navItem.href}
+                className="bsds-nav-link"
+                isCurrentPage={!!(navItem.isActive && navItem.isActive(location))}
+                isNavLink
+              >
                 {navItem.text}
               </Link>
             </li>
@@ -46,6 +55,7 @@ const NavSecondaryList = ({
               activeParentRef={activeParentRef}
               setActiveParentRef={setActiveParentRef}
               expandedChild={expandedChild}
+              location={location}
             />
           );
         }

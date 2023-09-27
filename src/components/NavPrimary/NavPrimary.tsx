@@ -270,8 +270,10 @@ const NavPrimary = ({
   const isCurrent = (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>): boolean => {
     if (node.isActive) {
       return node.isActive(location);
-    } else {
+    } else if (isActiveNode) {
       return isActiveNode(node, ref);
+    } else {
+      return false;
     }
   };
 
@@ -327,6 +329,7 @@ const NavPrimary = ({
                     className={`bsds-nav-link${isCurrent(navItem as NavNodePrimary, linkRef) ? ' is-current' : ''}`}
                     aria-current={(isCurrent(navItem as NavNodePrimary, linkRef) && 'page') ?? undefined}
                     role="menuitem"
+                    isNavLink
                   >
                     {navItem.text}
                   </Link>
@@ -397,7 +400,7 @@ const NavPrimary = ({
             navItems={navTree}
             utilityItems={utilityItems}
             activeNode={activeNode}
-            isActiveNode={isActiveNode}
+            isActiveNode={isCurrent}
             setActiveNode={setActiveNode}
             menuId={menuId}
             isMenuExpanded={isMenuExpanded}

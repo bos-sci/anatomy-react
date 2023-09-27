@@ -141,7 +141,8 @@ export const simpleData: NavItemPrimary[] = [
   },
   {
     text: 'Current page',
-    href: '.'
+    href: '/',
+    isActive: () => true
   },
   {
     text: 'Page 4',
@@ -167,7 +168,8 @@ export const intermediateData: NavItemPrimary[] = [
       },
       {
         text: 'Current page',
-        href: '.'
+        href: '.',
+        isActive: () => true
       },
       {
         text: 'Child page 3',
@@ -258,7 +260,8 @@ export const complexData: NavItemPrimary[] = [
           },
           {
             text: 'Current page',
-            href: '.'
+            href: '.',
+            isActive: () => true
           },
           {
             text: 'Page 3',

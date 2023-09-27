@@ -37,7 +37,8 @@ const navItems: NavItemSecondary[] = [
   },
   {
     text: 'Active page',
-    href: '#'
+    href: '/',
+    isActive: () => true
   },
   {
     text: 'Page group',

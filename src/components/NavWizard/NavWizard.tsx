@@ -13,6 +13,7 @@ interface NavItemWizardBase extends NavItem {
   overflowTo?: string;
   overflowHref?: string;
   overflowLinkText?: string;
+  isActive?: () => boolean;
 }
 
 export type NavItemWizard = RequireOnlyOne<NavItemWizardBase, 'to' | 'href' | 'children'>;
