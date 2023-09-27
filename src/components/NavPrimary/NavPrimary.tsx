@@ -398,6 +398,7 @@ const NavPrimary = ({
           <NavPrimaryMenu
             ref={menuRef}
             navItems={navTree}
+            utilityItems={utilityItems}
             activeNode={activeNode}
             isActiveNode={isCurrent}
             setActiveNode={setActiveNode}

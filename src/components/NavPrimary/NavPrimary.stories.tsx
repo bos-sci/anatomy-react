@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import NavPrimary, { NavNodePrimary } from './NavPrimary';
+import NavPrimary from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
 import { complexData, intermediateData, simpleData, utilityData } from './navPrimaryData';
-import { RefObject } from 'react';
 
 const meta = {
   title: 'Components/Primary navigation',
@@ -37,9 +36,6 @@ const meta = {
       src: logoTagline,
       alt: 'Boston Scientific',
       href: '.'
-    },
-    isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => {
-      return ref.current?.pathname === window.parent.window.location.pathname;
     },
     navigateToSearchResult: (result) => (window.location.href = result.href as string),
     location: window.location,
