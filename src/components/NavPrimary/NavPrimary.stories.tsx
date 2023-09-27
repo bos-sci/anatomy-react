@@ -10,7 +10,12 @@ const meta = {
   component: NavPrimary,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen'
+    layout: 'fullscreen',
+    docs: {
+      story: {
+        height: '42rem'
+      }
+    }
   },
   argTypes: {
     navItems: {
