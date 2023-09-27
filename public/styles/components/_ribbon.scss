@@ -1,5 +1,4 @@
-/**
-* TODO: Move to anatomy-tokens/src/sass/mixins/space.scss */
+// TODO: ADS-697 Proposed addition to anatomy-tokens/src/sass/mixins/space.scss
 @mixin padding-x($space) {
   padding-right: space($space);
   padding-left: space($space);
