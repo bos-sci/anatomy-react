@@ -1,6 +1,7 @@
-import type { Meta } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import NavSecondary, { NavItemSecondary, NavSecondaryProps } from './NavSecondary';
+import NavSecondary, { NavItemSecondary } from './NavSecondary';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 
 const meta = {
   title: 'Components/Secondary navigation',
@@ -8,53 +9,73 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     navItems: {
+      // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
+      control: false
+    },
+    texts: {
       control: false
     }
-  }
+  },
+  args: {
+    location: window.location
+  },
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Routes>
+          <Route path="/" element={<Story />} />
+        </Routes>
+      </MemoryRouter>
+    )
+  ]
 } satisfies Meta<typeof NavSecondary>;
 
 export default meta;
+type Story = StoryObj<typeof NavSecondary>;
 
-export const Playground = ({ location, navItems, ...args }: NavSecondaryProps) => {
-  const items: NavItemSecondary[] = [
-    {
-      text: 'Page',
-      href: '/page'
-    },
-    {
-      text: 'Active page',
-      href: '#'
-    },
-    {
-      text: 'Page group',
-      children: [
-        {
-          text: 'Child page 1',
-          href: '/child-page'
-        },
-        {
-          text: 'Child page 2',
-          href: '/child-page'
-        },
-        {
-          text: 'Nested page group',
-          children: [
-            {
-              text: 'Nested child page 1',
-              href: '/nested-child-page'
-            },
-            {
-              text: 'Nested child page 2',
-              href: '/nested-child-page'
-            },
-            {
-              text: 'Nested child page 3',
-              href: '/nested-child-page'
-            }
-          ]
-        }
-      ]
-    }
-  ];
-  return <NavSecondary navItems={items} location={window.location} {...args} />;
+const navItems: NavItemSecondary[] = [
+  {
+    text: 'Page',
+    to: '/page'
+  },
+  {
+    text: 'Active page',
+    to: '/'
+  },
+  {
+    text: 'Page group',
+    children: [
+      {
+        text: 'Child page 1',
+        to: '/child-page'
+      },
+      {
+        text: 'Child page 2',
+        to: '/child-page'
+      },
+      {
+        text: 'Nested page group',
+        children: [
+          {
+            text: 'Nested child page 1',
+            to: '/nested-child-page'
+          },
+          {
+            text: 'Nested child page 2',
+            to: '/nested-child-page'
+          },
+          {
+            text: 'Nested child page 3',
+            to: '/nested-child-page'
+          }
+        ]
+      }
+    ]
+  }
+];
+
+export const Playground: Story = {
+  args: {
+    navItems
+  }
 };

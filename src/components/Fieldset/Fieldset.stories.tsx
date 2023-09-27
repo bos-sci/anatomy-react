@@ -8,7 +8,12 @@ import Textarea from '../Textarea/Textarea';
 const meta = {
   title: 'Components/Fieldset',
   component: Fieldset,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    children: {
+      control: false
+    }
+  }
 } satisfies Meta<typeof Fieldset>;
 
 export default meta;

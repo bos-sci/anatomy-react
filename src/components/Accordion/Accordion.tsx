@@ -9,6 +9,7 @@
 import { Children, createRef, Fragment, ReactElement, useEffect, useId, useRef, useState } from 'react';
 import HeadingElement from '../Heading';
 import AccordionHeading from './AccordionHeading';
+import { AccordionPanelProps } from './AccordionPanel';
 
 export type AccordionProps = {
   /**
@@ -19,14 +20,14 @@ export type AccordionProps = {
    * Accordions appear in a container with condensed spacing
    */
   isContained?: boolean;
-  children: ReactElement[] | ReactElement;
+  children: ReactElement<AccordionPanelProps>[] | ReactElement<AccordionPanelProps>;
 };
 
 const Accordion = ({ headingLevel = 'h2', isContained = false, children }: AccordionProps): JSX.Element => {
   const accordionId = useId();
 
   const [expandedPanels, setExpandedPanels] = useState(new Set<number>());
-  const [accordionPanels, setAccordionPanels] = useState<ReactElement[]>([]);
+  const [accordionPanels, setAccordionPanels] = useState<ReactElement<AccordionPanelProps>[]>([]);
 
   const panelRefs = useRef(Children.map(children, () => createRef<HTMLDivElement>()));
 

@@ -15,6 +15,13 @@ const meta = {
   },
   argTypes: {
     navItems: {
+      // TODO: ADS-755 Figure out how to show this control by resolving cyclic object error when shown (occurs on navigation)
+      control: false
+    },
+    searchResults: {
+      control: false
+    },
+    texts: {
       control: false
     }
   },
@@ -22,7 +29,7 @@ const meta = {
     logo: {
       src: logoTagline,
       alt: 'Boston Scientific',
-      href: '/'
+      href: '.'
     },
     isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => {
       return ref.current?.pathname === window.parent.window.location.pathname;

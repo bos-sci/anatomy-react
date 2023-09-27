@@ -1,3 +1,5 @@
+// TODO: ADS-756 Create default texts object and assign in function params or NavSecondary.defaultProps instead of at each use case then re-enable control in story
+
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { Location as ReactLocation } from 'react-router-dom';
 import { RequireOnlyOne, NavItem } from '../../types';
