@@ -56,7 +56,8 @@ const NavWizardList = (props: NavWizardListProps) => {
                 href={navItem.href}
                 to={navItem.to}
                 className="bsds-nav-link"
-                isCurrentPage={!!(navItem.isActive ? navItem.isActive() : undefined)}
+                // eslint-disable-next-line react/jsx-no-leaked-render
+                isCurrentPage={navItem.isActive ? navItem.isActive() : undefined}
                 isNavLink
               >
                 {navItem.text}

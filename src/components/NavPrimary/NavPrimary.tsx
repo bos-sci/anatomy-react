@@ -326,7 +326,8 @@ const NavPrimary = ({
                     ref={linkRef}
                     to={navItem.to}
                     href={navItem.href}
-                    className={`bsds-nav-link${isCurrent(navItem as NavNodePrimary, linkRef) ? ' is-current' : ''}`}
+                    className="bsds-nav-link"
+                    isCurrentPage={isCurrent(navItem as NavNodePrimary, linkRef)}
                     aria-current={(isCurrent(navItem as NavNodePrimary, linkRef) && 'page') ?? undefined}
                     role="menuitem"
                     isNavLink
