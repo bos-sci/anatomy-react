@@ -39,7 +39,8 @@ const NavSecondaryList = ({
                 to={navItem.to}
                 href={navItem.href}
                 className="bsds-nav-link"
-                isCurrentPage={!!(navItem.isActive ? navItem.isActive(location) : undefined)}
+                // eslint-disable-next-line react/jsx-no-leaked-render
+                isCurrentPage={navItem.isActive ? navItem.isActive(location) : undefined}
                 isNavLink
               >
                 {navItem.text}
