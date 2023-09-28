@@ -65,7 +65,7 @@ const Link = forwardRef(
             to={to}
             className={({ isActive }) =>
               `${classes} ${className}` +
-              (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : undefined)
+              (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : '')
             }
             target={target}
             rel={relAttr}
