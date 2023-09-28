@@ -267,13 +267,13 @@ const NavPrimary = ({
     setIsSearchExpanded(!isSearchExpanded);
   };
 
-  const isCurrent = (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>): boolean => {
+  const isCurrent = (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>): boolean | undefined => {
     if (node.isActive) {
       return node.isActive(location);
     } else if (isActiveNode) {
       return isActiveNode(node, ref);
     } else {
-      return false;
+      return undefined;
     }
   };
 
