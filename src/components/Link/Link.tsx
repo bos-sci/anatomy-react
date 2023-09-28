@@ -10,7 +10,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   to?: To;
   variant?: LinkVariants;
   isNavLink?: boolean;
-  isCurrentPage?: boolean;
+  isCurrentPage?: boolean | undefined;
   target?: string;
   rel?: string;
 }
@@ -65,7 +65,7 @@ const Link = forwardRef(
             to={to}
             className={({ isActive }) =>
               `${classes} ${className}` +
-              (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : '')
+              (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : undefined)
             }
             target={target}
             rel={relAttr}

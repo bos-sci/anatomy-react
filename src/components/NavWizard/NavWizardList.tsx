@@ -56,7 +56,7 @@ const NavWizardList = (props: NavWizardListProps) => {
                 href={navItem.href}
                 to={navItem.to}
                 className="bsds-nav-link"
-                isCurrentPage={!!(navItem.isActive && navItem.isActive())}
+                isCurrentPage={!!(navItem.isActive ? navItem.isActive() : undefined)}
                 isNavLink
               >
                 {navItem.text}
