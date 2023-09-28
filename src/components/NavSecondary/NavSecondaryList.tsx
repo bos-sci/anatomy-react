@@ -39,7 +39,7 @@ const NavSecondaryList = ({
                 to={navItem.to}
                 href={navItem.href}
                 className="bsds-nav-link"
-                isCurrentPage={!!(navItem.isActive && navItem.isActive(location))}
+                isCurrentPage={!!(navItem.isActive ? navItem.isActive(location) : undefined)}
                 isNavLink
               >
                 {navItem.text}

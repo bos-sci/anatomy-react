@@ -5,7 +5,7 @@ import { NavNodePrimary } from './NavPrimary';
 interface NavPrimaryLeafProps {
   navItem: NavNodePrimary;
   setActiveNode: (node: NavNodePrimary) => void;
-  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
+  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean | undefined;
 }
 
 const NavPrimaryLeaf = (props: NavPrimaryLeafProps) => {

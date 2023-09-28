@@ -8,7 +8,7 @@ import { RefObject } from 'react';
 interface NavPrimaryListProps {
   navItems: NavNodePrimary[];
   activeNode: NavNodePrimary | null;
-  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
+  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean | undefined;
   setActiveNode: (node: NavNodePrimary) => void;
   depth: number;
   activeDepth: number;

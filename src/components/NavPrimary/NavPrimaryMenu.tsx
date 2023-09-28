@@ -9,7 +9,7 @@ interface NavPrimaryMenuProps {
   navItems: NavNodePrimary[];
   utilityItems?: NavItemUtility[];
   activeNode: NavNodePrimary | null;
-  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean;
+  isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean | undefined;
   setActiveNode: (node: NavNodePrimary) => void;
   menuId: string;
   isMenuExpanded: boolean;
