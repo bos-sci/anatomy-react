@@ -13,6 +13,7 @@ export default defineConfig({
 
       fileName: (format) => `anatomy-react.${format}.js`
     },
+    outDir: 'lib',
     sourcemap: true,
     rollupOptions: {
       external: ['react', 'react-dom', 'react-router-dom'],
