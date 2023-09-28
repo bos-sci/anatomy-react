@@ -10,7 +10,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   to?: To;
   variant?: LinkVariants;
   isNavLink?: boolean;
-  isCurrentPage?: boolean | undefined;
+  isCurrentPage?: boolean;
   target?: string;
   rel?: string;
 }
