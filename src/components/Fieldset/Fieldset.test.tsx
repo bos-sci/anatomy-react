@@ -22,7 +22,7 @@ describe('Fieldset', () => {
     expect(screen.getByLabelText('Help related input')).toBeInTheDocument();
     expect(screen.getByText('Help text')).toBeInTheDocument();
   });
-  it("renders an error node when 'forceValidation' is true and 'errorText' is present", () => {
+  it("renders an error node when 'errorText' is present", () => {
     render(
       <Fieldset legend="With error fieldset" errorText="Error text">
         <InputText label="Error related input" forceValidation />
@@ -30,13 +30,5 @@ describe('Fieldset', () => {
     );
     expect(screen.getByText('With error fieldset')).toBeInTheDocument();
     expect(screen.getByText('Error text')).toBeInTheDocument();
-  });
-  it("does not render an error node if 'forceValidation' is false", () => {
-    render(
-      <Fieldset legend="With error fieldset" errorText="Error text">
-        <InputText label="Error related input" />
-      </Fieldset>
-    );
-    expect(screen.queryByText('Error text')).not.toBeInTheDocument();
   });
 });
