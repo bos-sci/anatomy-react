@@ -18,7 +18,7 @@ describe('Fieldset', () => {
         <InputText label="Help related input" />
       </Fieldset>
     );
-    expect(screen.getByText('With error fieldset')).toBeInTheDocument();
+    expect(screen.getByText('With help fieldset')).toBeInTheDocument();
     expect(screen.getByLabelText('Help related input')).toBeInTheDocument();
     expect(screen.getByText('Help text')).toBeInTheDocument();
   });
