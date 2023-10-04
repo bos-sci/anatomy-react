@@ -15,7 +15,7 @@ describe('Ribbon', () => {
   });
 
   it('applies text alignment class correctly', () => {
-    render(<Ribbon data-testid={testId} textAlign="center" />);
+    render(<Ribbon data-testid={testId} isCentered />);
     expect(screen.getByTestId(testId)).toHaveClass('bsds-text-center');
   });
 
