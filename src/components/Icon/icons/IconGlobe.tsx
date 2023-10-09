@@ -15,7 +15,7 @@ const IconGlobe = (props: IconProps): JSX.Element => {
     >
       <defs>
         <linearGradient
-          id="New_Gradient_Swatch_3"
+          id="New_Gradient_Swatch_3-3"
           x1="12.89"
           y1="18.66"
           x2="50.98"
