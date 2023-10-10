@@ -108,7 +108,7 @@
 
   :first-child {
     &[class='bsds-fieldset'] {
-      margin-top: space(md);
+      margin-top: calc(space(3x) + space(md));
     }
   }
 }
