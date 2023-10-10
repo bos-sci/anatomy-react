@@ -42,14 +42,18 @@
 .bsds-fieldset {
   display: flex;
   flex-direction: column;
+  margin-inline: 0;
   border: 0;
   padding-right: 0;
   padding-left: 0;
+  padding-inline: 0;
+  padding-block: 0;
 }
 
 .bsds-legend {
   @include font-family-base-heavy;
   @include font-size($fs-body);
+  padding-inline: 0;
 }
 
 .bsds-field {
@@ -100,7 +104,13 @@
 
 // TODO: ADS-334 Should we have spacing here? If not, can we get rid of class bsds-margin-top-remove?
 .bsds-form-control {
-  margin-top: space(4x);
+  margin-top: space(3x);
+
+  :first-child {
+    &[class='bsds-fieldset'] {
+      margin-top: space(md);
+    }
+  }
 }
 
 @media (min-width: $breakpoint-lg-min) {
