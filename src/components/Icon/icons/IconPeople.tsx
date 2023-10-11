@@ -16,7 +16,7 @@ const IconPeople = (props: IconProps): JSX.Element => {
     >
       <defs>
         <linearGradient
-          id="New_Gradient_Swatch_3"
+          id="iconPeopleAccent"
           x1="13.41"
           y1="48.81"
           x2="50.59"
@@ -27,12 +27,12 @@ const IconPeople = (props: IconProps): JSX.Element => {
           <stop offset="1" stop-color="#b3f" />
         </linearGradient>
         <linearGradient
-          id="New_Gradient_Swatch_3-2"
+          id="iconPeopleAccent_2"
           x1="21.5"
           y1="30.41"
           x2="42.51"
           y2="30.41"
-          xlinkHref="#New_Gradient_Swatch_3"
+          xlinkHref="#iconPeopleAccent"
         />
       </defs>
       <g id="people">
@@ -42,11 +42,11 @@ const IconPeople = (props: IconProps): JSX.Element => {
           <g>
             <path
               d="M13.96,54.51l-.05-.03c-.47-.26-.64-.87-.36-1.32,3.89-6.29,10.87-10.16,18.46-10.16s14.56,3.86,18.45,10.14c.28,.46,.11,1.06-.36,1.32l-.05,.03c-.45,.25-1.01,.09-1.28-.35-3.54-5.68-9.87-9.18-16.75-9.18s-13.23,3.5-16.77,9.2c-.27,.44-.83,.6-1.28,.35Z"
-              fill="url(#New_Gradient_Swatch_3)"
+              fill="url(#iconPeopleAccent)"
             />
             <path
               d="M32,21.87c4.71,0,8.54,3.83,8.54,8.54s-3.83,8.54-8.54,8.54-8.54-3.83-8.54-8.54,3.83-8.54,8.54-8.54m0-1.97c-5.79,0-10.5,4.71-10.5,10.5s4.71,10.5,10.5,10.5,10.5-4.71,10.5-10.5-4.71-10.5-10.5-10.5h0Z"
-              fill="url(#New_Gradient_Swatch_3-2)"
+              fill="url(#iconPeopleAccent_2)"
             />
           </g>
           <path d="M15.76,28.43c-6.4,0-12.3,3.24-15.62,8.52-.29,.46-.11,1.06,.36,1.33l.05,.03c.45,.25,1.01,.09,1.28-.35,2.97-4.68,8.22-7.56,13.93-7.56,1.03,0,2.03,.1,3.02,.28,.52,.1,1.03-.22,1.13-.74,0-.02,0-.04,.01-.05,.11-.51-.22-1.03-.73-1.13-1.12-.21-2.26-.32-3.43-.32Z" />
