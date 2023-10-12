@@ -3,7 +3,7 @@
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
 import { NavLink, Link as RouterLink, To } from 'react-router-dom';
 
-export type LinkVariants = '' | 'cta' | 'ghost' | 'nav' | 'subtle';
+export type LinkVariants = '' | 'cta' | 'ghost' | 'mailto' | 'nav' | 'subtle';
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   href?: string;
@@ -27,6 +27,9 @@ const Link = forwardRef(
         break;
       case 'ghost':
         classes = 'bsds-link-ghost';
+        break;
+      case 'mailto':
+        classes = 'bsds-link-cta bsds-link-mailto';
         break;
       case 'nav':
         classes = 'bsds-link-nav';
