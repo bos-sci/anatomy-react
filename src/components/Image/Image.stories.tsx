@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Image from './Image';
+import { IMAGE_RATIO_OPTIONS } from './Image.types';
+
+const ratioOptionsString = IMAGE_RATIO_OPTIONS.map((ratio) => `"${ratio}"`).join(', ');
 
 const meta = {
   title: 'Components/Image',
@@ -10,9 +13,9 @@ const meta = {
   },
   argTypes: {
     ratio: {
-      options: ['1:1', '4:3', '16:9', '21:9'],
+      options: [...IMAGE_RATIO_OPTIONS],
       table: {
-        type: { summary: `"1:1", "4:3", "16:9", "21:9"` }
+        type: { summary: ratioOptionsString }
       }
     }
   },

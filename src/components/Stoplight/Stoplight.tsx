@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
+import { StoplightColor, StoplightSize, StoplightTextColor } from './Stoplight.types';
 
 export interface StoplightProps {
   children: ReactNode;
-  lightColor: 'red' | 'yellow' | 'green';
-  textColor?: 'ghost';
-  size?: 'assertive' | 'subtle';
+  lightColor: StoplightColor;
+  textColor?: StoplightTextColor;
+  size?: StoplightSize;
 }
 
 const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): JSX.Element => {

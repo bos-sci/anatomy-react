@@ -1,9 +1,10 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { RibbonVariant } from './Ribbon.types';
 
 export interface RibbonProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   isConstrained?: boolean;
   isCentered?: boolean;
-  variant?: 'informational';
+  variant?: RibbonVariant;
   withShadow?: boolean;
 }
 

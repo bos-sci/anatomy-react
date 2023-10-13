@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
-import { BUTTON_ICONS, BUTTON_SIZES, BUTTON_VARIANTS } from './';
+import { BUTTON_ICONS, BUTTON_SIZES, BUTTON_VARIANTS } from './Button.types';
 
 const meta = {
   title: 'Components/Button',
