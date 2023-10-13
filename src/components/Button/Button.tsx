@@ -1,10 +1,10 @@
-import { ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useEffect, useState } from 'react';
+import { ButtonHTMLAttributes, ForwardedRef, forwardRef } from 'react';
+import classNames from 'classnames';
 import Icon from '../Icon';
 
-export type ButtonVariants = '' | 'assertive' | 'ghost' | 'subtle';
+export type ButtonVariants = 'assertive' | 'ghost' | 'subtle';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
   variant?: ButtonVariants;
   size?: 'small' | null;
   icon?: string;
@@ -17,60 +17,39 @@ const Button = forwardRef(
     { children, variant, size, icon, iconAlignment = 'left', iconSize, className, ...buttonAttrs }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ): JSX.Element => {
-    let classes = '';
-    switch (variant) {
-      case 'assertive':
-        classes = 'bsds-button-assertive';
-        break;
-      case 'ghost':
-        classes = 'bsds-button-ghost';
-        break;
-      case 'subtle':
-        classes = 'bsds-button-subtle';
-        break;
-      default:
-        classes = 'bsds-button';
-        break;
-    }
+    const buttonClasses = classNames(
+      'bsds-button',
+      {
+        'bsds-button-assertive': variant === 'assertive',
+        'bsds-button-ghost': variant === 'ghost',
+        'bsds-button-subtle': variant === 'subtle',
+        'bsds-button-small': size === 'small',
+        'bsds-button-icon': icon && !children
+      },
+      className
+    );
 
-    let buttonSizeClass = '';
-    let buttonIconSizeClass = iconSize;
-    switch (size) {
-      case 'small':
-        buttonSizeClass = 'bsds-button-small';
-        buttonIconSizeClass = 'lg';
-        break;
+    const buttonIconSize = size === 'small' ? 'lg' : iconSize;
 
-      default:
-        break;
-    }
+    const iconClasses = classNames({
+      'bsds-icon-left order-1': icon && iconAlignment === 'left',
+      'bsds-icon-right order-2': icon && iconAlignment === 'right'
+    });
 
-    const [iconWithChildren, setIconWithChildren] = useState(children);
-    useEffect(() => {
-      if (icon && children) {
-        setIconWithChildren(<span className="bsds-button-text">{children}</span>);
-      } else {
-        setIconWithChildren(children);
-      }
-    }, [icon, children]);
+    const textAlignmentClass = classNames({
+      'order-1': icon && iconAlignment === 'right',
+      'order-2': icon && iconAlignment === 'left'
+    });
 
-    if (icon && !children) {
-      return (
-        <button ref={ref} className={`bsds-button-icon ${classes} ${className || ''}`} {...buttonAttrs}>
-          <Icon name={icon} size={iconSize} />
-        </button>
-      );
-    }
+    const textClasses = classNames({
+      'bsds-button-text': icon,
+      [textAlignmentClass]: icon
+    });
 
     return (
-      <button ref={ref} className={`${classes} ${className || ''} ${buttonSizeClass}`} {...buttonAttrs}>
-        {!!(icon && iconAlignment === 'left') && (
-          <Icon name={icon} size={buttonIconSizeClass} className="bsds-icon-left" />
-        )}
-        {iconWithChildren}
-        {!!(icon && iconAlignment === 'right') && (
-          <Icon name={icon} size={buttonIconSizeClass} className="bsds-icon-right" />
-        )}
+      <button ref={ref} className={buttonClasses} {...buttonAttrs}>
+        {!!icon && <Icon name={icon} size={buttonIconSize} className={iconClasses} />}
+        <span className={classNames(textClasses)}>{children}</span>
       </button>
     );
   }
