@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, useEffect, useState, ReactNode } from 'react';
 import Icon from '../Icon';
-import { ButtonIconSizes, ButtonSizes, ButtonVariants } from './Button.types';
+import { ButtonIconSizes, ButtonSizes, ButtonVariants } from './';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children?: ReactNode;
