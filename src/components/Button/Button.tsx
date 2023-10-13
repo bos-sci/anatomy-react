@@ -31,14 +31,17 @@ const Button = forwardRef(
 
     const buttonIconSize = size === 'small' ? 'lg' : iconSize;
 
+    const hasIconLeft = icon && iconAlignment === 'left';
+    const hasIconRight = icon && iconAlignment === 'right';
+
     const iconClasses = classNames({
-      'bsds-icon-left order-1': icon && iconAlignment === 'left',
-      'bsds-icon-right order-2': icon && iconAlignment === 'right'
+      'bsds-icon-left order-1': hasIconLeft,
+      'bsds-icon-right order-2': hasIconRight
     });
 
     const textClasses = classNames('bsds-button-text', {
-      'order-1': icon && iconAlignment === 'right',
-      'order-2': icon && iconAlignment === 'left'
+      'order-1': hasIconRight,
+      'order-2': hasIconLeft
     });
 
     return (
