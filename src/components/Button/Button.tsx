@@ -36,20 +36,15 @@ const Button = forwardRef(
       'bsds-icon-right order-2': icon && iconAlignment === 'right'
     });
 
-    const textAlignmentClass = classNames({
+    const textClasses = classNames('bsds-button-text', {
       'order-1': icon && iconAlignment === 'right',
       'order-2': icon && iconAlignment === 'left'
-    });
-
-    const textClasses = classNames({
-      'bsds-button-text': icon,
-      [textAlignmentClass]: icon
     });
 
     return (
       <button ref={ref} className={buttonClasses} {...buttonAttrs}>
         {!!icon && <Icon name={icon} size={buttonIconSize} className={iconClasses} />}
-        <span className={classNames(textClasses)}>{children}</span>
+        <span className={textClasses}>{children}</span>
       </button>
     );
   }
