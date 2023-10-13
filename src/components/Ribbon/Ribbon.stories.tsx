@@ -5,7 +5,13 @@ import Ribbon from './Ribbon';
 const meta = {
   title: 'Components/Ribbon',
   component: Ribbon,
-  tags: ['autodocs']
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      options: [undefined, 'informational'],
+      control: { type: 'radio' }
+    }
+  }
 } satisfies Meta<typeof Ribbon>;
 
 export default meta;

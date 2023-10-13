@@ -13,10 +13,10 @@ const meta = {
       options: ['red', 'yellow', 'green']
     },
     textColor: {
-      options: ['default', 'ghost']
+      options: [undefined, 'ghost']
     },
     size: {
-      options: ['default', 'assertive', 'subtle']
+      options: [undefined, 'assertive', 'subtle']
     }
   },
   tags: ['autodocs']

@@ -11,16 +11,16 @@ const meta = {
   },
   argTypes: {
     variant: {
-      options: ['', 'assertive', 'ghost', 'subtle'],
+      options: [undefined, 'assertive', 'ghost', 'subtle'],
       control: { type: 'radio' }
     },
     size: {
-      options: ['', 'small'],
+      options: [undefined, 'small'],
       control: { type: 'radio' }
     },
     // TODO: What icons do we want to support and how do we handle them in Storybook
     icon: {
-      options: ['', 'plus', 'chevronRight', 'close'],
+      options: [undefined, 'plus', 'chevronRight', 'close'],
       control: { type: 'select' }
     },
     iconAlignment: { control: 'radio', if: { arg: 'icon' } },

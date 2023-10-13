@@ -4,7 +4,7 @@ import { ReactNode, useState, useEffect } from 'react';
 
 export interface TagProps {
   children: ReactNode;
-  variant?: 'accent' | 'assertive' | 'featured' | 'subtle' | '';
+  variant?: 'accent' | 'assertive' | 'featured' | 'subtle';
   isGhost?: boolean;
   texts?: {
     featuredTag?: string;

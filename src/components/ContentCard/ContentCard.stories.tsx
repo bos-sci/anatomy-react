@@ -9,7 +9,7 @@ const meta = {
   component: ContentCard,
   argTypes: {
     variant: {
-      options: ['', 'border-light', 'border-ghost', 'ghost'],
+      options: [undefined, 'border-light', 'border-ghost', 'ghost'],
       control: { type: 'radio' }
     },
     gradientBrand: {
