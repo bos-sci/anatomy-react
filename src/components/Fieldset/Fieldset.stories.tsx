@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { errorText, helpText } from '../../stories/helpers';
+import { errorText, helpText } from 'stories/helpers';
 
-import Fieldset from './Fieldset';
-import InputText from '../InputText/InputText';
-import Textarea from '../Textarea/Textarea';
+import Fieldset from 'components/Fieldset';
+import InputText from 'components/InputText';
+import Textarea from 'components/Textarea';
 
 const meta = {
   title: 'Components/Fieldset',
