@@ -12,6 +12,10 @@ const meta = {
   argTypes: {
     texts: {
       control: false
+    },
+    variant: {
+      options: [undefined, 'accent', 'assertive', 'featured', 'subtle'],
+      control: { type: 'radio' }
     }
   }
 } satisfies Meta<typeof Tag>;

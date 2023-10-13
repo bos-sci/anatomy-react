@@ -8,6 +8,10 @@ const meta = {
   title: 'Components/Product card',
   component: ProductCard,
   argTypes: {
+    variant: {
+      options: [undefined, 'ghost', 'border-light', 'border-ghost'],
+      control: { type: 'radio' }
+    },
     dropShadow: {
       if: { arg: 'gradientBrand', truthy: false }
     },
