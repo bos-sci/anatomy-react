@@ -2,6 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
+import { BUTTON_ICONS, BUTTON_SIZES, BUTTON_VARIANTS } from './Button.types';
 
 const meta = {
   title: 'Components/Button',
@@ -11,16 +12,16 @@ const meta = {
   },
   argTypes: {
     variant: {
-      options: [undefined, 'assertive', 'ghost', 'subtle'],
+      options: [undefined, ...BUTTON_VARIANTS],
       control: { type: 'radio' }
     },
     size: {
-      options: [undefined, 'small'],
+      options: [undefined, ...BUTTON_SIZES],
       control: { type: 'radio' }
     },
     // TODO: What icons do we want to support and how do we handle them in Storybook
     icon: {
-      options: [undefined, 'plus', 'chevronRight', 'close'],
+      options: [undefined, ...BUTTON_ICONS],
       control: { type: 'select' }
     },
     iconAlignment: { control: 'radio', if: { arg: 'icon' } },
