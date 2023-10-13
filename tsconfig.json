@@ -6,6 +6,15 @@
     "module": "ESNext",
     "skipLibCheck": true,
 
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "helpers/*": ["helpers/*"],
+      "hooks/*": ["hooks/*"],
+      "stories/*": ["stories/*"],
+      "types": ["types.ts"]
+    },
+
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "outDir": "dist",
