@@ -37,6 +37,14 @@
 
 .bsds-form {
   width: 100%;
+
+  .bsds-form-control {
+    :first-child {
+      &[class='bsds-fieldset'] {
+        margin-top: calc(space(3x) + space(md));
+      }
+    }
+  }
 }
 
 .bsds-fieldset {
@@ -105,12 +113,6 @@
 // TODO: ADS-334 Should we have spacing here? If not, can we get rid of class bsds-margin-top-remove?
 .bsds-form-control {
   margin-top: space(3x);
-
-  :first-child {
-    &[class='bsds-fieldset'] {
-      margin-top: calc(space(3x) + space(md));
-    }
-  }
 }
 
 @media (min-width: $breakpoint-lg-min) {
