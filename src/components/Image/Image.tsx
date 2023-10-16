@@ -1,7 +1,8 @@
 import { ImgHTMLAttributes, useEffect, useId, useState } from 'react';
+import { ImageRatio } from './Image.types';
 
 interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
-  ratio?: Ratio;
+  ratio?: ImageRatio;
   hasCaption?: boolean;
   isCaptionCentered?: boolean;
   isGhost?: boolean;
@@ -20,7 +21,6 @@ type AltTextProps =
       alt: string;
     };
 
-export type Ratio = '1:1' | '4:3' | '16:9' | '21:9' | '50:50';
 export type ImageProps = BaseProps & AltTextProps;
 
 const Image = (props: ImageProps): JSX.Element => {

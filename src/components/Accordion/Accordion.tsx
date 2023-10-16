@@ -7,7 +7,7 @@
 //   https://www.w3.org/TR/wai-aria-practices-1.1/examples/accordion/accordion.html
 
 import { Children, createRef, Fragment, ReactElement, useEffect, useId, useRef, useState } from 'react';
-import HeadingElement from '../Heading';
+import HeadingElement, { HeadingLevel } from '../Heading';
 import AccordionHeading from './AccordionHeading';
 import { AccordionPanelProps } from './AccordionPanel';
 
@@ -15,7 +15,7 @@ export type AccordionProps = {
   /**
    * Heading to be used for the panel headers
    */
-  headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  headingLevel: HeadingLevel;
   /**
    * Accordions appear in a container with condensed spacing
    */

@@ -1,5 +1,5 @@
 import { ReactElement, cloneElement, useState, useEffect, useId } from 'react';
-import HeadingElement from '../Heading';
+import HeadingElement, { HeadingLevel } from '../Heading';
 import { ImageProps } from '../Image';
 import { TagProps } from '../Tag';
 import Link from '../Link';
@@ -11,7 +11,7 @@ interface PlainCardProps {
     cardDescription: string;
   };
   variant?: string;
-  headingLevel: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  headingLevel: Exclude<HeadingLevel, 'h1'>;
   tag?: ReactElement<TagProps>;
   image?: ReactElement<ImageProps>;
   icon?: boolean;

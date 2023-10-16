@@ -1,16 +1,14 @@
 import { ButtonHTMLAttributes, ForwardedRef, forwardRef, useEffect, useState, ReactNode } from 'react';
 import Icon from '../Icon';
-
-export type ButtonVariants = 'assertive' | 'ghost' | 'subtle';
+import { ButtonIconSizes, ButtonSizes, ButtonVariants } from './';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  // TODO: ADS-712 consider removing children from extended props that include it
   children?: ReactNode;
   variant?: ButtonVariants;
-  size?: 'small';
+  size?: ButtonSizes;
   icon?: string;
   iconAlignment?: 'left' | 'right';
-  iconSize?: 'sm' | 'md' | 'lg' | '2x' | '3x' | '4x' | 'base';
+  iconSize?: ButtonIconSizes;
 }
 
 const Button = forwardRef(

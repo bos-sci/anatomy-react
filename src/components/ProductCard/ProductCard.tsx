@@ -1,10 +1,9 @@
 import { ReactElement, useState, useEffect, cloneElement, useId, useRef } from 'react';
-import HeadingElement from '../Heading';
+import HeadingElement, { HeadingLevel } from '../Heading';
 import Link from '../Link';
 import { TagProps } from '../Tag';
 import { ImageProps } from '../Image';
-
-export type ProductCardVariants = '' | 'ghost' | 'border-light' | 'border-ghost';
+import { CardVariant } from '../ContentCard';
 export interface ProductCardProps {
   tag?: ReactElement<TagProps>;
   texts: {
@@ -12,9 +11,9 @@ export interface ProductCardProps {
     description: string;
   };
   linkTo: string;
-  headingLevel?: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  headingLevel?: Exclude<HeadingLevel, 'h1'>;
   assertiveTitle?: boolean;
-  variant?: ProductCardVariants;
+  variant?: CardVariant;
   image?: ReactElement<ImageProps>;
   gradientBrand?: boolean;
   dropShadow?: boolean;

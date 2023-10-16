@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Ribbon from './Ribbon';
+import { RIBBON_VARIANTS } from './Ribbon.types';
 
 const meta = {
   title: 'Components/Ribbon',
@@ -8,7 +9,7 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: [undefined, 'informational'],
+      options: [undefined, ...RIBBON_VARIANTS],
       control: { type: 'radio' }
     }
   }

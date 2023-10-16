@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Tag from './Tag';
+import { TAG_VARIANTS } from './Tag.types';
 
 const meta = {
   title: 'Components/Tag',
@@ -14,7 +15,7 @@ const meta = {
       control: false
     },
     variant: {
-      options: [undefined, 'accent', 'assertive', 'featured', 'subtle'],
+      options: [undefined, ...TAG_VARIANTS],
       control: { type: 'radio' }
     }
   }
