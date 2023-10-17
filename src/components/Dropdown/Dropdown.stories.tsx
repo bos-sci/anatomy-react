@@ -6,7 +6,7 @@ import DropdownGroupName from './DropdownGroupName';
 import Icon from '../Icon';
 
 const meta = {
-  title: 'Components/Dropdown',
+  title: 'Components/Dropdown menu',
   component: Dropdown,
   tags: ['autodocs'],
   argTypes: {
