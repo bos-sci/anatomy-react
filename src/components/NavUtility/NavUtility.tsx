@@ -1,4 +1,4 @@
-import Dropdown from '../Dropdown';
+import DropdownMenu from '../DropdownMenu';
 import Link from '../Link';
 import { NavItemUtility } from '../NavPrimary';
 
@@ -14,13 +14,13 @@ const NavUtility = ({ utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): J
         {utilityItems.map((utilityItem) => (
           <li key={'utilityItem' + utilityItem.text} className="bsds-nav-item">
             {utilityItem.children ? (
-              <Dropdown triggerText={utilityItem.text} className="bsds-nav-link" menuPosition="bottom-end">
+              <DropdownMenu triggerText={utilityItem.text} className="bsds-nav-link" menuPosition="bottom-end">
                 {utilityItem.children.map((child) => (
                   <Link key={child.text + (child.to || child.href)} href={child.href} to={child.to}>
                     {child.text}
                   </Link>
                 ))}
-              </Dropdown>
+              </DropdownMenu>
             ) : (
               <Link to={utilityItem.to} href={utilityItem.href} className="bsds-nav-link">
                 {utilityItem.text}

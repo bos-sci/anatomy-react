@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
 import Button from '../Button';
 import DropdownGroupName from './DropdownGroupName';
 import Icon from '../Icon';
 
 const meta = {
   title: 'Components/Dropdown menu',
-  component: Dropdown,
+  component: DropdownMenu,
   tags: ['autodocs'],
   argTypes: {
     highlightedAction: {
@@ -20,10 +20,10 @@ const meta = {
   args: {
     triggerText: 'Dropdown trigger'
   }
-} satisfies Meta<typeof Dropdown>;
+} satisfies Meta<typeof DropdownMenu>;
 
 export default meta;
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof DropdownMenu>;
 
 export const Playground: Story = {
   parameters: {
@@ -34,11 +34,11 @@ export const Playground: Story = {
     }
   },
   render: (args) => (
-    <Dropdown {...args}>
+    <DropdownMenu {...args}>
       <Button>Action 1</Button>
       <Button>Action 2</Button>
       <Button>Action 3</Button>
-    </Dropdown>
+    </DropdownMenu>
   )
 };
 
@@ -52,14 +52,14 @@ export const SectionHeaders: Story = {
     }
   },
   render: (args) => (
-    <Dropdown {...args}>
+    <DropdownMenu {...args}>
       <DropdownGroupName>Action group 1</DropdownGroupName>
       <Button>Action 1a</Button>
       <Button>Action 1b</Button>
       <DropdownGroupName>Action group 2</DropdownGroupName>
       <Button>Action 2a</Button>
       <Button>Action 2b</Button>
-    </Dropdown>
+    </DropdownMenu>
   )
 };
 
@@ -76,11 +76,11 @@ export const HighlightedAction: Story = {
     highlightedAction: <Button>Highlighted action</Button>
   },
   render: (args) => (
-    <Dropdown {...args}>
+    <DropdownMenu {...args}>
       <Button>Action 1</Button>
       <Button>Action 2</Button>
       <Button>Action 3</Button>
-    </Dropdown>
+    </DropdownMenu>
   )
 };
 
@@ -97,7 +97,7 @@ export const WithIcons: Story = {
     icon: 'ellipsis'
   },
   render: (args) => (
-    <Dropdown {...args}>
+    <DropdownMenu {...args}>
       <Button>
         <Icon name="plus" size="2x" className="bsds-icon-left" />
         Action 1
@@ -110,6 +110,6 @@ export const WithIcons: Story = {
         <Icon name="plus" size="2x" className="bsds-icon-left" />
         Action 3
       </Button>
-    </Dropdown>
+    </DropdownMenu>
   )
 };

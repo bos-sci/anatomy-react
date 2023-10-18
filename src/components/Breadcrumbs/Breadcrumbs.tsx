@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RequireOnlyOne } from '../../types';
-import Dropdown from '../Dropdown';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import Link from '../Link';
 
 interface CrumbBase {
@@ -11,7 +11,7 @@ interface CrumbBase {
 
 export type Crumb = RequireOnlyOne<CrumbBase, 'href' | 'to'>;
 
-export interface BreadcrumbProps {
+export interface BreadcrumbsProps {
   crumbs: Crumb[];
   currentPage: string;
   texts?: {
@@ -21,7 +21,7 @@ export interface BreadcrumbProps {
   hasOverflow?: boolean;
 }
 
-const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: BreadcrumbProps): JSX.Element => {
+const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: BreadcrumbsProps): JSX.Element => {
   const [overflowCrumbs, setOverflowCrumbs] = useState<Crumb[]>([]);
   const [visibleCrumbs, setVisibleCrumbs] = useState<Crumb[]>([]);
 
@@ -43,7 +43,7 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
         {overflowCrumbs.length > 0 && (
           <li className="bsds-breadcrumb-overflow">
             {overflowCrumbs.length > 0 && (
-              <Dropdown
+              <DropdownMenu
                 variant="subtle"
                 triggerText={texts?.breadcrumbDropdownAriaLabel || 'previous pages'}
                 icon="ellipsis"
@@ -54,7 +54,7 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
                     {crumb.name}
                   </Link>
                 ))}
-              </Dropdown>
+              </DropdownMenu>
             )}
           </li>
         )}
@@ -73,4 +73,4 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
   );
 };
 
-export default Breadcrumb;
+export default Breadcrumbs;

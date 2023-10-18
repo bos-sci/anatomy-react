@@ -16,7 +16,7 @@ import DropdownItem, { DropdownItemElements } from './DropdownItem';
 import Icon from '../Icon';
 import { autoUpdate, flip, Placement, shift, useFloating } from '@floating-ui/react-dom';
 
-export interface DropdownProps extends HTMLAttributes<HTMLButtonElement> {
+export interface DropdownMenuProps extends HTMLAttributes<HTMLButtonElement> {
   triggerText: string;
   listType?: 'ol' | 'ul';
   icon?: string;
@@ -30,7 +30,7 @@ let dropdownIndex = 0;
 
 // TODO: ADS-382 allow implementer to add refs to dropdown children. Currently they are being removed in the clone process.
 
-const Dropdown = (props: DropdownProps) => {
+const DropdownMenu = (props: DropdownMenuProps) => {
   const {
     triggerText,
     listType = 'ul',
@@ -275,4 +275,4 @@ const Dropdown = (props: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default DropdownMenu;

@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Button from '../Button';
-import Dropdown from './Dropdown';
+import DropdownMenu from './DropdownMenu';
 import DropdownGroupName from './DropdownGroupName';
 
 class ResizeObserver {
@@ -17,14 +17,14 @@ class ResizeObserver {
 }
 window.ResizeObserver = ResizeObserver;
 
-describe('Dropdown', () => {
+describe('Dropdown menu', () => {
   it('Renders a standard dropdown when only triggerText prop is provided', () => {
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     expect(screen.getByText('Trigger menu text')).toBeInTheDocument();
@@ -34,11 +34,11 @@ describe('Dropdown', () => {
     const user = userEvent.setup();
 
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
@@ -51,11 +51,11 @@ describe('Dropdown', () => {
     const user = userEvent.setup();
 
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     const trigger = screen.getByText('Trigger menu text');
@@ -68,11 +68,11 @@ describe('Dropdown', () => {
   it('Renders a highlighted action in the dropdown menu when highlightedAction prop is provided.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text" highlightedAction={<Button>Highlighted Action</Button>}>
+      <DropdownMenu triggerText="Trigger menu text" highlightedAction={<Button>Highlighted Action</Button>}>
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
 
@@ -83,12 +83,12 @@ describe('Dropdown', () => {
   it('Renders a group name in the dropdown menu when DropdownGroupName child is provided.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <DropdownGroupName>Group name 1</DropdownGroupName>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
 
@@ -100,14 +100,14 @@ describe('Dropdown', () => {
   it('Should have aria-describedby attribute on menu items with a value that relates to the closest previous groupName.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <DropdownGroupName>Group name 1</DropdownGroupName>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
         <DropdownGroupName>Group name 2</DropdownGroupName>
         <Button>Dropdown item 4</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
 
@@ -128,11 +128,11 @@ describe('Dropdown', () => {
   it('Should focus first item when opening dropdown.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
@@ -142,11 +142,11 @@ describe('Dropdown', () => {
   it('Focuses next item on press of down arrow, and loops back to top after last item.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
@@ -165,11 +165,11 @@ describe('Dropdown', () => {
   it('Focuses previous item on press of up arrow, and loops back to bottom after first item.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <Button>Dropdown item 2</Button>
         <Button>Dropdown item 3</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));
@@ -190,11 +190,11 @@ describe('Dropdown', () => {
   it('Does not focus group names.', async () => {
     const user = userEvent.setup();
     render(
-      <Dropdown triggerText="Trigger menu text">
+      <DropdownMenu triggerText="Trigger menu text">
         <Button>Dropdown item 1</Button>
         <DropdownGroupName>Group name 1</DropdownGroupName>
         <Button>Dropdown item 2</Button>
-      </Dropdown>
+      </DropdownMenu>
     );
 
     await waitFor(() => user.click(screen.getByText('Trigger menu text')));

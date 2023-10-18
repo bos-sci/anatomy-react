@@ -4,8 +4,8 @@ export { default as Accordion } from './Accordion';
 export * from './BoldMatch';
 export { default as BoldMatch } from './BoldMatch';
 
-export * from './Breadcrumb';
-export { default as Breadcrumb } from './Breadcrumb';
+export * from './Breadcrumbs';
+export { default as Breadcrumbs } from './Breadcrumbs';
 
 export * from './Button';
 export { default as Button } from './Button';
@@ -16,8 +16,8 @@ export { default as CardGroup } from './CardGroup';
 export * from './ContentCard';
 export { default as ContentCard } from './ContentCard';
 
-export * from './Dropdown';
-export { default as Dropdown } from './Dropdown';
+export * from './DropdownMenu';
+export { default as DropdownMenu } from './DropdownMenu';
 
 export * from './Fieldset';
 export { default as Fieldset } from './Fieldset';
