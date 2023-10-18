@@ -16,6 +16,9 @@ export { default as CardGroup } from './CardGroup';
 export * from './ContentCard';
 export { default as ContentCard } from './ContentCard';
 
+export * from './Download';
+export { default as Download } from './Download';
+
 export * from './Dropdown';
 export { default as Dropdown } from './Dropdown';
 
