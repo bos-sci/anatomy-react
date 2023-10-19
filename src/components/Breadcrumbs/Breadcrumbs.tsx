@@ -15,8 +15,8 @@ export interface BreadcrumbsProps {
   crumbs: Crumb[];
   currentPage: string;
   texts?: {
-    breadcrumbNavAriaLabel?: string;
-    breadcrumbDropdownAriaLabel?: string;
+    breadcrumbsNavAriaLabel?: string;
+    breadcrumbsDropdownAriaLabel?: string;
   };
   hasOverflow?: boolean;
 }
@@ -38,14 +38,14 @@ const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcr
   }, [crumbs, hasOverflow]);
 
   return (
-    <nav aria-label={texts?.breadcrumbNavAriaLabel || 'breadcrumbs'}>
+    <nav aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'}>
       <ol className="bsds-breadcrumbs">
         {overflowCrumbs.length > 0 && (
           <li className="bsds-breadcrumbs-overflow">
             {overflowCrumbs.length > 0 && (
               <DropdownMenu
                 variant="subtle"
-                triggerText={texts?.breadcrumbDropdownAriaLabel || 'previous pages'}
+                triggerText={texts?.breadcrumbsDropdownAriaLabel || 'previous pages'}
                 icon="ellipsis"
                 listType="ol"
               >

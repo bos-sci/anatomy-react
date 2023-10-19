@@ -37,7 +37,7 @@ export const Playground: Story = {
     currentPage: 'Current page',
     hasOverflow: false,
     texts: {
-      breadcrumbNavAriaLabel: 'Breadcrumbs'
+      breadcrumbsNavAriaLabel: 'Breadcrumbs'
     }
   }
 };
@@ -69,8 +69,8 @@ export const Overflow: Story = {
     currentPage: 'Current page',
     hasOverflow: true,
     texts: {
-      breadcrumbNavAriaLabel: 'Breadcrumbs',
-      breadcrumbDropdownAriaLabel: 'Toggle breadcrumbs menu'
+      breadcrumbsNavAriaLabel: 'Breadcrumbs',
+      breadcrumbsDropdownAriaLabel: 'Toggle breadcrumbs menu'
     }
   }
 };
