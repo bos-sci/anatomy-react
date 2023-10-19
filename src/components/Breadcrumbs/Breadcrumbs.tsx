@@ -41,7 +41,7 @@ const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcr
     <nav aria-label={texts?.breadcrumbNavAriaLabel || 'breadcrumbs'}>
       <ol className="bsds-breadcrumbs">
         {overflowCrumbs.length > 0 && (
-          <li className="bsds-breadcrumb-overflow">
+          <li className="bsds-breadcrumbs-overflow">
             {overflowCrumbs.length > 0 && (
               <DropdownMenu
                 variant="subtle"
