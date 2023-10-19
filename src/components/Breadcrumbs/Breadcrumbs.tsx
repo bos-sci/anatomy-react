@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RequireOnlyOne } from '../../types';
-import Dropdown from '../Dropdown';
+import DropdownMenu from '../DropdownMenu';
 import Link from '../Link';
 
 interface CrumbBase {
@@ -11,17 +11,17 @@ interface CrumbBase {
 
 export type Crumb = RequireOnlyOne<CrumbBase, 'href' | 'to'>;
 
-export interface BreadcrumbProps {
+export interface BreadcrumbsProps {
   crumbs: Crumb[];
   currentPage: string;
   texts?: {
-    breadcrumbNavAriaLabel?: string;
-    breadcrumbDropdownAriaLabel?: string;
+    breadcrumbsNavAriaLabel?: string;
+    breadcrumbsDropdownAriaLabel?: string;
   };
   hasOverflow?: boolean;
 }
 
-const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: BreadcrumbProps): JSX.Element => {
+const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: BreadcrumbsProps): JSX.Element => {
   const [overflowCrumbs, setOverflowCrumbs] = useState<Crumb[]>([]);
   const [visibleCrumbs, setVisibleCrumbs] = useState<Crumb[]>([]);
 
@@ -38,14 +38,14 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
   }, [crumbs, hasOverflow]);
 
   return (
-    <nav aria-label={texts?.breadcrumbNavAriaLabel || 'breadcrumbs'}>
+    <nav aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'}>
       <ol className="bsds-breadcrumbs">
         {overflowCrumbs.length > 0 && (
-          <li className="bsds-breadcrumb-overflow">
+          <li className="bsds-breadcrumbs-overflow">
             {overflowCrumbs.length > 0 && (
-              <Dropdown
+              <DropdownMenu
                 variant="subtle"
-                triggerText={texts?.breadcrumbDropdownAriaLabel || 'previous pages'}
+                triggerText={texts?.breadcrumbsDropdownAriaLabel || 'previous pages'}
                 icon="ellipsis"
                 listType="ol"
               >
@@ -54,7 +54,7 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
                     {crumb.name}
                   </Link>
                 ))}
-              </Dropdown>
+              </DropdownMenu>
             )}
           </li>
         )}
@@ -73,4 +73,4 @@ const Breadcrumb = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcru
   );
 };
 
-export default Breadcrumb;
+export default Breadcrumbs;

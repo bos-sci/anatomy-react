@@ -16,7 +16,7 @@ import DropdownItem, { DropdownItemElements } from './DropdownItem';
 import Icon from '../Icon';
 import { autoUpdate, flip, Placement, shift, useFloating } from '@floating-ui/react-dom';
 
-export interface DropdownProps extends HTMLAttributes<HTMLButtonElement> {
+export interface DropdownMenuProps extends HTMLAttributes<HTMLButtonElement> {
   triggerText: string;
   listType?: 'ol' | 'ul';
   icon?: string;
@@ -30,7 +30,7 @@ let dropdownIndex = 0;
 
 // TODO: ADS-382 allow implementer to add refs to dropdown children. Currently they are being removed in the clone process.
 
-const Dropdown = (props: DropdownProps) => {
+const DropdownMenu = (props: DropdownMenuProps) => {
   const {
     triggerText,
     listType = 'ul',
@@ -43,7 +43,7 @@ const Dropdown = (props: DropdownProps) => {
     ...buttonAttrs
   } = props;
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
   const [dropdownItems, setDropdownItems] = useState<DropdownItemElements[]>([]);
   const [dropdownId, setDropdownId] = useState('');
   const [ariaText, setAriaText] = useState('');
@@ -59,7 +59,7 @@ const Dropdown = (props: DropdownProps) => {
   });
 
   useEffect(() => {
-    if (isDropdownOpen) {
+    if (isMenuExpanded) {
       const firstAction = dropdownItemRefs.current.find(
         (ref) => ref.current?.tagName === 'BUTTON' || ref.current?.tagName === 'A'
       );
@@ -69,7 +69,7 @@ const Dropdown = (props: DropdownProps) => {
         console.error('Dropdown must contain at least one button or link.');
       }
     }
-  }, [isDropdownOpen]);
+  }, [isMenuExpanded]);
 
   const moveFocus = (distance: number) => {
     if (dropdownItemRefs.current) {
@@ -113,7 +113,7 @@ const Dropdown = (props: DropdownProps) => {
 
       case 'Escape':
         e.preventDefault();
-        setIsDropdownOpen(false);
+        setIsMenuExpanded(false);
         trigger.focus();
         break;
 
@@ -203,7 +203,7 @@ const Dropdown = (props: DropdownProps) => {
   useEffect(() => {
     const onFocusWithinOut = (e: FocusEvent | PointerEvent) => {
       if (!dropdownRef.current?.contains(e.target as Node)) {
-        setIsDropdownOpen(false);
+        setIsMenuExpanded(false);
       }
     };
     window.addEventListener('focusin', onFocusWithinOut);
@@ -229,9 +229,9 @@ const Dropdown = (props: DropdownProps) => {
         variant={variant}
         className={`bsds-dropdown-trigger${className ? ' ' + className : ''}${icon ? ' has-icon' : ''}`}
         aria-haspopup="true"
-        aria-expanded={isDropdownOpen}
+        aria-expanded={isMenuExpanded}
         aria-label={ariaText}
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+        onClick={() => setIsMenuExpanded(!isMenuExpanded)}
         {...buttonAttrs}
       >
         {!!icon && <Icon size="2x" name={icon} />}
@@ -246,7 +246,7 @@ const Dropdown = (props: DropdownProps) => {
             left: x ?? 0,
             width: 'max-content'
           }}
-          hidden={!isDropdownOpen}
+          hidden={!isMenuExpanded}
           className="bsds-dropdown-menu"
           role="menu"
           onKeyDown={updateFocus}
@@ -263,7 +263,7 @@ const Dropdown = (props: DropdownProps) => {
             left: x ?? 0,
             width: 'max-content'
           }}
-          hidden={!isDropdownOpen}
+          hidden={!isMenuExpanded}
           className="bsds-dropdown-menu"
           role="menu"
           onKeyDown={updateFocus}
@@ -275,4 +275,4 @@ const Dropdown = (props: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default DropdownMenu;
