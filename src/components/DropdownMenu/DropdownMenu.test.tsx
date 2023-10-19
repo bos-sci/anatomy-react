@@ -97,7 +97,7 @@ describe('Dropdown menu', () => {
     expect(groupName).toBeVisible();
   });
 
-  it('Should have aria-describedby attribute on menu items with a value that relates to the closest previous groupName.', async () => {
+  it('Should have aria-describedby attribute on dropdown menu items with a value that relates to the closest previous groupName.', async () => {
     const user = userEvent.setup();
     render(
       <DropdownMenu triggerText="Trigger menu text">
@@ -125,7 +125,7 @@ describe('Dropdown menu', () => {
   });
 
   // Keyboard management tests
-  it('Should focus first item when opening dropdown.', async () => {
+  it('Should focus first item when opening dropdown menu.', async () => {
     const user = userEvent.setup();
     render(
       <DropdownMenu triggerText="Trigger menu text">
