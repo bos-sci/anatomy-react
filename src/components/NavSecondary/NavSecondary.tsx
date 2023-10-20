@@ -5,6 +5,7 @@ import { Location as ReactLocation } from 'react-router-dom';
 import { RequireOnlyOne, NavItem } from '../../types';
 import Button from '../Button';
 import NavSecondaryList from './NavSecondaryList';
+import useConcatenation from '../../hooks/useConcatenation';
 
 interface NavItemExtended extends NavItem {
   pathname?: string;
@@ -31,6 +32,7 @@ export interface NavSecondaryProps {
    * The current application location. Either window.location, react-router location, or other equivalent object
    */
   location: Location | ReactLocation;
+  className?: string;
   texts?: {
     menuToggleAriaLabel?: string;
     menuToggleText?: string;
@@ -41,7 +43,7 @@ export interface NavSecondaryProps {
 
 let navSecondaryIndex = 0;
 
-const NavSecondary = ({ navItems, activeSlug, location, texts }: NavSecondaryProps): JSX.Element => {
+const NavSecondary = ({ navItems, activeSlug, location, className, texts }: NavSecondaryProps): JSX.Element => {
   const [navTree, setNavTree] = useState<NavNodeSecondary[]>([]);
   const [activeParent, setActiveParent] = useState<NavNodeSecondary | null>(null);
   const [activeParentRef, setActiveParentRef] = useState<RefObject<HTMLButtonElement> | null>(null);
@@ -131,7 +133,11 @@ const NavSecondary = ({ navItems, activeSlug, location, texts }: NavSecondaryPro
   }, [location.pathname]);
 
   return (
-    <nav ref={nav} className="bsds-nav-secondary" aria-label={texts?.navAriaLabel || 'secondary'}>
+    <nav
+      ref={nav}
+      className={useConcatenation(['bsds-nav-secondary', `${className || ''}`])}
+      aria-label={texts?.navAriaLabel || 'secondary'}
+    >
       <button
         className="bsds-nav-secondary-menu-trigger"
         aria-expanded={isExpanded}

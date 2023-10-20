@@ -1,14 +1,16 @@
 import { ReactNode } from 'react';
 import { StoplightColor, StoplightSize, StoplightTextColor } from './Stoplight.types';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface StoplightProps {
   children: ReactNode;
   lightColor: StoplightColor;
   textColor?: StoplightTextColor;
   size?: StoplightSize;
+  className?: string;
 }
 
-const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): JSX.Element => {
+const Stoplight = ({ children, lightColor, textColor, size, className }: StoplightProps): JSX.Element => {
   let lightColorClasses = '';
   switch (lightColor) {
     case 'red':
@@ -40,7 +42,11 @@ const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): J
       break;
   }
 
-  return <p className={`${lightColorClasses} ${textColorClasses} ${sizeClasses}`}>{children}</p>;
+  return (
+    <p className={useConcatenation([lightColorClasses, textColorClasses, sizeClasses, `${className || ''}`])}>
+      {children}
+    </p>
+  );
 };
 
 export default Stoplight;

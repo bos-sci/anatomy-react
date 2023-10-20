@@ -10,6 +10,7 @@ import { Children, createRef, Fragment, ReactElement, useEffect, useId, useRef, 
 import HeadingElement, { HeadingLevel } from '../Heading';
 import AccordionHeading from './AccordionHeading';
 import { AccordionPanelProps } from './AccordionPanel';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export type AccordionProps = {
   /**
@@ -21,9 +22,10 @@ export type AccordionProps = {
    */
   isContained?: boolean;
   children: ReactElement<AccordionPanelProps>[] | ReactElement<AccordionPanelProps>;
+  className?: string;
 };
 
-const Accordion = ({ headingLevel = 'h2', isContained = false, children }: AccordionProps): JSX.Element => {
+const Accordion = ({ headingLevel = 'h2', isContained = false, children, className }: AccordionProps): JSX.Element => {
   const accordionId = useId();
 
   const [expandedPanels, setExpandedPanels] = useState(new Set<number>());
@@ -54,7 +56,7 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children }: Accor
   };
 
   return (
-    <div className={'bsds-accordion' + (isContained ? ' is-contained' : '')}>
+    <div className={useConcatenation(['bsds-accordion', `${isContained ? 'is-contained' : ''}`, `${className || ''}`])}>
       {accordionPanels.map((accordionPanel, index) => (
         <Fragment key={'fragment' + accordionPanel.props.heading}>
           <HeadingElement

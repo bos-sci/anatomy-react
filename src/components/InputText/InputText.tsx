@@ -12,6 +12,7 @@ import {
   useState
 } from 'react';
 import { getValidationMessage } from '../../helpers/validation';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -38,6 +39,7 @@ const InputText = forwardRef(
       onInvalid,
       onBlur,
       onChange,
+      className,
       ...inputAttrs
     }: InputTextProps,
     ref: ForwardedRef<HTMLInputElement>
@@ -113,7 +115,7 @@ const InputText = forwardRef(
     }, []);
 
     return (
-      <div className="bsds-field">
+      <div className={useConcatenation(['bsds-field', `${className || ''}`])}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

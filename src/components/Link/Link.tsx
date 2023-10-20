@@ -2,6 +2,7 @@
 
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
 import { NavLink, Link as RouterLink, To } from 'react-router-dom';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export type LinkVariants = '' | 'cta' | 'ghost' | 'mailto' | 'nav' | 'subtle';
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -97,7 +98,8 @@ const Link = forwardRef(
         <a
           ref={ref}
           href={href}
-          className={`${classes} ${className ? className : ''}`}
+          // eslint-disable-next-line react-hooks/rules-of-hooks
+          className={useConcatenation([`${classes}`, `${className || ''}`])}
           target={target}
           rel={relAttr}
           {...linkAttrs}

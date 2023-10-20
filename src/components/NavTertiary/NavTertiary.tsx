@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import Link from '../Link';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface NavItemTertiary {
   id: string;
@@ -10,17 +11,22 @@ export interface NavTertiaryProps {
   navTertiaryItems?: NavItemTertiary[];
   tertiaryNavAriaLabel?: string;
   hasReactRouter?: boolean;
+  className?: string;
 }
 
 const NavTertiary = ({
   navTertiaryItems,
   tertiaryNavAriaLabel,
-  hasReactRouter = true
+  hasReactRouter = true,
+  className
 }: NavTertiaryProps): JSX.Element => {
   const navTitleId = useId();
 
   return (
-    <nav className="bsds-nav-tertiary" aria-label={tertiaryNavAriaLabel || 'Table of contents'}>
+    <nav
+      className={useConcatenation(['bsds-nav-tertiary', `${className || ''}`])}
+      aria-label={tertiaryNavAriaLabel || 'Table of contents'}
+    >
       <h2 className="bsds-nav-tertiary-title" aria-hidden="true" id={'tertiaryNav' + navTitleId}>
         On this page
       </h2>

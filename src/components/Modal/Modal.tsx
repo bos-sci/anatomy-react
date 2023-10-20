@@ -15,6 +15,7 @@ import {
 } from 'react';
 import Button, { ButtonProps, ButtonVariants } from '../Button';
 import { LinkProps, LinkVariants } from '../Link';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface ModalRef {
   showModal: () => void;
@@ -33,6 +34,7 @@ export interface ModalProps {
   children: ReactNode;
   onClose?: () => void;
   onShowModal?: () => void;
+  className?: string;
 }
 
 const Modal = forwardRef(
@@ -47,7 +49,8 @@ const Modal = forwardRef(
       negativeAction,
       children,
       onClose,
-      onShowModal
+      onShowModal,
+      className
     }: ModalProps,
     ref: ForwardedRef<ModalRef>
   ): JSX.Element => {
@@ -227,7 +230,7 @@ const Modal = forwardRef(
         <div id={dialogId + '-body'} className="bsds-modal-body">
           {children}
         </div>
-        <div className="bsds-modal-footer">
+        <div className={useConcatenation(['bsds-modal-footer', `${className || ''}`])}>
           {positive}
           {negative}
         </div>

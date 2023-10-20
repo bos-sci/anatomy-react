@@ -13,6 +13,7 @@ import {
 } from 'react';
 import { getValidationMessage } from '../../helpers/validation';
 import useTextareaResize from '../../hooks/useTextareaResize';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
@@ -37,6 +38,7 @@ const Textarea = forwardRef(
       onInvalid,
       onBlur,
       onChange,
+      className,
       ...textareaAttrs
     }: TextareaProps,
     ref: ForwardedRef<HTMLTextAreaElement>
@@ -113,7 +115,7 @@ const Textarea = forwardRef(
     }, []);
 
     return (
-      <div className="bsds-field">
+      <div className={useConcatenation(['bsds-field', `${className || ''}`])}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

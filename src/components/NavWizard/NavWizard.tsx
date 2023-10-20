@@ -5,6 +5,7 @@ import { RequireOnlyOne } from '../../types';
 import Button from '../Button';
 import { NavItem } from '../../types';
 import NavWizardList from './NavWizardList';
+import useConcatenation from '../../hooks/useConcatenation';
 
 interface NavItemWizardBase extends NavItem {
   children?: NavItemWizard[];
@@ -41,6 +42,7 @@ export interface NavWizardProps {
     backButtonText?: string;
     backButtonAriaLabel?: string;
   };
+  className?: string;
 }
 
 const NavWizard = (props: NavWizardProps) => {
@@ -110,7 +112,10 @@ const NavWizard = (props: NavWizardProps) => {
   }, [props.navItems]);
 
   return (
-    <nav className="bsds-nav-wizard" aria-label={props.texts.wizardNavAriaLabel}>
+    <nav
+      className={useConcatenation(['bsds-nav-wizard', `${props.className || ''}`])}
+      aria-label={props.texts.wizardNavAriaLabel}
+    >
       <div className="bsds-nav-wizard-header">
         {history.length > 0 && (
           <Button

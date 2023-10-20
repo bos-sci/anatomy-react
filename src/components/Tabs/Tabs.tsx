@@ -13,6 +13,7 @@ import IconChevronLeft from '../Icon/icons/IconChevronLeft';
 import IconChevronRight from '../Icon/icons/IconChevronRight';
 import Tab from './Tab';
 import { TabPanelProps } from './TabPanel';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface TabsProps {
   children: ReactElement<TabPanelProps>[];
@@ -20,6 +21,7 @@ export interface TabsProps {
    * Label that describes the purpose of the set of tabs
    */
   tablistLabel: string;
+  className?: string;
 }
 
 let tabsId = 0;
@@ -194,7 +196,9 @@ const Tabs = (props: TabsProps): JSX.Element => {
   }, [selectedTab]);
 
   return (
-    <div className={'bsds-tabs' + (hasOverflow ? ' has-overflow' : '')}>
+    <div
+      className={useConcatenation(['bsds-tabs', `${hasOverflow ? ' has-overflow' : ''}`, `${props.className || ''}`])}
+    >
       <p className="bsds-visually-hidden" id={tablistLabelId}>
         {props.tablistLabel}
       </p>

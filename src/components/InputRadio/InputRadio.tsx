@@ -15,6 +15,7 @@ import {
 } from 'react';
 import { getValidationMessage } from '../../helpers/validation';
 import { AddonProps, RadioAddonPropsContext } from '../RadioGroup';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -26,7 +27,17 @@ export interface InputRadioProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const InputRadio = forwardRef(
   (
-    { label, helpText, forceValidation, inputUnavailable, onBlur, onInput, onInvalid, ...inputAttrs }: InputRadioProps,
+    {
+      label,
+      helpText,
+      forceValidation,
+      inputUnavailable,
+      onBlur,
+      onInput,
+      onInvalid,
+      className,
+      ...inputAttrs
+    }: InputRadioProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     const [inputId, setInputId] = useState('');
@@ -107,7 +118,7 @@ const InputRadio = forwardRef(
     }, [isGroupStyle, addonProps]);
 
     return (
-      <div className="bsds-field">
+      <div className={useConcatenation(['bsds-field', `${className || ''}`])}>
         <input
           ref={(node) => {
             if (node) {

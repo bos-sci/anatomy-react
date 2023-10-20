@@ -13,6 +13,7 @@ import {
   useState
 } from 'react';
 import { getValidationMessage } from '../../helpers/validation';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -23,7 +24,17 @@ export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement
 
 const InputCheckbox = forwardRef(
   (
-    { label, helpText, errorText, forceValidation, onBlur, onChange, onInvalid, ...inputAttrs }: InputCheckboxProps,
+    {
+      label,
+      helpText,
+      errorText,
+      forceValidation,
+      onBlur,
+      onChange,
+      onInvalid,
+      className,
+      ...inputAttrs
+    }: InputCheckboxProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     const [inputId, setInputId] = useState('');
@@ -83,7 +94,7 @@ const InputCheckbox = forwardRef(
     }, [id]);
 
     return (
-      <div className="bsds-field">
+      <div className={useConcatenation(['bsds-field', `${className || ''}`])}>
         <input
           ref={(node) => {
             if (node) {

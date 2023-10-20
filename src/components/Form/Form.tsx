@@ -1,10 +1,11 @@
 import { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
+import useConcatenation from '../../hooks/useConcatenation';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
 }
 
-const Form = ({ children, onInvalid, ...formAttrs }: FormProps): JSX.Element => {
+const Form = ({ children, onInvalid, className, ...formAttrs }: FormProps): JSX.Element => {
   const handleInvalid = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (onInvalid) {
@@ -13,7 +14,7 @@ const Form = ({ children, onInvalid, ...formAttrs }: FormProps): JSX.Element => 
   };
 
   return (
-    <form className="bsds-form" onInvalid={handleInvalid} {...formAttrs}>
+    <form className={useConcatenation(['bsds-form', `${className || ''}`])} onInvalid={handleInvalid} {...formAttrs}>
       {children}
     </form>
   );
