@@ -1,6 +1,5 @@
 import { ImgHTMLAttributes, useEffect, useId, useState } from 'react';
 import { ImageRatio } from './Image.types';
-import useConcatenation from '../../hooks/useConcatenation';
 
 interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
   ratio?: ImageRatio;
@@ -83,7 +82,7 @@ const Image = (props: ImageProps): JSX.Element => {
   return (
     <>
       <img
-        className={useConcatenation([`bsds-image${ratioClasses}`, `${className || ''}`])}
+        className={`bsds-image${ratioClasses} ${className || ''}`}
         alt={altText}
         id={'image' + imageId}
         aria-describedby={ariaText}

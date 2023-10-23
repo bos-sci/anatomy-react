@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { RequireOnlyOne } from '../../types';
 import DropdownMenu from '../DropdownMenu';
 import Link from '../Link';
-import useConcatenation from '../../hooks/useConcatenation';
 
 interface CrumbBase {
   name: string;
@@ -40,10 +39,7 @@ const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true, className
   }, [crumbs, hasOverflow]);
 
   return (
-    <nav
-      aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'}
-      className={useConcatenation([`${className || ''}`])}
-    >
+    <nav aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'} className={`${className || ''}`}>
       <ol className="bsds-breadcrumbs">
         {overflowCrumbs.length > 0 && (
           <li className="bsds-breadcrumbs-overflow">

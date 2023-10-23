@@ -12,7 +12,6 @@ import {
   useId
 } from 'react';
 import { errorValueMissing } from '../../helpers/validation';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
@@ -100,7 +99,7 @@ const Select = forwardRef(
     }, [selectId]);
 
     return (
-      <div className={useConcatenation(['bsds-field', `${className || ''}`])}>
+      <div className={`bsds-field ${className || ''}`}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

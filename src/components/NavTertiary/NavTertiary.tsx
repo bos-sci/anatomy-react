@@ -1,6 +1,5 @@
 import { useId } from 'react';
 import Link from '../Link';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface NavItemTertiary {
   id: string;
@@ -23,10 +22,7 @@ const NavTertiary = ({
   const navTitleId = useId();
 
   return (
-    <nav
-      className={useConcatenation(['bsds-nav-tertiary', `${className || ''}`])}
-      aria-label={tertiaryNavAriaLabel || 'Table of contents'}
-    >
+    <nav className={`bsds-nav-tertiary ${className || ''}`} aria-label={tertiaryNavAriaLabel || 'Table of contents'}>
       <h2 className="bsds-nav-tertiary-title" aria-hidden="true" id={'tertiaryNav' + navTitleId}>
         On this page
       </h2>

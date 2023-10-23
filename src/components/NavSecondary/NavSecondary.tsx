@@ -5,7 +5,6 @@ import { Location as ReactLocation } from 'react-router-dom';
 import { RequireOnlyOne, NavItem } from '../../types';
 import Button from '../Button';
 import NavSecondaryList from './NavSecondaryList';
-import useConcatenation from '../../hooks/useConcatenation';
 
 interface NavItemExtended extends NavItem {
   pathname?: string;
@@ -133,11 +132,7 @@ const NavSecondary = ({ navItems, activeSlug, location, className, texts }: NavS
   }, [location.pathname]);
 
   return (
-    <nav
-      ref={nav}
-      className={useConcatenation(['bsds-nav-secondary', `${className || ''}`])}
-      aria-label={texts?.navAriaLabel || 'secondary'}
-    >
+    <nav ref={nav} className={`bsds-nav-secondary ${className || ''}`} aria-label={texts?.navAriaLabel || 'secondary'}>
       <button
         className="bsds-nav-secondary-menu-trigger"
         aria-expanded={isExpanded}

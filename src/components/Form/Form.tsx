@@ -1,5 +1,4 @@
 import { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -14,7 +13,7 @@ const Form = ({ children, onInvalid, className, ...formAttrs }: FormProps): JSX.
   };
 
   return (
-    <form className={useConcatenation(['bsds-form', `${className || ''}`])} onInvalid={handleInvalid} {...formAttrs}>
+    <form className={`bsds-form ${className || ''}`} onInvalid={handleInvalid} {...formAttrs}>
       {children}
     </form>
   );

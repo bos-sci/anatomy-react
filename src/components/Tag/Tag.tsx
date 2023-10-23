@@ -2,7 +2,6 @@
 
 import { ReactNode, useState, useEffect } from 'react';
 import { TagVariant } from './Tag.types';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface TagProps {
   children: ReactNode;
@@ -55,7 +54,7 @@ const Tag = (props: TagProps): JSX.Element => {
     }
   }, [props.variant, props.children, props.texts?.featuredTag]);
 
-  return <b className={useConcatenation([classes, `${props.className || ''}`])}>{featureTag}</b>;
+  return <b className={`${classes} ${props.className || ''}`}>{featureTag}</b>;
 };
 
 export default Tag;

@@ -19,7 +19,6 @@ import Button from '../Button';
 import IconClose from '../Icon/icons/IconClose';
 import Link from '../Link';
 import BoldMatch from '../BoldMatch';
-import useConcatenation from '../../hooks/useConcatenation';
 
 interface Result {
   to?: string;
@@ -208,7 +207,7 @@ const Search = forwardRef(
     return (
       <form
         action="."
-        className={useConcatenation(['bsds-form-search', `${className || ''}`])}
+        className={`bsds-form-search ${className || ''}`}
         role="search"
         aria-label={texts?.searchAriaLabel || 'site search'}
         onSubmit={handleSubmit}

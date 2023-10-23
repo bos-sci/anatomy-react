@@ -1,7 +1,6 @@
 import DropdownMenu from '../DropdownMenu';
 import Link from '../Link';
 import { NavItemUtility } from '../NavPrimary';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface NavUtilityProps {
   utilityItems: NavItemUtility[];
@@ -11,7 +10,7 @@ export interface NavUtilityProps {
 
 const NavUtility = ({ utilityItems, ariaLabel = 'Utility', className }: NavUtilityProps): JSX.Element => {
   return (
-    <nav className={useConcatenation(['bsds-nav-utility', `${className || ''}`])} aria-label={ariaLabel}>
+    <nav className={`bsds-nav-utility ${className || ''}`} aria-label={ariaLabel}>
       <ul className="bsds-nav">
         {utilityItems.map((utilityItem) => (
           <li key={'utilityItem' + utilityItem.text} className="bsds-nav-item">

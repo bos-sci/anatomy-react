@@ -1,6 +1,5 @@
 import { createContext, FieldsetHTMLAttributes, ReactElement, useEffect, useState } from 'react';
 import { InputRadioProps } from '../InputRadio';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export const RadioAddonPropsContext = createContext({
   ariaInvalid: false,
@@ -85,7 +84,7 @@ const RadioGroup = ({
 
   return (
     <fieldset
-      className={useConcatenation([`bsds-fieldset${buttonGroup ? '-button-group' : ''}`, `${className || ''}`])}
+      className={`bsds-fieldset${buttonGroup ? '-button-group' : ''} ${className || ''}`}
       aria-describedby={helpText ? helpTextId : ''}
       {...fieldsetAttrs}
       role="radiogroup"

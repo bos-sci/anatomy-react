@@ -1,5 +1,4 @@
 import { FieldsetHTMLAttributes, ReactNode, useEffect, useId, useState } from 'react';
-import useConcatenation from '../../hooks/useConcatenation';
 
 export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /**
@@ -34,7 +33,7 @@ const Fieldset = ({
 
   return (
     <fieldset
-      className={useConcatenation(['bsds-fieldset', `${className || ''}`])}
+      className={`bsds-fieldset ${className || ''}`}
       aria-describedby={helpTextId ? helpTextId : ''}
       {...fieldsetAttrs}
     >
