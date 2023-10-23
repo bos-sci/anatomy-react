@@ -19,6 +19,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   errorText?: string;
   requiredText?: string;
   forceValidation?: boolean;
+  className?: string;
 }
 
 const Select = forwardRef(

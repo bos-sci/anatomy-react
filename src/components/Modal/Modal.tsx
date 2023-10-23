@@ -33,7 +33,6 @@ export interface ModalProps {
   children: ReactNode;
   onClose?: () => void;
   onShowModal?: () => void;
-  className?: string;
 }
 
 const Modal = forwardRef(
@@ -48,8 +47,7 @@ const Modal = forwardRef(
       negativeAction,
       children,
       onClose,
-      onShowModal,
-      className
+      onShowModal
     }: ModalProps,
     ref: ForwardedRef<ModalRef>
   ): JSX.Element => {
@@ -229,7 +227,7 @@ const Modal = forwardRef(
         <div id={dialogId + '-body'} className="bsds-modal-body">
           {children}
         </div>
-        <div className={`bsds-modal-footer ${className || ''}`}>
+        <div className="bsds-modal-footer">
           {positive}
           {negative}
         </div>

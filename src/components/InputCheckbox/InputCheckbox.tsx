@@ -19,6 +19,7 @@ export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement
   helpText?: string;
   errorText?: string;
   forceValidation?: boolean;
+  className?: string;
 }
 
 const InputCheckbox = forwardRef(

@@ -13,6 +13,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isCurrentPage?: boolean;
   target?: string;
   rel?: string;
+  className?: string;
 }
 
 const Link = forwardRef(
@@ -97,7 +98,6 @@ const Link = forwardRef(
         <a
           ref={ref}
           href={href}
-          // eslint-disable-next-line react-hooks/rules-of-hooks
           className={`${classes} ${className || ''}`}
           target={target}
           rel={relAttr}

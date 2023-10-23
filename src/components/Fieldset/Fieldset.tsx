@@ -10,6 +10,7 @@ export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElemen
   errorId?: string;
   helpId?: string;
   children: ReactNode;
+  className?: string;
 }
 
 const Fieldset = ({

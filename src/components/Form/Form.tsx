@@ -2,6 +2,7 @@ import { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
+  className?: string;
 }
 
 const Form = ({ children, onInvalid, className, ...formAttrs }: FormProps): JSX.Element => {

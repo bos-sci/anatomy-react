@@ -24,6 +24,7 @@ export interface RadioGroupProps extends FieldsetHTMLAttributes<HTMLFieldSetElem
   helpText?: string;
   buttonGroup?: boolean;
   children: ReactElement<InputRadioProps>[];
+  className?: string;
 }
 
 export interface AddonProps {

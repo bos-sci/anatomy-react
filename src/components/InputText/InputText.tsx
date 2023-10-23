@@ -23,6 +23,7 @@ export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
    * When false, component validates on blur and change.
    */
   forceValidation?: boolean;
+  className?: string;
 }
 
 let inputId = 0;

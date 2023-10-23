@@ -5,12 +5,11 @@ import { NavItemUtility } from '../NavPrimary';
 export interface NavUtilityProps {
   utilityItems: NavItemUtility[];
   ariaLabel?: string;
-  className?: string;
 }
 
-const NavUtility = ({ utilityItems, ariaLabel = 'Utility', className }: NavUtilityProps): JSX.Element => {
+const NavUtility = ({ utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
   return (
-    <nav className={`bsds-nav-utility ${className || ''}`} aria-label={ariaLabel}>
+    <nav className="bsds-nav-utility" aria-label={ariaLabel}>
       <ul className="bsds-nav">
         {utilityItems.map((utilityItem) => (
           <li key={'utilityItem' + utilityItem.text} className="bsds-nav-item">

@@ -21,6 +21,7 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   requiredText?: string;
   forceValidation?: boolean;
   autoResize?: boolean;
+  className?: string;
 }
 
 let textAreaId = 0;
