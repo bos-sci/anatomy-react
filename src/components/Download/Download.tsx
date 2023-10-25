@@ -39,7 +39,7 @@ interface FileProps {
 }
 
 export interface DownloadProps extends BaseProps {
-  file: FileProps;
+  file?: FileProps;
   withButton?: boolean;
   withProperties?: boolean;
 }
@@ -53,6 +53,7 @@ const Download = ({ file, withButton, withProperties, ...rest }: DownloadProps) 
   // file type
   return (
     <>
+      hello
       {/* {withProperties && (
         
       )} */}
