@@ -10,6 +10,7 @@ export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElemen
   errorId?: string;
   helpId?: string;
   children: ReactNode;
+  className?: string;
 }
 
 const Fieldset = ({
@@ -19,6 +20,7 @@ const Fieldset = ({
   children,
   errorId,
   helpId,
+  className,
   ...fieldsetAttrs
 }: FieldsetProps): JSX.Element => {
   const [helpTextId, setHelpTextId] = useState('');
@@ -31,7 +33,11 @@ const Fieldset = ({
   }, [errorId, helpId, id]);
 
   return (
-    <fieldset className="bsds-fieldset" aria-describedby={helpTextId ? helpTextId : ''} {...fieldsetAttrs}>
+    <fieldset
+      className={`bsds-fieldset ${className || ''}`}
+      aria-describedby={helpTextId ? helpTextId : ''}
+      {...fieldsetAttrs}
+    >
       <legend className="bsds-legend">{legend}</legend>
       {!!errorText && (
         <p id={errorTextId} className="bsds-field-error">

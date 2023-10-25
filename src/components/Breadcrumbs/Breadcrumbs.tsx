@@ -19,9 +19,10 @@ export interface BreadcrumbsProps {
     breadcrumbsDropdownAriaLabel?: string;
   };
   hasOverflow?: boolean;
+  className?: string;
 }
 
-const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: BreadcrumbsProps): JSX.Element => {
+const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true, className }: BreadcrumbsProps): JSX.Element => {
   const [overflowCrumbs, setOverflowCrumbs] = useState<Crumb[]>([]);
   const [visibleCrumbs, setVisibleCrumbs] = useState<Crumb[]>([]);
 
@@ -38,7 +39,7 @@ const Breadcrumbs = ({ crumbs, currentPage, texts, hasOverflow = true }: Breadcr
   }, [crumbs, hasOverflow]);
 
   return (
-    <nav aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'}>
+    <nav aria-label={texts?.breadcrumbsNavAriaLabel || 'breadcrumbs'} className={`${className || ''}`}>
       <ol className="bsds-breadcrumbs">
         {overflowCrumbs.length > 0 && (
           <li className="bsds-breadcrumbs-overflow">

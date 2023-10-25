@@ -4,6 +4,7 @@ import { ContentCardProps } from '../ContentCard';
 export interface CardGroupProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactElement<ContentCardProps> | ReactElement<ContentCardProps>[];
   cardLayout?: 'twoUp' | 'threeUp' | 'fourUp';
+  className?: string;
 }
 
 const CardGroup = ({ children, cardLayout = 'twoUp', className }: CardGroupProps): JSX.Element => {

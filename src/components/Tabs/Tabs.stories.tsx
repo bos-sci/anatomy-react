@@ -9,6 +9,9 @@ const meta = {
     children: {
       control: false
     }
+  },
+  args: {
+    tablistLabel: 'Demo tabs'
   }
 } satisfies Meta<typeof Tabs>;
 
@@ -17,7 +20,7 @@ type Story = StoryObj<typeof Tabs>;
 
 export const Playground: Story = {
   render: (args) => (
-    <Tabs tablistLabel="Demo tabs">
+    <Tabs {...args}>
       <TabPanel tabName="Tab 1">Resize the browser to see how tabs overflow</TabPanel>
       <TabPanel tabName="Tab 2">Tab panel 2</TabPanel>
       <TabPanel tabName="Tab 3">Tab panel 3</TabPanel>

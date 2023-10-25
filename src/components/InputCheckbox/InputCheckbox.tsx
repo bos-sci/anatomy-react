@@ -19,11 +19,22 @@ export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement
   helpText?: string;
   errorText?: string;
   forceValidation?: boolean;
+  className?: string;
 }
 
 const InputCheckbox = forwardRef(
   (
-    { label, helpText, errorText, forceValidation, onBlur, onChange, onInvalid, ...inputAttrs }: InputCheckboxProps,
+    {
+      label,
+      helpText,
+      errorText,
+      forceValidation,
+      onBlur,
+      onChange,
+      onInvalid,
+      className,
+      ...inputAttrs
+    }: InputCheckboxProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     const [inputId, setInputId] = useState('');
@@ -83,7 +94,7 @@ const InputCheckbox = forwardRef(
     }, [id]);
 
     return (
-      <div className="bsds-field">
+      <div className={`bsds-field ${className || ''}`}>
         <input
           ref={(node) => {
             if (node) {

@@ -2,9 +2,10 @@ import { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
+  className?: string;
 }
 
-const Form = ({ children, onInvalid, ...formAttrs }: FormProps): JSX.Element => {
+const Form = ({ children, onInvalid, className, ...formAttrs }: FormProps): JSX.Element => {
   const handleInvalid = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (onInvalid) {
@@ -13,7 +14,7 @@ const Form = ({ children, onInvalid, ...formAttrs }: FormProps): JSX.Element => 
   };
 
   return (
-    <form className="bsds-form" onInvalid={handleInvalid} {...formAttrs}>
+    <form className={`bsds-form ${className || ''}`} onInvalid={handleInvalid} {...formAttrs}>
       {children}
     </form>
   );

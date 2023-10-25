@@ -13,6 +13,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isCurrentPage?: boolean;
   target?: string;
   rel?: string;
+  className?: string;
 }
 
 const Link = forwardRef(
@@ -97,7 +98,7 @@ const Link = forwardRef(
         <a
           ref={ref}
           href={href}
-          className={`${classes} ${className ? className : ''}`}
+          className={`${classes} ${className || ''}`}
           target={target}
           rel={relAttr}
           {...linkAttrs}
