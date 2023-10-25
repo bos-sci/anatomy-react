@@ -74,3 +74,81 @@ export const WithHelpAndError: Story = {
     </RadioGroup>
   )
 };
+
+export const ButtonGroup: Story = {
+  name: 'Button group',
+  render: (args) => (
+    <RadioGroup buttonGroup {...args}>
+      <InputRadio
+        label="Radio 1"
+        name="groupButtonStyleRadio"
+        value="groupButtonStyleRadio1"
+        defaultChecked
+        forceValidation
+      />
+      <InputRadio label="Radio 2" name="groupButtonStyleRadio" value="groupButtonStyleRadio2" />
+      <InputRadio label="Radio 3" name="groupButtonStyleRadio" value="groupButtonStyleRadio3" inputUnavailable />
+    </RadioGroup>
+  )
+};
+
+export const ButtonGroupWithHelp: Story = {
+  name: 'Button group with help',
+  args: {
+    helpText
+  },
+  render: (args) => (
+    <RadioGroup buttonGroup {...args}>
+      <InputRadio
+        label="Radio 1"
+        name="groupButtonStyleRadio"
+        value="groupButtonStyleRadio1"
+        defaultChecked
+        forceValidation
+      />
+      <InputRadio label="Radio 2" name="groupButtonStyleRadio" value="groupButtonStyleRadio2" />
+      <InputRadio label="Radio 3" name="groupButtonStyleRadio" value="groupButtonStyleRadio3" inputUnavailable />
+    </RadioGroup>
+  )
+};
+
+export const ButtonGroupWithError: Story = {
+  name: 'Button group with error',
+  args: {
+    errorText
+  },
+  render: (args) => (
+    <RadioGroup buttonGroup {...args}>
+      <InputRadio
+        label="Radio 1"
+        name="groupButtonStyleRadio"
+        value="groupButtonStyleRadio1"
+        defaultChecked
+        forceValidation
+      />
+      <InputRadio label="Radio 2" name="groupButtonStyleRadio" value="groupButtonStyleRadio2" />
+      <InputRadio label="Radio 3" name="groupButtonStyleRadio" value="groupButtonStyleRadio3" inputUnavailable />
+    </RadioGroup>
+  )
+};
+
+export const ButtonGroupWithHelpAndError: Story = {
+  name: 'Button group with help and error',
+  args: {
+    helpText,
+    errorText
+  },
+  render: (args) => (
+    <RadioGroup buttonGroup {...args}>
+      <InputRadio
+        label="Radio 1"
+        name="groupButtonStyleRadio"
+        value="groupButtonStyleRadio1"
+        defaultChecked
+        forceValidation
+      />
+      <InputRadio label="Radio 2" name="groupButtonStyleRadio" value="groupButtonStyleRadio2" />
+      <InputRadio label="Radio 3" name="groupButtonStyleRadio" value="groupButtonStyleRadio3" inputUnavailable />
+    </RadioGroup>
+  )
+};
