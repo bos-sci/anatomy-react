@@ -34,6 +34,7 @@ interface FileProps {
   properties?: {
     size?: string;
     type?: string;
+    test?: string;
   };
 }
 
