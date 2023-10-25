@@ -84,5 +84,12 @@ a {
         mask: url('../../assets/images/icon-envelope.svg') no-repeat 50% 50%;
       }
     }
+
+    &.bsds-link-download-button {
+      &::after {
+        -webkit-mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
+        mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
+      }
+    }
   }
 }
