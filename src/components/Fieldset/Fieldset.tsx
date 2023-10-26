@@ -1,4 +1,4 @@
-import { FieldsetHTMLAttributes, ReactNode, useEffect, useId, useState } from 'react';
+import React, { FieldsetHTMLAttributes, ReactNode, useEffect, useId, useState } from 'react';
 
 export interface FieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /**
@@ -49,7 +49,10 @@ const Fieldset = ({
           {helpText}
         </p>
       )}
-      {children}
+
+      {React.Children.map(children, (child) => (
+        <div className="bsds-form-control">{child}</div>
+      ))}
     </fieldset>
   );
 };
