@@ -49,7 +49,6 @@ const Fieldset = ({
           {helpText}
         </p>
       )}
-
       {React.Children.map(children, (child) => (
         <div className="bsds-form-control">{child}</div>
       ))}

@@ -45,12 +45,12 @@ export const Playground: Story = {
           <Option value="option2">Option 2</Option>
           <Option value="option3">Option 3</Option>
         </Select>
-        <Fieldset legend="Checkbox group" helpText={helpText} helpId="groupWithHelpId" className="bsds-mt-4x">
+        <Fieldset legend="Checkbox group" helpText={helpText} helpId="groupWithHelpId">
           <InputCheckbox label="Checkbox 1" />
           <InputCheckbox label="Checkbox 2" />
           <InputCheckbox label="Checkbox 3" />
         </Fieldset>
-        <RadioGroup legend="Radio group" className="bsds-mt-4x">
+        <RadioGroup legend="Radio group">
           <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked />
           <InputRadio label="Radio 2" name="groupDefault" value="defaultRadio2" />
           <InputRadio label="Radio 3" name="groupDefault" value="defaultRadio3" />
