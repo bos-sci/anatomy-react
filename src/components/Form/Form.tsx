@@ -1,4 +1,4 @@
-import { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
+import React, { FormEvent, FormHTMLAttributes, ReactNode } from 'react';
 
 export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
   children: ReactNode;
@@ -15,7 +15,9 @@ const Form = ({ children, onInvalid, className, ...formAttrs }: FormProps): JSX.
 
   return (
     <form className={`bsds-form ${className || ''}`} onInvalid={handleInvalid} {...formAttrs}>
-      {children}
+      {React.Children.map(children, (child) => (
+        <div className="bsds-form-control">{child}</div>
+      ))}
     </form>
   );
 };

@@ -48,6 +48,12 @@
   padding-left: 0;
   padding-inline: 0;
   padding-block: 0;
+
+  &:first-child {
+    .bsds-form-control {
+      margin-top: space(2x);
+    }
+  }
 }
 
 .bsds-legend {
@@ -106,10 +112,8 @@
 .bsds-form-control {
   margin-top: space(3x);
 
-  :first-child {
-    &[class='bsds-fieldset'] {
-      margin-top: calc(space(3x) + space(md));
-    }
+  .bsds-fieldset {
+    margin-top: space(4x);
   }
 }
 
