@@ -47,7 +47,7 @@ describe('Button style Radio Group component', () => {
     const checkbox = screen.getByLabelText('Test Radio 1');
     await waitFor(() => checkbox.focus());
     await waitFor(() => checkbox.blur());
-    const errorNode = screen.getByText('This is an example of an error message for a required form control.');
+    const errorNode = screen.getByText('This is an example of an error message.');
 
     expect(errorNode).toBeInTheDocument();
   });

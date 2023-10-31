@@ -37,6 +37,6 @@ describe('Select component', () => {
         <Option value="option3">Option 3</Option>
       </Select>
     );
-    expect(screen.getByText('This is an example of an error message for a required form control.')).toBeInTheDocument();
+    expect(screen.getByText('This is an example of an error message.')).toBeInTheDocument();
   });
 });
