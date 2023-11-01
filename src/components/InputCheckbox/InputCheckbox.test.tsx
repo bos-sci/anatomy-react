@@ -28,7 +28,7 @@ describe('Checkbox Component', () => {
     const checkbox = screen.getByRole('checkbox');
     await waitFor(() => checkbox.focus());
     await waitFor(() => checkbox.blur());
-    const errorNode = screen.getByText('This is an example of an error message.');
+    const errorNode = screen.getByText('Please complete the required field.');
 
     expect(errorNode).toBeInTheDocument();
   });

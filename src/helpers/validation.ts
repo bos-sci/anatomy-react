@@ -1,4 +1,4 @@
-export const errorValueMissing = 'This is an example of an error message.';
+export const errorValueMissing = 'Please complete the required field.';
 
 export const getValidationMessage = (input: HTMLInputElement | HTMLTextAreaElement): string => {
   const validityState = input.validity;
