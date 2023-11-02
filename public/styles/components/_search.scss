@@ -1,5 +1,5 @@
 .bsds-form-search {
-  @extend .bsds-defaults;
+  @include bsds-defaults;
 
   .bsds-field-label-text {
     &.bsds-visually-hidden {

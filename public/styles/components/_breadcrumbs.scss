@@ -1,7 +1,7 @@
 $bsds-breadcrumb-divider: url('../../assets/images/icon-slash.svg');
 
 .bsds-breadcrumbs {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

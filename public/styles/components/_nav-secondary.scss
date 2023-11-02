@@ -18,7 +18,7 @@
 }
 
 .bsds-nav-secondary {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   position: relative;
   z-index: 50;
   grid-area: nav-secondary; // TODO: move into docs site

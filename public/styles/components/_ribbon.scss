@@ -15,7 +15,7 @@
 $base: '.bsds-ribbon';
 
 #{$base} {
-  @extend .bsds-defaults;
+  @include bsds-defaults;
   display: flex;
   justify-content: center;
   background-color: $neutral-95;

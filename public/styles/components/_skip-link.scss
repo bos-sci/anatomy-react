@@ -1,5 +1,5 @@
 .bsds-skip-link {
-  @extend .bsds-defaults;
+  @include bsds-defaults;
   position: absolute;
   top: -100%;
   display: flex;

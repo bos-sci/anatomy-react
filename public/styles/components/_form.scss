@@ -40,7 +40,7 @@
 }
 
 .bsds-fieldset {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   display: flex;
   flex-direction: column;
   margin-inline: 0;
@@ -64,7 +64,7 @@
 }
 
 .bsds-field {
-  @extend .bsds-defaults;
+  @include bsds-defaults;
   display: flex;
   flex-direction: column;
   width: 100%;

@@ -1,5 +1,5 @@
 [class*='bsds-stoplight'] {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   display: flex;
   align-items: center;
 

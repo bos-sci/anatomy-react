@@ -1,5 +1,5 @@
 .bsds-nav-tertiary {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   grid-area: nav-tertiary; // TODO: move into docs site
   width: 100%;
   margin: space(4x) 0 0; // TODO: move into docs site

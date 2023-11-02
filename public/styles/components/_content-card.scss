@@ -1,5 +1,5 @@
 .bsds-card {
-  @extend .bsds-defaults-type;
+  @include bsds-defaults-type;
   position: relative;
   display: flex;
   flex-direction: column;

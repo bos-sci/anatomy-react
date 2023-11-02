@@ -5,5 +5,5 @@
 }
 
 body {
-  @extend .bsds-defaults;
+  @include bsds-defaults;
 }

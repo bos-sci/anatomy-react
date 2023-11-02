@@ -1,4 +1,4 @@
-.bsds-defaults-type {
+@mixin bsds-defaults-type {
   @include bsds-standards;
 
   h1,
@@ -120,7 +120,7 @@
   }
 }
 
-.bsds-defaults-actions {
+@mixin bsds-defaults-actions {
   // Default Link Styles
   a {
     @include link-default;
@@ -132,7 +132,7 @@
   }
 }
 
-.bsds-defaults {
-  @extend .bsds-defaults-actions;
-  @extend .bsds-defaults-type;
+@mixin bsds-defaults {
+  @include bsds-defaults-actions;
+  @include bsds-defaults-type;
 }
