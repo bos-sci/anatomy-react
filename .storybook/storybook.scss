@@ -3,3 +3,7 @@
     width: 100%;
   }
 }
+
+body {
+  @extend .bsds-defaults;
+}
