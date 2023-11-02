@@ -1,4 +1,5 @@
 .bsds-modal {
+  @extend .bsds-defaults-type;
   min-width: min(
     37.5rem,
     100vw

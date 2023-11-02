@@ -18,6 +18,7 @@
 }
 
 .bsds-nav-secondary {
+  @extend .bsds-defaults-type;
   position: relative;
   z-index: 50;
   grid-area: nav-secondary; // TODO: move into docs site
@@ -71,11 +72,11 @@
     &.is-expanded {
       display: block;
     }
-  }
 
-  .bsds-nav-item,
-  .bsds-nav-item-parent {
-    margin-top: 0;
+    .bsds-nav-item,
+    .bsds-nav-item-parent {
+      margin-top: 0;
+    }
   }
 
   .bsds-button-nav-back {

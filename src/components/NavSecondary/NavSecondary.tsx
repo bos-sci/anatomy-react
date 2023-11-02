@@ -133,7 +133,7 @@ const NavSecondary = ({ navItems, activeSlug, location, className, texts }: NavS
 
   return (
     <nav ref={nav} className={`bsds-nav-secondary ${className || ''}`} aria-label={texts?.navAriaLabel || 'secondary'}>
-      <button
+      <Button
         className="bsds-nav-secondary-menu-trigger"
         aria-expanded={isExpanded}
         aria-controls={navSecondaryId}
@@ -141,7 +141,7 @@ const NavSecondary = ({ navItems, activeSlug, location, className, texts }: NavS
         onClick={() => setIsExpanded(!isExpanded)}
       >
         {texts?.menuToggleText || 'Menu'}
-      </button>
+      </Button>
       <div id={navSecondaryId} className={`bsds-nav-secondary-menu${isExpanded ? ' is-expanded' : ''}`}>
         {!!activeParent && (
           <Button ref={backBtnRef} type="button" className="bsds-button-nav-back" onClick={goBack}>

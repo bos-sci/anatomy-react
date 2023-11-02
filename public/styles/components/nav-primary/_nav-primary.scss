@@ -32,6 +32,7 @@
 }
 
 .bsds-nav-header {
+  @extend .bsds-defaults-type;
   border-top-width: $border-width-xs;
   border-top-style: solid;
   border-right: 0;

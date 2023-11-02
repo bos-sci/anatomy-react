@@ -1,6 +1,7 @@
 $icon-size: 1em;
 
 .bsds-dropdown {
+  @extend .bsds-defaults-type;
   position: relative;
   display: inline-block;
 
