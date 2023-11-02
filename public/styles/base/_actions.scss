@@ -208,7 +208,6 @@ button {
 }
 
 @mixin link-default {
-  // @include bsds-standards;
   color: $text-color-action;
   @include font-family-base-heavy;
   text-decoration: underline;
