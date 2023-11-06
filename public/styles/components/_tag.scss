@@ -21,6 +21,7 @@
 }
 
 .bsds-tag {
+  @include bsds-defaults-type;
   @include tag-default;
 
   &-ghost {

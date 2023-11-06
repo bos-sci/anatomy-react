@@ -40,6 +40,7 @@
 }
 
 .bsds-fieldset {
+  @include bsds-defaults-type;
   display: flex;
   flex-direction: column;
   margin-inline: 0;
@@ -63,49 +64,53 @@
 }
 
 .bsds-field {
+  @include bsds-defaults;
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-.bsds-field-label {
-  width: 100%;
-}
-
-.bsds-field-label-text {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.bsds-field-error {
-  display: flex;
-  align-items: center;
-  margin: space(md) 0 0 0;
-  color: $feedback-error-40;
-
-  &::before {
-    display: inline-block;
-    flex-shrink: 0;
-    align-self: flex-start;
-    width: space(3x);
-    height: space(3x);
-    margin-right: space(md);
-    background-image: url('../../assets/images/icon-error.svg');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    content: '';
+.bsds-field,
+.bsds-fieldset {
+  .bsds-field-label {
+    width: 100%;
   }
-}
 
-.bsds-field-help-text {
-  margin: space(sm) 0 0 0;
-  color: $text-color-subtle;
-  @include font-size($fs-body-subtle);
-}
+  .bsds-field-label-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
 
-.bsds-field-required-text {
-  @extend .bsds-field-help-text;
+  .bsds-field-error {
+    display: flex;
+    align-items: center;
+    margin: space(md) 0 0 0;
+    color: $feedback-error-40;
+
+    &::before {
+      display: inline-block;
+      flex-shrink: 0;
+      align-self: flex-start;
+      width: space(3x);
+      height: space(3x);
+      margin-right: space(md);
+      background-image: url('../../assets/images/icon-error.svg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      content: '';
+    }
+  }
+
+  .bsds-field-help-text {
+    margin: space(sm) 0 0 0;
+    color: $text-color-subtle;
+    @include font-size($fs-body-subtle);
+  }
+
+  .bsds-field-required-text {
+    @extend .bsds-field-help-text;
+  }
 }
 
 // TODO: ADS-334 Should we have spacing here? If not, can we get rid of class bsds-margin-top-remove?
