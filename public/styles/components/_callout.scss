@@ -5,6 +5,7 @@
     --fs-display: 3.036rem;
   }
   position: relative;
+  margin-top: 0;
   padding-bottom: space(3x);
   @include font-family-base-heavy;
   font-size: var(--fs-display);
