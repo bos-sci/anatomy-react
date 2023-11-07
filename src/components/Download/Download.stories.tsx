@@ -1,27 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Download from './Download';
-
-// Update imports or delete if not exporting types
-// import { DOWNLOAD_VARIANTS } from './Download.types';
+import DownloadLink from './DownloadLink';
 
 const meta = {
-  title: 'Components/Download',
-  component: Download,
-  tags: ['autodocs'],
-  argTypes: {
-    // variant: {
-    //     options: [undefined, ...DOWNLOAD_VARIANTS],
-    //     control: { type: 'radio' }
-    // }
-  }
-} satisfies Meta<typeof Download>;
+  title: 'Components/Download/DownloadLink',
+  component: DownloadLink,
+  tags: ['autodocs']
+} satisfies Meta<typeof DownloadLink>;
 
 export default meta;
-type Story = StoryObj<typeof Download>;
+type Story = StoryObj<typeof DownloadLink>;
 
 export const Playground: Story = {
-  // args: {
-  //   ...baseArgs
-  // }
+  args: {
+    asButton: false,
+    filename: 'test-file',
+    source: '/assets/images/50-50-split.jpg',
+    cta: 'Download CTA'
+  }
 };

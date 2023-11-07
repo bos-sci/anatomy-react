@@ -1,63 +1,116 @@
-import { HTMLAttributes, PropsWithChildren } from 'react';
-// import DownloadLink from './DownloadLink';
-import { FileExtension } from './Download.types';
+/* eslint-disable */
 
-interface BaseProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {}
+import React, { PropsWithChildren } from 'react';
+import DownloadLink from './DownloadLink';
+import Tag from '../Tag';
 
 /**
- * Create download component in anatomy-react
-
-Exclude anything marked “not MVP” in the mockup
-
-Exclude dark theme
-
-Exclude anything card-related:
-- build the download link (text link and cta styles)
-- and properties (filename, type, etc)
-
-Reference product card component for heading level implementation (allow h2-h6, exclude h1)
-
-Write Storybook stories for download component
-
-Reference primary nav’s logo control for an example of providing a default source to the component that illustrates how we expect people to use the download href attribute
+ * ------------------------------------------
+ * INCOMPLETE COMPONENT FOR DEMO PURPOSES
+ * ------------------------------------------
  */
 
-type FileNameWithExtension = `${string}.${FileExtension}`;
+/**
+ * Generic box component would be exported from a higher level */
+interface BoxProps extends PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {}
 
-type FileHref = `${string}/${FileNameWithExtension}` | `/${FileNameWithExtension}`;
+/**
+ * Would accept only specific child components only */
+interface CardProps extends BoxProps {}
 
-interface FileProps {
-  filename?: string;
-  filetype?: string;
-  href: FileHref;
-  properties?: {
-    size?: string;
-    type?: string;
-    test?: string;
+/**
+ * Interface used by components that utilize the Card component  */
+interface CardConsumerProps extends BoxProps {
+  bodyText: string;
+  headerProps: {
+    isSemantic: boolean;
+    text: string;
+  };
+  heroProps?: {
+    as: 'image' | 'icon';
+    src: string;
+    alt: string;
   };
 }
 
-export interface DownloadProps extends BaseProps {
-  file?: FileProps;
+const Card = ({ children, ...rest }: CardProps) => {
+  return <div {...rest}>{children}</div>;
+};
+
+/**
+ * A div for providing padding or spacing between card sections  */
+const CardSection = ({ children, ...rest }: BoxProps) => {
+  return <div {...rest}>{children}</div>;
+};
+
+const CardText = ({ children, ...rest }: BoxProps) => {
+  return <p {...rest}>{children}</p>;
+};
+
+/**
+ * Handles "semantic" vs "non-semantic" output */
+const CardTitle = ({ isSemantic, text }: { isSemantic: boolean; text: string }) => {
+  return isSemantic ? (
+    <h2>{text}</h2>
+  ) : (
+    <p>
+      <strong>{text}</strong>
+    </p>
+  );
+};
+
+const CardHeroImage = ({ as, src, alt }: { as: 'image' | 'icon'; src: string; alt: string }) => {
+  return as === 'image' ? <img src={src} alt={alt} /> : <i className={src} />;
+};
+const TagList = ({ children }: PropsWithChildren<{}>) => {
+  return <div>{children}</div>;
+};
+
+/**
+ * Could be exported from a higher level to be used by other components that handle files. */
+interface FileProps {
+  filename?: string;
+  href: string;
+  size?: string;
+  type?: string;
+}
+
+const header: CardConsumerProps['headerProps'] = {
+  isSemantic: true,
+  text: 'Download Card'
+};
+
+export interface DownloadCardProps extends CardConsumerProps {
+  cta: string;
+  file: FileProps;
   withButton?: boolean;
   withProperties?: boolean;
 }
 
-const Download = ({ file, withButton, withProperties, ...rest }: DownloadProps) => {
-  // const fileName =
-  // const fileProperties =
-
-  // file-name
-  // file size
-  // file type
+const Download = ({ bodyText, cta, file, headerProps, heroProps, withButton, withProperties }: DownloadCardProps) => {
+  const shouldDisplayProperties = withProperties && (file.filename || file.size || file.type);
   return (
-    <>
-      hello
-      {/* {withProperties && (
-        
-      )} */}
-      {/* <DownloadLink href={file.href} filename={file.filename} {...rest} /> */}
-    </>
+    <Card>
+      {heroProps && (
+        <CardSection>
+          <CardHeroImage as={heroProps.as} src={heroProps.src} alt={heroProps.alt} />
+        </CardSection>
+      )}
+      <CardSection>
+        <CardTitle isSemantic={headerProps.isSemantic} text={headerProps.text} />
+      </CardSection>
+      <CardSection>
+        <CardText>{bodyText}</CardText>
+        {shouldDisplayProperties && (
+          <TagList>
+            {file.filename && <Tag>{file.filename}</Tag>}
+            {file.size && <Tag>{file.size}</Tag>}
+            {file.type && <Tag>{file.type}</Tag>}
+          </TagList>
+        )}
+        <DownloadLink asButton={withButton} cta={cta} source={file.href} filename={file.filename} />
+      </CardSection>
+    </Card>
   );
 };
 
