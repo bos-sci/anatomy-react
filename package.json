@@ -25,9 +25,7 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --exit-zero-on-changes",
-    "create-react-component": "bash ./create-react-component.sh",
-    "crc": "npm run create-react-component"
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "files": [
     "lib"
