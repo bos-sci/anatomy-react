@@ -29,6 +29,6 @@ describe('DownloadLink', () => {
   it('applies the correct variant when asButton is true', () => {
     render(<DownloadLink cta="Download" source="/file.pdf" asButton />);
     const linkElement = screen.getByText('Download');
-    expect(linkElement).toHaveClass('download-button');
+    expect(linkElement).toHaveClass('bsds-link-download');
   });
 });
