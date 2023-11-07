@@ -17,7 +17,7 @@ export * from './ContentCard';
 export { default as ContentCard } from './ContentCard';
 
 export * from './Download';
-export { default as Download } from './Download';
+export { default as DownloadLink } from './Download/DownloadLink';
 
 export * from './DropdownMenu';
 export { default as DropdownMenu } from './DropdownMenu';

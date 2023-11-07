@@ -1,10 +1,11 @@
 // TODO: ADS-383 pass down NavLink props e.g. "end"
 
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, PropsWithChildren, useState, useEffect } from 'react';
+import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
 import { NavLink, Link as RouterLink, To } from 'react-router-dom';
 
 export type LinkVariants = 'cta' | 'download-button' | 'ghost' | 'mailto' | 'nav' | 'subtle';
-export interface LinkProps extends PropsWithChildren<AnchorHTMLAttributes<HTMLAnchorElement>> {
+export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  children: ReactNode;
   href?: string;
   to?: To;
   variant?: LinkVariants;
