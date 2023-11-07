@@ -21,7 +21,7 @@ const Link = forwardRef(
     { variant, href, to, isNavLink, isCurrentPage, className, children, target, rel, ...linkAttrs }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>
   ): JSX.Element => {
-    let classes = 'bsds-link';
+    let classes = '';
     switch (variant) {
       case 'cta':
         classes = 'bsds-link-cta';
@@ -40,6 +40,9 @@ const Link = forwardRef(
         break;
       case 'subtle':
         classes = 'bsds-link-subtle';
+        break;
+      default:
+        classes = 'bsds-link';
         break;
     }
 
