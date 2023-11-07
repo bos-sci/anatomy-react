@@ -23,6 +23,7 @@ export interface InputTextProps extends InputHTMLAttributes<HTMLInputElement> {
    * When false, component validates on blur and change.
    */
   forceValidation?: boolean;
+  className?: string;
 }
 
 let inputId = 0;
@@ -38,6 +39,7 @@ const InputText = forwardRef(
       onInvalid,
       onBlur,
       onChange,
+      className,
       ...inputAttrs
     }: InputTextProps,
     ref: ForwardedRef<HTMLInputElement>
@@ -113,7 +115,7 @@ const InputText = forwardRef(
     }, []);
 
     return (
-      <div className="bsds-field">
+      <div className={`bsds-field ${className || ''}`}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

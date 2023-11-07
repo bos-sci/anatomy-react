@@ -1,4 +1,5 @@
 .bsds-nav-wizard {
+  @include bsds-defaults-type;
   position: relative;
   box-shadow: $box-shadow-tertiary;
   padding: space(4x);
@@ -53,11 +54,11 @@
     margin-top: space(4x);
     border-top: $border-width-xs solid $border-color-subtle;
     padding-top: space(4x);
-  }
 
-  .bsds-nav-item,
-  .bsds-nav-item-parent {
-    margin-top: 0;
+    .bsds-nav-item,
+    .bsds-nav-item-parent {
+      margin-top: 0;
+    }
   }
 
   .bsds-nav-link {

@@ -9,6 +9,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: string;
   iconAlignment?: 'left' | 'right';
   iconSize?: ButtonIconSizes;
+  className?: string;
 }
 
 const Button = forwardRef(

@@ -21,6 +21,7 @@ export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   requiredText?: string;
   forceValidation?: boolean;
   autoResize?: boolean;
+  className?: string;
 }
 
 let textAreaId = 0;
@@ -37,6 +38,7 @@ const Textarea = forwardRef(
       onInvalid,
       onBlur,
       onChange,
+      className,
       ...textareaAttrs
     }: TextareaProps,
     ref: ForwardedRef<HTMLTextAreaElement>
@@ -113,7 +115,7 @@ const Textarea = forwardRef(
     }, []);
 
     return (
-      <div className="bsds-field">
+      <div className={`bsds-field ${className || ''}`}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

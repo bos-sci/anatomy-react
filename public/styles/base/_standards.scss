@@ -1,0 +1,12 @@
+@mixin bsds-standards {
+  color: $text-color-primary;
+  @include font-family-base-regular;
+  @include font-size($fs-body);
+  line-height: 1.5;
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+}

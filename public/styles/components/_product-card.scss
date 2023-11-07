@@ -12,6 +12,7 @@
 }
 
 .bsds-product-card {
+  @include bsds-defaults-type;
   position: relative;
 
   .bsds-product-card-ns-title {

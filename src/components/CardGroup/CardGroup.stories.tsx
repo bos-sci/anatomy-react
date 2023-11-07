@@ -31,7 +31,7 @@ export const Playground = ({ ...args }) => {
   }, [args.cardLayout, setNumOfCards]);
 
   return (
-    <CardGroup cardLayout={args.cardLayout}>
+    <CardGroup cardLayout={args.cardLayout} className={args.className}>
       {[...Array(numOfCards)].map((_card, i) => (
         <ContentCard
           // eslint-disable-next-line react/no-array-index-key

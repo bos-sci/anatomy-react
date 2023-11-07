@@ -24,6 +24,7 @@ export interface DropdownMenuProps extends HTMLAttributes<HTMLButtonElement> {
   highlightedAction?: ReactElement<ButtonProps | LinkProps>;
   menuPosition?: Placement;
   children?: DropdownItemElements[] | DropdownItemElements;
+  className?: string;
 }
 
 let dropdownIndex = 0;

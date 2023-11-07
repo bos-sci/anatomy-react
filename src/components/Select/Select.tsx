@@ -19,6 +19,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   errorText?: string;
   requiredText?: string;
   forceValidation?: boolean;
+  className?: string;
 }
 
 const Select = forwardRef(
@@ -32,6 +33,7 @@ const Select = forwardRef(
       children,
       onBlur,
       onChange,
+      className,
       ...selectAttrs
     }: SelectProps,
     ref: ForwardedRef<HTMLSelectElement>
@@ -98,7 +100,7 @@ const Select = forwardRef(
     }, [selectId]);
 
     return (
-      <div className="bsds-field">
+      <div className={`bsds-field ${className || ''}`}>
         <label className="bsds-field-label">
           <div className="bsds-field-label-text">
             {label}

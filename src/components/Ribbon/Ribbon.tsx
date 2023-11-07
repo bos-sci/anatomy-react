@@ -6,6 +6,7 @@ export interface RibbonProps extends PropsWithChildren<HTMLAttributes<HTMLDivEle
   isCentered?: boolean;
   variant?: RibbonVariant;
   withShadow?: boolean;
+  className?: string;
 }
 
 const Ribbon = ({
