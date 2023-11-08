@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { errorText, helpText } from '../../stories/helpers';
-import { ChangeEvent } from 'react';
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 
 import RadioGroup from './RadioGroup';
 import InputRadio from '../InputRadio';
@@ -78,8 +77,6 @@ const useErrorState = (
     updatedRadios.forEach((radio) => (radio.isChecked = false));
     updatedRadios[index].isChecked = e.target.checked;
     setRadios(updatedRadios);
-
-    console.log(radios.filter((c) => c.isChecked && c.value === 'defaultRadio2'));
 
     if (radios.filter((c) => c.isChecked && c.value === 'defaultRadio2').length > 0) {
       setError('');
