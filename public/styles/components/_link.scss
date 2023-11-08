@@ -65,6 +65,20 @@ a {
       mask: url('../../assets/images/icon-arrow-right.svg') no-repeat 50% 50%;
     }
 
+    &-mailto {
+      &::after {
+        -webkit-mask: url('../../assets/images/icon-envelope.svg') no-repeat 50% 50%;
+        mask: url('../../assets/images/icon-envelope.svg') no-repeat 50% 50%;
+      }
+    }
+
+    &-download {
+      &::after {
+        // TODO: Confirm this choice vs. a new icon-arrow-down
+        transform: rotate(90deg);
+      }
+    }
+
     &:visited {
       color: $action-primary-40;
     }
@@ -75,20 +89,6 @@ a {
         &::after {
           background: $neutral-100;
         }
-      }
-    }
-
-    &.bsds-link-mailto {
-      &::after {
-        -webkit-mask: url('../../assets/images/icon-envelope.svg') no-repeat 50% 50%;
-        mask: url('../../assets/images/icon-envelope.svg') no-repeat 50% 50%;
-      }
-    }
-
-    &.bsds-link-download-button {
-      &::after {
-        -webkit-mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
-        mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
       }
     }
   }

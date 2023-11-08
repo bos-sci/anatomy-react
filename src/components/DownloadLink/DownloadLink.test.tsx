@@ -3,32 +3,40 @@ import DownloadLink from './DownloadLink';
 
 describe('DownloadLink', () => {
   it('renders correctly', () => {
-    render(<DownloadLink cta="Download" source="/file.pdf" />);
+    render(<DownloadLink href="/file.pdf">Download</DownloadLink>);
     const linkElement = screen.getByText('Download');
     expect(linkElement).toBeInTheDocument();
   });
 
   it('has the correct href attribute', () => {
-    render(<DownloadLink cta="Download" source="/file.pdf" />);
+    render(<DownloadLink href="/file.pdf">Download</DownloadLink>);
     const linkElement = screen.getByRole('link');
     expect(linkElement).toHaveAttribute('href', '/file.pdf');
   });
 
   it('uses the correct title when filename is provided', () => {
-    render(<DownloadLink cta="Download" source="/file.pdf" filename="custom-name.pdf" />);
+    render(
+      <DownloadLink href="/file.pdf" filename="custom-name.pdf">
+        Download
+      </DownloadLink>
+    );
     const linkElement = screen.getByRole('link');
     expect(linkElement).toHaveAttribute('title', 'Download custom-name.pdf');
   });
 
   it('uses the default title when filename is not provided', () => {
-    render(<DownloadLink cta="Download" source="/file.pdf" />);
+    render(<DownloadLink href="/file.pdf">Download</DownloadLink>);
     const linkElement = screen.getByRole('link');
     expect(linkElement).toHaveAttribute('title', 'Download this file');
   });
 
-  it('applies the correct variant when asButton is true', () => {
-    render(<DownloadLink cta="Download" source="/file.pdf" asButton />);
+  it('applies the correct classname for CTA styling', () => {
+    render(
+      <DownloadLink href="/file.pdf" variant="cta-download">
+        Download
+      </DownloadLink>
+    );
     const linkElement = screen.getByText('Download');
-    expect(linkElement).toHaveClass('bsds-link-download');
+    expect(linkElement).toHaveClass('bsds-link-cta-download');
   });
 });

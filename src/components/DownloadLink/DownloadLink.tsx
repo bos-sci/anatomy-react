@@ -1,14 +1,6 @@
-import Link from '../Link';
+import Link, { DOWNLOAD_LINK_VARIANTS } from '../Link';
 
-export interface DownloadLinkProps extends Omit<React.HTMLAttributes<HTMLAnchorElement>, 'href' | 'children'> {
-  /**
-   * Optionally display download link as a button
-   * */
-  asButton?: boolean;
-  /**
-   * The text to display on the link.
-   */
-  cta: string;
+export interface DownloadLinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   /**
    * Optionally customize the name of the downloaded file. If `href` is "original.jpg" and `filename` is "custom-name", the file will be downloaded as "custom-name.jpg".
    */
@@ -20,17 +12,20 @@ export interface DownloadLinkProps extends Omit<React.HTMLAttributes<HTMLAnchorE
    * ✅ "/image.jpg"
    * ❌ "https://www.google.com/image.jpg"
    */
-  source: string;
+  href: string;
+  /**
+   * Optionally display download link as a button
+   * */
+  variant?: (typeof DOWNLOAD_LINK_VARIANTS)[number];
 }
 
-const DownloadLink = ({ asButton, cta, filename = '', source, title, ...rest }: DownloadLinkProps) => {
+const DownloadLink = ({ children, filename = '', href, title, ...rest }: DownloadLinkProps) => {
   /** Shown on hover */
   const linkTitle = title || filename.length ? `Download ${filename}` : 'Download this file';
-  const linkVariant = asButton ? 'download-button' : undefined;
 
   return (
-    <Link href={source} download={filename} variant={linkVariant} title={linkTitle} {...rest}>
-      {cta}
+    <Link href={href} download={filename} title={linkTitle} {...rest}>
+      {children}
     </Link>
   );
 };

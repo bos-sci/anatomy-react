@@ -1,53 +1,24 @@
 // TODO: ADS-383 pass down NavLink props e.g. "end"
 
-import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
-import { NavLink, Link as RouterLink, To } from 'react-router-dom';
-
-export type LinkVariants = 'cta' | 'download-button' | 'ghost' | 'mailto' | 'nav' | 'subtle';
-export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  children: ReactNode;
-  href?: string;
-  to?: To;
-  variant?: LinkVariants;
-  isNavLink?: boolean;
-  isCurrentPage?: boolean;
-  target?: string;
-  rel?: string;
-  className?: string;
-}
+import { ForwardedRef, forwardRef, useState, useEffect } from 'react';
+import { NavLink, Link as RouterLink } from 'react-router-dom';
+import { LinkProps } from './Link.types';
 
 const Link = forwardRef(
   (
     { variant, href, to, isNavLink, isCurrentPage, className, children, target, rel, ...linkAttrs }: LinkProps,
     ref: ForwardedRef<HTMLAnchorElement>
   ): JSX.Element => {
-    let classes = '';
-    switch (variant) {
-      case 'cta':
-        classes = 'bsds-link-cta';
-        break;
-      case 'download-button':
-        classes = 'bsds-link-cta bsds-link-download';
-        break;
-      case 'ghost':
-        classes = 'bsds-link-ghost';
-        break;
-      case 'mailto':
-        classes = 'bsds-link-cta bsds-link-mailto';
-        break;
-      case 'nav':
-        classes = 'bsds-link-nav';
-        break;
-      case 'subtle':
-        classes = 'bsds-link-subtle';
-        break;
-      default:
-        classes = 'bsds-link';
-        break;
+    let baseClass = 'bsds-link';
+
+    if (variant) {
+      /** CTA variants are styled to look like a button */
+      const isCtaVariant = variant.startsWith('cta');
+      baseClass += isCtaVariant ? `-cta ${baseClass}-${variant}` : `-${variant}`;
     }
 
     if (isCurrentPage) {
-      classes += ' is-active';
+      baseClass += ' is-active';
     }
 
     const [relAttr, setRelAttr] = useState(rel);
@@ -71,7 +42,7 @@ const Link = forwardRef(
             ref={ref}
             to={to}
             className={({ isActive }) =>
-              `${classes} ${className}` +
+              `${baseClass} ${className}` +
               (isActive && isCurrentPage === undefined && isCurrentPage !== false ? ' is-active' : '')
             }
             target={target}
@@ -86,7 +57,7 @@ const Link = forwardRef(
           <RouterLink
             ref={ref}
             to={to}
-            className={`${classes} ${className}`}
+            className={`${baseClass} ${className}`}
             target={target}
             rel={relAttr}
             {...linkAttrs}
@@ -101,7 +72,7 @@ const Link = forwardRef(
         <a
           ref={ref}
           href={href}
-          className={`${classes} ${className || ''}`}
+          className={`${baseClass} ${className || ''}`}
           target={target}
           rel={relAttr}
           {...linkAttrs}
