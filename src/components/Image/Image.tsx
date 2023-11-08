@@ -5,6 +5,7 @@ interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
   ratio?: ImageRatio;
   hasCaption?: boolean;
   isCaptionCentered?: boolean;
+  hasDecorativeTreatment?: boolean;
   isGhost?: boolean;
   texts?: {
     caption?: string;
@@ -30,6 +31,7 @@ const Image = (props: ImageProps): JSX.Element => {
     ratio = '16:9',
     isDecorative,
     hasCaption,
+    hasDecorativeTreatment,
     texts,
     className,
     isGhost,
@@ -79,7 +81,7 @@ const Image = (props: ImageProps): JSX.Element => {
     setAriaText(hasCaption && texts?.caption ? `imageCaption${captionId}` : undefined);
   }, [captionId, hasCaption, texts?.caption]);
 
-  return (
+  const image = (
     <>
       <img
         className={`bsds-image${ratioClasses} ${className || ''}`}
@@ -95,6 +97,12 @@ const Image = (props: ImageProps): JSX.Element => {
       )}
     </>
   );
+
+  if (hasDecorativeTreatment) {
+    return <div className="bsds-decorative-treatment">{image}</div>;
+  }
+
+  return image;
 };
 
 export default Image;
