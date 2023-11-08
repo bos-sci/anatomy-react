@@ -55,8 +55,8 @@ const radios = [
     isChecked: true
   },
   {
-    label: 'Radio 1',
-    value: 'defaultRadio1',
+    label: 'Radio 2',
+    value: 'defaultRadio2',
     isChecked: false
   },
   {
@@ -75,10 +75,13 @@ const useErrorState = (
 
   const handleChange: (e: ChangeEvent<HTMLInputElement>, index: number) => void = (e, index) => {
     const updatedRadios = [...radios];
+    updatedRadios.forEach((radio) => (radio.isChecked = false));
     updatedRadios[index].isChecked = e.target.checked;
     setRadios(updatedRadios);
 
-    if (radios.filter((c) => c.isChecked && c.value === 'defaultRadio2')) {
+    console.log(radios.filter((c) => c.isChecked && c.value === 'defaultRadio2'));
+
+    if (radios.filter((c) => c.isChecked && c.value === 'defaultRadio2').length > 0) {
       setError('');
     } else {
       setError(errorText);
