@@ -78,10 +78,10 @@ const useErrorState = (
     updatedRadios[index].isChecked = e.target.checked;
     setRadios(updatedRadios);
 
-    if (radios.filter((c) => c.isChecked && c.value === 'defaultRadio2').length > 0) {
-      setError('');
-    } else {
+    if (radios.filter((c) => c.isChecked && c.value === 'defaultRadio1').length > 0) {
       setError(errorText);
+    } else {
+      setError('');
     }
   };
 

@@ -89,7 +89,7 @@ export const GroupWithHelp: Story = {
     <Fieldset legend="Legend" helpText={helpText} helpId="groupWithHelpId">
       {checkboxes.map((checkbox, i) => (
         <InputCheckbox
-          key={'checkboxListWithError' + checkbox.text}
+          key={'checkboxListWithHelp' + checkbox.text}
           label={checkbox.text}
           aria-describedby="groupWithHelpId"
           defaultChecked={checkbox.isChecked}
@@ -147,7 +147,7 @@ export const GroupWithHelpAndError = ({ ...args }) => {
     <Fieldset legend="Legend" helpText={helpText} errorText={error} errorId="groupWithErrorId" helpId="groupWithHelpId">
       {checkboxes.map((checkbox, i) => (
         <InputCheckbox
-          key={'checkboxListWithError' + checkbox.text}
+          key={'checkboxListWithHelpError' + checkbox.text}
           label={checkbox.text}
           aria-describedby="groupWithErrorId groupWithHelpId"
           aria-invalid={!!error}
