@@ -77,12 +77,10 @@
     right: 0;
     bottom: space(2x);
     left: space(2x);
-    width: unset;
     margin: 0;
     padding: space(md) space(lg);
     background: rgba($neutral-00, 0.6);
     color: $text-color-ghost;
-    @include font-size($fs-body-subtle);
 
     &-center {
       @extend .bsds-image-caption;
