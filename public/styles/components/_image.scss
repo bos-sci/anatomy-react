@@ -53,3 +53,52 @@
     color: $text-color-ghost;
   }
 }
+
+.bsds-decorative-treatment {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: space(6x);
+    right: space(6x);
+    bottom: 0;
+    left: 0;
+    background: $gradient-accent;
+    content: '';
+  }
+
+  .bsds-image {
+    position: relative;
+    padding: 0 0 space(2x) space(2x);
+  }
+
+  .bsds-image-caption {
+    position: absolute;
+    right: 0;
+    bottom: space(2x);
+    left: space(2x);
+    width: unset;
+    margin: 0;
+    padding: space(md) space(lg);
+    background: rgba($neutral-00, 0.6);
+    color: $text-color-ghost;
+    @include font-size($fs-body-subtle);
+
+    &-center {
+      @extend .bsds-image-caption;
+      text-align: center;
+
+      &-ghost {
+        @extend .bsds-image-caption-center;
+        background: rgba($neutral-100, 0.6);
+        color: $text-color-primary;
+      }
+    }
+
+    &-ghost {
+      @extend .bsds-image-caption;
+      background: rgba($neutral-100, 0.6);
+      color: $text-color-primary;
+    }
+  }
+}
