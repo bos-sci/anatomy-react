@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Link from './Link';
+import { DOWNLOAD_LINK_VARIANTS, LINK_VARIANTS } from './Link.types';
+
+/** Exclude download link variant options */
+const variantOptions = LINK_VARIANTS.filter(
+  (opt) => !DOWNLOAD_LINK_VARIANTS.includes(opt as (typeof DOWNLOAD_LINK_VARIANTS)[number])
+);
 
 const meta = {
   title: 'Components/Link',
@@ -12,6 +18,10 @@ const meta = {
   argTypes: {
     to: {
       control: 'text'
+    },
+    variant: {
+      options: [undefined, ...variantOptions],
+      control: { type: 'radio' }
     }
   }
 } satisfies Meta<typeof Link>;
