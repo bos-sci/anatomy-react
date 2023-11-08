@@ -74,8 +74,8 @@ a {
 
     &-download {
       &::after {
-        // TODO: Confirm this choice vs. a new icon-arrow-down
-        transform: rotate(90deg);
+        -webkit-mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
+        mask: url('../../assets/images/icon-arrow-down.svg') no-repeat 50% 50%;
       }
     }
 
