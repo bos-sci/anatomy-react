@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { errorText, helpText } from '../../stories/helpers';
+import { useState, ChangeEvent } from 'react';
 
 import RadioGroup from './RadioGroup';
 import InputRadio from '../InputRadio';
@@ -46,34 +47,71 @@ export const WithHelp: Story = {
   )
 };
 
-export const WithError: Story = {
-  name: 'With error',
-  args: {
-    errorText
-  },
-  render: (args) => (
-    <RadioGroup {...args}>
-      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked forceValidation />
-      <InputRadio label="Radio 2" name="groupDefault" value="defaultRadio2" />
-      <InputRadio label="Radio 3" name="groupDefault" value="defaultRadio3" />
-    </RadioGroup>
-  )
-};
+interface Radio {
+  label: string;
+  value: string;
+}
 
-export const WithHelpAndError: Story = {
-  name: 'With help and error',
-  args: {
-    helpText,
-    errorText
+const radios = [
+  {
+    label: 'Radio 1',
+    value: 'defaultRadio1'
   },
-  render: (args) => (
-    <RadioGroup {...args}>
-      <InputRadio label="Radio 1" name="groupDefault" value="defaultRadio1" defaultChecked forceValidation />
-      <InputRadio label="Radio 2" name="groupDefault" value="defaultRadio2" />
-      <InputRadio label="Radio 3" name="groupDefault" value="defaultRadio3" />
+  {
+    label: 'Radio 2',
+    value: 'defaultRadio2'
+  },
+  {
+    label: 'Radio 3',
+    value: 'defaultRadio3'
+  }
+];
+
+export const WithError = ({ ...args }) => {
+  const [error, setError] = useState(errorText);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, radio: Radio) => {
+    setError(radio.value === 'defaultRadio2' ? '' : errorText);
+  };
+  return (
+    <RadioGroup legend="Legend" errorText={error}>
+      {radios.map((radio, i) => (
+        <InputRadio
+          key={'checkboxListWithError' + radio.label}
+          label={radio.label}
+          name="groupDefault"
+          value={radio.value}
+          defaultChecked={i === 0}
+          forceValidation
+          onChange={(e) => handleChange(e, radio)}
+        />
+      ))}
     </RadioGroup>
-  )
+  );
 };
+WithError.storyName = 'With error';
+
+export const WithHelpAndError = ({ ...args }) => {
+  const [error, setError] = useState(errorText);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, radio: Radio) => {
+    setError(radio.value === 'defaultRadio2' ? '' : errorText);
+  };
+  return (
+    <RadioGroup legend="Legend" errorText={error} helpText={helpText}>
+      {radios.map((radio, i) => (
+        <InputRadio
+          key={'checkboxListWithError' + radio.label}
+          label={radio.label}
+          name="groupDefault"
+          value={radio.value}
+          defaultChecked={i === 0}
+          forceValidation
+          onChange={(e) => handleChange(e, radio)}
+        />
+      ))}
+    </RadioGroup>
+  );
+};
+WithHelpAndError.storyName = 'With help and error';
 
 export const ButtonGroup: Story = {
   name: 'Button group',

@@ -93,7 +93,10 @@ const InputRadio = forwardRef(
 
     useEffect(() => {
       inputEl?.current?.setCustomValidity(errorText ? errorText : '');
-    }, [inputEl, errorText]);
+      if (addonProps.isDirty) {
+        validate();
+      }
+    }, [inputEl, errorText, addonProps.isDirty, validate]);
 
     useEffect(() => {
       setInputId(id + 'radio');

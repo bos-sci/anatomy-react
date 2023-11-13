@@ -41,6 +41,7 @@ const InputCheckbox = forwardRef(
     const [helpTextId, setHelpTextId] = useState('');
     const [errorTextId, setErrorTextId] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+    const [isDirty, setIsDirty] = useState(false);
 
     const id = useId();
 
@@ -70,6 +71,7 @@ const InputCheckbox = forwardRef(
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setIsDirty(!isDirty);
       validate();
       if (onChange) {
         onChange(e);
@@ -83,8 +85,10 @@ const InputCheckbox = forwardRef(
     useEffect(() => {
       if (forceValidation) {
         validate();
+      } else if (isDirty) {
+        validate();
       }
-    }, [forceValidation, validate]);
+    }, [isDirty, forceValidation, validate]);
 
     // Component mount
     useEffect(() => {
