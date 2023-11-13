@@ -52,7 +52,12 @@ WithHelpAndError.storyName = 'With help and error';
 
 // TODO: Do we want checkbox group here or with fieldset?
 
-let checkboxes = [
+interface Checkbox {
+  text: string;
+  isChecked: boolean;
+}
+
+const checkboxDefaults = [
   {
     text: 'Checkbox 1',
     isChecked: true
@@ -67,63 +72,59 @@ let checkboxes = [
   }
 ];
 
-const handleGroupChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
-  const updatedCheckboxes = [...checkboxes];
-  updatedCheckboxes[index].isChecked = e.target.checked;
-  checkboxes = updatedCheckboxes;
-};
+const isValid = (checkboxes: Checkbox[]) => checkboxes.filter((c: Checkbox) => c.isChecked === true).length >= 2;
 
-export const Group: Story = {
-  render: (args) => (
+export const Group = ({ ...args }) => {
+  return (
     <Fieldset legend="Legend">
-      <InputCheckbox label="Checkbox 1" />
-      <InputCheckbox label="Checkbox 2" />
-      <InputCheckbox label="Checkbox 3" />
+      {checkboxDefaults.map((checkbox, i) => (
+        <InputCheckbox key={'checkboxList' + checkbox.text} label={checkbox.text} />
+      ))}
     </Fieldset>
-  )
+  );
 };
 
-export const GroupWithHelp: Story = {
-  name: 'Group with help',
-  render: (args) => (
+export const GroupWithHelp = ({ ...args }) => {
+  const [checkboxes, setCheckboxes] = useState(
+    checkboxDefaults.map((checkbox) => {
+      return { ...checkbox };
+    })
+  );
+  const handleGroupChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+    const updatedCheckboxes = [...checkboxes];
+    updatedCheckboxes[index].isChecked = e.target.checked;
+    setCheckboxes(updatedCheckboxes);
+  };
+
+  return (
     <Fieldset legend="Legend" helpText={helpText} helpId="groupWithHelpId">
       {checkboxes.map((checkbox, i) => (
         <InputCheckbox
-          key={'checkboxListWithError' + checkbox.text}
+          key={'checkboxListWithHelp' + checkbox.text}
           label={checkbox.text}
           aria-describedby="groupWithHelpId"
-          defaultChecked={checkbox.isChecked}
+          checked={checkboxes[i].isChecked}
           onChange={(e) => handleGroupChange(e, i)}
         />
       ))}
     </Fieldset>
-  )
+  );
 };
-
-const useGroupErrorState = (
-  initialCheckboxes: typeof checkboxes,
-  errorText: string
-): [string, (e: ChangeEvent<HTMLInputElement>, index: number) => void] => {
-  const [error, setError] = useState(errorText);
-  const [checkboxes, setCheckboxes] = useState(initialCheckboxes);
-
-  const handleGroupErrorChange: (e: ChangeEvent<HTMLInputElement>, index: number) => void = (e, index) => {
-    const updatedCheckboxes = [...initialCheckboxes];
-    updatedCheckboxes[index].isChecked = e.target.checked;
-    setCheckboxes(updatedCheckboxes);
-
-    if (checkboxes.filter((c) => c.isChecked === true).length < 2) {
-      setError(errorText);
-    } else {
-      setError('');
-    }
-  };
-
-  return [error, handleGroupErrorChange];
-};
+GroupWithHelp.storyName = 'Group with help';
 
 export const GroupWithError = ({ ...args }) => {
-  const [error, handleGroupErrorChange] = useGroupErrorState(checkboxes, errorText as string);
+  const [error, setError] = useState(errorText);
+  const [checkboxes, setCheckboxes] = useState(
+    checkboxDefaults.map((checkbox) => {
+      return { ...checkbox };
+    })
+  );
+  const handleGroupChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+    const updatedCheckboxes = [...checkboxes];
+    updatedCheckboxes[index].isChecked = e.target.checked;
+    setCheckboxes(updatedCheckboxes);
+    setError(isValid(checkboxes) ? '' : errorText);
+  };
   return (
     <Fieldset legend="Legend" errorText={error} errorId="groupWithErrorId">
       {checkboxes.map((checkbox, i) => (
@@ -132,8 +133,8 @@ export const GroupWithError = ({ ...args }) => {
           label={checkbox.text}
           aria-describedby="groupWithErrorId"
           aria-invalid={!!error}
-          defaultChecked={checkbox.isChecked}
-          onChange={(e) => handleGroupErrorChange(e, i)}
+          checked={checkboxes[i].isChecked}
+          onChange={(e) => handleGroupChange(e, i)}
         />
       ))}
     </Fieldset>
@@ -142,17 +143,28 @@ export const GroupWithError = ({ ...args }) => {
 GroupWithError.storyName = 'Group with error';
 
 export const GroupWithHelpAndError = ({ ...args }) => {
-  const [error, handleGroupErrorChange] = useGroupErrorState(checkboxes, errorText as string);
+  const [error, setError] = useState(errorText);
+  const [checkboxes, setCheckboxes] = useState(
+    checkboxDefaults.map((checkbox) => {
+      return { ...checkbox };
+    })
+  );
+  const handleGroupChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+    const updatedCheckboxes = [...checkboxes];
+    updatedCheckboxes[index].isChecked = e.target.checked;
+    setCheckboxes(updatedCheckboxes);
+    setError(isValid(checkboxes) ? '' : errorText);
+  };
   return (
     <Fieldset legend="Legend" helpText={helpText} errorText={error} errorId="groupWithErrorId" helpId="groupWithHelpId">
       {checkboxes.map((checkbox, i) => (
         <InputCheckbox
-          key={'checkboxListWithError' + checkbox.text}
+          key={'checkboxListWithHelpAndError' + checkbox.text}
           label={checkbox.text}
           aria-describedby="groupWithErrorId groupWithHelpId"
           aria-invalid={!!error}
-          defaultChecked={checkbox.isChecked}
-          onChange={(e) => handleGroupErrorChange(e, i)}
+          checked={checkboxes[i].isChecked}
+          onChange={(e) => handleGroupChange(e, i)}
         />
       ))}
     </Fieldset>
