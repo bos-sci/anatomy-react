@@ -19,6 +19,10 @@
       margin: auto;
       padding: space(2x);
 
+      img {
+        max-height: 3.875rem;
+      }
+
       &:focus {
         @include focus-default-inset;
       }

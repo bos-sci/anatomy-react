@@ -3,11 +3,15 @@ import Link from '../Link';
 import { NavItemUtility } from '../NavPrimary';
 
 export interface NavUtilityProps {
+  logoSecondary?: {
+    src: string;
+    alt: string;
+  };
   utilityItems: NavItemUtility[];
   ariaLabel?: string;
 }
 
-const NavUtility = ({ utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
+const NavUtility = ({ logoSecondary, utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
   return (
     <nav className="bsds-nav-utility" aria-label={ariaLabel}>
       <ul className="bsds-nav">
