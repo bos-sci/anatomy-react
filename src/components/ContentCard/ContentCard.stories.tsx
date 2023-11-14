@@ -3,13 +3,14 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ContentCard from './ContentCard';
 import Tag from '../Tag/Tag';
 import Image from '../Image/Image';
+import { CARD_VARIANTS } from './ContentCard.types';
 
 const meta = {
   title: 'Components/Content card',
   component: ContentCard,
   argTypes: {
     variant: {
-      options: ['', 'border-light', 'border-ghost', 'ghost'],
+      options: [undefined, ...CARD_VARIANTS],
       control: { type: 'radio' }
     },
     gradientBrand: {

@@ -1,16 +1,18 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { RibbonVariant } from './Ribbon.types';
 
 export interface RibbonProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   isConstrained?: boolean;
   isCentered?: boolean;
-  variant?: 'default' | 'informational';
+  variant?: RibbonVariant;
   withShadow?: boolean;
+  className?: string;
 }
 
 const Ribbon = ({
   children,
   className,
-  variant = 'default',
+  variant,
   isCentered = false,
   withShadow = false,
   isConstrained = false,
@@ -19,7 +21,7 @@ const Ribbon = ({
   const baseClass = 'bsds-ribbon';
 
   const classesFromProps = [
-    variant !== 'default' ? `${baseClass}-${variant}` : null,
+    variant ? `${baseClass}-${variant}` : null,
     isCentered ? `bsds-text-center` : null,
     withShadow ? `${baseClass}-shadow` : null,
     isConstrained ? `is-constrained` : null,

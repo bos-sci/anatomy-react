@@ -24,6 +24,7 @@ export interface RadioGroupProps extends FieldsetHTMLAttributes<HTMLFieldSetElem
   helpText?: string;
   buttonGroup?: boolean;
   children: ReactElement<InputRadioProps>[];
+  className?: string;
 }
 
 export interface AddonProps {
@@ -45,6 +46,7 @@ const RadioGroup = ({
   helpText,
   buttonGroup,
   children,
+  className,
   ...fieldsetAttrs
 }: RadioGroupProps): JSX.Element => {
   const [helpTextId, setHelpTextId] = useState('');
@@ -83,7 +85,7 @@ const RadioGroup = ({
 
   return (
     <fieldset
-      className={`bsds-fieldset${buttonGroup ? '-button-group' : ''}`}
+      className={`bsds-fieldset${buttonGroup ? '-button-group' : ''} ${className || ''}`}
       aria-describedby={helpText ? helpTextId : ''}
       {...fieldsetAttrs}
       role="radiogroup"

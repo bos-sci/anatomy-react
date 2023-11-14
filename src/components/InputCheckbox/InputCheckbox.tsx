@@ -19,17 +19,29 @@ export interface InputCheckboxProps extends InputHTMLAttributes<HTMLInputElement
   helpText?: string;
   errorText?: string;
   forceValidation?: boolean;
+  className?: string;
 }
 
 const InputCheckbox = forwardRef(
   (
-    { label, helpText, errorText, forceValidation, onBlur, onChange, onInvalid, ...inputAttrs }: InputCheckboxProps,
+    {
+      label,
+      helpText,
+      errorText,
+      forceValidation,
+      onBlur,
+      onChange,
+      onInvalid,
+      className,
+      ...inputAttrs
+    }: InputCheckboxProps,
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     const [inputId, setInputId] = useState('');
     const [helpTextId, setHelpTextId] = useState('');
     const [errorTextId, setErrorTextId] = useState('');
     const [validationMessage, setValidationMessage] = useState('');
+    const [isDirty, setIsDirty] = useState(false);
 
     const id = useId();
 
@@ -59,6 +71,7 @@ const InputCheckbox = forwardRef(
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      setIsDirty(!isDirty);
       validate();
       if (onChange) {
         onChange(e);
@@ -72,8 +85,10 @@ const InputCheckbox = forwardRef(
     useEffect(() => {
       if (forceValidation) {
         validate();
+      } else if (isDirty) {
+        validate();
       }
-    }, [forceValidation, validate]);
+    }, [isDirty, forceValidation, validate]);
 
     // Component mount
     useEffect(() => {
@@ -83,7 +98,7 @@ const InputCheckbox = forwardRef(
     }, [id]);
 
     return (
-      <div className="bsds-field">
+      <div className={`bsds-field ${className || ''}`}>
         <input
           ref={(node) => {
             if (node) {

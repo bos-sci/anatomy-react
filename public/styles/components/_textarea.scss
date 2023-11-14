@@ -1,7 +1,7 @@
 .bsds-textarea {
   @extend %field-control;
-  max-width: 100%;
   min-height: space(12x);
+  max-width: 100%;
 
   &:hover,
   &:active {

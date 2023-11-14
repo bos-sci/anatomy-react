@@ -4,19 +4,19 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Breadcrumb from './Breadcrumb';
+import Breadcrumbs from './Breadcrumbs';
 
 const meta = {
-  title: 'Components/Breadcrumb',
-  component: Breadcrumb,
+  title: 'Components/Breadcrumbs',
+  component: Breadcrumbs,
   parameters: {
     layout: 'centered'
   },
   tags: ['autodocs']
-} satisfies Meta<typeof Breadcrumb>;
+} satisfies Meta<typeof Breadcrumbs>;
 
 export default meta;
-type Story = StoryObj<typeof Breadcrumb>;
+type Story = StoryObj<typeof Breadcrumbs>;
 
 export const Playground: Story = {
   args: {
@@ -37,7 +37,7 @@ export const Playground: Story = {
     currentPage: 'Current page',
     hasOverflow: false,
     texts: {
-      breadcrumbNavAriaLabel: 'Breadcrumbs'
+      breadcrumbsNavAriaLabel: 'Breadcrumbs'
     }
   }
 };
@@ -69,8 +69,8 @@ export const Overflow: Story = {
     currentPage: 'Current page',
     hasOverflow: true,
     texts: {
-      breadcrumbNavAriaLabel: 'Breadcrumbs',
-      breadcrumbDropdownAriaLabel: 'Toggle breadcrumbs menu'
+      breadcrumbsNavAriaLabel: 'Breadcrumbs',
+      breadcrumbsDropdownAriaLabel: 'Toggle breadcrumbs menu'
     }
   }
 };

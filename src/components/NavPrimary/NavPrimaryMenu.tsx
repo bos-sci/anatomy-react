@@ -1,6 +1,6 @@
 import { ForwardedRef, RefObject, forwardRef, useState } from 'react';
 import Button from '../Button';
-import Dropdown from '../Dropdown';
+import DropdownMenu from '../DropdownMenu';
 import Link from '../Link';
 import { HistoryNodePrimary, NavItemUtility, NavNodePrimary, Texts } from './NavPrimary';
 import NavPrimaryList from './NavPrimaryList';
@@ -57,13 +57,13 @@ const NavPrimaryMenu = forwardRef((props: NavPrimaryMenuProps, ref: ForwardedRef
           {props.utilityItems.map((item) => (
             <li key={'utilityItem' + item.text} className="bsds-nav-item">
               {item.children ? (
-                <Dropdown key={'utilityItemDropdown' + item.text} triggerText={item.text} className="bsds-nav-link">
+                <DropdownMenu key={'utilityItemDropdown' + item.text} triggerText={item.text} className="bsds-nav-link">
                   {item.children.map((child) => (
                     <Link key={'utilityItemDropdownChild' + (child.to || child.href)} href={child.href} to={child.to}>
                       {child.text}
                     </Link>
                   ))}
-                </Dropdown>
+                </DropdownMenu>
               ) : (
                 <Link to={item.to} href={item.href} className="bsds-nav-link">
                   {item.text}

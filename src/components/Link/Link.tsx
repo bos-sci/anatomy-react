@@ -3,7 +3,7 @@
 import { AnchorHTMLAttributes, ForwardedRef, forwardRef, ReactNode, useState, useEffect } from 'react';
 import { NavLink, Link as RouterLink, To } from 'react-router-dom';
 
-export type LinkVariants = '' | 'cta' | 'ghost' | 'nav' | 'subtle';
+export type LinkVariants = '' | 'cta' | 'ghost' | 'mailto' | 'nav' | 'subtle';
 export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   href?: string;
@@ -13,6 +13,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   isCurrentPage?: boolean;
   target?: string;
   rel?: string;
+  className?: string;
 }
 
 const Link = forwardRef(
@@ -27,6 +28,9 @@ const Link = forwardRef(
         break;
       case 'ghost':
         classes = 'bsds-link-ghost';
+        break;
+      case 'mailto':
+        classes = 'bsds-link-cta bsds-link-mailto';
         break;
       case 'nav':
         classes = 'bsds-link-nav';
@@ -94,7 +98,7 @@ const Link = forwardRef(
         <a
           ref={ref}
           href={href}
-          className={`${classes} ${className ? className : ''}`}
+          className={`${classes} ${className || ''}`}
           target={target}
           rel={relAttr}
           {...linkAttrs}

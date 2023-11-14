@@ -1,14 +1,16 @@
 // TODO: Create default texts object and assign in function params or Tag.defaultProps instead of at each use case then re-enable control in story
 
 import { ReactNode, useState, useEffect } from 'react';
+import { TagVariant } from './Tag.types';
 
 export interface TagProps {
   children: ReactNode;
-  variant?: 'accent' | 'assertive' | 'featured' | 'subtle' | '';
+  variant?: TagVariant;
   isGhost?: boolean;
   texts?: {
     featuredTag?: string;
   };
+  className?: string;
 }
 
 const Tag = (props: TagProps): JSX.Element => {
@@ -52,7 +54,7 @@ const Tag = (props: TagProps): JSX.Element => {
     }
   }, [props.variant, props.children, props.texts?.featuredTag]);
 
-  return <b className={classes}>{featureTag}</b>;
+  return <b className={`${classes} ${props.className || ''}`}>{featureTag}</b>;
 };
 
 export default Tag;

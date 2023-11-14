@@ -1,13 +1,15 @@
 import { ReactNode } from 'react';
+import { StoplightColor, StoplightSize, StoplightTextColor } from './Stoplight.types';
 
 export interface StoplightProps {
   children: ReactNode;
-  lightColor: 'red' | 'yellow' | 'green';
-  textColor?: 'ghost';
-  size?: 'assertive' | 'subtle';
+  lightColor: StoplightColor;
+  textColor?: StoplightTextColor;
+  size?: StoplightSize;
+  className?: string;
 }
 
-const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): JSX.Element => {
+const Stoplight = ({ children, lightColor, textColor, size, className }: StoplightProps): JSX.Element => {
   let lightColorClasses = '';
   switch (lightColor) {
     case 'red':
@@ -39,7 +41,7 @@ const Stoplight = ({ children, lightColor, textColor, size }: StoplightProps): J
       break;
   }
 
-  return <p className={`${lightColorClasses} ${textColorClasses} ${sizeClasses}`}>{children}</p>;
+  return <p className={`${lightColorClasses} ${textColorClasses} ${sizeClasses} ${className || ''}`}>{children}</p>;
 };
 
 export default Stoplight;

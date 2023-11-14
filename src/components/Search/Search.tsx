@@ -44,6 +44,7 @@ export interface SearchProps extends InputHTMLAttributes<HTMLInputElement> {
   };
   onFormSubmit?: (e: FormEvent<HTMLFormElement>) => void;
   navigateToResult?: (result: SearchResult) => void;
+  className?: string;
 }
 
 const Search = forwardRef(
@@ -63,6 +64,7 @@ const Search = forwardRef(
       onFocus,
       onFormSubmit,
       navigateToResult,
+      className,
       formAttributes,
       ...inputAttrs
     }: SearchProps,
@@ -205,7 +207,7 @@ const Search = forwardRef(
     return (
       <form
         action="."
-        className="bsds-form-search"
+        className={`bsds-form-search ${className || ''}`}
         role="search"
         aria-label={texts?.searchAriaLabel || 'site search'}
         onSubmit={handleSubmit}

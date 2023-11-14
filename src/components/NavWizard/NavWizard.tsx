@@ -41,6 +41,7 @@ export interface NavWizardProps {
     backButtonText?: string;
     backButtonAriaLabel?: string;
   };
+  className?: string;
 }
 
 const NavWizard = (props: NavWizardProps) => {
@@ -110,7 +111,7 @@ const NavWizard = (props: NavWizardProps) => {
   }, [props.navItems]);
 
   return (
-    <nav className="bsds-nav-wizard" aria-label={props.texts.wizardNavAriaLabel}>
+    <nav className={`bsds-nav-wizard ${props.className || ''}`} aria-label={props.texts.wizardNavAriaLabel}>
       <div className="bsds-nav-wizard-header">
         {history.length > 0 && (
           <Button

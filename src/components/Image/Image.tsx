@@ -1,13 +1,16 @@
 import { ImgHTMLAttributes, useEffect, useId, useState } from 'react';
+import { ImageRatio } from './Image.types';
 
 interface BaseProps extends ImgHTMLAttributes<HTMLImageElement> {
-  ratio?: Ratio;
+  ratio?: ImageRatio;
   hasCaption?: boolean;
   isCaptionCentered?: boolean;
+  hasDecorativeTreatment?: boolean;
   isGhost?: boolean;
   texts?: {
     caption?: string;
   };
+  className?: string;
 }
 
 type AltTextProps =
@@ -20,7 +23,6 @@ type AltTextProps =
       alt: string;
     };
 
-export type Ratio = '1:1' | '4:3' | '16:9' | '21:9' | '50:50';
 export type ImageProps = BaseProps & AltTextProps;
 
 const Image = (props: ImageProps): JSX.Element => {
@@ -29,6 +31,7 @@ const Image = (props: ImageProps): JSX.Element => {
     ratio = '16:9',
     isDecorative,
     hasCaption,
+    hasDecorativeTreatment,
     texts,
     className,
     isGhost,
@@ -78,10 +81,10 @@ const Image = (props: ImageProps): JSX.Element => {
     setAriaText(hasCaption && texts?.caption ? `imageCaption${captionId}` : undefined);
   }, [captionId, hasCaption, texts?.caption]);
 
-  return (
+  const image = (
     <>
       <img
-        className={`bsds-image${ratioClasses}${className ? ' ' + className : ''}`}
+        className={`bsds-image${ratioClasses} ${className || ''}`}
         alt={altText}
         id={'image' + imageId}
         aria-describedby={ariaText}
@@ -94,6 +97,12 @@ const Image = (props: ImageProps): JSX.Element => {
       )}
     </>
   );
+
+  if (hasDecorativeTreatment) {
+    return <div className="bsds-decorative-treatment">{image}</div>;
+  }
+
+  return image;
 };
 
 export default Image;

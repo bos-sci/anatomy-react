@@ -3,11 +3,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ProductCard from './ProductCard';
 import Tag from '../Tag/Tag';
 import Image from '../Image/Image';
+import { CARD_VARIANTS } from '../ContentCard';
 
 const meta = {
   title: 'Components/Product card',
   component: ProductCard,
   argTypes: {
+    variant: {
+      options: [undefined, ...CARD_VARIANTS],
+      control: { type: 'radio' }
+    },
     dropShadow: {
       if: { arg: 'gradientBrand', truthy: false }
     },
