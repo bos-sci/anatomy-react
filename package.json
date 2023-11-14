@@ -59,7 +59,7 @@
     "@babel/preset-env": "^7.22.10",
     "@babel/preset-react": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
-    "@boston-scientific/anatomy-tokens": "^4.0.0",
+    "@boston-scientific/anatomy-tokens": "^4.0.1",
     "@boston-scientific/eslint-config": "^0.0.3",
     "@boston-scientific/prettier-config": "^1.0.1",
     "@boston-scientific/stylelint-config": "^1.1.0",
