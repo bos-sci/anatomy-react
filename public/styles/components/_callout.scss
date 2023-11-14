@@ -1,14 +1,9 @@
 .bsds-callout {
-  // TODO: swap fs-display css var to sass token after release vnext
-  --fs-display: 2.436rem;
-  @media (min-width: $breakpoint-lg-min) {
-    --fs-display: 3.036rem;
-  }
   position: relative;
   margin-top: 0;
   padding-bottom: space(3x);
   @include font-family-base-heavy;
-  font-size: var(--fs-display);
+  @include font-size($fs-display);
   line-height: 1.5;
 
   &::after {
@@ -29,6 +24,6 @@
   }
 
   &.bsds-callout-ghost {
-    color: $neutral-100;
+    color: $text-color-ghost;
   }
 }
