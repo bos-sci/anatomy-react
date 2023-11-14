@@ -1,61 +1,76 @@
 // Utility Nav
 .bsds-nav-utility {
-  display: none;
-  border-bottom: $border-width-xxs solid $border-color-subtle;
+  // display: set by inline style in NavUtility.tsx
+
+  .bsds-nav-logo {
+    display: flex;
+    margin: 0 auto;
+    padding: space(sm);
+
+    img {
+      max-height: 2rem;
+    }
+  }
 
   .bsds-nav {
-    justify-content: flex-end;
+    display: none;
+  }
+}
 
-    .bsds-nav-item {
-      margin-top: 0;
-
-      .bsds-nav-link {
-        border: 0;
-        padding: space(md) space(lg);
-        color: $text-color-subtle;
-
-        &:hover {
-          color: $text-color-primary;
-        }
-      }
-
-      .bsds-dropdown {
-        .bsds-dropdown-trigger {
-          display: inline-flex;
-          padding: space(md) space(lg);
-          padding-right: calc(space(md) + $icon-size-sm + space(lg));
-
-          &::after {
-            right: space(lg);
-            width: $icon-size-sm;
-            height: $icon-size-sm;
-            background: $text-color-subtle;
-          }
-
-          &[aria-expanded='true'],
-          &:hover,
-          &:active {
-            background: transparent;
-            color: $text-color-primary;
-            text-decoration: underline;
-
-            &::after {
-              background: $text-color-primary;
-            }
-          }
-        }
-      }
-    }
+@media (min-width: $breakpoint-sm-min) {
+  .bsds-nav-utility {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: $border-width-xxs solid $border-color-subtle;
   }
 }
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-nav-utility {
-    display: block;
-
     .bsds-nav {
-      .bsds-nav-link {
-        @include font-size($fs-body-subtle);
+      display: flex;
+
+      .bsds-nav-item {
+        margin-top: 0;
+
+        .bsds-nav-link {
+          @include font-size($fs-body-subtle);
+          border: 0;
+          padding: space(md) space(lg);
+          color: $text-color-subtle;
+
+          &:hover {
+            color: $text-color-primary;
+          }
+        }
+
+        .bsds-dropdown {
+          .bsds-dropdown-trigger {
+            display: inline-flex;
+            padding: space(md) space(lg);
+            padding-right: calc(space(md) + $icon-size-sm + space(lg));
+
+            &::after {
+              right: space(lg);
+              width: $icon-size-sm;
+              height: $icon-size-sm;
+              background: $text-color-subtle;
+            }
+
+            &[aria-expanded='true'],
+            &:hover,
+            &:active {
+              background: transparent;
+              color: $text-color-primary;
+              text-decoration: underline;
+
+              &::after {
+                background: $text-color-primary;
+              }
+            }
+          }
+        }
       }
     }
   }

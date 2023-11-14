@@ -10,10 +10,14 @@
   background: $neutral-100;
 }
 
+/* stylelint-disable scss/selector-nest-combinators */
+.bsds-nav-primary .bsds-nav {
+  display: flex;
+}
+
 .bsds-nav-utility,
 .bsds-nav-primary {
   .bsds-nav {
-    display: flex;
     align-items: center;
     margin: 0;
     padding: 0;
@@ -42,8 +46,7 @@
   border-image-slice: 1;
 
   &:not(.is-constrained) {
-    /* stylelint-disable scss/selector-nest-combinators */
-    .bsds-nav-utility .bsds-nav,
+    .bsds-nav-utility,
     .bsds-nav-primary .bsds-nav-bar {
       /* stylelint-enable scss/selector-nest-combinators */
       padding: 0 space(md);
@@ -54,7 +57,6 @@
 @media (min-width: $breakpoint-lg-min) {
   .bsds-nav-header {
     /* stylelint-disable scss/selector-nest-combinators */
-    .bsds-nav-utility .bsds-nav,
     .bsds-nav-bar,
     .bsds-nav-menu-panels,
     .bsds-search-panel .bsds-form-search {

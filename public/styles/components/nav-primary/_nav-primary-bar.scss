@@ -8,28 +8,35 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-content: center;
-    align-items: stretch;
+    align-items: center;
     border-bottom: $border-width-xxs solid $border-color-subtle;
     background: $neutral-100;
 
-    .bsds-nav-link-logo {
+    .bsds-nav-logo {
       display: flex;
-      flex-wrap: wrap;
-      margin: auto;
       padding: space(2x);
+
+      > a,
+      > img {
+        display: flex;
+      }
+
+      .bsds-link {
+        &:focus {
+          // TODO: Double check that this works correctly
+          @include focus-default-inset;
+        }
+      }
 
       img {
         max-height: 3.875rem;
-      }
-
-      &:focus {
-        @include focus-default-inset;
       }
     }
 
     > .bsds-nav {
       justify-content: center;
+
+      // margin-left: auto;
 
       > .bsds-nav-item {
         margin-top: 0;
@@ -149,11 +156,14 @@
   .bsds-nav-primary {
     .bsds-nav-bar {
       flex-direction: row;
-
-      .bsds-nav-link-logo {
-        margin: 0;
-        padding: space(sm) space(2x);
-      }
+    }
+  }
+  /* stylelint-disable scss/selector-nest-combinators */
+  .bsds-nav-primary .bsds-nav-bar,
+  .bsds-nav-utility {
+    .bsds-nav-logo {
+      margin: 0;
+      padding: space(sm) space(2x);
     }
   }
 }
