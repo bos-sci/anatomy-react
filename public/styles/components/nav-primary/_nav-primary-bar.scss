@@ -18,14 +18,11 @@
 
       > a,
       > img {
-        display: flex;
+        display: inline-flex;
       }
 
-      .bsds-link {
-        &:focus {
-          // TODO: Double check that this works correctly
-          @include focus-default-inset;
-        }
+      &:focus {
+        @include focus-default-inset;
       }
 
       img {
@@ -35,8 +32,6 @@
 
     > .bsds-nav {
       justify-content: center;
-
-      // margin-left: auto;
 
       > .bsds-nav-item {
         margin-top: 0;
