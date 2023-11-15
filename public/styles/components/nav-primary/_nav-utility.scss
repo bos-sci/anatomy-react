@@ -20,7 +20,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: $border-width-xxs solid $border-color-subtle;
+    border-bottom: 0 solid $border-color-subtle;
+
+    &:has(.bsds-nav-logo) {
+      border-bottom-width: $border-width-xxs;
+    }
 
     .bsds-nav-logo {
       margin: 0;
@@ -31,6 +35,8 @@
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-nav-utility {
+    border-bottom-width: $border-width-xxs;
+
     .bsds-nav {
       display: flex;
       margin-left: auto;
