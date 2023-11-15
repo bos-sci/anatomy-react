@@ -151,14 +151,11 @@
   .bsds-nav-primary {
     .bsds-nav-bar {
       flex-direction: row;
-    }
-  }
-  /* stylelint-disable scss/selector-nest-combinators */
-  .bsds-nav-primary .bsds-nav-bar,
-  .bsds-nav-utility {
-    .bsds-nav-logo {
-      margin: 0;
-      padding: space(sm) space(2x);
+
+      .bsds-nav-logo {
+        margin: 0;
+        padding: space(sm) space(2x);
+      }
     }
   }
 }

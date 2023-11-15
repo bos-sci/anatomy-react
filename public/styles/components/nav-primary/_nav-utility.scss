@@ -1,6 +1,8 @@
 // Utility Nav
 .bsds-nav-utility {
-  // display: set by inline style in NavUtility.tsx
+  .bsds-nav {
+    display: none;
+  }
 
   .bsds-nav-logo {
     display: flex;
@@ -11,10 +13,6 @@
       max-height: 2rem;
     }
   }
-
-  .bsds-nav {
-    display: none;
-  }
 }
 
 @media (min-width: $breakpoint-sm-min) {
@@ -23,6 +21,11 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: $border-width-xxs solid $border-color-subtle;
+
+    .bsds-nav-logo {
+      margin: 0;
+      padding: space(md) space(2x);
+    }
   }
 }
 
@@ -30,6 +33,7 @@
   .bsds-nav-utility {
     .bsds-nav {
       display: flex;
+      margin-left: auto;
 
       .bsds-nav-item {
         margin-top: 0;

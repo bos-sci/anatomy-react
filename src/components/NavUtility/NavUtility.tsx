@@ -13,7 +13,7 @@ export interface NavUtilityProps {
 
 const NavUtility = ({ logoSecondary, utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
   return (
-    <div className="bsds-nav-utility" style={{ display: logoSecondary ? 'flex' : 'none' }}>
+    <div className="bsds-nav-utility">
       {!!logoSecondary && (
         <div className="bsds-nav-logo">
           <img src={logoSecondary.src} alt={logoSecondary.alt} />

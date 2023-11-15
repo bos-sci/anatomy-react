@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import NavPrimary from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
+import logoBSC from '../../stories/assets/logo-bsc.svg';
 import logoDemo from '../../stories/assets/logo-demo.svg';
 import { complexData, intermediateData, simpleData, utilityData } from './navPrimaryData';
 
@@ -73,8 +74,12 @@ export const Complex: Story = {
 
 export const CoBranded: Story = {
   args: {
-    logoSecondary: {
+    logo: {
       src: logoDemo,
+      alt: 'Primary Logo'
+    },
+    logoSecondary: {
+      src: logoBSC,
       alt: 'Secondary Logo'
     },
     navItems: simpleData
