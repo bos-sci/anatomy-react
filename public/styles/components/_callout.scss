@@ -17,6 +17,8 @@
   }
 
   &.bsds-callout-centered {
+    text-align: center;
+
     &::after {
       left: 50%;
       transform: translateX(-50%);
