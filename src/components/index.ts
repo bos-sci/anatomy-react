@@ -10,6 +10,9 @@ export { default as Breadcrumbs } from './Breadcrumbs';
 export * from './Button';
 export { default as Button } from './Button';
 
+export * from './Callout';
+export { default as Callout } from './Callout';
+
 export * from './CardGroup';
 export { default as CardGroup } from './CardGroup';
 
