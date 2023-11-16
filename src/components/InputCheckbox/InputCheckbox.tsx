@@ -71,7 +71,9 @@ const InputCheckbox = forwardRef(
     };
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      setIsDirty(!isDirty);
+      if (!isDirty) {
+        setIsDirty(true);
+      }
       validate();
       if (onChange) {
         onChange(e);
@@ -80,15 +82,16 @@ const InputCheckbox = forwardRef(
 
     useEffect(() => {
       inputEl?.current?.setCustomValidity(errorText ? errorText : '');
-    }, [inputEl, errorText]);
+      if (isDirty) {
+        validate();
+      }
+    }, [inputEl, errorText, isDirty, validate]);
 
     useEffect(() => {
       if (forceValidation) {
         validate();
-      } else if (isDirty) {
-        validate();
       }
-    }, [isDirty, forceValidation, validate]);
+    }, [forceValidation, validate]);
 
     // Component mount
     useEffect(() => {
