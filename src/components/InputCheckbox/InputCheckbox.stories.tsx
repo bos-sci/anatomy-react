@@ -1,9 +1,8 @@
+import { useState, ChangeEvent } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { errorText, helpText } from '../../stories/helpers';
-import { useState } from 'react';
 import InputCheckbox from './InputCheckbox';
 import Fieldset from '../Fieldset';
-import { ChangeEvent, ChangeEventHandler } from 'react';
 
 const meta = {
   title: 'Components/Checkbox',
@@ -26,26 +25,29 @@ export const WithHelp: Story = {
   }
 };
 
-const useErrorState = (errorText: string): [string, ChangeEventHandler<HTMLInputElement>] => {
-  const [error, setError] = useState(errorText);
-
-  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    setError(e.target.checked ? '' : errorText);
-  };
-
-  return [error, handleChange];
-};
-
 export const WithError = ({ ...args }) => {
-  const [error, handleChange] = useErrorState(errorText);
-  return <InputCheckbox label="Checkbox" errorText={error} forceValidation onChange={handleChange} />;
+  const [error, setError] = useState(errorText);
+  return (
+    <InputCheckbox
+      label="Checkbox"
+      errorText={error}
+      forceValidation
+      onChange={(e) => setError(e.target.checked ? '' : errorText)}
+    />
+  );
 };
 WithError.storyName = 'With error';
 
 export const WithHelpAndError = ({ ...args }) => {
-  const [error, handleChange] = useErrorState(errorText);
+  const [error, setError] = useState(errorText);
   return (
-    <InputCheckbox label="Checkbox" helpText={helpText} errorText={error} forceValidation onChange={handleChange} />
+    <InputCheckbox
+      label="Checkbox"
+      helpText={helpText}
+      errorText={error}
+      forceValidation
+      onChange={(e) => setError(e.target.checked ? '' : errorText)}
+    />
   );
 };
 WithHelpAndError.storyName = 'With help and error';
