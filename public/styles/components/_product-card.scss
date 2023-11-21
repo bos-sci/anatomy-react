@@ -51,10 +51,6 @@
     }
   }
 
-  &[class*='-ghost'] {
-    color: $text-color-ghost;
-  }
-
   [class*='-ghost'] {
     text-decoration: none;
     @extend .bsds-link-ghost;
