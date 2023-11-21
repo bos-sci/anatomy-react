@@ -2,7 +2,7 @@ name: Lint Anatomy
 
 # Controls when the action will run.
 on:
-  # Triggers the workflow on pull request events on master and develop
+  # Triggers the workflow on pull request events on main and develop
   pull_request:
     branches: [main, develop]
 
