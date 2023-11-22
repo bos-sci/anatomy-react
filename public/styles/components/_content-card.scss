@@ -18,7 +18,10 @@
 
   &-ghost {
     @extend .bsds-card;
-    color: $text-color-ghost;
+
+    .bsds-card-description {
+      color: $text-color-ghost;
+    }
   }
 
   &-border-light {
