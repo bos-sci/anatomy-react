@@ -67,6 +67,10 @@ export interface NavPrimaryProps {
     href?: string;
     to?: string;
   };
+  logoSecondary?: {
+    src: string;
+    alt: string;
+  };
   texts?: Texts;
   navItems: NavItemPrimary[];
   utilityItems?: NavItemUtility[];
@@ -84,6 +88,7 @@ let navPrimaryMenuIndex = 0;
 
 const NavPrimary = ({
   logo,
+  logoSecondary,
   texts,
   utilityItems,
   navItems,
@@ -287,16 +292,27 @@ const NavPrimary = ({
 
   return (
     <header ref={navRef} className={'bsds-nav-header' + (isConstrained ? ' is-constrained' : '')}>
-      {!!utilityItems && <NavUtility utilityItems={utilityItems} ariaLabel={texts?.utilityNavAriaLabel} />}
+      {!!utilityItems && (
+        <NavUtility
+          utilityItems={utilityItems}
+          ariaLabel={texts?.utilityNavAriaLabel}
+          logoSecondary={!!logo.src && !!logoSecondary?.src && { src: logo.src, alt: logo.alt }}
+        />
+      )}
       <nav className="bsds-nav-primary" aria-label={texts?.primaryNavAriaLabel || 'primary'}>
         <div className="bsds-nav-bar">
-          {logo.to || logo.href ? (
-            <Link to={logo.to} href={logo.href} className="bsds-nav-link-logo" isNavLink>
-              <img src={logo.src} alt={logo.alt} />
-            </Link>
-          ) : (
-            <img className="bsds-nav-link-logo" src={logo.src} alt={logo.alt} />
-          )}
+          {
+            // eslint-disable-next-line react/jsx-no-leaked-render
+            (logo.to || logo.href) && !logoSecondary ? (
+              <Link to={logo.to} href={logo.href} className="bsds-nav-link-logo" isNavLink>
+                <img src={logo.src} alt={logo.alt} />
+              </Link>
+            ) : logoSecondary ? (
+              <img className="bsds-nav-link-logo" src={logoSecondary.src} alt={logoSecondary.alt} />
+            ) : (
+              <img className="bsds-nav-link-logo" src={logo.src} alt={logo.alt} />
+            )
+          }
           <ul className="bsds-nav" role="menubar" onKeyUp={handleKeyUp}>
             {navTree.map((navItem, i) => (
               <li

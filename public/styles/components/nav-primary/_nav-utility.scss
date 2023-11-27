@@ -47,11 +47,23 @@
       }
     }
   }
+
+  .bsds-nav-logo-secondary {
+    width: auto;
+    max-height: 32px;
+    margin: space(md) space(3x);
+  }
 }
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-nav-utility {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    &:has(> .bsds-nav-logo-secondary) {
+      justify-content: space-between;
+    }
 
     .bsds-nav {
       .bsds-nav-link {

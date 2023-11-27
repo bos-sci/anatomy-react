@@ -5,11 +5,18 @@ import { NavItemUtility } from '../NavPrimary';
 export interface NavUtilityProps {
   utilityItems: NavItemUtility[];
   ariaLabel?: string;
+  logoSecondary?: {
+    src: string;
+    alt: string;
+  };
 }
 
-const NavUtility = ({ utilityItems, ariaLabel = 'Utility' }: NavUtilityProps): JSX.Element => {
+const NavUtility = ({ utilityItems, ariaLabel = 'Utility', logoSecondary }: NavUtilityProps): JSX.Element => {
   return (
     <nav className="bsds-nav-utility" aria-label={ariaLabel}>
+      {!!logoSecondary?.src && (
+        <img className="bsds-nav-logo-secondary" src={logoSecondary.src} alt={logoSecondary.alt} />
+      )}
       <ul className="bsds-nav">
         {utilityItems.map((utilityItem) => (
           <li key={'utilityItem' + utilityItem.text} className="bsds-nav-item">
