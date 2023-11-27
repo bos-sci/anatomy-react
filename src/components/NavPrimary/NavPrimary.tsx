@@ -296,7 +296,8 @@ const NavPrimary = ({
         <NavUtility
           utilityItems={utilityItems}
           ariaLabel={texts?.utilityNavAriaLabel}
-          logoSecondary={!!logo.src && !!logoSecondary?.src && { src: logo.src, alt: logo.alt }}
+          // eslint-disable-next-line react/jsx-no-leaked-render
+          logoSecondary={logo.src && logoSecondary?.src ? { src: logo.src, alt: logo.alt } : undefined}
         />
       )}
       <nav className="bsds-nav-primary" aria-label={texts?.primaryNavAriaLabel || 'primary'}>
