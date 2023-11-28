@@ -85,3 +85,4 @@ export const Cobranded: Story = {
     }
   }
 };
+Cobranded.storyName = 'Co-branded';
