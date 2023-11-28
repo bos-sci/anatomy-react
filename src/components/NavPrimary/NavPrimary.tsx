@@ -297,7 +297,7 @@ const NavPrimary = ({
           utilityItems={utilityItems}
           ariaLabel={texts?.utilityNavAriaLabel}
           // eslint-disable-next-line react/jsx-no-leaked-render
-          logoSecondary={logo.src && logoSecondary?.src ? { src: logo.src, alt: logo.alt } : undefined}
+          logoSecondary={logoSecondary?.src ? { src: logoSecondary?.src, alt: logoSecondary?.alt } : undefined}
         />
       )}
       <nav className="bsds-nav-primary" aria-label={texts?.primaryNavAriaLabel || 'primary'}>
@@ -305,15 +305,11 @@ const NavPrimary = ({
           {
             // eslint-disable-next-line react/jsx-no-leaked-render
             (logo.to || logo.href) && !logoSecondary ? (
-              <Link to={logo.to} href={logo.href} className="bsds-nav-link-logo" isNavLink>
-                <img src={logo.src} alt={logo.alt} />
+              <Link to={logo.to} href={logo.href} className="bsds-link-logo" isNavLink>
+                <img src={logo.src} alt={logo.alt} className="bsds-nav-link-logo" />
               </Link>
             ) : (
-              <img
-                className="bsds-nav-link-logo"
-                src={logoSecondary?.src || logo.src}
-                alt={logoSecondary?.alt || logo.alt}
-              />
+              <img className="bsds-nav-link-logo" src={logo.src} alt={logo.alt} />
             )
           }
           <ul className="bsds-nav" role="menubar" onKeyUp={handleKeyUp}>

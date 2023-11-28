@@ -65,7 +65,7 @@ const NavPrimaryMenu = forwardRef((props: NavPrimaryMenuProps, ref: ForwardedRef
       {props.history.length === 0 && !!props.utilityItems && (
         <ul className="bsds-nav bsds-nav-block">
           {!!props.logoSecondary && (
-            <img className="bsds-nav-logo-secondary" src={props.logo.src} alt={props.logo.alt} />
+            <img className="bsds-nav-logo-secondary" src={props.logoSecondary.src} alt={props.logoSecondary.alt} />
           )}
           {props.utilityItems.map((item) => (
             <li key={'utilityItem' + item.text} className="bsds-nav-item">

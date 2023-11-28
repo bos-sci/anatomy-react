@@ -76,12 +76,12 @@ export const Cobranded: Story = {
   args: {
     navItems: simpleData,
     logo: {
-      src: logoBsc,
-      alt: 'Boston Scientific'
-    },
-    logoSecondary: {
       src: logoDemo,
       alt: 'Demo logo'
+    },
+    logoSecondary: {
+      src: logoBsc,
+      alt: 'Boston Scientific'
     }
   }
 };
