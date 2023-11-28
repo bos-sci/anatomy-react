@@ -308,10 +308,12 @@ const NavPrimary = ({
               <Link to={logo.to} href={logo.href} className="bsds-nav-link-logo" isNavLink>
                 <img src={logo.src} alt={logo.alt} />
               </Link>
-            ) : logoSecondary ? (
-              <img className="bsds-nav-link-logo" src={logoSecondary.src} alt={logoSecondary.alt} />
             ) : (
-              <img className="bsds-nav-link-logo" src={logo.src} alt={logo.alt} />
+              <img
+                className="bsds-nav-link-logo"
+                src={logoSecondary?.src || logo.src}
+                alt={logoSecondary?.alt || logo.alt}
+              />
             )
           }
           <ul className="bsds-nav" role="menubar" onKeyUp={handleKeyUp}>
@@ -360,6 +362,8 @@ const NavPrimary = ({
                       ref={menuRef}
                       navItems={navTree}
                       utilityItems={utilityItems}
+                      logo={logo}
+                      logoSecondary={logoSecondary}
                       activeNode={activeNode}
                       isActiveNode={isCurrent}
                       setActiveNode={setActiveNode}
@@ -417,6 +421,8 @@ const NavPrimary = ({
             ref={menuRef}
             navItems={navTree}
             utilityItems={utilityItems}
+            logo={logo}
+            logoSecondary={logoSecondary}
             activeNode={activeNode}
             isActiveNode={isCurrent}
             setActiveNode={setActiveNode}
