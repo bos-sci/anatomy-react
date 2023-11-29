@@ -205,7 +205,9 @@
       }
 
       .bsds-nav-logo-secondary {
+        box-sizing: content-box;
         width: auto;
+        max-height: space(4x);
         padding: space(3x);
       }
     }

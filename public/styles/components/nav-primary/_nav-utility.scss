@@ -3,6 +3,10 @@
   display: none;
   border-bottom: $border-width-xxs solid $border-color-subtle;
 
+  .bsds-nav-utility-container {
+    display: contents;
+  }
+
   .bsds-nav {
     justify-content: flex-end;
 
@@ -60,10 +64,6 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-
-    &:has(> .bsds-nav-logo-secondary) {
-      justify-content: space-between;
-    }
 
     .bsds-nav {
       .bsds-nav-link {
