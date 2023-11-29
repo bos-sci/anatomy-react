@@ -8,12 +8,6 @@ import NavPrimaryList from './NavPrimaryList';
 interface NavPrimaryMenuProps {
   navItems: NavNodePrimary[];
   utilityItems?: NavItemUtility[];
-  logo: {
-    src: string;
-    alt: string;
-    href?: string;
-    to?: string;
-  };
   logoSecondary?: {
     src: string;
     alt: string;
