@@ -3,6 +3,10 @@
   display: none;
   border-bottom: $border-width-xxs solid $border-color-subtle;
 
+  .bsds-nav-utility-container {
+    display: contents;
+  }
+
   .bsds-nav {
     justify-content: flex-end;
 
@@ -47,11 +51,19 @@
       }
     }
   }
+
+  .bsds-nav-logo-secondary {
+    width: auto;
+    max-height: space(4x);
+    margin: space(md) space(3x);
+  }
 }
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-nav-utility {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
     .bsds-nav {
       .bsds-nav-link {

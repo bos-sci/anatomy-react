@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import NavPrimary from './NavPrimary';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
+import logoBsc from '../../stories/assets/logo-bsc.svg';
+import logoDemo from '../../stories/assets/logo-demo.svg';
 import { complexData, intermediateData, simpleData, utilityData } from './navPrimaryData';
 
 const meta = {
@@ -69,3 +71,18 @@ export const Complex: Story = {
     navItems: complexData
   }
 };
+
+export const Cobranded: Story = {
+  args: {
+    navItems: simpleData,
+    logo: {
+      src: logoDemo,
+      alt: 'Demo logo'
+    },
+    logoSecondary: {
+      src: logoBsc,
+      alt: 'Boston Scientific'
+    }
+  }
+};
+Cobranded.storyName = 'Co-branded';
