@@ -174,7 +174,7 @@
     &.bsds-nav-block {
       flex-direction: column;
       align-content: flex-start;
-      align-items: flex-start;
+      align-items: stretch;
       border-top: $border-width-xxs solid $border-color-subtle;
       padding: $menu-padding;
 
@@ -208,7 +208,8 @@
         box-sizing: content-box;
         width: auto;
         max-height: space(4x);
-        padding: space(3x);
+        margin-right: auto;
+        padding: space(2x) space(3x);
       }
     }
   }
