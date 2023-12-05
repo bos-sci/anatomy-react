@@ -6,7 +6,7 @@ const meta = {
   title: 'Components/Footer',
   component: Footer,
   parameters: {
-    layout: 'centered'
+    layout: 'fullscreen'
   },
   tags: ['autodocs']
 } satisfies Meta<typeof Footer>;
