@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-unused-vars */
 import { useEffect, useId, useState } from 'react';
 import { NavItem, RequireOnlyOne } from '../../types';
 import Link from '../Link';
