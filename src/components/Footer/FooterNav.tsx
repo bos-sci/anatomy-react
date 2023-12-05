@@ -86,7 +86,6 @@ const FooterNav = (props: Props) => {
       cols.push(colItems);
       remainder--;
     }
-    console.log(cols);
     setColumns(cols);
   }, [items]);
 
@@ -117,7 +116,7 @@ const ListManager = (props: ListManagerProps) => {
   } else if (props.columns[0] && props.columns[0].length > 0) {
     if (props.items.every((item) => item.title)) {
       return props.columns.map((col) => (
-        <div key={col[0].id + 'col'} className="bsds-nav-footer-column">
+        <div key={col[0].id + 'col'} className="bsds-nav-footer-column" data-testid="footerCol">
           {col.map((group) => (
             <div key={group.id} className="bsds-nav-group">
               <p id={group.id} className="bsds-nav-title">
@@ -130,7 +129,7 @@ const ListManager = (props: ListManagerProps) => {
       ));
     } else {
       return props.columns.map((col) => (
-        <div key={col[0].id + 'col'} className="bsds-nav-footer-column">
+        <div key={col[0].id + 'col'} className="bsds-nav-footer-column" data-testid="footerCol">
           {col.map((group) => (
             <List key={group.id} group={group} />
           ))}
