@@ -1,1 +1,43 @@
-/* stylelint-disable no-empty-source */
+.bsds-footer {
+  @include bsds-defaults-type;
+
+  .bsds-nav-footer {
+    @include font-size($fs-body-subtle);
+
+    @media (min-width: $breakpoint-md-min) {
+      display: flex;
+      padding: 0 space(3x);
+
+      > .bsds-nav-footer-column {
+        flex: 1;
+      }
+    }
+  }
+
+  .bsds-nav-group {
+    &:not(:first-of-type) {
+      margin-top: space(6x);
+    }
+  }
+
+  .bsds-nav-title {
+    @include font-family-base-heavy;
+
+    + .bsds-nav {
+      margin-top: space(lg);
+    }
+  }
+
+  .bsds-nav {
+    margin: 0;
+    padding: 0;
+  }
+
+  .bsds-nav-item {
+    list-style: none;
+  }
+
+  .bsds-link-nav {
+    @include link-navigation;
+  }
+}
