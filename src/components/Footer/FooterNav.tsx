@@ -69,7 +69,7 @@ const FooterNav = (props: Props) => {
 
   useEffect(() => {
     const colCount = 3;
-    const columnSize = items.length / colCount;
+    const columnSize = Math.floor(items.length / colCount);
     let remainder = items.length % colCount;
 
     const originalItems = [...items];
@@ -77,7 +77,7 @@ const FooterNav = (props: Props) => {
     for (let col = 0; col < colCount; col++) {
       const itemCount = remainder > 0 ? columnSize + 1 : columnSize;
       const colItems: NavItemsInternal[] = [];
-      for (let i = itemCount - 1; i > 0; i--) {
+      for (let i = itemCount; i > 0; i--) {
         const nextItem = originalItems.shift();
         if (nextItem) {
           colItems.push(nextItem);
@@ -116,7 +116,7 @@ const ListManager = (props: ListManagerProps) => {
   } else if (props.columns[0] && props.columns[0].length > 0) {
     if (props.items.every((item) => item.title)) {
       return props.columns.map((col) => (
-        <div key={col[0].id + 'col'} className="bsds-nav-footer-column">
+        <div key={(col.length > 0 ? col[0].id : '') + 'col'} className="bsds-nav-footer-column">
           {col.map((group) => (
             <div key={group.id} className="bsds-nav-group">
               <p id={group.id} className="bsds-nav-title">
@@ -129,7 +129,7 @@ const ListManager = (props: ListManagerProps) => {
       ));
     } else {
       return props.columns.map((col) => (
-        <div key={col[0].id + 'col'} className="bsds-nav-footer-column">
+        <div key={(col.length > 0 ? col[0].id : '') + 'col'} className="bsds-nav-footer-column">
           {col.map((group) => (
             <List key={group.id} group={group} />
           ))}
