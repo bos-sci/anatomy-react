@@ -6,6 +6,7 @@
 
     @media (min-width: $breakpoint-md-min) {
       display: flex;
+      padding: 0 space(3x);
 
       > .bsds-nav-footer-column {
         flex: 1;
