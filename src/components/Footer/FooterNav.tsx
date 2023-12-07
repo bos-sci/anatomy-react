@@ -152,6 +152,13 @@ const List = ({ group }: { group: NavItemsInternal }) => (
         </Link>
       </li>
     ))}
+    {!!group.altLinkText && (
+      <li className="bsds-nav-item">
+        <Link to={group.altTo} href={group.altHref}>
+          {group.altLinkText}
+        </Link>
+      </li>
+    )}
   </ul>
 );
 

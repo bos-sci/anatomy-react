@@ -63,6 +63,8 @@ export const navItems: NavItemsFooter[] = [
   },
   {
     title: 'Group 5',
+    altHref: 'docs-demo-link',
+    altLinkText: 'More group 5',
     navItems: [
       {
         text: 'Item 1',
