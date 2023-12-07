@@ -119,3 +119,26 @@ export const navItems: NavItemsFooter[] = [
     ]
   }
 ];
+
+export const legalLinks = [
+  {
+    text: 'Privacy policy',
+    href: 'docs-demo-link'
+  },
+  {
+    text: 'Terms of use',
+    href: 'docs-demo-link'
+  },
+  {
+    text: 'Copyright notice',
+    href: 'docs-demo-link'
+  },
+  {
+    text: 'Social media guidelines',
+    href: 'docs-demo-link'
+  },
+  {
+    text: 'Sitemap',
+    href: 'docs-demo-link'
+  }
+];

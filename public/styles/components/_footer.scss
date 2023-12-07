@@ -1,5 +1,6 @@
 .bsds-footer {
   @include bsds-defaults-type;
+  background-color: $neutral-95;
 
   .bsds-nav-footer {
     @include font-size($fs-body-subtle);
@@ -39,5 +40,132 @@
 
   .bsds-link-nav {
     @include link-navigation;
+  }
+
+  .bsds-footer-base {
+    border-top: $border-width-xxs solid $border-color-subtle;
+    padding-bottom: space(6x);
+
+    .bsds-footer-base-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0 space(3x);
+
+      .bsds-footer-logo {
+        width: auto;
+        max-height: space(8x);
+        margin-top: space(3x);
+      }
+
+      .bsds-footer-tagline {
+        @include font-size($fs-body-subtle);
+        text-align: left;
+      }
+
+      .bsds-footer-text-small {
+        @include font-size($fs-small);
+        margin-top: space(lg);
+      }
+
+      .bsds-footer-link-corp {
+        @include font-size($fs-small);
+        @include font-family-base-regular;
+        margin-top: space(lg);
+
+        .bsds-footer-icon {
+          width: space(lg);
+        }
+      }
+
+      .bsds-footer-link-cookie {
+        @include font-size($fs-body-subtle);
+        margin-top: space(lg);
+      }
+    }
+
+    .bsds-nav-footer-legal {
+      width: 100%;
+      border-bottom: $border-width-xxs solid $border-color-subtle;
+
+      .bsds-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: space(3x) 0;
+        padding-left: space(3x);
+        list-style: none;
+
+        .bsds-nav-item {
+          margin-top: space(md);
+
+          .bsds-nav-link {
+            @include font-size($fs-small);
+            @include font-family-base-regular;
+            border: 0;
+            color: $text-color-primary;
+            text-decoration: none;
+
+            &:hover {
+              color: $text-color-primary;
+            }
+          }
+        }
+      }
+    }
+
+    .bsds-footer-social-media {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left: 0;
+      list-style: none;
+      gap: space(lg);
+
+      .bsds-footer-social-media-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+
+        img {
+          max-height: space(2x);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg-min) {
+  .bsds-footer {
+    .bsds-footer-base {
+      margin-top: space(4x);
+
+      .bsds-footer-base-container {
+        justify-content: center;
+        align-items: center;
+
+        .bsds-footer-tagline {
+          max-width: 30.125rem;
+          text-align: center;
+        }
+      }
+
+      .bsds-nav-footer-legal {
+        .bsds-nav {
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: space(3x);
+          padding: 0;
+
+          .bsds-nav-item {
+            margin-top: 0;
+          }
+        }
+      }
+    }
   }
 }
