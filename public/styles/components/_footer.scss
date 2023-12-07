@@ -43,7 +43,6 @@
   }
 
   .bsds-footer-base {
-    border-top: $border-width-xxs solid $border-color-subtle;
     padding-bottom: space(6x);
 
     .bsds-footer-base-container {
@@ -142,6 +141,7 @@
   .bsds-footer {
     .bsds-footer-base {
       margin-top: space(4x);
+      border-top: $border-width-xxs solid $border-color-subtle;
 
       .bsds-footer-base-container {
         justify-content: center;
