@@ -2,118 +2,118 @@ import { NavItemsFooter } from './FooterNav';
 
 export const navItems: NavItemsFooter[] = [
   {
-    title: 'Group 1',
+    title: 'Page group 1',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 3',
+        text: 'Page 3',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 2',
+    title: 'Page group 2',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 3',
+    title: 'Page group 3',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 3',
+        text: 'Page 3',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 4',
+    title: 'Page group 4',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 5',
+    title: 'Page group 5',
     altHref: 'docs-demo-link',
-    altLinkText: 'More group 5',
+    altLinkText: 'See all pages',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 3',
+        text: 'Page 3',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 4',
+        text: 'Page 4',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 5',
+        text: 'Page 5',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 6',
+    title: 'Page group 6',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 3',
+        text: 'Page 3',
         href: 'docs-demo-link'
       }
     ]
   },
   {
-    title: 'Group 7',
+    title: 'Page group 7',
     navItems: [
       {
-        text: 'Item 1',
+        text: 'Page 1',
         href: 'docs-demo-link'
       },
       {
-        text: 'Item 2',
+        text: 'Page 2',
         href: 'docs-demo-link'
       }
     ]

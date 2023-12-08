@@ -1,10 +1,10 @@
 import Link from '../Link';
 import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
 import { RequireOnlyOne, NavItem } from '../../types';
-import Facebook from '../../stories/assets/icon-facebook-logo.svg';
-import Twitter from '../../stories/assets/icon-twitter-logo.svg';
-import LinkedIn from '../../stories/assets/icon-linkedin-logo.svg';
-import YouTube from '../../stories/assets/icon-youtube-logo.svg';
+import Facebook from '../../stories/assets/icon-facebook.svg';
+import Twitter from '../../stories/assets/icon-twitter.svg';
+import LinkedIn from '../../stories/assets/icon-linkedin.svg';
+import YouTube from '../../stories/assets/icon-youtube.svg';
 
 interface LegalLinksBase extends NavItem {
   children?: LegalLinkItem[];
@@ -78,7 +78,7 @@ const FooterBase = ({
         </nav>
       )}
       <div className="bsds-footer-base-container">
-        <img className="bsds-footer-logo" src={logoTagline} alt="Boston Scientific logo" />
+        <img className="bsds-footer-logo" src={logoTagline} alt="Boston Scientific" />
         {!!corporateLink && (
           <Link className="bsds-footer-link-corp" href="https://www.bostonscientific.com/">
             Boston Scientific home site
@@ -99,10 +99,10 @@ const FooterBase = ({
 
         {!!socialMedia && (
           <ul className="bsds-footer-social-media">
-            {socials.map(({ platform, socialLink, icon: Icon, defaultLink }) => (
+            {socials.map(({ platform, socialLink, icon, defaultLink }) => (
               <li key={platform} className="bsds-footer-social-media-item">
-                <Link href={socialLink ?? defaultLink}>
-                  <img src={Icon} alt={platform} />
+                <Link href={socialLink ?? defaultLink} aria-label={platform}>
+                  <img src={icon} alt={platform} className="bsds-footer-social-media-icon" aria-hidden />
                 </Link>
               </li>
             ))}
@@ -118,7 +118,7 @@ const FooterBase = ({
         {!!complianceCode && <small className="bsds-footer-text-small">Approval # {complianceCode}</small>}
 
         <small className="bsds-footer-text-small">
-          ©2022 Boston Scientific Corporation or its affiliates. All rights reserved.
+          &copy; {new Date().getFullYear()} Boston Scientific Corporation or its affiliates. All rights reserved.
         </small>
       </div>
     </div>
