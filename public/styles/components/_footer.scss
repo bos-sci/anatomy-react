@@ -56,8 +56,8 @@
       }
 
       .bsds-footer-link-corp {
+        @include link-navigation;
         @include font-size($fs-small);
-        @include font-family-base-regular;
         margin-top: space(lg);
 
         .bsds-footer-icon {
@@ -87,15 +87,8 @@
           margin-top: space(md);
 
           .bsds-nav-link {
+            @include link-navigation;
             @include font-size($fs-small);
-            @include font-family-base-regular;
-            border: 0;
-            color: $text-color-primary;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
           }
         }
       }

@@ -10,8 +10,8 @@ const Footer = ({
   navAriaLabel,
   legalLinkItems,
   corporateLink,
-  tagline,
-  customizeCookies,
+  texts,
+  customizeCookiesLink,
   complianceCode,
   socialMedia
 }: FooterProps) => {
@@ -21,8 +21,8 @@ const Footer = ({
       <FooterBase
         legalLinkItems={legalLinkItems}
         corporateLink={corporateLink}
-        tagline={tagline}
-        customizeCookies={customizeCookies}
+        texts={texts}
+        customizeCookiesLink={customizeCookiesLink}
         complianceCode={complianceCode}
         socialMedia={socialMedia}
       />

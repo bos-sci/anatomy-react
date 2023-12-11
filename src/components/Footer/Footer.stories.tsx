@@ -26,10 +26,12 @@ export const WithAllOptional: Story = {
     navItems,
     legalLinkItems: legalLinks,
     corporateLink: true,
-    tagline:
-      'Boston Scientific is dedicated to transforming lives through innovative medical solutions that improve the health of patients around the world.',
-    customizeCookies: '#',
-    complianceCode: '124234234',
+    texts: {
+      tagline:
+        'Boston Scientific is dedicated to transforming lives through innovative medical solutions that improve the health of patients around the world.'
+    },
+    customizeCookiesLink: '#',
+    complianceCode: '123456789',
     socialMedia: {}
   }
 };
