@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from './Footer';
-import { navItems, legalLinks } from './footerData';
+import { navItems, navItemsSimple, legalLinks } from './footerData';
 
 const meta = {
   title: 'Components/Footer',
@@ -17,6 +17,13 @@ type Story = StoryObj<typeof Footer>;
 export const Playground: Story = {
   args: {
     navItems
+  }
+};
+
+export const WithSimpleNav: Story = {
+  name: 'With simple nav',
+  args: {
+    navItems: navItemsSimple
   }
 };
 

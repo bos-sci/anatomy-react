@@ -142,3 +142,62 @@ export const legalLinks = [
     href: 'docs-demo-link'
   }
 ];
+
+export const navItemsSimple: NavItemsFooter[] = [
+  {
+    navItems: [
+      {
+        text: 'Page 1',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 2',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 3',
+        href: 'docs-demo-link'
+      }
+    ]
+  },
+  {
+    navItems: [
+      {
+        text: 'Page 1',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 2',
+        href: 'docs-demo-link'
+      }
+    ]
+  },
+  {
+    navItems: [
+      {
+        text: 'Page 1',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 2',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 3',
+        href: 'docs-demo-link'
+      }
+    ]
+  },
+  {
+    navItems: [
+      {
+        text: 'Page 1',
+        href: 'docs-demo-link'
+      },
+      {
+        text: 'Page 2',
+        href: 'docs-demo-link'
+      }
+    ]
+  }
+];
