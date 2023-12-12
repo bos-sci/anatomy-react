@@ -67,16 +67,26 @@ const FooterNav = (props: Props) => {
     );
   }, [footerNavId, props.navItems]);
 
+  // Break the items into columns represented as an array of item arrays
   useEffect(() => {
+    // Number of columns
     const colCount = 3;
+    // Number of groups per column
     const columnSize = Math.floor(items.length / colCount);
+    // How many groups are remaining
+    // Used to distribute remaining groups into columns (overflowing their original count)
     let remainder = items.length % colCount;
 
     const originalItems = [...items];
     const cols: NavItemsInternal[][] = [];
+
+    // Iterate as many times as there are base groups in the column
     for (let col = 0; col < colCount; col++) {
+      // Determine if the column needs an extra group to handle the remainder
       const itemCount = remainder > 0 ? columnSize + 1 : columnSize;
+
       const colItems: NavItemsInternal[] = [];
+      // Add "itemCount" number of groups to the column
       for (let i = itemCount; i > 0; i--) {
         const nextItem = originalItems.shift();
         if (nextItem) {
@@ -84,6 +94,8 @@ const FooterNav = (props: Props) => {
         }
       }
       cols.push(colItems);
+      // Reduce the remainder since we have distributed one into a column
+      // Even if there are no remainders we can reduce as negative values are equivalent to 0 in the conditions used
       remainder--;
     }
     setColumns(cols);
