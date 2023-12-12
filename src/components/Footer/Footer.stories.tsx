@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from './Footer';
-import { navItems, navItemsSimple, legalLinks } from './footerData';
+import { navItems, navItemsIntermediate, legalLinks, SocialLinks } from './footerData';
 
 const meta = {
   title: 'Components/Footer',
@@ -16,29 +16,34 @@ type Story = StoryObj<typeof Footer>;
 
 export const Playground: Story = {
   args: {
-    navItems
+    navItems: navItems
   }
 };
 
-export const WithSimpleNav: Story = {
-  name: 'With simple nav',
+export const Simple: Story = {
   args: {
-    navItems: navItemsSimple
-  }
-};
-
-export const WithAllOptional: Story = {
-  name: 'With all optional',
-  args: {
-    navItems,
     legalLinkItems: legalLinks,
     corporateLink: true,
     texts: {
       tagline:
         'Boston Scientific is dedicated to transforming lives through innovative medical solutions that improve the health of patients around the world.'
     },
-    customizeCookiesLink: '#',
+    customizeCookiesLink: 'docs-demo-link',
     complianceCode: '123456789',
-    socialMedia: {}
+    socialMedia: SocialLinks
+  }
+};
+
+export const Intermediate: Story = {
+  args: {
+    navItems: navItemsIntermediate,
+    ...Simple.args
+  }
+};
+
+export const Complex: Story = {
+  args: {
+    navItems,
+    ...Simple.args
   }
 };

@@ -1,9 +1,21 @@
+@mixin bsds-footer-text {
+  @include font-size($fs-small);
+  margin-top: space(lg);
+}
+
 .bsds-footer {
   @include bsds-defaults-type;
   background-color: $neutral-95;
 
   .bsds-nav-footer {
     @include font-size($fs-body-subtle);
+    border-bottom: $border-width-xxs solid $border-color-subtle;
+
+    .bsds-accordion {
+      :last-child {
+        border-bottom: 0;
+      }
+    }
   }
 
   .bsds-nav-footer-column {
@@ -78,14 +90,12 @@
       }
 
       .bsds-footer-text-small {
-        @include font-size($fs-small);
-        margin-top: space(lg);
+        @include bsds-footer-text;
       }
 
       .bsds-footer-link-corp {
         @include link-navigation;
-        @include font-size($fs-small);
-        margin-top: space(lg);
+        @include bsds-footer-text;
 
         .bsds-footer-icon {
           width: space(lg);
@@ -100,19 +110,18 @@
     .bsds-nav-footer-legal {
       width: 100%;
       border-bottom: $border-width-xxs solid $border-color-subtle;
+      padding: space(3x) 0;
 
       .bsds-nav {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
-        margin: space(3x) 0;
+        margin: 0;
         padding-left: space(3x);
         list-style: none;
 
         .bsds-nav-item {
-          margin-top: space(md);
-
           .bsds-nav-link {
             @include link-navigation;
             @include font-size($fs-small);
@@ -191,6 +200,10 @@
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-footer {
+    .bsds-nav-footer {
+      border-bottom: 0;
+    }
+
     .bsds-footer-base {
       margin-top: space(4x);
       border-top: $border-width-xxs solid $border-color-subtle;

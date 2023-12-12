@@ -1,4 +1,8 @@
 import { NavItemsFooter } from './FooterNav';
+import iconFacebook from '../../stories/assets/icon-facebook.svg';
+import iconTwitter from '../../stories/assets/icon-twitter.svg';
+import iconLinkedIn from '../../stories/assets/icon-linkedin.svg';
+import iconYouTube from '../../stories/assets/icon-youtube.svg';
 
 export const navItems: NavItemsFooter[] = [
   {
@@ -143,7 +147,30 @@ export const legalLinks = [
   }
 ];
 
-export const navItemsSimple: NavItemsFooter[] = [
+export const SocialLinks = [
+  {
+    name: 'Facebook',
+    link: 'https://www.facebook.com/BostonScientific',
+    icon: iconFacebook
+  },
+  {
+    name: 'Twitter',
+    link: 'https://twitter.com/bostonsci',
+    icon: iconTwitter
+  },
+  {
+    name: 'LinkedIn',
+    link: 'https://www.linkedin.com/company/boston-scientific',
+    icon: iconLinkedIn
+  },
+  {
+    name: 'YouTube',
+    link: 'https://www.youtube.com/channel/UC6mvgpoLzpXU-tlbATlrXUw',
+    icon: iconYouTube
+  }
+];
+
+export const navItemsIntermediate: NavItemsFooter[] = [
   {
     navItems: [
       {
