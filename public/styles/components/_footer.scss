@@ -6,14 +6,24 @@
     @include font-size($fs-body-subtle);
   }
 
-  .bsds-nav-group {
+  .bsds-nav-group,
+  .bsds-nav {
     &:not(:first-of-type) {
       margin-top: space(6x);
     }
   }
 
+  .bsds-nav-group {
+    .bsds-nav {
+      &:not(:first-of-type) {
+        margin-top: space(lg);
+      }
+    }
+  }
+
   .bsds-nav-title {
     @include font-family-base-heavy;
+    margin-top: 0;
 
     + .bsds-nav {
       margin-top: space(lg);
@@ -119,7 +129,7 @@
 @media (min-width: $breakpoint-md-min) {
   .bsds-nav-footer {
     display: flex;
-    padding: 0 space(3x);
+    padding: space(6x) space(3x);
 
     > .bsds-nav-footer-column {
       flex: 1;
