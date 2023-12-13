@@ -1,14 +1,6 @@
 $outer-circle-diameter: $ffs-body-assertive;
 $inner-circle-diameter: space(md);
 
-.bsds-fieldset {
-  > .bsds-field {
-    &:not(:first-child) {
-      margin-top: space(2x);
-    }
-  }
-}
-
 .bsds-input-radio {
   @include visually-hidden;
   pointer-events: none;
