@@ -12,7 +12,7 @@
 .bsds-fieldset-button-group {
   @extend .bsds-fieldset;
   flex-flow: row wrap;
-  gap: space(lg);
+  gap: 0 space(lg);
 
   .bsds-legend {
     @include font-family-base-regular;
@@ -115,10 +115,6 @@
   &[aria-invalid='true'] {
     .bsds-legend {
       ~ .bsds-field {
-        .bsds-input-radio-label {
-          margin-top: 0;
-        }
-
         .bsds-input-radio {
           &:not(:disabled) {
             + .bsds-input-radio-label {
@@ -151,14 +147,10 @@
 
   .bsds-field-error {
     width: 100%;
-
-    + .bsds-field-help-text {
-      margin-top: 0;
-    }
   }
 
   .bsds-field-help-text {
     width: 100%;
-    margin-top: space(lg);
+    margin-top: space(sm);
   }
 }
