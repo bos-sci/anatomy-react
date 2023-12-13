@@ -20,7 +20,7 @@
     ~ .bsds-field {
       width: max-content;
 
-      &:not(:first-child) {
+      .bsds-input-radio-label {
         margin-top: space(lg);
       }
     }
@@ -115,7 +115,9 @@
   &[aria-invalid='true'] {
     .bsds-legend {
       ~ .bsds-field {
-        margin-top: 0;
+        .bsds-input-radio-label {
+          margin-top: 0;
+        }
 
         .bsds-input-radio {
           &:not(:disabled) {

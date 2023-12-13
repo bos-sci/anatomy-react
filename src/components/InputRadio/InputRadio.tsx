@@ -110,7 +110,7 @@ const InputRadio = forwardRef(
     }, [isGroupStyle, addonProps]);
 
     return (
-      <div className="bsds-field bsds-mt-2x">
+      <div className="bsds-field">
         <input
           ref={(node) => {
             if (node) {
