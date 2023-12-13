@@ -1,3 +1,7 @@
+// TODO:
+// move border and shadow classes to parent card instead of card content
+// standardize markup so image and icon both render as a child of card and as a sibling of card content
+
 import { ReactElement, cloneElement, useState, useEffect, useId } from 'react';
 import HeadingElement, { HeadingLevel } from '../Heading';
 import { ImageProps } from '../Image';
@@ -167,8 +171,7 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
   }, [tag, variant]);
 
   const cardContent = (
-    <div className="bsds-card-content">
-      {!!icon && <Icon name={`${iconName}`} className="bsds-icon-8x" />}
+    <>
       {clonedTag}
       <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'cardTitle' + cardTitleId}>
         {title}
@@ -179,25 +182,32 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
           {actionLinkText}
         </Link>
       )}
-    </div>
+    </>
   );
 
   const cardContentWrapper = (
+    <>
+      {!!icon && <Icon name={`${iconName}`} className="bsds-icon-8x" />}
+      <div className="bsds-card-content">{cardContent}</div>
+    </>
+  );
+
+  const newCardWrapper = (
     <div className={style} data-testid="bsdsCard">
-      {cardContent}
+      {cardContentWrapper}
     </div>
   );
 
   if (clonedImage) {
     return (
-      <div className="bsds-card-with-image">
+      <div className={`${style}` + ' bsds-card-with-image'} data-testid="bsdsCard">
         {clonedImage}
         {cardContentWrapper}
       </div>
     );
   }
 
-  return cardContentWrapper;
+  return newCardWrapper;
 };
 
 export default ContentCard;
