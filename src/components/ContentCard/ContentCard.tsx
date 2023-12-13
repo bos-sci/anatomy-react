@@ -168,8 +168,8 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
 
   const cardContent = (
     <div className="bsds-card-content">
-      {clonedTag}
       {!!icon && <Icon name={`${iconName}`} className="bsds-icon-8x" />}
+      {clonedTag}
       <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'cardTitle' + cardTitleId}>
         {title}
       </HeadingElement>
