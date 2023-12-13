@@ -1,3 +1,5 @@
+// TODO: shadow and hover only applied to content, not image
+
 .bsds-card {
   @include bsds-defaults-type;
   position: relative;
@@ -8,12 +10,6 @@
 
   &-content {
     display: contents;
-
-    [class*='bsds-tag'] {
-      &:not(:first-child) {
-        display: none;
-      }
-    }
   }
 
   &-ghost {
@@ -85,13 +81,24 @@
 
 .bsds-icon-8x {
   ~ .bsds-card-title {
-    margin: space(2x) 0 0 0;
+    margin: space(3x) 0 0 0;
   }
 }
 
 .bsds-card-with-image {
-  .bsds-card-title {
-    margin-top: space(md);
+  .bsds-card {
+    [class*='bsds-tag'],
+    .bsds-card-title {
+      margin-top: space(3x);
+    }
+  }
+
+  .bsds-card-border-light,
+  .bsds-card-border-ghost {
+    [class*='bsds-tag'],
+    .bsds-card-title {
+      margin-top: 0;
+    }
   }
 
   .bsds-icon-8x {
@@ -102,6 +109,12 @@
 [class*='bsds-card'] {
   [class*='bsds-link'] {
     margin: space(2x) 0 0 0;
+  }
+
+  .bsds-icon-8x {
+    ~ [class*='bsds-tag'] {
+      margin: space(3x) 0 0 0;
+    }
   }
 
   [class*='bsds-tag'] {
