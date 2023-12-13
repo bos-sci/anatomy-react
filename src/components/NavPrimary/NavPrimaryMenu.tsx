@@ -8,6 +8,10 @@ import NavPrimaryList from './NavPrimaryList';
 interface NavPrimaryMenuProps {
   navItems: NavNodePrimary[];
   utilityItems?: NavItemUtility[];
+  logoSecondary?: {
+    src: string;
+    alt: string;
+  };
   activeNode: NavNodePrimary | null;
   isActiveNode: (node: NavNodePrimary, ref: RefObject<HTMLAnchorElement>) => boolean | undefined;
   setActiveNode: (node: NavNodePrimary) => void;
@@ -54,6 +58,9 @@ const NavPrimaryMenu = forwardRef((props: NavPrimaryMenuProps, ref: ForwardedRef
       </div>
       {props.history.length === 0 && !!props.utilityItems && (
         <ul className="bsds-nav bsds-nav-block">
+          {!!props.logoSecondary && (
+            <img className="bsds-nav-logo-secondary" src={props.logoSecondary.src} alt={props.logoSecondary.alt} />
+          )}
           {props.utilityItems.map((item) => (
             <li key={'utilityItem' + item.text} className="bsds-nav-item">
               {item.children ? (

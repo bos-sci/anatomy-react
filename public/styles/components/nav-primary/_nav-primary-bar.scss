@@ -13,9 +13,17 @@
     border-bottom: $border-width-xxs solid $border-color-subtle;
     background: $neutral-100;
 
+    .bsds-link-logo {
+      align-self: center;
+    }
+
     .bsds-nav-link-logo {
       display: flex;
       flex-wrap: wrap;
+      align-self: center;
+      box-sizing: content-box;
+      width: auto;
+      max-height: 3.375rem;
       margin: auto;
       padding: space(2x);
 

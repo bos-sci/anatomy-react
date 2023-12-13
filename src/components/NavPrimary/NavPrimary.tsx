@@ -67,6 +67,10 @@ export interface NavPrimaryProps {
     href?: string;
     to?: string;
   };
+  logoSecondary?: {
+    src: string;
+    alt: string;
+  };
   texts?: Texts;
   navItems: NavItemPrimary[];
   utilityItems?: NavItemUtility[];
@@ -84,6 +88,7 @@ let navPrimaryMenuIndex = 0;
 
 const NavPrimary = ({
   logo,
+  logoSecondary,
   texts,
   utilityItems,
   navItems,
@@ -287,12 +292,19 @@ const NavPrimary = ({
 
   return (
     <header ref={navRef} className={'bsds-nav-header' + (isConstrained ? ' is-constrained' : '')}>
-      {!!utilityItems && <NavUtility utilityItems={utilityItems} ariaLabel={texts?.utilityNavAriaLabel} />}
+      {!!utilityItems && (
+        <NavUtility
+          utilityItems={utilityItems}
+          ariaLabel={texts?.utilityNavAriaLabel}
+          // eslint-disable-next-line react/jsx-no-leaked-render
+          logoSecondary={logoSecondary?.src ? { src: logoSecondary?.src, alt: logoSecondary?.alt } : undefined}
+        />
+      )}
       <nav className="bsds-nav-primary" aria-label={texts?.primaryNavAriaLabel || 'primary'}>
         <div className="bsds-nav-bar">
           {logo.to || logo.href ? (
-            <Link to={logo.to} href={logo.href} className="bsds-nav-link-logo" isNavLink>
-              <img src={logo.src} alt={logo.alt} />
+            <Link to={logo.to} href={logo.href} className="bsds-link-logo" isNavLink>
+              <img src={logo.src} alt={logo.alt} className="bsds-nav-link-logo" />
             </Link>
           ) : (
             <img className="bsds-nav-link-logo" src={logo.src} alt={logo.alt} />
@@ -343,6 +355,7 @@ const NavPrimary = ({
                       ref={menuRef}
                       navItems={navTree}
                       utilityItems={utilityItems}
+                      logoSecondary={logoSecondary}
                       activeNode={activeNode}
                       isActiveNode={isCurrent}
                       setActiveNode={setActiveNode}
@@ -400,6 +413,7 @@ const NavPrimary = ({
             ref={menuRef}
             navItems={navTree}
             utilityItems={utilityItems}
+            logoSecondary={logoSecondary}
             activeNode={activeNode}
             isActiveNode={isCurrent}
             setActiveNode={setActiveNode}

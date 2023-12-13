@@ -90,6 +90,7 @@
 
   .bsds-body-assertive {
     margin: space(3x) 0 0;
+    @include font-size($fs-body-assertive);
 
     li {
       &:not(:first-of-type) {
