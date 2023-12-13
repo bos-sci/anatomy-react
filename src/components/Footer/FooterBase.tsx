@@ -63,7 +63,10 @@ const FooterBase = ({
         {!!corporateLink && (
           <Link className="bsds-footer-link-corp" href="https://www.bostonscientific.com/">
             {texts?.corporateLinkText ?? 'Boston Scientific home site'}
-            <img src={iconNewWindow} alt="" className="bsds-icon-right bsds-footer-icon" />
+            {
+              // eslint-disable-next-line jsx-a11y/alt-text
+              <img src={iconNewWindow} className="bsds-icon-right bsds-footer-icon" aria-hidden />
+            }
           </Link>
         )}
         {!!texts?.tagline && <p className="bsds-footer-tagline">{texts?.tagline}</p>}
@@ -73,7 +76,10 @@ const FooterBase = ({
             {socialMedia.map(({ name, link, icon }) => (
               <li key={name} className="bsds-footer-social-media-item">
                 <Link href={link} aria-label={name}>
-                  <img src={icon} alt="" className="bsds-footer-social-media-icon" aria-hidden />
+                  {
+                    // eslint-disable-next-line jsx-a11y/alt-text
+                    <img src={icon} className="bsds-footer-social-media-icon" aria-hidden />
+                  }
                 </Link>
               </li>
             ))}
@@ -81,7 +87,7 @@ const FooterBase = ({
         )}
 
         {!!customizeCookiesLink && (
-          <Link className="bsds-footer-link-cookie" href={customizeCookiesLink}>
+          <Link className="bsds-mt-2x" href={customizeCookiesLink}>
             {texts?.customCookiesLinkText ?? 'Customize cookies'}
           </Link>
         )}

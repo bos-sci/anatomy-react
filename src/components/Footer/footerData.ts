@@ -147,7 +147,7 @@ export const legalLinks = [
   }
 ];
 
-export const SocialLinks = [
+export const socialLinks = [
   {
     name: 'Facebook',
     link: 'https://www.facebook.com/BostonScientific',

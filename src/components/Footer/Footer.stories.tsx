@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from './Footer';
-import { navItems, navItemsIntermediate, legalLinks, SocialLinks } from './footerData';
+import { navItems, navItemsIntermediate, legalLinks, socialLinks } from './footerData';
 
 const meta = {
   title: 'Components/Footer',
@@ -30,7 +30,7 @@ export const Simple: Story = {
     },
     customizeCookiesLink: 'docs-demo-link',
     complianceCode: '123456789',
-    socialMedia: SocialLinks
+    socialMedia: socialLinks
   }
 };
 

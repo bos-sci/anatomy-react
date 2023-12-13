@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { navItems, legalLinks, SocialLinks } from './footerData';
+import { navItems, legalLinks, socialLinks } from './footerData';
 import Footer from './Footer';
 
 describe('Footer with all optional', () => {
@@ -14,7 +14,7 @@ describe('Footer with all optional', () => {
         }}
         customizeCookiesLink="docs-demo-link"
         complianceCode="123456789"
-        socialMedia={SocialLinks}
+        socialMedia={socialLinks}
         corporateLink
       />
     );
