@@ -42,7 +42,11 @@ const FooterBase = ({
   return (
     <div className="bsds-footer-base">
       {!!legalLinkItems && (
-        <nav className="bsds-nav-footer-legal" aria-label={legalLinkAriaLabel ?? 'Footer utility menu'}>
+        <nav
+          className="bsds-nav-footer-legal"
+          aria-label={legalLinkAriaLabel ?? 'Footer utility'}
+          data-testid="bsdsFooterUtility"
+        >
           <ul className="bsds-nav">
             {legalLinkItems?.map((legalLinkItem) => (
               <li key={'legalLinkItem' + legalLinkItem.text} className="bsds-nav-item">
@@ -65,7 +69,7 @@ const FooterBase = ({
         {!!texts?.tagline && <p className="bsds-footer-tagline">{texts?.tagline}</p>}
 
         {!!socialMedia && (
-          <ul className="bsds-footer-social-media">
+          <ul className="bsds-footer-social-media" data-testid="bsdsFooterSocial">
             {socialMedia.map(({ name, link, icon }) => (
               <li key={name} className="bsds-footer-social-media-item">
                 <Link href={link} aria-label={name}>
