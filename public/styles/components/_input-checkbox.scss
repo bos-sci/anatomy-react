@@ -35,10 +35,8 @@ $checkmark-size: $ffs-body-assertive;
 }
 
 .bsds-fieldset {
-  > .bsds-field {
-    &:not(:first-child) {
-      margin-top: space(2x);
-    }
+  .bsds-input-checkbox-label {
+    margin-top: space(2x);
   }
 
   &[aria-invalid='true'] {
