@@ -115,7 +115,6 @@
   + .bsds-card-title {
     &.bsds-card-title {
       // TODO: temporarily increasing specificity while refactoring, reduce later
-      // TODO: bumping this up because assertive tag has some wonky spacing, check with catie
       margin-top: space(3x);
     }
   }
@@ -140,9 +139,6 @@
     width: max-content;
   }
 
-  // TODO: talk to catie about what is supposed to happen
-  // right now in content card, link lets you select desc, but linked title does not
-  // can never select desc in product card
   &:not(.bsds-product-card) {
     [class*='bsds-card-title'] {
       ~ .bsds-card-description {
