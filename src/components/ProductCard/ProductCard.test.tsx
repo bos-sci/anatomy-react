@@ -4,7 +4,7 @@ import Tag from '../Tag';
 import Image from '../Image';
 
 describe('Product Card', () => {
-  it('Renders a deafult product card when only title, description and link are provided', () => {
+  it('Renders a default product card when only title, description and link are provided', () => {
     render(
       <ProductCard
         texts={{
