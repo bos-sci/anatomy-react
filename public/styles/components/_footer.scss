@@ -141,7 +141,12 @@
         margin: 0;
 
         .bsds-footer-social-media-icon {
-          max-height: space(2x);
+          width: 100%;
+          height: space(2x);
+
+          &:hover {
+            fill: $text-color-action;
+          }
         }
       }
     }

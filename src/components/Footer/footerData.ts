@@ -1,8 +1,4 @@
 import { NavItemsFooter } from './FooterNav';
-import iconFacebook from '../../stories/assets/icon-facebook.svg';
-import iconTwitter from '../../stories/assets/icon-twitter.svg';
-import iconLinkedIn from '../../stories/assets/icon-linkedin.svg';
-import iconYouTube from '../../stories/assets/icon-youtube.svg';
 
 export const navItems: NavItemsFooter[] = [
   {
@@ -151,22 +147,22 @@ export const socialLinks = [
   {
     name: 'Facebook',
     link: 'https://www.facebook.com/BostonScientific',
-    icon: iconFacebook
+    icon: 'facebook'
   },
   {
     name: 'Twitter',
     link: 'https://twitter.com/bostonsci',
-    icon: iconTwitter
+    icon: 'twitter'
   },
   {
     name: 'LinkedIn',
     link: 'https://www.linkedin.com/company/boston-scientific',
-    icon: iconLinkedIn
+    icon: 'linkedin'
   },
   {
     name: 'YouTube',
     link: 'https://www.youtube.com/channel/UC6mvgpoLzpXU-tlbATlrXUw',
-    icon: iconYouTube
+    icon: 'youtube'
   }
 ];
 

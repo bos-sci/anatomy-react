@@ -2,6 +2,10 @@ import Link from '../Link';
 import { RequireOnlyOne, NavItem } from '../../types';
 import logoTagline from '../../../public/assets/images/logo-bsc-tagline.svg';
 import iconNewWindow from '../../../public/assets/images/icon-new-window.svg';
+import IconFacebook from '../Icon/icons/IconFacebook';
+import IconTwitter from '../Icon/icons/IconTwitter';
+import IconLinkedin from '../Icon/icons/IconLinkedin';
+import IconYoutube from '../Icon/icons/IconYoutube';
 
 interface LegalLinksBase extends NavItem {
   children?: LegalLinkItem[];
@@ -39,6 +43,12 @@ const FooterBase = ({
   complianceCode,
   socialMedia
 }: FooterBaseProps) => {
+  const socialIcons = {
+    facebook: <IconFacebook className="bsds-footer-social-media-icon" />,
+    twitter: <IconTwitter className="bsds-footer-social-media-icon" />,
+    linkedin: <IconLinkedin className="bsds-footer-social-media-icon" />,
+    youtube: <IconYoutube className="bsds-footer-social-media-icon" />
+  };
   return (
     <div className="bsds-footer-base">
       {!!legalLinkItems && (
@@ -76,10 +86,7 @@ const FooterBase = ({
             {socialMedia.map(({ name, link, icon }) => (
               <li key={name} className="bsds-footer-social-media-item">
                 <Link href={link} aria-label={name}>
-                  {
-                    // eslint-disable-next-line jsx-a11y/alt-text
-                    <img src={icon} className="bsds-footer-social-media-icon" aria-hidden />
-                  }
+                  {socialIcons[icon as keyof typeof socialIcons]}
                 </Link>
               </li>
             ))}
