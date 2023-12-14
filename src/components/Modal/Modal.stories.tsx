@@ -5,7 +5,7 @@ import { createRef } from 'react';
 
 import Modal, { ModalRef } from './Modal';
 import Button from '../Button';
-import logo from '../../stories/assets/logo-bsc-tagline.svg';
+import logo from '../../../public/assets/images/logo-bsc-tagline.svg';
 
 const meta = {
   title: 'Components/Modal',
