@@ -190,12 +190,6 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
     </>
   );
 
-  const newCardWrapper = (
-    <div className={style} data-testid="bsdsCard">
-      {cardContentWrapper}
-    </div>
-  );
-
   if (clonedImage) {
     return (
       <div className={`${style} bsds-card-with-image`} data-testid="bsdsCard">
@@ -203,9 +197,13 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
         {cardContentWrapper}
       </div>
     );
+  } else {
+    return (
+      <div className={style} data-testid="bsdsCard">
+        {cardContentWrapper}
+      </div>
+    );
   }
-
-  return newCardWrapper;
 };
 
 export default ContentCard;
