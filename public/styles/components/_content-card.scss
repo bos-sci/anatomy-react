@@ -1,14 +1,3 @@
-// TODO:
-// move border and shadow classes to parent card instead of card content
-// standardize markup so image and icon both render as a child of card and as a sibling of card content
-// fix spacing:
-// if no image/icon/border/shadow, no space above content or first child of content
-// if icon/image but no border/shadow, 24px between image + first child of content
-// if border/shadow, card content padding is 24px all around
-// if tag, 12px between tag + title
-// 16px between title + description, description + link
-// fix styles: default, ghost, border-light, border-ghost
-
 .bsds-card {
   @include bsds-defaults-type;
   position: relative;
@@ -16,7 +5,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  outline: 2px dashed $accent-primary-60;
 
   &-ghost {
     @extend .bsds-card;
@@ -43,6 +31,7 @@
     &.bsds-card-with-image {
       padding: 0;
 
+      // TODO: this is repeated in product card, level up
       .bsds-card-content {
         margin-top: 0;
         padding: space(3x);
@@ -116,7 +105,7 @@
     }
   }
 
-  // TODO: move this into product card
+  // TODO: move this into product card or a base card
   + .bsds-product-card-ns-title {
     margin-top: space(lg);
   }
@@ -126,7 +115,7 @@
   + .bsds-card-title {
     &.bsds-card-title {
       // TODO: temporarily increasing specificity while refactoring, reduce later
-      // TODO: check with catie
+      // TODO: bumping this up because assertive tag has some wonky spacing, check with catie
       margin-top: space(3x);
     }
   }
@@ -151,6 +140,9 @@
     width: max-content;
   }
 
+  // TODO: talk to catie about what is supposed to happen
+  // right now in content card, link lets you select desc, but linked title does not
+  // can never select desc in product card
   &:not(.bsds-product-card) {
     [class*='bsds-card-title'] {
       ~ .bsds-card-description {

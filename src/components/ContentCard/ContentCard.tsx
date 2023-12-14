@@ -1,6 +1,4 @@
-// TODO:
-// move border and shadow classes to parent card instead of card content
-// standardize markup so image and icon both render as a child of card and as a sibling of card content
+// TODO: clean up
 
 import { ReactElement, cloneElement, useState, useEffect, useId } from 'react';
 import HeadingElement, { HeadingLevel } from '../Heading';
@@ -200,7 +198,7 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
 
   if (clonedImage) {
     return (
-      <div className={`${style}` + ' bsds-card-with-image'} data-testid="bsdsCard">
+      <div className={`${style} bsds-card-with-image`} data-testid="bsdsCard">
         {clonedImage}
         {cardContentWrapper}
       </div>
