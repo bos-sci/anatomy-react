@@ -9,12 +9,6 @@
   &-ghost {
     @extend .bsds-card;
 
-    .bsds-icon-8x {
-      path {
-        fill: $neutral-100;
-      }
-    }
-
     .bsds-card-title,
     .bsds-card-description {
       color: $text-color-ghost;
