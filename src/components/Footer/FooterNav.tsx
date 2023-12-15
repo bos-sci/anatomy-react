@@ -117,7 +117,7 @@ interface ListManagerProps {
 const ListManager = (props: ListManagerProps) => {
   if (props.isViewportSmall && props.items.every((item) => item.title)) {
     return (
-      <Accordion className="bsds-nav-footer-accordion" headingLevel="h2">
+      <Accordion headingLevel="h2">
         {props.items.map((group) => (
           <AccordionPanel key={group.id} heading={group.title || ''}>
             <List group={group} />
