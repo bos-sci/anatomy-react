@@ -55,7 +55,12 @@ export const SemanticCardTitle: Story = {
 export const NonSemanticCardTitle: Story = {
   name: 'Non-semantic card title',
   args: {
-    ...Playground.args,
+    texts: {
+      title: 'Product card title',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec vestibulum augue, viverra aliquet nunc. Cras eget felis sodales, vestibulum neque ac, rhoncus ipsum.'
+    },
+    linkTo: 'docs-demo-link',
     assertiveTitle: true
   }
 };

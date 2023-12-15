@@ -1,13 +1,10 @@
 .bsds-product-card-even-split {
   display: grid;
   grid-auto-rows: 1fr;
+  padding: 0;
 
   .bsds-image-50-split {
     cursor: pointer;
-  }
-
-  [class$='title'] {
-    margin-top: space(md);
   }
 }
 
@@ -16,9 +13,9 @@
   position: relative;
 
   .bsds-product-card-ns-title {
-    @include font-size($fs-body);
+    display: inline-block;
     width: fit-content;
-    margin: 0;
+    @include font-size($fs-body);
 
     &-assertive {
       @extend .bsds-product-card-ns-title;
@@ -33,10 +30,6 @@
         @extend .bsds-product-card-ns-title-assertive;
         @extend .bsds-product-card-ns-title-ghost;
       }
-    }
-
-    ~ .bsds-card-description {
-      margin-top: calc(space(lg) + space(xs));
     }
   }
 
@@ -62,16 +55,6 @@
 
   img {
     cursor: pointer;
-
-    ~ [class$='title'] {
-      margin-top: space(md);
-    }
-  }
-}
-
-[class*='bsds-tag'] {
-  ~ .bsds-product-card-ns-title {
-    margin-top: space(lg);
   }
 }
 
@@ -79,20 +62,14 @@
   &.bsds-product-card {
     padding: 0;
 
-    [class$='title'] {
-      margin: space(3x) space(3x) 0;
-    }
+    // TODO: ADS-611 this is repeated in content card, level up
+    .bsds-card-content {
+      margin-top: 0;
+      padding: space(3x);
 
-    [class*='bsds-tag'] {
-      padding: space(3x) space(3x) 0 space(3x);
-
-      ~ [class$='title'] {
-        margin-top: space(lg);
+      &:not(:first-child) {
+        border-top: $border-width-xxs solid $border-color-subtle;
       }
-    }
-
-    .bsds-card-description {
-      padding: 0 space(3x) space(3x) space(3x);
     }
   }
 }

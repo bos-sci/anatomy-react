@@ -167,9 +167,8 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
   }, [tag, variant]);
 
   const cardContent = (
-    <div className="bsds-card-content">
+    <>
       {clonedTag}
-      {!!icon && <Icon name={`${iconName}`} className="bsds-icon-8x" />}
       <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'cardTitle' + cardTitleId}>
         {title}
       </HeadingElement>
@@ -179,25 +178,30 @@ const ContentCard = (props: ContentCardProps): JSX.Element => {
           {actionLinkText}
         </Link>
       )}
-    </div>
+    </>
   );
 
   const cardContentWrapper = (
-    <div className={style} data-testid="bsdsCard">
-      {cardContent}
-    </div>
+    <>
+      {!!icon && <Icon name={`${iconName}`} className="bsds-icon-8x" />}
+      <div className="bsds-card-content">{cardContent}</div>
+    </>
   );
 
   if (clonedImage) {
     return (
-      <div className="bsds-card-with-image">
+      <div className={`${style} bsds-card-with-image`} data-testid="bsdsCard">
         {clonedImage}
         {cardContentWrapper}
       </div>
     );
+  } else {
+    return (
+      <div className={style} data-testid="bsdsCard">
+        {cardContentWrapper}
+      </div>
+    );
   }
-
-  return cardContentWrapper;
 };
 
 export default ContentCard;
