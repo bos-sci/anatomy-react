@@ -1,5 +1,3 @@
-// TODO: clean up
-
 import { ReactElement, cloneElement, useState, useEffect, useId } from 'react';
 import HeadingElement, { HeadingLevel } from '../Heading';
 import { ImageProps } from '../Image';
