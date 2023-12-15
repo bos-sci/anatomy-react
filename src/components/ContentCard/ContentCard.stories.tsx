@@ -70,25 +70,6 @@ export const WithTag = {
   }
 };
 
-export const WithIconAndTag = {
-  name: 'With icon and tag',
-  args: {
-    ...WithLink.args,
-    icon: true,
-    iconName: 'demoCardIcon',
-    tag: <Tag>Tag</Tag>
-  }
-};
-
-export const WithImageAndTag = {
-  name: 'With image and tag',
-  args: {
-    ...WithLink.args,
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />,
-    tag: <Tag>Tag</Tag>
-  }
-};
-
 export const WithShadow = {
   name: 'With shadow',
   args: {
@@ -114,90 +95,10 @@ export const WithIcon = {
   }
 };
 
-export const WithIconAndBorder = {
-  name: 'With icon and border',
-  args: {
-    ...WithLink.args,
-    variant: 'border-light',
-    icon: true,
-    iconName: 'demoCardIcon'
-  }
-};
-
-export const WithIconAndBorderAndTag = {
-  name: 'With icon and border and tag',
-  args: {
-    ...WithLink.args,
-    variant: 'border-light',
-    icon: true,
-    iconName: 'demoCardIcon',
-    tag: <Tag>Tag</Tag>
-  }
-};
-
-export const WithIconAndShadow = {
-  name: 'With icon and shadow',
-  args: {
-    ...WithLink.args,
-    dropShadow: true,
-    icon: true,
-    iconName: 'demoCardIcon'
-  }
-};
-
-export const WithIconAndShadowAndTag = {
-  name: 'With icon and shadow and tag',
-  args: {
-    ...WithLink.args,
-    dropShadow: true,
-    icon: true,
-    iconName: 'demoCardIcon',
-    tag: <Tag>Tag</Tag>
-  }
-};
-
 export const WithImage = {
   name: 'With image',
   args: {
     ...Playground.args,
     image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
-  }
-};
-
-export const WithImageAndBorder = {
-  name: 'With image and border',
-  args: {
-    ...WithLink.args,
-    variant: 'border-light',
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
-  }
-};
-
-export const WithImageAndBorderAndTag = {
-  name: 'With image and border and tag',
-  args: {
-    ...WithLink.args,
-    variant: 'border-light',
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />,
-    tag: <Tag variant="assertive">Tag</Tag>
-  }
-};
-
-export const WithImageAndShadow = {
-  name: 'With image and shadow',
-  args: {
-    ...WithLink.args,
-    dropShadow: true,
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />
-  }
-};
-
-export const WithImageAndShadowAndTag = {
-  name: 'With image and shadow and tag',
-  args: {
-    ...WithLink.args,
-    dropShadow: true,
-    image: <Image ratio="16:9" src="/images/50-50-split.jpg" alt={''} />,
-    tag: <Tag>Tag</Tag>
   }
 };
