@@ -15,6 +15,14 @@
       :last-child {
         border-bottom: 0;
       }
+
+      .bsds-nav {
+        margin-top: 0;
+      }
+    }
+
+    + .bsds-footer-base {
+      border-top: 0;
     }
   }
 
@@ -73,6 +81,7 @@
   }
 
   .bsds-footer-base {
+    border-top: $border-width-xxs solid $border-color-subtle;
     padding-bottom: space(6x);
 
     .bsds-footer-base-container {
@@ -200,8 +209,6 @@
     }
 
     .bsds-footer-base {
-      border-top: $border-width-xxs solid $border-color-subtle;
-
       .bsds-footer-base-container {
         justify-content: center;
         align-items: center;
@@ -231,13 +238,7 @@
 
 @media (min-width: $breakpoint-lg-min) {
   .bsds-footer {
-    .bsds-nav-footer {
-      border-bottom: 0;
-    }
-
     .bsds-footer-base {
-      border-top: $border-width-xxs solid $border-color-subtle;
-
       .bsds-footer-base-container {
         .bsds-footer-tagline {
           max-width: calc(var(--app-width) / 2.75);
