@@ -25,6 +25,9 @@ export { default as DropdownMenu } from './DropdownMenu';
 export * from './Fieldset';
 export { default as Fieldset } from './Fieldset';
 
+export * from './Footer';
+export { default as Footer } from './Footer';
+
 export * from './Form';
 export { default as Form } from './Form';
 
