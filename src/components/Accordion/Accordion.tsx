@@ -46,17 +46,6 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children, classNa
     setAccordionPanels(Array.isArray(children) ? children : [children]);
   }, [children]);
 
-  const panelMaxHeight = (index: number) => {
-    if (expandedPanels.has(index)) {
-      return {
-        maxHeight: panelRefs.current[index].current?.scrollHeight,
-        display: 'contents'
-      };
-    } else {
-      return { display: 'none' };
-    }
-  };
-
   return (
     <div className={`bsds-accordion ${isContained ? ' is-contained' : ''} ${className || ''}`}>
       {accordionPanels.map((accordionPanel, index) => (
@@ -81,8 +70,11 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children, classNa
           <div
             ref={panelRefs.current[index]}
             id={accordionId + '-panel' + index}
-            className="bsds-accordion-panel"
-            style={panelMaxHeight(index)}
+            data-testId="bsdsAccordionPanel"
+            className={
+              'bsds-accordion-panel' +
+              (expandedPanels.has(index) ? ' bsds-accordion-expanded' : ' bsds-accordion-collapsed')
+            }
           >
             <div className="bsds-accordion-panel-body">{accordionPanel}</div>
           </div>

@@ -83,6 +83,14 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease;
+
+    &.bsds-accordion-collapsed {
+      display: none;
+    }
+
+    &.bsds-accordion-expanded {
+      display: contents;
+    }
   }
 
   .bsds-accordion-panel-body {
