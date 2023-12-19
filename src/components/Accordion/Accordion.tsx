@@ -48,9 +48,12 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children, classNa
 
   const panelMaxHeight = (index: number) => {
     if (expandedPanels.has(index)) {
-      return { maxHeight: panelRefs.current[index].current?.scrollHeight };
+      return {
+        maxHeight: panelRefs.current[index].current?.scrollHeight,
+        display: 'contents'
+      };
     } else {
-      return undefined;
+      return { display: 'none' };
     }
   };
 
