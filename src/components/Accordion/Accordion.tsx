@@ -73,7 +73,7 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children, classNa
             data-testId="bsdsAccordionPanel"
             className={
               'bsds-accordion-panel' +
-              (expandedPanels.has(index) ? ' bsds-accordion-expanded' : ' bsds-accordion-collapsed')
+              (expandedPanels.has(index) ? ' bsds-accordion-panel-expanded' : ' bsds-accordion-panel-collapsed')
             }
           >
             <div className="bsds-accordion-panel-body">{accordionPanel}</div>
