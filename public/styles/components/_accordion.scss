@@ -79,6 +79,12 @@
     }
   }
 
+  :last-of-type {
+    .bsds-accordion-trigger {
+      border-bottom: $border-width-xxs solid $border-color-subtle;
+    }
+  }
+
   .bsds-accordion-panel {
     &.bsds-accordion-panel-collapsed {
       display: none;
