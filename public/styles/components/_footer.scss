@@ -9,7 +9,6 @@
 
   .bsds-nav-footer {
     @include font-size($fs-body-subtle);
-    border-bottom: $border-width-xxs solid $border-color-subtle;
 
     .bsds-accordion {
       :last-child {
@@ -166,6 +165,7 @@
   .bsds-footer {
     .bsds-nav-footer {
       display: flex;
+      border-bottom: $border-width-xxs solid $border-color-subtle;
       padding: space(4x) space(3x);
 
       > .bsds-nav-footer-column {

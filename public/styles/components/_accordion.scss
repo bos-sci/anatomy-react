@@ -1,10 +1,7 @@
 .bsds-accordion {
   @include bsds-defaults;
   width: 100%;
-
-  > :last-child {
-    border-bottom: $border-width-xxs solid $border-color-subtle;
-  }
+  border-bottom: $border-width-xxs solid $border-color-subtle;
 
   &.is-contained {
     border-right: $border-width-xxs solid $border-color-subtle;
@@ -76,12 +73,6 @@
       background: transparent;
       color: $text-color-disabled;
       cursor: not-allowed;
-    }
-  }
-
-  :last-of-type {
-    .bsds-accordion-trigger {
-      border-bottom: $border-width-xxs solid $border-color-subtle;
     }
   }
 
