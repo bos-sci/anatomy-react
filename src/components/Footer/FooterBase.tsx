@@ -1,7 +1,7 @@
 import Link from '../Link';
 import { RequireOnlyOne, NavItem } from '../../types';
-import logoTagline from '../../../public/assets/images/logo-bsc-tagline.svg';
-import iconNewWindow from '../../../public/assets/images/icon-new-window.svg';
+import logoTagline from '../../stories/assets/logo-bsc-tagline.svg';
+import iconNewWindow from '../../stories/assets/icon-new-window.svg';
 import IconFacebook from '../Icon/icons/IconFacebook';
 import IconTwitter from '../Icon/icons/IconTwitter';
 import IconLinkedin from '../Icon/icons/IconLinkedin';
