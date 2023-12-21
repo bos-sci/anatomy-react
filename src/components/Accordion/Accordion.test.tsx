@@ -56,3 +56,18 @@ describe('Accordion', () => {
     expect(stoplightIcon).toHaveClass('bsds-accordion-stoplight-green');
   });
 });
+
+it('Panel should have class "bsds-accordion-panel-expanded" when showing on click of accordion trigger', async () => {
+  const user = userEvent.setup();
+
+  render(
+    <Accordion headingLevel="h2">
+      <AccordionPanel heading="Accordion 1">Accordion panel 1</AccordionPanel>
+    </Accordion>
+  );
+
+  const accordionTrigger = await screen.findByRole('button');
+  const accordionPanel = await screen.findByTestId('bsdsAccordionPanel');
+  await user.click(accordionTrigger);
+  expect(accordionPanel).toHaveClass('bsds-accordion-panel-expanded');
+});

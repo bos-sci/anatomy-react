@@ -25,8 +25,8 @@ export const Playground: Story = {
   },
   render: (args) => (
     <Fieldset {...args}>
-      <InputText label="Related text input" />
-      <Textarea label="Related textarea" />
+      <InputText className="bsds-mt-2x" label="Related text input" />
+      <Textarea className="bsds-mt-3x" label="Related textarea" />
     </Fieldset>
   )
 };
@@ -39,8 +39,8 @@ export const WithHelp: Story = {
   },
   render: (args) => (
     <Fieldset {...args}>
-      <InputText label="Related text input" />
-      <Textarea label="Related textarea" />
+      <InputText className="bsds-mt-2x" label="Related text input" />
+      <Textarea className="bsds-mt-3x" label="Related textarea" />
     </Fieldset>
   )
 };
@@ -53,8 +53,8 @@ export const WithError: Story = {
   },
   render: (args) => (
     <Fieldset {...args}>
-      <InputText label="Related text input" />
-      <Textarea label="Related textarea" />
+      <InputText className="bsds-mt-2x" label="Related text input" />
+      <Textarea className="bsds-mt-3x" label="Related textarea" />
     </Fieldset>
   )
 };
@@ -68,8 +68,8 @@ export const WithHelpAndError: Story = {
   },
   render: (args) => (
     <Fieldset {...args}>
-      <InputText label="Related text input" />
-      <Textarea label="Related textarea" />
+      <InputText className="bsds-mt-2x" label="Related text input" />
+      <Textarea className="bsds-mt-3x" label="Related textarea" />
     </Fieldset>
   )
 };

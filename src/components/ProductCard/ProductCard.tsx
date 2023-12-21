@@ -133,27 +133,29 @@ const ProductCard = (props: ProductCardProps): JSX.Element => {
   const defaultProductCard = (
     <div className={style} data-testid="bsdsProductCard">
       {!!image && clonedImage}
-      {!!tag && clonedTag}
-      {headingLevel ? (
-        <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'productTitle' + productNameId}>
-          <Link ref={imageLink} href={linkTo} className={`${cardStyles.titleLinkClasses} ${'link-hitbox'}`}>
+      <div className="bsds-card-content">
+        {!!tag && clonedTag}
+        {headingLevel ? (
+          <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'productTitle' + productNameId}>
+            <Link ref={imageLink} href={linkTo} className={`${cardStyles.titleLinkClasses} ${'link-hitbox'}`}>
+              {texts.title}
+            </Link>
+          </HeadingElement>
+        ) : (
+          <Link ref={imageLink} href={linkTo} className={linkStyle} id={'productTitle' + productNameId}>
             {texts.title}
           </Link>
-        </HeadingElement>
-      ) : (
-        <Link ref={imageLink} href={linkTo} className={linkStyle} id={'productTitle' + productNameId}>
-          {texts.title}
-        </Link>
-      )}
-      <p className="bsds-card-description">{texts?.description}</p>
+        )}
+        <p className="bsds-card-description">{texts?.description}</p>
+      </div>
     </div>
   );
 
   if (image?.props.ratio === '50:50') {
     return (
-      <div data-testid="bsdsProductCard" className="bsds-product-card-even-split">
+      <div data-testid="bsdsProductCard" className={`bsds-product-card-even-split ${style}`}>
         {!!image && clonedImage}
-        <div className={style}>
+        <div className="bsds-card-content">
           {!!tag && clonedTag}
           {headingLevel ? (
             <HeadingElement headingLevel={headingLevel} className="bsds-card-title" id={'productTitle' + productNameId}>
