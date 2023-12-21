@@ -3,6 +3,7 @@ import FooterBase, { FooterBaseProps } from './FooterBase';
 export interface FooterProps extends FooterBaseProps {
   navItems?: NavItemsFooter[];
   navAriaLabel?: string;
+  className?: string;
 }
 
 const Footer = ({
@@ -13,10 +14,11 @@ const Footer = ({
   texts,
   customizeCookiesLink,
   complianceCode,
-  socialMedia
+  socialMedia,
+  className
 }: FooterProps) => {
   return (
-    <footer className="bsds-footer">
+    <footer className={`bsds-footer ${className || ''}`}>
       {!!navItems && <FooterNav navItems={navItems} aria-label={navAriaLabel} />}
       <FooterBase
         legalLinkItems={legalLinkItems}
