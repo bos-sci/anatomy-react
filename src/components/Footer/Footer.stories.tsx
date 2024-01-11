@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Footer from './Footer';
 import { navItems, navItemsIntermediate, legalLinks, socialLinks } from './footerData';
-import Ribbon from '../Ribbon';
 
 const meta = {
   title: 'Components/Footer',
@@ -51,13 +50,5 @@ export const Complex: Story = {
   args: {
     navItems,
     ...Simple.args
-  }
-};
-
-export const WithRibbon: Story = {
-  args: {
-    navItems,
-    ...Simple.args,
-    children: <Ribbon>hello ribbon</Ribbon>
   }
 };
