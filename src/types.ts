@@ -8,7 +8,3 @@ export interface NavItem {
   to?: string;
   href?: string;
 }
-
-export interface CarbonRibbonProps {
-  url: string;
-}
