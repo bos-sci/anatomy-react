@@ -1,9 +1,12 @@
 import FooterNav, { NavItemsFooter } from './FooterNav';
 import FooterBase, { FooterBaseProps } from './FooterBase';
+import { ReactElement } from 'react';
+import { CarbonRibbonProps } from '../../types';
 export interface FooterProps extends FooterBaseProps {
   navItems?: NavItemsFooter[];
   navAriaLabel?: string;
   className?: string;
+  children?: ReactElement<CarbonRibbonProps>;
 }
 
 const Footer = ({
@@ -15,7 +18,8 @@ const Footer = ({
   customizeCookiesLink,
   complianceCode,
   socialMedia,
-  className
+  className,
+  children
 }: FooterProps) => {
   return (
     <footer className={`bsds-footer ${className || ''}`}>
@@ -28,6 +32,7 @@ const Footer = ({
         complianceCode={complianceCode}
         socialMedia={socialMedia}
       />
+      {children}
     </footer>
   );
 };
