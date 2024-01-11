@@ -5,6 +5,11 @@ import { navItems, navItemsIntermediate, legalLinks, socialLinks } from './foote
 const meta = {
   title: 'Components/Footer',
   component: Footer,
+  argTypes: {
+    children: {
+      control: false
+    }
+  },
   parameters: {
     layout: 'fullscreen'
   },
