@@ -70,6 +70,9 @@ export { default as NavWizard } from './NavWizard';
 export * from './Option';
 export { default as Option } from './Option';
 
+export * from './Pagination';
+export { default as Pagination } from './Pagination';
+
 export * from './ProductCard';
 export { default as ProductCard } from './ProductCard';
 
