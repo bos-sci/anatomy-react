@@ -1,1 +1,26 @@
-// TODO: Add styles
+.bsds-pagination {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    &.bsds-pagination-page,
+    &.bsds-pagination-stepper {
+      margin: 0;
+    }
+
+    &.bsds-pagination-page {
+      padding: space(sm) space(lg);
+    }
+
+    .bsds-pagination-stepper-action {
+      padding: space(lg);
+    }
+  }
+}
+
+.bsds-pagination-page-current {
+  @include font-family-base-heavy;
+}
