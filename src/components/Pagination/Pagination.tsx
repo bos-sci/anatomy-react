@@ -1,11 +1,19 @@
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { IconChevronLeft, IconChevronRight } from '../Icon';
-import Button from '../Button';
+import Button, { ButtonProps } from '../Button';
+import { LinkProps } from '../Link';
 
 export interface PaginationProps {
   numberOfPages: number;
-  locale: string;
-  currentPage: number;
+  currentPage?: number;
+  locale?: string;
+  texts?: {
+    nextAriaLabel?: string;
+    previousAriaLabel?: string;
+    page?: string;
+  };
+  paginationItem?: (props: { page: number }) => ReactElement<ButtonProps | LinkProps>;
+  onChange?: (page: number) => void;
 }
 
 const Pagination = (props: PaginationProps): JSX.Element => {
@@ -15,15 +23,7 @@ const Pagination = (props: PaginationProps): JSX.Element => {
   const [buckets, setBuckets] = useState<number[][]>(
     Array.from(Array(Math.ceil(props.numberOfPages / bucketSize))).map(() => [])
   );
-  const [currentPage, setCurrentPage] = useState<number>(props.currentPage);
-
-  const prevPage = () => {
-    setCurrentPage(currentPage - 1);
-  };
-
-  const nextPage = () => {
-    setCurrentPage(currentPage + 1);
-  };
+  const [currentPage, setCurrentPage] = useState<number>(props.currentPage || 1);
 
   useEffect(() => {
     const newBuckets: number[][] = Array.from(Array(Math.ceil(props.numberOfPages / bucketSize))).map(() => []);
@@ -44,14 +44,27 @@ const Pagination = (props: PaginationProps): JSX.Element => {
   }, [buckets, currentPage]);
 
   useEffect(() => {
-    setCurrentPage(props.currentPage);
+    if (props.currentPage) {
+      setCurrentPage(props.currentPage);
+    }
   }, [props.currentPage]);
+
+  useEffect(() => {
+    if (props.onChange) {
+      props.onChange(currentPage);
+    }
+  }, [currentPage, props]);
 
   return (
     <ul className="bsds-pagination">
       {currentPage !== 1 && (
         <li className="bsds-pagination-stepper">
-          <Button variant="subtle" className="bsds-pagination-stepper-action" onClick={prevPage}>
+          <Button
+            variant="subtle"
+            className="bsds-pagination-stepper-action"
+            aria-label={props.texts?.previousAriaLabel ?? 'Previous page'}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
             <IconChevronLeft className="bsds-icon-2x" />
           </Button>
         </li>
@@ -61,12 +74,28 @@ const Pagination = (props: PaginationProps): JSX.Element => {
           key={number}
           className={'bsds-pagination-page' + (number === currentPage ? ' bsds-pagination-page-current' : '')}
         >
-          {new Intl.NumberFormat(props.locale).format(number)}
+          {props.paginationItem ? (
+            <props.paginationItem page={number} />
+          ) : (
+            <Button
+              variant="subtle"
+              aria-current={number !== currentPage ? undefined : 'page'}
+              onClick={() => setCurrentPage(number)}
+            >
+              <span className="bsds-visually-hidden">{props.texts?.page ?? 'Page '}</span>
+              {new Intl.NumberFormat(props.locale ?? 'en-US').format(number)}
+            </Button>
+          )}
         </li>
       ))}
       {currentPage !== props.numberOfPages && (
         <li className="bsds-pagination-stepper">
-          <Button variant="subtle" className="bsds-pagination-stepper-action" onClick={nextPage}>
+          <Button
+            variant="subtle"
+            className="bsds-pagination-stepper-action"
+            aria-label={props.texts?.nextAriaLabel ?? 'Next page'}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
             <IconChevronRight className="bsds-icon-2x" />
           </Button>
         </li>
