@@ -26,7 +26,11 @@ export const Playground: Story = {
   }
 };
 
-const PaginationLink = (props: { page: number }) => <Link href="docs-demo-link">{props.page}</Link>;
+const PaginationLink = (props: { page: number; isCurrent: boolean }) => (
+  <Link href="docs-demo-link" aria-current={props.isCurrent}>
+    {props.page}
+  </Link>
+);
 
 export const AsLinks = ({ ...args }) => {
   const [currentPage, setCurrentPage] = useState(1);

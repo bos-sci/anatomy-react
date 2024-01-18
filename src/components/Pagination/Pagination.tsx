@@ -12,7 +12,7 @@ export interface PaginationProps {
     previousAriaLabel?: string;
     page?: string;
   };
-  paginationItem?: (props: { page: number }) => ReactElement<ButtonProps | LinkProps>;
+  paginationItem?: (props: { page: number; isCurrent: boolean }) => ReactElement<ButtonProps | LinkProps>;
   onChange?: (page: number) => void;
 }
 
@@ -75,7 +75,7 @@ const Pagination = (props: PaginationProps): JSX.Element => {
           className={'bsds-pagination-page' + (number === currentPage ? ' bsds-pagination-page-current' : '')}
         >
           {props.paginationItem ? (
-            <props.paginationItem page={number} />
+            <props.paginationItem page={number} isCurrent={number === currentPage} />
           ) : (
             <Button
               variant="subtle"
