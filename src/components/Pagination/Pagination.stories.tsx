@@ -38,7 +38,7 @@ export const AsLinks = ({ ...args }) => {
   return (
     <Pagination
       currentPage={currentPage}
-      paginationItem={PaginationLink}
+      PaginationItem={PaginationLink}
       numberOfPages={args.numberOfPages}
       onChange={(page) => setCurrentPage(page)}
     />
