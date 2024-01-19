@@ -54,3 +54,30 @@
     content: '';
   }
 }
+
+@media (min-width: $breakpoint-md-min) {
+  .bsds-field-label {
+    &.bsds-filters-select {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}
+
+.bsds-field-label {
+  &.bsds-filters-select {
+    gap: space(2x);
+    flex-direction: row;
+
+    .bsds-field-label-text {
+      max-width: 10.375rem;
+      padding-top: calc(space(md) - space(xxs));
+    }
+
+    .bsds-select-control {
+      flex: 1;
+    }
+  }
+}

@@ -6,7 +6,21 @@ import Option from '../Option';
 
 const meta = {
   title: 'Components/Select',
-  component: Select
+  component: Select,
+  argTypes: {
+    forceValidation: {
+      if: { arg: 'filtersSelect', truthy: false }
+    },
+    helpText: {
+      if: { arg: 'filtersSelect', truthy: false }
+    },
+    errorText: {
+      if: { arg: 'filtersSelect', truthy: false }
+    },
+    requiredText: {
+      if: { arg: 'filtersSelect', truthy: false }
+    }
+  }
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -63,10 +77,12 @@ export const WithError: Story = {
   name: 'With error',
   args: {
     label: 'Select',
-    errorText
+    errorText,
+    forceValidation: true,
+    required: true
   },
   render: (args) => (
-    <Select {...args} label="Select" forceValidation required>
+    <Select {...args} label="Select">
       <Option value="" disabled selected />
       <Option value="option1">Option 1</Option>
       <Option value="option2">Option 2</Option>
@@ -80,11 +96,30 @@ export const WithHelpAndError: Story = {
   args: {
     label: 'Select',
     helpText,
-    errorText
+    errorText,
+    forceValidation: true
   },
   render: (args) => (
-    <Select {...args} label="Select" forceValidation>
+    <Select {...args} label="Select">
       <Option value="" disabled selected />
+      <Option value="option1">Option 1</Option>
+      <Option value="option2">Option 2</Option>
+      <Option value="option3">Option 3</Option>
+    </Select>
+  )
+};
+
+export const FiltersSelect: Story = {
+  name: 'Filters select',
+  args: {
+    label: 'Filters select',
+    filtersSelect: true
+  },
+  render: (args) => (
+    <Select {...args}>
+      <Option value="defaultOption" selected>
+        All (Default)
+      </Option>
       <Option value="option1">Option 1</Option>
       <Option value="option2">Option 2</Option>
       <Option value="option3">Option 3</Option>

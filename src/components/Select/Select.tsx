@@ -13,137 +13,149 @@ import {
 } from 'react';
 import { errorValueMissing } from '../../helpers/validation';
 
-export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface BaseSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label: string;
-  helpText?: string;
-  errorText?: string;
-  requiredText?: string;
-  forceValidation?: boolean;
   className?: string;
 }
 
-const Select = forwardRef(
-  (
-    {
-      label,
-      helpText,
-      errorText = '',
-      requiredText = 'required',
-      forceValidation = false,
-      children,
-      onBlur,
-      onChange,
-      className,
-      ...selectAttrs
-    }: SelectProps,
-    ref: ForwardedRef<HTMLSelectElement>
-  ): JSX.Element => {
-    const [helpTextId, setHelpTextId] = useState('');
-    const [errorTextId, setErrorTextId] = useState('');
-    const [validationMessage, setValidationMessage] = useState('');
-    const [value, setValue] = useState('');
-    const [isDirty, setIsDirty] = useState(false);
+type FiltersSelectProps =
+  | {
+      filtersSelect?: boolean;
+      helpText?: never;
+      errorText?: never;
+      requiredText?: never;
+      forceValidation?: never;
+    }
+  | {
+      filtersSelect?: never;
+      helpText?: string;
+      errorText?: string;
+      requiredText?: string;
+      forceValidation?: boolean;
+    };
 
-    const selectEl = useRef<HTMLSelectElement>(null);
-    const selectId = 'inputHelpText' + useId();
+export type SelectProps = BaseSelectProps & FiltersSelectProps;
 
-    const validate = useCallback(() => {
-      if (selectEl.current) {
-        if (selectEl.current.selectedOptions[0].disabled && selectEl.current.required) {
-          setValidationMessage(errorValueMissing);
-        } else if (errorText) {
-          setValidationMessage(errorText);
-        } else {
-          setValidationMessage('');
-        }
+const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectElement>): JSX.Element => {
+  const {
+    label,
+    helpText,
+    errorText = '',
+    requiredText = 'required',
+    forceValidation = false,
+    children,
+    onBlur,
+    onChange,
+    className,
+    filtersSelect,
+    ...selectAttrs
+  } = props;
+
+  const [helpTextId, setHelpTextId] = useState('');
+  const [errorTextId, setErrorTextId] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
+  const [value, setValue] = useState('');
+  const [isDirty, setIsDirty] = useState(false);
+
+  const selectEl = useRef<HTMLSelectElement>(null);
+  const selectId = 'inputHelpText' + useId();
+
+  const validate = useCallback(() => {
+    if (selectEl.current) {
+      if (selectEl.current.selectedOptions[0].disabled && selectEl.current.required) {
+        setValidationMessage(errorValueMissing);
+      } else if (errorText) {
+        setValidationMessage(errorText);
+      } else {
+        setValidationMessage('');
       }
-    }, [selectEl, errorText]);
+    }
+  }, [selectEl, errorText]);
 
-    const handleBlur = (e: FocusEvent<HTMLSelectElement>) => {
+  const handleBlur = (e: FocusEvent<HTMLSelectElement>) => {
+    validate();
+    if (onBlur) {
+      onBlur(e);
+    }
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setValue(e.target.value);
+    if (!isDirty) {
+      setIsDirty(true);
+    }
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
+  useEffect(() => {
+    if (forceValidation && !isDirty) {
       validate();
-      if (onBlur) {
-        onBlur(e);
-      }
-    };
-
-    const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-      setValue(e.target.value);
-      if (!isDirty) {
-        setIsDirty(true);
-      }
-      if (onChange) {
-        onChange(e);
-      }
-    };
-
-    useEffect(() => {
-      if (forceValidation && !isDirty) {
+    } else if (isDirty || forceValidation) {
+      const whenDone = setTimeout(() => {
         validate();
-      } else if (isDirty || forceValidation) {
-        const whenDone = setTimeout(() => {
-          validate();
-        }, 1000);
-        return () => clearTimeout(whenDone);
-      }
-    }, [value, isDirty, validate, forceValidation]);
+      }, 1000);
+      return () => clearTimeout(whenDone);
+    }
+  }, [value, isDirty, validate, forceValidation]);
 
-    useEffect(() => {
-      if (forceValidation) {
-        validate();
-      }
-    }, [forceValidation, validate]);
+  useEffect(() => {
+    if (forceValidation) {
+      validate();
+    }
+  }, [forceValidation, validate]);
 
-    // On component mount
-    useEffect(() => {
-      setHelpTextId('inputHelpText' + selectId);
-      setErrorTextId('inputErrorText' + selectId);
-    }, [selectId]);
+  // On component mount
+  useEffect(() => {
+    setHelpTextId('inputHelpText' + selectId);
+    setErrorTextId('inputErrorText' + selectId);
+  }, [selectId]);
 
-    return (
-      <div className={`bsds-field ${className || ''}`}>
-        <label className="bsds-field-label">
-          <div className="bsds-field-label-text">
-            {label}
-            {!!selectAttrs.required && <span className="bsds-field-required-text">{requiredText}</span>}
-          </div>
-          <div className="bsds-select-control">
-            <select
-              ref={(node) => {
-                if (node) {
-                  (selectEl as MutableRefObject<HTMLSelectElement>).current = node;
-                  if (typeof ref === 'function') {
-                    ref(node);
-                  } else if (ref) {
-                    (ref as MutableRefObject<HTMLSelectElement>).current = node;
-                  }
+  return (
+    <div className={`bsds-field ${className || ''}`}>
+      <label className={`bsds-field-label ${filtersSelect ? 'bsds-filters-select' : ''}`}>
+        <div className="bsds-field-label-text">
+          {label}
+          {!!selectAttrs.required && <span className="bsds-field-required-text">{requiredText}</span>}
+        </div>
+        <div className="bsds-select-control">
+          <select
+            ref={(node) => {
+              if (node) {
+                (selectEl as MutableRefObject<HTMLSelectElement>).current = node;
+                if (typeof ref === 'function') {
+                  ref(node);
+                } else if (ref) {
+                  (ref as MutableRefObject<HTMLSelectElement>).current = node;
                 }
-              }}
-              name={label}
-              className="bsds-select"
-              aria-invalid={!!validationMessage}
-              aria-describedby={`${validationMessage ? errorTextId : ''} ${helpText ? helpTextId : ''}`}
-              onBlur={handleBlur}
-              onChange={handleChange}
-              {...selectAttrs}
-            >
-              {children}
-            </select>
-          </div>
-        </label>
-        {!!validationMessage && (
-          <p id={errorTextId} className="bsds-field-error">
-            {validationMessage}
-          </p>
-        )}
-        {!!helpText && (
-          <p id={helpTextId} className="bsds-field-help-text">
-            {helpText}
-          </p>
-        )}
-      </div>
-    );
-  }
-);
+              }
+            }}
+            name={label}
+            className="bsds-select"
+            aria-invalid={!!validationMessage}
+            aria-describedby={`${validationMessage ? errorTextId : ''} ${helpText ? helpTextId : ''}`}
+            onBlur={handleBlur}
+            onChange={handleChange}
+            {...selectAttrs}
+          >
+            {children}
+          </select>
+        </div>
+      </label>
+      {!!validationMessage && (
+        <p id={errorTextId} className="bsds-field-error">
+          {validationMessage}
+        </p>
+      )}
+      {!!helpText && (
+        <p id={helpTextId} className="bsds-field-help-text">
+          {helpText}
+        </p>
+      )}
+    </div>
+  );
+});
 
 Select.displayName = 'Select';
 export default Select;
