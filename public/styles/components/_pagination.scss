@@ -31,8 +31,8 @@
       &.bsds-pagination-page-current {
         [class*='bsds-button'],
         [class*='bsds-link'] {
-          /* stylelint-disable-next-line declaration-property-value-disallowed-list */
-          transform: translateY(0.75px); // Addresses position of bold font compared to regular font
+          display: block;
+          transform: translateY(space(xxs)); // Addresses position of bold font compared to regular font
           @include font-family-base-heavy;
         }
       }
