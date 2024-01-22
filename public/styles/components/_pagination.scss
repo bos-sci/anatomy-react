@@ -31,8 +31,6 @@
       &.bsds-pagination-page-current {
         [class*='bsds-button'],
         [class*='bsds-link'] {
-          display: block;
-          transform: translateY(space(xxs)); // Addresses position of bold font compared to regular font
           @include font-family-base-heavy;
         }
       }
@@ -40,6 +38,25 @@
 
     .bsds-pagination-stepper-action {
       padding: space(lg);
+    }
+  }
+
+  .bsds-pagination-page-current {
+    [class*='bsds-button'],
+    [class*='bsds-link'] {
+      display: block;
+      transform: translateY(space(xxs)); // Addresses position of bold font compared to regular font
+    }
+  }
+}
+
+@media (min-width: $breakpoint-lg-min) {
+  .bsds-pagination {
+    .bsds-pagination-page-current {
+      [class*='bsds-button'],
+      [class*='bsds-link'] {
+        transform: translateY(0);
+      }
     }
   }
 }
