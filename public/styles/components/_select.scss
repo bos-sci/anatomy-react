@@ -9,10 +9,10 @@
   select {
     @extend %field-control;
     grid-area: select;
-    overflow: hidden;
     margin: 0;
     border-radius: 0;
     appearance: none;
+    text-overflow: ellipsis;
 
     &.bsds-select {
       background: transparent;
@@ -73,7 +73,7 @@
       .bsds-field-label-text {
         max-width: calc(space(12x) + space(8x));
         padding-top: calc(space(md) - space(xxs));
-        word-break: break-all;
+        word-break: break-word;
       }
 
       .bsds-select-control {
