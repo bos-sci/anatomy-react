@@ -78,6 +78,7 @@ const Pagination = ({
             variant="subtle"
             className="bsds-pagination-stepper-action"
             aria-label={texts?.previousAriaLabel ?? 'Previous page'}
+            data-testid="prevBtn"
             onClick={() => setCurrentPageNumber(currentPageNumber - 1)}
           >
             <IconChevronLeft className="bsds-icon-2x" />
@@ -109,6 +110,7 @@ const Pagination = ({
             variant="subtle"
             className="bsds-pagination-stepper-action"
             aria-label={texts?.nextAriaLabel ?? 'Next page'}
+            data-testid="nextBtn"
             onClick={() => setCurrentPageNumber(currentPageNumber + 1)}
           >
             <IconChevronRight className="bsds-icon-2x" />
