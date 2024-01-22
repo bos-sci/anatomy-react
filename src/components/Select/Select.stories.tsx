@@ -9,16 +9,16 @@ const meta = {
   component: Select,
   argTypes: {
     forceValidation: {
-      if: { arg: 'filtersSelect', truthy: false }
+      if: { arg: 'filterSelect', truthy: false }
     },
     helpText: {
-      if: { arg: 'filtersSelect', truthy: false }
+      if: { arg: 'filterSelect', truthy: false }
     },
     errorText: {
-      if: { arg: 'filtersSelect', truthy: false }
+      if: { arg: 'filterSelect', truthy: false }
     },
     requiredText: {
-      if: { arg: 'filtersSelect', truthy: false }
+      if: { arg: 'filterSelect', truthy: false }
     }
   }
 } satisfies Meta<typeof Select>;
@@ -109,11 +109,11 @@ export const WithHelpAndError: Story = {
   )
 };
 
-export const FiltersSelect: Story = {
-  name: 'Filters select',
+export const FilterSelect: Story = {
+  name: 'Filter select',
   args: {
-    label: 'Filters select',
-    filtersSelect: true
+    label: 'Filter select',
+    filterSelect: true
   },
   render: (args) => (
     <Select {...args}>

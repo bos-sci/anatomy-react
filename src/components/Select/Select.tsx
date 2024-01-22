@@ -18,23 +18,23 @@ interface BaseSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   className?: string;
 }
 
-type FiltersSelectProps =
+type FilterSelectProps =
   | {
-      filtersSelect?: boolean;
+      filterSelect?: boolean;
       helpText?: never;
       errorText?: never;
       requiredText?: never;
       forceValidation?: never;
     }
   | {
-      filtersSelect?: never;
+      filterSelect?: never;
       helpText?: string;
       errorText?: string;
       requiredText?: string;
       forceValidation?: boolean;
     };
 
-export type SelectProps = BaseSelectProps & FiltersSelectProps;
+export type SelectProps = BaseSelectProps & FilterSelectProps;
 
 const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectElement>): JSX.Element => {
   const {
@@ -47,7 +47,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
     onBlur,
     onChange,
     className,
-    filtersSelect,
+    filterSelect,
     ...selectAttrs
   } = props;
 
@@ -114,7 +114,7 @@ const Select = forwardRef((props: SelectProps, ref: ForwardedRef<HTMLSelectEleme
 
   return (
     <div className={`bsds-field ${className || ''}`}>
-      <label className={`bsds-field-label ${filtersSelect ? 'bsds-filters-select' : ''}`}>
+      <label className={`bsds-field-label ${filterSelect ? 'bsds-filter-select' : ''}`}>
         <div className="bsds-field-label-text">
           {label}
           {!!selectAttrs.required && <span className="bsds-field-required-text">{requiredText}</span>}
