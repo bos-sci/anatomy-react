@@ -13,6 +13,7 @@
     border-radius: 0;
     appearance: none;
     text-overflow: ellipsis;
+    padding: space(lg) space(4x) space(lg) space(2x);
 
     &.bsds-select {
       background: transparent;
