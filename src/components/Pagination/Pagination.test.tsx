@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Pagination from './Pagination';
 import userEvent from '@testing-library/user-event';
+import Link from '../Link';
 
 describe('Pagination', () => {
   it('Renders 5 pages when given total pages >= 5', () => {
@@ -99,5 +100,16 @@ describe('Pagination', () => {
     render(<Pagination numberOfPages={10} onChange={mockFn} />);
     await user.click(screen.getByTestId('nextBtn'));
     expect(mockFn).toHaveBeenCalled();
+  });
+
+  it('Renders pages when passed paginationItem prop', () => {
+    const paginationItem = (page: number, isCurrent: boolean) => (
+      <Link href="docs-demo-link" aria-current={isCurrent}>
+        {page}
+      </Link>
+    );
+    render(<Pagination numberOfPages={10} paginationItem={paginationItem} />);
+    expect(screen.getAllByText(/[0-9]/)).toHaveLength(5);
+    expect(screen.getByText('1').nodeName.toLowerCase()).toBe('a');
   });
 });

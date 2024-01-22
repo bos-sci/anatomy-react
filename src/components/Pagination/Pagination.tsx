@@ -16,7 +16,7 @@ export interface PaginationProps {
    * A component with page and isCurrent props. This component gets used to render
    * each page number button or link. Should use Anatomy Link or Button component.
    */
-  PaginationItem?: (props: { page: number; isCurrent: boolean }) => ReactElement<ButtonProps | LinkProps>;
+  paginationItem?: (page: number, isCurrent: boolean) => ReactElement<ButtonProps | LinkProps>;
   onChange?: (page: number) => void;
 }
 
@@ -29,7 +29,7 @@ const Pagination = ({
     previousAriaLabel: 'Previous page',
     page: 'Page'
   },
-  PaginationItem,
+  paginationItem,
   onChange
 }: PaginationProps): JSX.Element => {
   const bucketSize = 5;
@@ -90,8 +90,8 @@ const Pagination = ({
           key={number}
           className={'bsds-pagination-page' + (number === currentPageNumber ? ' bsds-pagination-page-current' : '')}
         >
-          {PaginationItem ? (
-            <PaginationItem page={number} isCurrent={number === currentPageNumber} />
+          {paginationItem ? (
+            paginationItem(number, number === currentPageNumber)
           ) : (
             <Button
               variant="subtle"

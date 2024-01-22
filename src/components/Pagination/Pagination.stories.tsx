@@ -26,19 +26,19 @@ export const Playground: Story = {
   }
 };
 
-const PaginationLink = (props: { page: number; isCurrent: boolean }) => (
-  <Link href="docs-demo-link" aria-current={props.isCurrent}>
-    {props.page}
-  </Link>
-);
-
 export const AsLinks = ({ ...args }) => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const paginationItem = (page: number, isCurrent: boolean) => (
+    <Link href="docs-demo-link" aria-current={isCurrent}>
+      {page}
+    </Link>
+  );
 
   return (
     <Pagination
       currentPage={currentPage}
-      PaginationItem={PaginationLink}
+      paginationItem={paginationItem}
       numberOfPages={args.numberOfPages}
       onChange={(page) => setCurrentPage(page)}
     />
