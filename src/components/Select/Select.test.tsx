@@ -54,6 +54,6 @@ describe('Select component', () => {
 
     // eslint-disable-next-line testing-library/no-node-access
     const filterSelectTest = document.querySelector('.bsds-field-label');
-    expect(filterSelectTest).toHaveClass('bsds-filters-select');
+    expect(filterSelectTest).toHaveClass('bsds-filter-select');
   });
 });
