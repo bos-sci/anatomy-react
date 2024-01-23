@@ -11,9 +11,9 @@
     grid-area: select;
     margin: 0;
     border-radius: 0;
+    padding: space(lg) space(4x) space(lg) space(2x);
     appearance: none;
     text-overflow: ellipsis;
-    padding: space(lg) space(4x) space(lg) space(2x);
 
     &.bsds-select {
       background: transparent;
@@ -59,21 +59,20 @@
 
 .bsds-field-label {
   &.bsds-filter-select {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
 @media (min-width: $breakpoint-md-min) {
   .bsds-field-label {
     &.bsds-filter-select {
-      gap: space(2x);
-      flex-direction: row;
+      grid-gap: space(2x);
+      grid-template-columns: fit-content(10rem) 1fr;
       align-items: center;
 
       .bsds-field-label-text {
-        max-width: calc(space(12x) + space(8x));
-        padding-top: calc(space(md) - space(xxs));
+        padding-top: space(md);
         word-break: break-word;
       }
 
