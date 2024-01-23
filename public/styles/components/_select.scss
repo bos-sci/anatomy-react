@@ -72,12 +72,12 @@
       align-items: center;
 
       .bsds-field-label-text {
-        padding-top: space(md);
         word-break: break-word;
       }
 
       .bsds-select-control {
         flex: 1;
+        margin-top: 0;
       }
     }
   }
