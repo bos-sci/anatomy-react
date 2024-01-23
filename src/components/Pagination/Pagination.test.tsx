@@ -78,6 +78,26 @@ describe('Pagination', () => {
     expect(screen.getByText('5')).toBeInTheDocument();
   });
 
+  it('Renders pages 3-7 when going from page 5 to 6 and there are 7 total pages', async () => {
+    const user = userEvent.setup();
+    render(<Pagination numberOfPages={7} currentPage={5} />);
+    await user.click(screen.getByTestId('nextBtn'));
+    expect(screen.getAllByText(/[0-9]/)).toHaveLength(5);
+    expect(screen.getByText('3')).toBeInTheDocument();
+    expect(screen.getByText('6')).toBeInTheDocument();
+    expect(screen.getByText('7')).toBeInTheDocument();
+  });
+
+  it('Renders pages 6-8 when going from page 5 to 6 and there are 8 total pages', async () => {
+    const user = userEvent.setup();
+    render(<Pagination numberOfPages={8} currentPage={5} />);
+    await user.click(screen.getByTestId('nextBtn'));
+    expect(screen.getAllByText(/[0-9]/)).toHaveLength(3);
+    expect(screen.getByText('6')).toBeInTheDocument();
+    expect(screen.getByText('7')).toBeInTheDocument();
+    expect(screen.getByText('8')).toBeInTheDocument();
+  });
+
   it('Sets current page to the page that was clicked', async () => {
     const user = userEvent.setup();
     render(<Pagination numberOfPages={10} />);
