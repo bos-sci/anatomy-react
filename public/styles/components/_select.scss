@@ -68,7 +68,7 @@
   .bsds-field-label {
     &.bsds-filter-select {
       grid-gap: space(2x);
-      grid-template-columns: fit-content(10rem) 1fr;
+      grid-template-columns: fit-content(10rem) max-content;
       align-items: center;
 
       .bsds-field-label-text {
