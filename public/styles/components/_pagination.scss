@@ -1,0 +1,44 @@
+.bsds-pagination {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    &.bsds-pagination-page,
+    &.bsds-pagination-stepper {
+      margin: 0;
+    }
+
+    &.bsds-pagination-page {
+      [class*='bsds-button'],
+      [class*='bsds-link'] {
+        display: block;
+        border: 0;
+        padding: space(sm) space(lg);
+        background: transparent;
+        color: $text-color-primary;
+        text-decoration: none;
+        @include font-family-base-regular;
+        @include font-size($fs-body);
+
+        &:hover {
+          background: transparent;
+          text-decoration: underline;
+        }
+      }
+
+      &.bsds-pagination-page-current {
+        [class*='bsds-button'],
+        [class*='bsds-link'] {
+          @include font-family-base-heavy;
+        }
+      }
+    }
+
+    .bsds-pagination-stepper-action {
+      padding: space(lg);
+    }
+  }
+}
