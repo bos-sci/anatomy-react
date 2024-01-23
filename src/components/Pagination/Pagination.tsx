@@ -99,7 +99,7 @@ const Pagination = ({
               onClick={() => setCurrentPageNumber(number)}
             >
               <span className="bsds-visually-hidden">{texts?.page ?? 'Page '}</span>
-              <span aria-hidden="true">{new Intl.NumberFormat(locale ?? 'en-US').format(number)}</span>
+              {new Intl.NumberFormat(locale ?? 'en-US').format(number)}
             </Button>
           )}
         </li>
