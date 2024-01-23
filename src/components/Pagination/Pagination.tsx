@@ -14,7 +14,7 @@ export interface PaginationProps {
   };
   /**
    * A component with page and isCurrent props. This component gets used to render
-   * each page number button or link. Should use Anatomy Link or Button component.
+   * each page number as a button or link. Should use Anatomy Link or Button component.
    */
   paginationItem?: (page: number, isCurrent: boolean) => ReactElement<ButtonProps | LinkProps>;
   onChange?: (page: number) => void;
@@ -99,7 +99,7 @@ const Pagination = ({
               onClick={() => setCurrentPageNumber(number)}
             >
               <span className="bsds-visually-hidden">{texts?.page ?? 'Page '}</span>
-              {new Intl.NumberFormat(locale ?? 'en-US').format(number)}
+              <span aria-hidden="true">{new Intl.NumberFormat(locale ?? 'en-US').format(number)}</span>
             </Button>
           )}
         </li>

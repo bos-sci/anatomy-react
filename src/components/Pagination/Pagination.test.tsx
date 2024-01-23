@@ -19,7 +19,7 @@ describe('Pagination', () => {
     expect(screen.getByTestId('prevBtn')).toBeInTheDocument();
   });
 
-  it('Renders previous and next page button when given total pages > 2 and not on first or last page page', () => {
+  it('Renders previous and next page button when given total pages > 2 and not on first or last page', () => {
     render(<Pagination numberOfPages={10} currentPage={2} />);
     expect(screen.getByTestId('prevBtn')).toBeInTheDocument();
     expect(screen.getByTestId('nextBtn')).toBeInTheDocument();

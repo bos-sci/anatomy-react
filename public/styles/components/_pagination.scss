@@ -14,6 +14,7 @@
     &.bsds-pagination-page {
       [class*='bsds-button'],
       [class*='bsds-link'] {
+        display: block;
         border: 0;
         padding: space(sm) space(lg);
         background: transparent;
@@ -44,7 +45,6 @@
   .bsds-pagination-page-current {
     [class*='bsds-button'],
     [class*='bsds-link'] {
-      display: block;
       transform: translateY(space(xxs)); // Addresses position of bold font compared to regular font
     }
   }

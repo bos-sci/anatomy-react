@@ -26,11 +26,11 @@ export const Playground: Story = {
   }
 };
 
-export const AsLinks = ({ ...args }) => {
+export const AsLinks: Story = ({ ...args }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const paginationItem = (page: number, isCurrent: boolean) => (
-    <Link href="docs-demo-link" aria-current={isCurrent}>
+    <Link href="docs-demo-link" aria-current={!isCurrent ? undefined : 'page'}>
       {page}
     </Link>
   );
@@ -44,3 +44,5 @@ export const AsLinks = ({ ...args }) => {
     />
   );
 };
+
+AsLinks.storyName = 'As links';
