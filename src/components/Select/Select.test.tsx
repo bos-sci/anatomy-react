@@ -39,4 +39,21 @@ describe('Select component', () => {
     );
     expect(screen.getByText('Please complete the required field.')).toBeInTheDocument();
   });
+
+  it('Renders correctly with filterSelect prop', () => {
+    render(
+      <Select label="Filter select" filterSelect>
+        <Option value="defaultOption" selected>
+          Default
+        </Option>
+        <Option value="option1">Option 1</Option>
+        <Option value="option2">Option 2</Option>
+        <Option value="option3">Option 3</Option>
+      </Select>
+    );
+
+    // eslint-disable-next-line testing-library/no-node-access
+    const filterSelectTest = document.querySelector('.bsds-field-label');
+    expect(filterSelectTest).toHaveClass('bsds-filter-select');
+  });
 });
