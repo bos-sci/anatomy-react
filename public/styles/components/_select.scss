@@ -11,7 +11,9 @@
     grid-area: select;
     margin: 0;
     border-radius: 0;
+    padding: space(lg) space(4x) space(lg) space(2x);
     appearance: none;
+    text-overflow: ellipsis;
 
     &.bsds-select {
       background: transparent;
@@ -52,5 +54,31 @@
     height: $icon-size-sm;
     background-image: url('../../assets/images/icon-chevron-down.svg');
     content: '';
+  }
+}
+
+.bsds-field-label {
+  &.bsds-filter-select {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: $breakpoint-md-min) {
+  .bsds-field-label {
+    &.bsds-filter-select {
+      grid-gap: space(2x);
+      grid-template-columns: fit-content(10rem) max-content;
+      align-items: center;
+
+      .bsds-field-label-text {
+        word-break: break-word;
+      }
+
+      .bsds-select-control {
+        flex: 1;
+        margin-top: 0;
+      }
+    }
   }
 }
