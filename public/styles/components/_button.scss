@@ -60,14 +60,14 @@
   &-active-filter {
     @include font-family-base-regular;
     border-color: $border-color-subtle;
-    color: $neutral-00;
+    color: $text-color-primary;
 
     &:not([disabled]) {
       &:hover,
       &:active {
         border-color: $border-color-assertive;
         background: transparent;
-        color: $neutral-00;
+        color: $text-color-primary;
       }
     }
   }
