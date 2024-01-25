@@ -23,4 +23,9 @@ describe('Button', () => {
     rerender(<Button variant="subtle">Variant Button!</Button>);
     expect(screen.getByRole('button')).toHaveClass('bsds-button-subtle');
   });
+  it('Renders active filter button when activeFilter is true', () => {
+    render(<Button activeFilter>Active Filter Button!</Button>);
+    expect(screen.getByRole('button')).toHaveTextContent('Active Filter Button!');
+    expect(screen.getByRole('button')).toHaveClass('bsds-button-active-filter');
+  });
 });
