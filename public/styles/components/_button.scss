@@ -61,6 +61,7 @@
     @include font-family-base-regular;
     border-color: $border-color-subtle;
     color: $text-color-primary;
+    text-align: left;
 
     &:not([disabled]) {
       &:hover,
