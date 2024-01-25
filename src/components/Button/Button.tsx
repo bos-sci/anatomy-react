@@ -2,19 +2,45 @@ import { ButtonHTMLAttributes, ForwardedRef, forwardRef, useEffect, useState, Re
 import Icon from '../Icon';
 import { ButtonIconSizes, ButtonSizes, ButtonVariants } from './';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children?: ReactNode;
-  variant?: ButtonVariants;
-  size?: ButtonSizes;
-  icon?: string;
-  iconAlignment?: 'left' | 'right';
-  iconSize?: ButtonIconSizes;
+interface BaseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
+type ActiveFilterButtonProps =
+  | {
+      children: ReactNode;
+      variant?: never;
+      size?: never;
+      icon?: never;
+      iconAlignment?: never;
+      iconSize?: never;
+      activeFilter?: boolean;
+    }
+  | {
+      children?: ReactNode;
+      variant?: ButtonVariants;
+      size?: ButtonSizes;
+      icon?: string;
+      iconAlignment?: 'left' | 'right';
+      iconSize?: ButtonIconSizes;
+      activeFilter?: never;
+    };
+
+export type ButtonProps = BaseButtonProps & ActiveFilterButtonProps;
+
 const Button = forwardRef(
   (
-    { children, variant, size, icon, iconAlignment = 'left', iconSize, className, ...buttonAttrs }: ButtonProps,
+    {
+      children,
+      variant,
+      size,
+      icon,
+      iconAlignment = 'left',
+      iconSize,
+      activeFilter,
+      className,
+      ...buttonAttrs
+    }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>
   ): JSX.Element => {
     let classes = '';
@@ -58,6 +84,15 @@ const Button = forwardRef(
       return (
         <button ref={ref} className={`bsds-button-icon ${classes} ${className || ''}`} {...buttonAttrs}>
           <Icon name={icon} size={iconSize} />
+        </button>
+      );
+    }
+
+    if (activeFilter) {
+      return (
+        <button ref={ref} className={`bsds-button-active-filter bsds-button-small ${className || ''}`} {...buttonAttrs}>
+          {iconWithChildren}
+          <Icon name="close" size="lg" className="bsds-icon-right" />
         </button>
       );
     }
