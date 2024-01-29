@@ -152,6 +152,16 @@
           width: 100%;
           height: space(2x);
         }
+
+        .bsds-link-subtle {
+          &:visited {
+            color: $text-color-primary;
+          }
+
+          &:hover {
+            color: $text-color-action;
+          }
+        }
       }
     }
   }
