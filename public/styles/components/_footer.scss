@@ -151,9 +151,15 @@
         .bsds-footer-social-media-icon {
           width: 100%;
           height: space(2x);
+        }
+
+        .bsds-link-subtle {
+          &:visited {
+            color: $neutral-00;
+          }
 
           &:hover {
-            fill: $text-color-action;
+            color: $action-primary-40;
           }
         }
       }
