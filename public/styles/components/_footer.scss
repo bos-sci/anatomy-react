@@ -155,11 +155,11 @@
 
         .bsds-link-subtle {
           &:visited {
-            color: $text-color-primary;
+            color: $neutral-00;
           }
 
           &:hover {
-            color: $text-color-action;
+            color: $action-primary-40;
           }
         }
       }
