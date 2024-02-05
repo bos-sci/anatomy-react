@@ -7,6 +7,17 @@
 
   &-subtle {
     @include button-subtle;
+    padding: 0;
+
+    &:hover {
+      &:not([disabled]) {
+        background: transparent;
+        color: $text-color-action;
+        text-decoration: underline;
+        text-decoration-color: $action-primary-40;
+        text-decoration-thickness: $border-width-xs;
+      }
+    }
   }
 
   &-ghost {
