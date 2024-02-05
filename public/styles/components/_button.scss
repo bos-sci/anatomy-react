@@ -18,55 +18,18 @@
   }
 
   &-nav-back {
-    border: 0;
+    @include button-subtle;
+    position: relative;
     padding: 0;
+    background-color: rgb(255, 112, 136);
 
     &:not([disabled]) {
-      &:hover {
+      &:hover,
+      &:active {
         background: transparent;
-        color: $text-color-action;
-        text-decoration: underline;
-        text-decoration-thickness: $border-width-xs;
-      }
-    }
-
-    :is(.bsds-nav-secondary-menu, .bsds-nav-wizard) & {
-      $icon-size: 1em;
-
-      @include button-subtle;
-      position: relative;
-      padding-left: calc(space(2x) + $icon-size + space(md)); // Padding + icon width + space between icon and text
-
-      &::before {
-        position: absolute;
-        top: calc(50% - ($icon-size / 2));
-        left: space(2x);
-        width: $icon-size;
-        height: $icon-size;
-        background: $action-primary-40;
-        content: '';
-        /* stylelint-disable property-no-vendor-prefix */
-        -webkit-mask: url('../../assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
-        mask: url('../../assets/images/icon-chevron-left.svg') no-repeat 50% 50%;
-        mask-size: cover;
-      }
-
-      &:not([disabled]) {
-        &:hover,
-        &:active {
-          background: transparent;
-          color: $action-primary-40;
-          text-decoration-line: underline;
-          text-decoration-thickness: space(xs);
-        }
-      }
-
-      &.bsds-button-small {
-        // TODO: the subtle nav back button currently uses the default button padding rather than the small button padding.
-        // This is a temporary fix that we should eventually review and standardize.
-        @include font-size($fs-body-subtle);
-        padding: space(lg) space(3x) 0.6875rem;
-        padding-left: calc(space(2x) + $icon-size + space(md)); // Padding + icon width + space between icon and text
+        color: $action-primary-40;
+        text-decoration-line: underline;
+        text-decoration-thickness: space(xs);
       }
     }
   }
