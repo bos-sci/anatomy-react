@@ -8,6 +8,7 @@
   &-subtle {
     @include button-subtle;
     padding: 0;
+    background-color: rgb(255, 112, 136);
 
     &:hover {
       &:not([disabled]) {
