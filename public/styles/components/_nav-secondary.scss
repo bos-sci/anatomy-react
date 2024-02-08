@@ -79,7 +79,7 @@
     }
   }
 
-  .bsds-button-nav-back {
+  .bsds-button-text {
     display: flex;
     justify-content: flex-start;
     @include font-size($fs-small);
@@ -106,7 +106,7 @@
   }
 
   .bsds-nav-link,
-  .bsds-button-nav-back {
+  .bsds-button-text {
     align-items: center;
     width: 100%;
     text-align: left;
