@@ -144,7 +144,14 @@ const NavSecondary = ({ navItems, activeSlug, location, className, texts }: NavS
       </Button>
       <div id={navSecondaryId} className={`bsds-nav-secondary-menu${isExpanded ? ' is-expanded' : ''}`}>
         {!!activeParent && (
-          <Button ref={backBtnRef} type="button" className="bsds-button-text" onClick={goBack}>
+          <Button
+            ref={backBtnRef}
+            type="button"
+            className="bsds-button-text"
+            icon="chevronLeft"
+            iconSize="lg"
+            onClick={goBack}
+          >
             {texts?.backButtonText || 'Back'}
           </Button>
         )}

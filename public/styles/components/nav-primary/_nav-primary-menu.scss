@@ -93,6 +93,7 @@
     justify-content: flex-start;
     width: 100%;
     box-shadow: $box-shadow-secondary;
+    padding: space(lg) space(3x) 0.6875rem;
     @include font-size($fs-body);
 
     &:focus {

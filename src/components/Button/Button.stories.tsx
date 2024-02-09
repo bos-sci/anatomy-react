@@ -70,7 +70,7 @@ export const Icon: Story = {
 export const Text: Story = {
   args: {
     className: 'bsds-button-text',
-    children: 'Back'
+    children: 'Text button'
   }
 };
 

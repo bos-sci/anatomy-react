@@ -82,6 +82,7 @@
   .bsds-button-text {
     display: flex;
     justify-content: flex-start;
+    padding: space(lg) space(2x);
     @include font-size($fs-small);
   }
 
