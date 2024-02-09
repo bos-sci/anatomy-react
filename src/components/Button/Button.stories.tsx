@@ -66,7 +66,6 @@ export const Icon: Story = {
   }
 };
 
-// TODO: figure out if we should show subtle nav back button
 export const Text: Story = {
   args: {
     className: 'bsds-button-text',

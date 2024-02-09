@@ -74,7 +74,7 @@ const Button = forwardRef(
     const [iconWithChildren, setIconWithChildren] = useState(children);
     useEffect(() => {
       if (icon && children) {
-        setIconWithChildren(<span className="bsds-button-child-text">{children}</span>);
+        setIconWithChildren(<span className="bsds-button-child">{children}</span>);
       } else {
         setIconWithChildren(children);
       }
