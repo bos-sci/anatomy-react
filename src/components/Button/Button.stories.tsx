@@ -66,12 +66,10 @@ export const Icon: Story = {
   }
 };
 
-// TODO: figure out if we should show subtle nav back button
-export const NavBack: Story = {
-  name: 'Navigation back',
+export const Text: Story = {
   args: {
-    className: 'bsds-button-nav-back',
-    children: 'Back'
+    className: 'bsds-button-text',
+    children: 'Text button'
   }
 };
 

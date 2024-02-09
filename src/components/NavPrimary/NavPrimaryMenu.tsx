@@ -38,7 +38,7 @@ const NavPrimaryMenu = forwardRef((props: NavPrimaryMenuProps, ref: ForwardedRef
       }
     >
       {props.history.length > 0 && (
-        <Button type="button" className="bsds-button-nav-back" onClick={() => props.popHistory()}>
+        <Button type="button" icon="chevronLeft" className="bsds-button-text" onClick={() => props.popHistory()}>
           {props.texts?.menuBackButton ? props.texts.menuBackButton : 'Back'}
         </Button>
       )}
