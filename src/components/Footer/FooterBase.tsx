@@ -85,7 +85,7 @@ const FooterBase = ({
           <ul className="bsds-footer-social-media" data-testid="bsdsFooterSocial">
             {socialMedia.map(({ name, link, icon }) => (
               <li key={name} className="bsds-footer-social-media-item">
-                <Link href={link} aria-label={name}>
+                <Link href={link} aria-label={name} variant="subtle">
                   {socialIcons[icon as keyof typeof socialIcons]}
                 </Link>
               </li>

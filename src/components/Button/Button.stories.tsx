@@ -13,16 +13,19 @@ const meta = {
   argTypes: {
     variant: {
       options: [undefined, ...BUTTON_VARIANTS],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
+      if: { arg: 'activeFilter', truthy: false }
     },
     size: {
       options: [undefined, ...BUTTON_SIZES],
-      control: { type: 'radio' }
+      control: { type: 'radio' },
+      if: { arg: 'activeFilter', truthy: false }
     },
     // TODO: What icons do we want to support and how do we handle them in Storybook
     icon: {
       options: [undefined, ...BUTTON_ICONS],
-      control: { type: 'select' }
+      control: { type: 'select' },
+      if: { arg: 'activeFilter', truthy: false }
     },
     iconAlignment: { control: 'radio', if: { arg: 'icon' } },
     iconSize: { control: 'radio', if: { arg: 'icon' } }
@@ -57,14 +60,23 @@ export const IconRight: Story = {
 };
 
 export const Icon: Story = {
-  render: (args) => <Button aria-label="Icon button" icon="plus" {...args} />
+  args: {
+    'icon': 'plus',
+    'aria-label': 'Icon button'
+  }
 };
 
-// TODO: figure out if we should show subtle nav back button
-export const NavBack: Story = {
-  name: 'Navigation back',
+export const Text: Story = {
   args: {
-    className: 'bsds-button-nav-back',
-    children: 'Back'
+    className: 'bsds-button-text',
+    children: 'Text button'
+  }
+};
+
+export const ActiveFilter: Story = {
+  name: 'Active filter',
+  args: {
+    activeFilter: true,
+    children: 'Active filter button'
   }
 };

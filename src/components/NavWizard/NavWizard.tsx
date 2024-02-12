@@ -117,7 +117,8 @@ const NavWizard = (props: NavWizardProps) => {
           <Button
             ref={backBtnRef}
             type="button"
-            className="bsds-button-nav-back"
+            className="bsds-button-text"
+            icon="chevronLeft"
             aria-label={props.texts.backButtonAriaLabel ? props.texts.backButtonAriaLabel : 'Back to previous step'}
             onClick={backStep}
           >

@@ -7,5 +7,5 @@ export type ButtonIconSizes = (typeof BUTTON_ICON_SIZES)[number];
 export const BUTTON_SIZES = ['small'] as const;
 export type ButtonSizes = (typeof BUTTON_SIZES)[number];
 
-export const BUTTON_ICONS = ['plus', 'chevronRight', 'close'];
+export const BUTTON_ICONS = ['plus', 'chevronRight', 'chevronLeft', 'close'];
 export type ButtonIcons = (typeof BUTTON_ICONS)[number];

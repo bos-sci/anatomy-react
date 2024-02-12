@@ -79,9 +79,10 @@
     }
   }
 
-  .bsds-button-nav-back {
+  .bsds-button-text {
     display: flex;
     justify-content: flex-start;
+    padding: space(lg) space(2x);
     @include font-size($fs-small);
   }
 
@@ -106,7 +107,7 @@
   }
 
   .bsds-nav-link,
-  .bsds-button-nav-back {
+  .bsds-button-text {
     align-items: center;
     width: 100%;
     text-align: left;

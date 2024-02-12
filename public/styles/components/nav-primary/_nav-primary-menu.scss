@@ -88,11 +88,13 @@
     }
   }
 
-  .bsds-button-nav-back {
+  .bsds-button-text {
+    position: relative;
     z-index: $nav-back-z-index;
     justify-content: flex-start;
     width: 100%;
     box-shadow: $box-shadow-secondary;
+    padding: space(lg) space(2x);
     @include font-size($fs-body);
 
     &:focus {
@@ -374,7 +376,7 @@
       display: none;
     }
 
-    .bsds-button-nav-back {
+    .bsds-button-text {
       display: none;
     }
   }
