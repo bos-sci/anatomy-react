@@ -70,7 +70,7 @@ const Accordion = ({ headingLevel = 'h2', isContained = false, children, classNa
           <div
             ref={panelRefs.current[index]}
             id={accordionId + '-panel' + index}
-            data-testId="bsdsAccordionPanel"
+            data-testid="bsdsAccordionPanel"
             className={
               'bsds-accordion-panel' +
               (expandedPanels.has(index) ? ' bsds-accordion-panel-expanded' : ' bsds-accordion-panel-collapsed')
