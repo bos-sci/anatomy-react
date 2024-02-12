@@ -66,13 +66,6 @@ export const Icon: Story = {
   }
 };
 
-export const Text: Story = {
-  args: {
-    className: 'bsds-button-text',
-    children: 'Text button'
-  }
-};
-
 export const ActiveFilter: Story = {
   name: 'Active filter',
   args: {
