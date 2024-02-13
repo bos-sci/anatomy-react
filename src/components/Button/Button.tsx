@@ -54,6 +54,9 @@ const Button = forwardRef(
       case 'subtle':
         classes = 'bsds-button-subtle';
         break;
+      case 'text':
+        classes = 'bsds-button-text';
+        break;
       default:
         classes = 'bsds-button';
         break;

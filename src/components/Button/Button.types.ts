@@ -1,4 +1,4 @@
-export const BUTTON_VARIANTS = ['assertive', 'ghost', 'subtle'] as const;
+export const BUTTON_VARIANTS = ['assertive', 'ghost', 'subtle', 'text'] as const;
 export type ButtonVariants = (typeof BUTTON_VARIANTS)[number];
 
 export const BUTTON_ICON_SIZES = ['sm', 'md', 'lg', '2x', '3x', '4x', 'base'] as const;
