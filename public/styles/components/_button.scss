@@ -46,7 +46,7 @@
       &:hover,
       &:active {
         border-color: $border-color-assertive;
-        background: transparent;
+        background: $neutral-100;
         color: $text-color-primary;
       }
     }
