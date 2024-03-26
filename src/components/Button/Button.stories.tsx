@@ -1,12 +1,15 @@
 // TODO: deal with conflicting styles/modifiers
 import type { Meta, StoryObj } from '@storybook/react';
+import { componentDecorators } from '../../../.storybook/decorators';
 
 import Button from './Button';
+
 import { BUTTON_ICONS, BUTTON_SIZES, BUTTON_VARIANTS } from './Button.types';
 
 const meta = {
   title: 'Components/Button',
   component: Button,
+  decorators: componentDecorators,
   parameters: {
     layout: 'centered'
   },

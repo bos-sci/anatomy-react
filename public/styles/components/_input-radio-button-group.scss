@@ -125,7 +125,7 @@
             &:focus,
             &:focus:checked {
               + .bsds-input-radio-label {
-                @include focus-invalid;
+                @include focus-error;
                 box-shadow: inset 0 0 0 $border-width-xxs $border-color-error;
               }
               @include hover-reset;

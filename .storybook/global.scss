@@ -1,5 +1,23 @@
+/* stylelint-disable no-duplicate-at-import-rules */
+/* stylelint-disable no-invalid-position-at-import-rule */
+@use 'sass:meta';
+@use 'sass:string';
+
+// @include meta.load-css('@boston-scientific/anatomy-tokens/lib/scss/corporate/light');
+
 $font-path: '@boston-scientific/anatomy-tokens/lib/fonts';
 
-@import '@boston-scientific/anatomy-tokens/lib/sass/tokens';
+@import './corporate-light.module';
+
+@import '@boston-scientific/anatomy-tokens/lib/scss/base-styles/base';
+
 @import '../public/styles/library';
 @import 'storybook';
+
+// .corporate-light {
+//   @forward watchman-light;
+// }
+
+.watchman {
+  @include meta.load-css('./watchman-light.module');
+}

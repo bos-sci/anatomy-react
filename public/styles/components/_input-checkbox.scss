@@ -20,14 +20,14 @@ $checkmark-size: $ffs-body-assertive;
   &:focus {
     + .bsds-input-checkbox-label {
       &::before {
-        @include focus-invalid;
+        @include focus-error;
       }
     }
 
     &:checked {
       + .bsds-input-checkbox-label {
         &::before {
-          @include focus-invalid;
+          @include focus-error;
         }
       }
     }

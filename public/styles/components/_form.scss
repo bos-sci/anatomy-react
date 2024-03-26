@@ -29,7 +29,7 @@
   &:not(:disabled) {
     &[aria-invalid='true'] {
       &:focus {
-        @include focus-invalid;
+        @include focus-error;
       }
     }
   }

@@ -1,5 +1,6 @@
 import { create } from '@storybook/theming/create';
 // import PackageInfo from './../package.json';
+// import { DefaultTheme } from 'styled-components';
 
 export default create({
   base: 'light',
@@ -30,3 +31,36 @@ export default create({
   inputTextColor: '#000000', // Sets the text color of inputs in controls
   inputBorderRadius: 0 // Sets the border radius of inputs in controls
 });
+
+// declare module 'styled-components' {
+//   export interface DefaultTheme {
+//     name: 'light' | 'dark';
+//     color: typeof color;
+//   }
+// }
+
+// const color = {
+//   brandPrimary: '#003c71',
+//   secondary: '#b31921',
+//   surfaceDefault: '#ffffff'
+// };
+
+// export const lightTheme: DefaultTheme = {
+//   color: {
+//     brandPrimary: '#003c71',
+//     secondary: '#b31921',
+//     surfaceDefault: '#ffffff'
+//   },
+//   name: 'light'
+// };
+
+// export const darkTheme: DefaultTheme = {
+//   ...lightTheme,
+//   color: {
+//     ...lightTheme.color
+//     // buttonText: corporateColor.secondary,
+//     // buttonBorder: corporateColor.secondary,
+//     // buttonBackground: corporateColor.secondary
+//   },
+//   name: 'dark'
+// };
