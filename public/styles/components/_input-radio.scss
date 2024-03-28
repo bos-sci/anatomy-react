@@ -58,7 +58,7 @@ $inner-circle-diameter: space(md);
       /* stylelint-enable scss/selector-nest-combinators */
       + .bsds-input-radio-label {
         &::before {
-          @include focus-invalid;
+          @include focus-error;
         }
       }
     }

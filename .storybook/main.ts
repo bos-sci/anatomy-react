@@ -4,6 +4,13 @@ import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  managerHead: (head) => `
+    ${head}
+    <link rel="preload" href="/node_modules/@boston-scientific/anatomy-tokens/lib/css/corporate/light.css" as="style"/>
+    <link rel="preload" href="/node_modules/@boston-scientific/anatomy-tokens/lib/css/corporate/dark.css" as="style"/>
+    <link rel="preload" href="/node_modules/@boston-scientific/anatomy-tokens/lib/css/watchman/light.css" as="style"/>
+    <link rel="preload" href="/node_modules/@boston-scientific/anatomy-tokens/lib/css/watchman/dark.css" as="style"/>
+  `,
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

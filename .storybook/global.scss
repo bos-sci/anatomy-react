@@ -1,5 +1,7 @@
 $font-path: '@boston-scientific/anatomy-tokens/lib/fonts';
 
-@import '@boston-scientific/anatomy-tokens/lib/sass/tokens';
+@import '@boston-scientific/anatomy-tokens/lib/scss/corporate/light';
+@import '@boston-scientific/anatomy-tokens/lib/scss/base-styles/base';
+
 @import '../public/styles/library';
 @import 'storybook';

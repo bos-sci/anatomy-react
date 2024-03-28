@@ -24,4 +24,24 @@ const preview: Preview = {
   }
 };
 
+export const globalTypes = {
+  theme: {
+    name: 'theme',
+    // Text that will be shown on icon hover
+    description: 'Component themes',
+    defaultValue: 'Corporate light',
+    toolbar: {
+      title: 'Theme',
+      icon: 'circlehollow',
+      items: [
+        { value: 'corporate-light', title: 'Corporate light', icon: 'circlehollow' },
+        { value: 'corporate-dark', title: 'Corporate dark', icon: 'circle' },
+        { value: 'watchman-light', title: 'Watchman light', icon: 'circlehollow' },
+        { value: 'watchman-dark', title: 'Watchman dark', icon: 'circle' }
+      ],
+      snowName: true
+    }
+  }
+};
+
 export default preview;
