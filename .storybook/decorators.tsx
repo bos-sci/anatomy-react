@@ -1,34 +1,51 @@
-import React from 'react';
 import { Decorator, StoryFn } from '@storybook/react';
 
-const withWrapper: Decorator = (Story: StoryFn, context) => {
-  // document.body.style.background = 'aquamarine';
-  const linkElements: NodeListOf<HTMLLinkElement> = document.querySelectorAll('link[rel="stylesheet"]');
+const withThemeWrapper: Decorator = (Story: StoryFn, context) => {
+  const stylesheetLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('link[rel="stylesheet"]');
 
-  // const styleElement = document.querySelector('style[data-vite-dev-id]');
+  function replaceStylesheetLink(stylesheetLink: HTMLLinkElement, href: string) {
+    const newStylesheetLink = document.createElement('link');
+    newStylesheetLink.rel = 'stylesheet';
+    newStylesheetLink.href = href;
 
-  // if (styleElement) {
-  //   const cssText = styleElement.textContent;
-  //   console.log(cssText);
-  // }
+    if (stylesheetLink.parentNode) {
+      stylesheetLink.parentNode.replaceChild(newStylesheetLink, stylesheetLink);
+    }
+  }
 
-  linkElements.forEach((linkElement) => {
-    if (linkElement.href.includes('corporate/light.css')) {
-      const newLinkElement = document.createElement('link');
-      newLinkElement.rel = 'stylesheet';
-      newLinkElement.href = '/node_modules/@boston-scientific/anatomy-tokens/lib/css/watchman/light.css';
-
-      if (linkElement.parentNode !== null) {
-        linkElement.parentNode.replaceChild(newLinkElement, linkElement);
-      }
+  stylesheetLinks.forEach((stylesheetLink) => {
+    if (context.globals.theme === 'corporate-light') {
+      document.body.style.background = 'var(--neutral-100)';
+      replaceStylesheetLink(
+        stylesheetLink,
+        '/node_modules/@boston-scientific/anatomy-tokens/lib/css/corporate/light.css'
+      );
+    } else if (context.globals.theme === 'corporate-dark') {
+      document.body.style.background = 'var(--neutral-10)';
+      replaceStylesheetLink(
+        stylesheetLink,
+        '/node_modules/@boston-scientific/anatomy-tokens/lib/css/corporate/dark.css'
+      );
+    } else if (context.globals.theme === 'watchman-light') {
+      document.body.style.background = 'var(--neutral-100)';
+      replaceStylesheetLink(
+        stylesheetLink,
+        '/node_modules/@boston-scientific/anatomy-tokens/lib/css/watchman/light.css'
+      );
+    } else if (context.globals.theme === 'watchman-dark') {
+      document.body.style.background = 'var(--neutral-10)';
+      replaceStylesheetLink(
+        stylesheetLink,
+        '/node_modules/@boston-scientific/anatomy-tokens/lib/css/watchman/dark.css'
+      );
     }
   });
 
   return (
-    <div className={`${context.globals.theme}`}>
+    <div className={context.globals.theme}>
       <Story />
     </div>
   );
 };
 
-export const componentDecorators = [withWrapper];
+export const componentDecorators = [withThemeWrapper];

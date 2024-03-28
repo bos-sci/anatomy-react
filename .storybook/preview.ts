@@ -29,12 +29,17 @@ export const globalTypes = {
     name: 'theme',
     // Text that will be shown on icon hover
     description: 'Component themes',
-    defaultValue: 'corporate-light',
+    defaultValue: 'Corporate light',
     toolbar: {
       title: 'Theme',
-      // icon: 'chevrondown',
-      items: ['corporate-light', 'watchman-light'],
-      showName: true
+      icon: 'circlehollow',
+      items: [
+        { value: 'corporate-light', title: 'Corporate light', icon: 'circlehollow' },
+        { value: 'corporate-dark', title: 'Corporate dark', icon: 'circle' },
+        { value: 'watchman-light', title: 'Watchman light', icon: 'circlehollow' },
+        { value: 'watchman-dark', title: 'Watchman dark', icon: 'circle' }
+      ],
+      snowName: true
     }
   }
 };
